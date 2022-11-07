@@ -192,6 +192,50 @@ namespace Tutorial
         }
     }
     
+    public class MoveSequenceCanvas : Sequence
+    {
+        private readonly Vector2 _destination;
+        private readonly float _speed;
+        private readonly float _tolerance;
+        private RectTransform _rectTransform;
+
+        /// <summary>
+        /// Sequence to move the object into a designated spot
+        /// </summary>
+        /// <param name="controller">Controller for referencing</param>
+        /// <param name="destination">Designated spot</param>
+        /// <param name="speed">Speed in which the object is going to</param>
+        /// <param name="tolerance">Distance between the object and destination in which the objects stops</param>
+        /// <param name="rectTransform">RectTransform component of the object in question</param>
+        /// <remarks>
+        /// Only used for objects that are in a canvas
+        /// </remarks>
+        public MoveSequenceCanvas(SequenceController controller, Vector2 destination, float speed, RectTransform rectTransform, float tolerance = 0.1f) :
+            base(controller)
+        {
+            _destination = destination;
+            _speed = speed;
+            _tolerance = tolerance;
+            _rectTransform = rectTransform;
+        }
+
+        public override void Execute(GameObject o)
+        {
+            _controller.StartCoroutine(_loop(o));
+        }
+
+        private IEnumerator _loop(GameObject o)
+        {
+            while (Vector2.Distance(o.transform.position, _destination) > _tolerance)
+            {
+                yield return new WaitForEndOfFrame();
+                _rectTransform.anchoredPosition = Vector2.MoveTowards(_rectTransform.anchoredPosition, _destination, _speed);
+            }
+
+            isDone = true;
+        }
+    }
+    
     public class ToolTipSequence : Sequence
     {
         private readonly GameObject _prefab;
