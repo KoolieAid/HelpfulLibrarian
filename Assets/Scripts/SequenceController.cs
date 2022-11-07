@@ -305,14 +305,14 @@ namespace Tutorial
 
     public class CustomSequence : Sequence
     {
-        private Action<GameObject> _action;
+        private Action<CustomSequence, GameObject> _action;
 
         /// <summary>
         /// Allows the developer to make custom Sequences without deriving from the base class. 
         /// </summary>
         /// <param name="controller">Controller for referencing.</param>
         /// <param name="action">Code to be executed automatically.</param>
-        public CustomSequence(SequenceController controller, Action<GameObject> action) : base(controller)
+        public CustomSequence(SequenceController controller, Action<CustomSequence, GameObject> action) : base(controller)
         {
             _action = action;
         }
@@ -353,7 +353,7 @@ namespace Tutorial
         /// </summary>
         /// <param name="action">Action to be executed.</param>
         /// <returns>The <see cref="CustomSequence"/> for chaining purposes.</returns>
-        public CustomSequence SetAction(Action<GameObject> action)
+        public CustomSequence SetAction(Action<CustomSequence, GameObject> action)
         {
             _action = action;
             return this;
@@ -361,7 +361,7 @@ namespace Tutorial
 
         public override void Execute(GameObject o)
         {
-            _action?.Invoke(o);
+            _action?.Invoke(this, o);
         }
 
         /// <summary>
