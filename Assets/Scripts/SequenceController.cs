@@ -226,7 +226,7 @@ namespace Tutorial
 
         private IEnumerator _loop(GameObject o)
         {
-            while (Vector2.Distance(o.transform.position, _destination) > _tolerance)
+            while (Vector2.Distance(_rectTransform.anchoredPosition, _destination) > _tolerance)
             {
                 yield return new WaitForEndOfFrame();
                 _rectTransform.anchoredPosition = Vector2.MoveTowards(_rectTransform.anchoredPosition, _destination, _speed);
@@ -238,68 +238,33 @@ namespace Tutorial
     
     public class ToolTipSequence : Sequence
     {
-        private readonly GameObject _prefab;
-        private GameObject _toolTip;
-        private readonly float _duration;
-        private readonly Vector3 _offset;
-        private readonly string _text;
+        private ToolTipAdapter _toolTip;
+        private string _text;
+        private bool _turnOn;
 
         /// <summary>
         /// Shows a tooltip with a set prefab.
         /// </summary>
         /// <param name="controller">Controller For reference</param>
-        /// <param name="prefab">The prefab that the sequence is going to Instantiate</param>
-        /// <param name="offset">Offset in which the tooltip spawns relative to the controller.</param>
+        /// <param name="toolTip">The ToolTipAdapter game object to toggle states</param>
         /// <param name="text">Text to Display</param>
-        /// <param name="duration">How long the tool tip is going to display</param>
+        /// <param name="turnOn">Whether the tooltip will turn on or not</param>
         /// <remarks>
         /// The other constructor is the same except the offset is default to zero.
         /// The tooltip prefab needs to have <see cref="ToolTipAdapter"/> attached to it.
         /// </remarks>
-        public ToolTipSequence(SequenceController controller, GameObject prefab, Vector3 offset, string text,
-            float duration) : base(controller)
+        public ToolTipSequence(SequenceController controller, ToolTipAdapter toolTip, string text, bool turnOn = true) : base(controller)
         {
-            _prefab = prefab;
-            _duration = duration;
-            _offset = offset;
+            _toolTip = toolTip;
             _text = text;
-        }
-
-        /// <summary>
-        /// Look for the other constructor for in-depth detail
-        /// </summary>
-        /// <remarks>
-        /// The tooltip prefab needs to have <see cref="ToolTipAdapter"/> attached to it.
-        /// </remarks>
-        public ToolTipSequence(SequenceController controller, GameObject prefab, string text,
-            float duration) : this(controller, prefab, Vector3.zero, text, duration)
-        {
+            _turnOn = turnOn;
         }
 
         public override void Execute(GameObject o)
         {
-            _controller.StartCoroutine(_action(o));
-        }
-
-        private IEnumerator _action(GameObject o)
-        {
-            var offset = o.transform.position + _offset;
-            _toolTip = GameObject.Instantiate(_prefab, offset, Quaternion.identity, o.transform);
-            var textBox = _toolTip.GetComponent<ToolTipAdapter>();
-
-            if (!textBox)
-            {
-                Debug.LogError("Prefab does not contain Tool Tip Adapter");
-                yield break;
-            }
-
-            textBox.SetText(_text);
-
-            yield return new WaitForSeconds(_duration);
-
-            GameObject.Destroy(_toolTip);
+            _toolTip.SetText(_text);
+            _toolTip.gameObject.SetActive(_turnOn);
             isDone = true;
-
         }
     }
 
