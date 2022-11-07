@@ -24,30 +24,31 @@ public class Hand : MonoBehaviour
         var controller = GetComponent<SequenceController>();
         
         us = new UserInputSequence(controller);
+        var rectTransform = GetComponent<RectTransform>();
         
         controller.AddSequence(new WaitSequence(controller, 5.0f))
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(254, 191f), 5, GetComponent<RectTransform>())) // Visitor Request
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(254, 191f), 5, rectTransform)) // Visitor Request
             .AddSequence(new WaitSequence(controller, 1.0f))
             .AddSequence(new ToolTipSequence(controller, _adapter, "Visitor Request Info"))
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(us)
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
             
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(-136, 270f), 5, GetComponent<RectTransform>())) // Patience Meter
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(-136, 270f), 5, rectTransform)) // Patience Meter
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(new ToolTipSequence(controller, _adapter, "Patience Meter Info"))
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(us)
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
             
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(38, -603f), 5, GetComponent<RectTransform>())) // Book Mechanics
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(38, -603f), 5, rectTransform)) // Book Mechanics
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(new ToolTipSequence(controller, _adapter, "Book Mechanics Info"))
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(us)
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
             
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), 5, GetComponent<RectTransform>())) // Scoring
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), 5, rectTransform)) // Scoring
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(new ToolTipSequence(controller, _adapter, "Scoring Info"))
             .AddSequence(new WaitSequence(controller, 2.0f))
@@ -58,7 +59,7 @@ public class Hand : MonoBehaviour
             .AddSequence(new CustomSequence(controller)
                 .SetAction((s, o) =>
                 {
-                    o.GetComponent<SpriteRenderer>().enabled = false;
+                    o.SetActive(false);
                 }));
 
     }
