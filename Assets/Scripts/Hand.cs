@@ -6,29 +6,32 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    [SerializeField] private GameObject toolTipPrefab;
-
     private UserInputSequence us;
+
+    [SerializeField] private ToolTipAdapter _adapter;
 
     private void Awake()
     {
         var controller = GetComponent<SequenceController>();
         
         us = new UserInputSequence(controller);
-        
+
         controller.AddSequence(new WaitSequence(controller, 5.0f))
-            .AddSequence(new MoveSequence(controller, new Vector2(0.3f, 0.5f), 0.05f))
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(136, -74f), 10, GetComponent<RectTransform>()))
+            .AddSequence(new ToolTipSequence(controller, _adapter, "test"))
             .AddSequence(new WaitSequence(controller, 2.0f))
+            .AddSequence(new ToolTipSequence(controller, _adapter, "no"))
             .AddSequence(us)
-            .AddSequence(new MoveSequence(controller, new Vector2(1.0f, 2.2f), 0.05f))
+            .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(136, -74f), 10, GetComponent<RectTransform>()))
             .AddSequence(us)
-            .AddSequence(new ToolTipSequence(controller, toolTipPrefab, "test", 5.0f))
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(new CustomSequence(controller)
-                .SetAction(o =>
+                .SetAction((s, o) =>
                 {
                     o.GetComponent<SpriteRenderer>().enabled = false;
                 }));
+
     }
 
     public void Test()
