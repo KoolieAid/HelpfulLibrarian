@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Tutorial
@@ -318,6 +319,15 @@ namespace Tutorial
         {
             _action?.Invoke(o);
         }
+
+        /// <summary>
+        /// Change the status of the sequence to either finish it or revert to unfinished state
+        /// </summary>
+        /// <param name="newStatus">The new state</param>
+        public void SetStatus(bool newStatus)
+        {
+            isDone = newStatus;
+        }
     }
     
     public class FocusSequence : Sequence
@@ -341,6 +351,41 @@ namespace Tutorial
         public override void Execute(GameObject o)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    /// <summary>
+    /// Sequence that awaits a user input. Broadcast input using Toggle()
+    /// </summary>
+    /// <remarks>
+    /// It is advisable to reuse this sequence when adding in the controller.
+    /// </remarks>
+    public class UserInputSequence : Sequence
+    {
+        public UserInputSequence(SequenceController controller) : base(controller)
+        {
+        }
+        
+        public override void Execute(GameObject o)
+        {
+        }
+
+        private IEnumerator Framework()
+        {
+            isDone = true;
+            yield return new WaitForEndOfFrame();
+            isDone = false;
+        }
+
+        /// <summary>
+        /// Toggles the internal boolean instantaneously
+        /// </summary>
+        /// <remarks>
+        /// It is advisable to reuse the sequence.
+        /// </remarks>
+        public void Toggle()
+        {
+            _controller.StartCoroutine(Framework());
         }
     }
 
