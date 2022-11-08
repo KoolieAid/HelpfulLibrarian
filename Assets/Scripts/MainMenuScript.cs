@@ -31,6 +31,7 @@ public class MainMenuScript : MonoBehaviour
     public void TutorialButtonClicked()
     {
         // Go to Tutorial Scene
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void BackButtonClicked(string previousPanelName)
