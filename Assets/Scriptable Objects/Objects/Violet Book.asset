@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3011d86fc9e9f5a4a8ab897390f63ae2, type: 3}
   m_Name: Violet Book
   m_EditorClassIdentifier: 
-  bookFront: {fileID: 0}
-  bookBack: {fileID: 0}
+  bookFront: {fileID: 21300000, guid: 07b7ba5fcd386c84897bbf70587a96d3, type: 3}
+  bookBack: {fileID: 21300000, guid: 92e7ae51b8cb9ef4a957be5dbb9c040a, type: 3}
