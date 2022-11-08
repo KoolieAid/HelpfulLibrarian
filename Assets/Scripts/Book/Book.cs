@@ -8,16 +8,18 @@ public class Book : MonoBehaviour
 {
     private bool _isShowingDescription = false;
     [SerializeField] private TextMeshProUGUI textMeshTitle;
-    [SerializeField] private Sprite[] referenceSprites;
+    [SerializeField] private BookCover[] referenceSprites;
     [SerializeField] private Image img;
     [SerializeField] private string title;
     [SerializeField] private string description;
     private int spriteIndex;
+    private Sprite bookBackSprite;
 
     private void Start()
     {
         spriteIndex = Random.Range(0, referenceSprites.Length);
-        img.sprite = referenceSprites[spriteIndex];
+        img.sprite = referenceSprites[spriteIndex].bookFront;
+        bookBackSprite = referenceSprites[spriteIndex].bookBack;
         textMeshTitle.text = title;
         
         GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
@@ -31,7 +33,7 @@ public class Book : MonoBehaviour
     public void ShowDescription()
     {
         Cover.instance.gameObject.SetActive(true);
-        Cover.instance.SetCoverSprite(spriteIndex);
+        Cover.instance.SetCoverSprite(bookBackSprite);
         _isShowingDescription = true;
         Cover.instance.SetDescription(description);
     }

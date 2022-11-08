@@ -12,7 +12,6 @@ public class Cover : MonoBehaviour
     public static Cover instance;
 
     [SerializeField] private Image img;
-    [SerializeField] private Sprite[] referenceSprites;
     [SerializeField] private TextMeshProUGUI textMesh;
 
     private void Start()
@@ -21,9 +20,9 @@ public class Cover : MonoBehaviour
         instance.gameObject.SetActive(false);
     }
 
-    public void SetCoverSprite(int index)
+    public void SetCoverSprite(Sprite renderSprite)
     {
-        img.sprite = referenceSprites[index];
+        img.sprite = renderSprite;
     }
 
     public void SetDescription(string desc)
