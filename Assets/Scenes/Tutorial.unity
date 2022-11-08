@@ -1202,19 +1202,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1048429604}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1098468858}
-        m_TargetAssemblyTypeName: Hand, Assembly-CSharp
-        m_MethodName: BookPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1048429607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46b5ce7e51202045ada70e4f98bfeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 1
+  interval: 0.5
   onDoubleTap:
     m_PersistentCalls:
       m_Calls:
@@ -1269,6 +1257,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1048429607}
         m_TargetAssemblyTypeName: Book, Assembly-CSharp
         m_MethodName: ShowDescription
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1098468858}
+        m_TargetAssemblyTypeName: Hand, Assembly-CSharp
+        m_MethodName: BookPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
