@@ -105,7 +105,7 @@ public class Hand : MonoBehaviour
                 .SetAction((s, o) =>
                 {
                     // o.SetActive(false);
-                    Debug.Log("end");
+                    Debug.Log("Tutorial end");
                 }));
 
     }

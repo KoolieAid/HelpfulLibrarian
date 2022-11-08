@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Book : MonoBehaviour
 {
@@ -26,7 +28,13 @@ public class Book : MonoBehaviour
         {
             // Show confirmation
             Confirmattion.Instance.gameObject.SetActive(true);
+            
+            Confirmattion.Instance.onConfirm.AddListener(() =>
+            {
+                ReaderManager.Instance.Compare(this);
+            });
         });
+
         
     }
     
@@ -59,4 +67,10 @@ public class Book : MonoBehaviour
     {
         
     }
+
+    public string GetTitle()
+    {
+        return title;
+    }
+
 }

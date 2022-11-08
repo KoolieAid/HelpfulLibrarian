@@ -10,6 +10,7 @@ public class Reader : MonoBehaviour
     [SerializeField] private GameObject dialog;
     [SerializeField] private Sprite[] referenceImages;
     [SerializeField] private Image imageComp;
+    public string requestedTitle;
 
     private float _patience = 100f;
 
