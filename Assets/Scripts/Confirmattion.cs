@@ -10,7 +10,7 @@ public class Confirmattion : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instance = this;
         gameObject.SetActive(false);
@@ -18,6 +18,7 @@ public class Confirmattion : MonoBehaviour
 
     public void CloseConfirmation()
     {
+        onConfirm.RemoveAllListeners();
         gameObject.SetActive(false);
     }
 
