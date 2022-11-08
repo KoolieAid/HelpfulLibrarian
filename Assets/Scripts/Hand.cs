@@ -10,6 +10,7 @@ public class Hand : MonoBehaviour
     private UserInputSequence bookPress;
     private UserInputSequence bookClose;
     private UserInputSequence bookSelected;
+    private UserInputSequence confirm;
     
     [SerializeField] private ToolTipAdapter _adapter;
     [SerializeField] private Reader Chichay;
@@ -30,6 +31,7 @@ public class Hand : MonoBehaviour
         bookPress = new UserInputSequence(controller);
         bookClose = new UserInputSequence(controller);
         bookSelected = new UserInputSequence(controller);
+        confirm = new UserInputSequence(controller);
 
         var rectTransform = GetComponent<RectTransform>();
         
@@ -61,7 +63,7 @@ public class Hand : MonoBehaviour
             .AddSequence(new ToolTipSequence(controller, _adapter, "Pindutin ang libro para makita ang deskripsyon. \n \n When a book is tapped, its description will appear."))
             .AddSequence(us)
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
-            .AddSequence(bookPress)
+            .AddSequence(bookPress) 
             // .AddSequence(new ToolTipSequence(controller, _adapter, "Pindutin ang naka-highlight upang makita ang deskripsyon ng salita. \n \n Tap the highlighted word to show its description."))
             // .AddSequence(us)
             .AddSequence(new WaitSequence(controller, 1.0f))
@@ -74,16 +76,26 @@ public class Hand : MonoBehaviour
             .AddSequence(us)
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
             .AddSequence(bookSelected)
+            .AddSequence(new WaitSequence(controller, 1.5f))
+            
+            // need to differentiate the bookSelected and bookPress
+            
             .AddSequence(new ToolTipSequence(controller, _adapter, "Pindutin ang 'Confirm' upang ibigay ang libro sa bisita. \n \n Tap 'Confirm' to give the book to the visitor."))
             .AddSequence(us)
-            .AddSequence(new ToolTipSequence(controller, _adapter, "Pindutin ang labas ng libro para ikansela ang napili. \n \n Tap outside the book to cancel."))
-            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
+
+            // should be using the confirm instead of the next button
+            .AddSequence(confirm)
+            .AddSequence(new WaitSequence(controller, 1.0f))
+
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
 
             // Scoring
             .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), 5, rectTransform)) 
             .AddSequence(new WaitSequence(controller, 2.0f))
-            .AddSequence(new ToolTipSequence(controller, _adapter, "Scoring Info"))
+            .AddSequence(new ToolTipSequence(controller, _adapter, "Sa simula, mayroon kang tatlong star. Mababawasan ang star kapag may umalis na bista. \n \n You start with 3 stars every level. A star would be removed if a visitor leaves."))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, _adapter, "Kapag naubos ang tatlong star, ikaw ay matatalo. \n \n You lose if you run out of stars."))
             .AddSequence(us)
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
             
@@ -116,5 +128,10 @@ public class Hand : MonoBehaviour
     public void BookSelected()
     {
         bookSelected.Toggle();
+    }
+
+    public void ComfirmPressed()
+    {
+        confirm.Toggle();
     }
 }
