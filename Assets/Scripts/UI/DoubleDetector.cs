@@ -7,37 +7,35 @@ using UnityEngine.EventSystems;
 public class DoubleDetector : MonoBehaviour, IPointerClickHandler
 {
     private int tap;
-    [SerializeField] float interval = 5f;
-    private bool readyForDoubleTap;
+    [SerializeField] float interval;
+    private bool waitingForDoubleTap;
     public UnityEvent onDoubleTap = new();
     public UnityEvent onSingleTap = new();
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        tap ++;
- 
-        if (tap ==1)
+        tap++;
+        if (tap == 1)
+            StartCoroutine(DoubleTapInterval());
+    }
+
+    IEnumerator DoubleTapInterval()
+    {
+        waitingForDoubleTap = true;
+        yield return new WaitForSeconds(interval);
+        waitingForDoubleTap = false;
+
+        if (tap >= 2 )
         {
-            // onSingleTap.Invoke();
-            StartCoroutine(DoubleTapInterval() );
-        }
- 
-        else if (tap>1 && readyForDoubleTap)
-        {
-            onSingleTap.Invoke();
             tap = 0;
-            readyForDoubleTap = false;
-        }
-        else if (tap > 1 && !readyForDoubleTap)
-        {
             onDoubleTap.Invoke();
         }
+        else if (tap == 1 )
+        {
+            tap = 0;
+            onSingleTap.Invoke();
+        }
     }
- 
-    IEnumerator DoubleTapInterval()
-    {  
-        yield return new WaitForSeconds(interval);
-        readyForDoubleTap = true;
-    }
+
 }
