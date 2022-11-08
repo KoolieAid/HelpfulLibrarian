@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3011d86fc9e9f5a4a8ab897390f63ae2, type: 3}
   m_Name: Yellow Book
   m_EditorClassIdentifier: 
-  bookFront: {fileID: 0}
-  bookBack: {fileID: 0}
+  bookFront: {fileID: 21300000, guid: 18b6a48a4945bcb4fa77b8dbe27318b0, type: 3}
+  bookBack: {fileID: 21300000, guid: f847de3672b4d5d4cb03f1036a4d5c7c, type: 3}
