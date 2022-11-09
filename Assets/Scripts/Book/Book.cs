@@ -13,6 +13,8 @@ public class Book : MonoBehaviour
     [SerializeField] private BookCover[] referenceSprites;
     [SerializeField] private Image img;
     [SerializeField] private string title;
+    [SerializeField] private string word;
+    [SerializeField] private string wordTranslation;
     [SerializeField] private string description;
     private int spriteIndex;
     private Sprite bookBackSprite;
@@ -43,14 +45,14 @@ public class Book : MonoBehaviour
         Cover.instance.gameObject.SetActive(true);
         Cover.instance.SetCoverSprite(bookBackSprite);
         _isShowingDescription = true;
-        Cover.instance.SetDescription(description);
+        Cover.instance.SetDescription(word, wordTranslation, description);
     }
 
     public void HideDescription()
     {
         Cover.instance.gameObject.SetActive(false);
         _isShowingDescription = false;
-        Cover.instance.SetDescription("");
+        Cover.instance.SetDescription("", "", "");
     }
 
     public void ToggleDescription()
