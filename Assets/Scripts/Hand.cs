@@ -15,6 +15,8 @@ public class Hand : MonoBehaviour
     [SerializeField] private ToolTipAdapter _adapter;
     [SerializeField] private Reader Chichay;
     [SerializeField] private GameObject endPopup;
+
+    private int handSpeed = 700;
     
     /*
      * 1. Introduction
@@ -26,6 +28,7 @@ public class Hand : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         var controller = GetComponent<SequenceController>();
         
         us = new UserInputSequence(controller);
@@ -43,7 +46,7 @@ public class Hand : MonoBehaviour
                 Chichay.ShowHideRequest(true);
                 s.SetStatus(true);
             }))
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(254, 191f), 5, rectTransform))
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(254, 191f), handSpeed, rectTransform))
             .AddSequence(new WaitSequence(controller, 1.5f))
             .AddSequence(new ToolTipSequence(controller, _adapter,
                 "Ito ang hinihingi ng bisita, konektado ito sa librong gusto niya. \n \n This is the visitor's request, this picture is the book that the visitor wants."))
@@ -52,7 +55,7 @@ public class Hand : MonoBehaviour
 
             // Patience Meter
             .AddSequence(new WaitSequence(controller, 0.5f))
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(-136, 270f), 5, rectTransform))
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(-136, 270f), handSpeed, rectTransform))
             .AddSequence(new WaitSequence(controller, 1.5f))
             .AddSequence(new ToolTipSequence(controller, _adapter,
                 "Ito ang 'Patience Meter'. Ibigay ang librong hinihingi bago maubos ang Patience Meter. \n \n This is the 'Patience Meter'. Give the right book before the patience meter runs out."))
@@ -61,7 +64,7 @@ public class Hand : MonoBehaviour
 
             // Book Mechanics
             .AddSequence(new WaitSequence(controller, 0.5f))
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(-340, -555f), 5, rectTransform))
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(-340, -555f), handSpeed, rectTransform))
             .AddSequence(new WaitSequence(controller, 1.0f))
             .AddSequence(new ToolTipSequence(controller, _adapter,
                 "Pindutin ang libro para makita ang deskripsyon. \n \n When a book is tapped, its description will appear."))
@@ -98,7 +101,7 @@ public class Hand : MonoBehaviour
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
 
             // Scoring
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), 5, rectTransform))
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), handSpeed, rectTransform))
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(new ToolTipSequence(controller, _adapter,
                 "Sa simula, mayroon kang tatlong star. Mababawasan ang star kapag may umalis na bista. \n \n You start with 3 stars every level. A star would be removed if a visitor leaves."))

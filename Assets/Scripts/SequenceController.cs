@@ -229,7 +229,7 @@ namespace Tutorial
             while (Vector2.Distance(_rectTransform.anchoredPosition, _destination) > _tolerance)
             {
                 yield return new WaitForEndOfFrame();
-                _rectTransform.anchoredPosition = Vector2.MoveTowards(_rectTransform.anchoredPosition, _destination, _speed);
+                _rectTransform.anchoredPosition = Vector2.MoveTowards(_rectTransform.anchoredPosition, _destination, _speed * Time.deltaTime);
             }
 
             isDone = true;
