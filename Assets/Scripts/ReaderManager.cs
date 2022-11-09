@@ -73,7 +73,7 @@ public class ReaderManager : MonoBehaviour
         if (possibleBooks.Count < 1)
         {
             Debug.Log("Player won");
-            SceneManager.LoadScene(gameObject.scene.name);
+            //SceneManager.LoadScene(gameObject.scene.name);
             return;
         }
         

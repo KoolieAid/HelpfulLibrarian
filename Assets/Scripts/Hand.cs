@@ -14,6 +14,7 @@ public class Hand : MonoBehaviour
     
     [SerializeField] private ToolTipAdapter _adapter;
     [SerializeField] private Reader Chichay;
+    [SerializeField] private GameObject endPopup;
     
     /*
      * 1. Introduction
@@ -32,7 +33,7 @@ public class Hand : MonoBehaviour
         bookClose = new UserInputSequence(controller);
         bookSelected = new UserInputSequence(controller);
         confirm = new UserInputSequence(controller);
-
+        
         var rectTransform = GetComponent<RectTransform>();
         
         controller.AddSequence(new WaitSequence(controller, 3.0f))
@@ -58,7 +59,7 @@ public class Hand : MonoBehaviour
             
             // Book Mechanics
             .AddSequence(new WaitSequence(controller, 0.5f))
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(38, -603f), 5, rectTransform)) 
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(-340, -555f), 5, rectTransform)) 
             .AddSequence(new WaitSequence(controller, 1.0f))
             .AddSequence(new ToolTipSequence(controller, _adapter, "Pindutin ang libro para makita ang deskripsyon. \n \n When a book is tapped, its description will appear."))
             .AddSequence(us)
@@ -100,7 +101,13 @@ public class Hand : MonoBehaviour
             .AddSequence(new ToolTipSequence(controller, _adapter, "", false))
             
             // end tutorial, go to game mode select scene
-            
+            .AddSequence(new WaitSequence(controller, 1.0f))
+            .AddSequence(new CustomSequence(controller, (sequence, o) =>
+            {
+                endPopup.SetActive(true);
+                sequence.SetStatus(true);
+            }))
+
             .AddSequence(new CustomSequence(controller)
                 .SetAction((s, o) =>
                 {
