@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Tutorial
@@ -185,7 +186,7 @@ namespace Tutorial
             while (Vector2.Distance(o.transform.position, _destination) > _tolerance)
             {
                 yield return new WaitForEndOfFrame();
-                o.transform.position = Vector2.MoveTowards(o.transform.position, _destination, _speed);
+                o.transform.position = Vector2.MoveTowards(o.transform.position, _destination, _speed * Time.deltaTime);
             }
 
             isDone = true;
@@ -238,7 +239,7 @@ namespace Tutorial
     
     public class ToolTipSequence : Sequence
     {
-        private ToolTipAdapter _toolTip;
+        protected ToolTipAdapter _toolTip;
         private string _text;
         private bool _turnOn;
 
@@ -260,11 +261,53 @@ namespace Tutorial
             _turnOn = turnOn;
         }
 
+        /// <summary>
+        /// Turns off the provided tool tip
+        /// </summary>
+        /// <param name="controller">For referencing</param>
+        /// <param name="toolTip">Tool tip to turn off</param>
+        public ToolTipSequence(SequenceController controller, ToolTipAdapter toolTip) : this(controller, toolTip, "", false)
+        {
+        }
+
         public override void Execute(GameObject o)
         {
             _toolTip.SetText(_text);
             _toolTip.gameObject.SetActive(_turnOn);
             isDone = true;
+        }
+    }
+
+    public class TwoToolTipSequence : ToolTipSequence
+    {
+        private string _text2;
+        public TwoToolTipSequence(SequenceController controller, Text2ToolTipAdapter adapter, string t, string t2,
+            bool turnOn = true)
+            : base(controller, adapter, t, turnOn)
+        {
+            _text2 = t2;
+        }
+
+        public TwoToolTipSequence(SequenceController controller, Text2ToolTipAdapter adapter)
+            : this(controller, adapter, "", "", false)
+        {
+        }
+
+        public override void Execute(GameObject o)
+        {
+            Text2ToolTipAdapter t;
+            try
+            {
+                t = (Text2ToolTipAdapter)_toolTip;
+            }
+            catch (Exception)
+            {
+                Debug.LogError($"Provided tool tip is not compatible with this sequence");
+                return;
+            }
+            
+            t.SetSecondText(_text2);
+            base.Execute(o);
         }
     }
 
