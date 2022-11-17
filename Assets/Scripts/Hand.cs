@@ -15,7 +15,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private ToolTipAdapter _adapter;
     [SerializeField] private Reader Chichay;
     [SerializeField] private GameObject endPopup;
-    [SerializeField] private ToolTipAdapter startPopup;
+    [SerializeField] private Text2ToolTipAdapter startPopup;
 
     private int handSpeed = 700;
     
@@ -41,6 +41,8 @@ public class Hand : MonoBehaviour
         var rectTransform = GetComponent<RectTransform>();
 
         controller.AddSequence(new WaitSequence(controller, 2.0f))
+            .AddSequence(new TwoToolTipSequence(controller, startPopup, "fil", "eng"))
+            .AddSequence(us)
             
             // Narrative Popup
             .AddSequence(new ToolTipSequence(controller, startPopup, "Kamusta! ikaw siguro ang bagong librarian. \n \n Oh Hello! You must be the new librarian."))
@@ -59,7 +61,7 @@ public class Hand : MonoBehaviour
             .AddSequence(us)
             .AddSequence(new ToolTipSequence(controller, startPopup, "Hayaan mong gabayan kita para makita mo ang kailangan mong gawin. \n \n Let me guide you through this one so you can see how it is done."))
             .AddSequence(us)
-            .AddSequence(new ToolTipSequence(controller, startPopup, "", false))
+            .AddSequence(new ToolTipSequence(controller, startPopup))
             
             // Visitor Request
             .AddSequence(new CustomSequence(controller, (s, o) =>
