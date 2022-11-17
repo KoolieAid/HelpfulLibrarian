@@ -15,6 +15,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private ToolTipAdapter _adapter;
     [SerializeField] private Reader Chichay;
     [SerializeField] private GameObject endPopup;
+    [SerializeField] private ToolTipAdapter startPopup;
 
     private int handSpeed = 700;
     
@@ -39,11 +40,31 @@ public class Hand : MonoBehaviour
         
         var rectTransform = GetComponent<RectTransform>();
 
-        controller.AddSequence(new WaitSequence(controller, 3.0f))
+        controller.AddSequence(new WaitSequence(controller, 2.0f))
+            
+            // Narrative Popup
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Kamusta! ikaw siguro ang bagong librarian. \n \n Oh Hello! You must be the new librarian."))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Maligayang pagdating sa ating library. \n \n Well then let me be the first to welcome you to the library. "))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Sasabihin ko sayo ang mga kailangan mong gawin. \n \n I was assigned to help get you all set up. "))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Ang iyong trabaho ay tulungan ang mga bisita na hanapin ang librong gusto nila. \n \n Your first job will is to help visitors find the books that they want."))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Mukhang madali ito ngunit ang trabahong ito ay mahalaga. \n \n This may seem very simple but it is a very important job."))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Nagbibigay ang library ng mga bagong kaalaman at kasanayan. \n \n The library helps visitors learn new knowledge they need skills that they find interesting."))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Ayan! May bago tayong bisita! \n \n Oh look there is our first visitor"))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "Hayaan mong gabayan kita para makita mo ang kailangan mong gawin. \n \n Let me guide you through this one so you can see how it is done."))
+            .AddSequence(us)
+            .AddSequence(new ToolTipSequence(controller, startPopup, "", false))
+            
             // Visitor Request
             .AddSequence(new CustomSequence(controller, (s, o) =>
             {
-                Chichay.ShowHideRequest(true);
+                Chichay.gameObject.SetActive(true);
                 s.SetStatus(true);
             }))
             .AddSequence(new MoveSequenceCanvas(controller, new Vector2(254, 191f), handSpeed, rectTransform))
