@@ -14,11 +14,13 @@ public class ReaderManager : MonoBehaviour
 
     public List<BookInfo> possibleBooks = new();
     [SerializeField] private Vector3 spawnCoords;
+    [SerializeField] private GameObject ReaderPrefab;
+    [SerializeField] private Transform CanvasParent;
 
     private void Awake()
     {
         Instance = this;
-        if (currentReader != null) return;
+        if (currentReader != null) return; // For tutorial sequence
         NextReader();
     }
 
@@ -41,48 +43,91 @@ public class ReaderManager : MonoBehaviour
         }
 
         // Correct?? Next reader pls
-        Debug.Log("CORRECT");
+        Debug.Log("CORRECT, going to next reader");
         NextReader();
         return true;
     }
-
-    // TODO: Obviously this is like 40% done but I'm just gonna do what makes the tutorial work anyway
+    
     private void NextReader()
     {
-        // If theres no reader currently or on start of level
+        // If theres no reader currently or on start of normal level (non tutorial)
         if (currentReader == null)
         {
-            throw new NotImplementedException();
-            // currentReader = Instantiate()
-            var bookinfo = possibleBooks[Random.Range(0, possibleBooks.Count)];
-            possibleBooks.Remove(bookinfo);
-            
-            // Instantiate a new reader with the book info
-            // Instantiate();
-
-            // TODO: Figure out the spawn locations
-
+            ReplaceReader();
+            return;
         }
         
-        // Destroy(currentReader.gameObject);
-        // currentReader = null;
-        
-        // If theres a reader
-        
+        // If theres a reader (from previous level)
         // If theres no possible reader next
         if (possibleBooks.Count < 1)
         {
-            Debug.Log("Player won");
+            Debug.Log("Player won the level");
             //SceneManager.LoadScene(gameObject.scene.name);
             return;
         }
         
         // If there are possible readers left
-        // Spawn the next reader
-        Debug.Log("possible readers, but no spawning implemented");
-
+        ReplaceReader();
     }
 
+    /// <remarks>
+    /// This is simply a helper function, used for reusing, and for shortening code. NOT for methods.
+    /// </remarks>
+    private void ReplaceReader()
+    {
+        var bookinfo = possibleBooks[Random.Range(0, possibleBooks.Count)];
+        possibleBooks.Remove(bookinfo);
+
+        GenerateBookGrid(bookinfo);
+            
+        // Instantiate a new reader with the book info
+        var reader = GenerateReader();
+        reader.requestedTitle = bookinfo.title;
+        reader.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Instantiates a new <see cref="Reader"/>, and performs some checks in the process
+    /// </summary>
+    /// <returns>The newly instantiated reader</returns>
+    private Reader GenerateReader()
+    {
+        if (currentReader != null) Destroy(currentReader.gameObject);
+        currentReader = null;
+        var reader = Instantiate(ReaderPrefab, spawnCoords, Quaternion.identity, CanvasParent).GetComponent<Reader>();
+        reader.GetComponent<RectTransform>().anchoredPosition = spawnCoords;
+        reader.gameObject.transform.SetSiblingIndex(1); // 0 = Background; 1 = Object after background
+        currentReader = reader;
+        return reader;
+    }
+
+    /// <summary>
+    /// Regenerates the <see cref="Book"/> grid, includes the new book info
+    /// </summary>
+    /// <param name="correctBookInfo">Info that the supposedly correct book needs</param>
+    /// <returns>The targeted <see cref="Book"/></returns>
+    private Book GenerateBookGrid(BookInfo correctBookInfo)
+    {
+        // Would be possible to have this become a member instead of asking for components
+        var books = GetComponentsInChildren<Book>(true);
+
+        var correctBook = books[Random.Range(0, books.Length)];
+        correctBook.SetBookInfo(correctBookInfo);
+        
+        foreach (var book in books)
+        {
+            if (book.Equals(correctBook)) continue;
+            
+            // TODO: Mask the wrong choices instead of making them obvious
+            book.SetBookInfo(new BookInfo()
+            {
+                title = "bad",
+                description = "also bad lol"
+            });
+        }
+
+        return correctBook;
+    }
 
     [Serializable]
     public struct BookInfo

@@ -75,4 +75,11 @@ public class Book : MonoBehaviour
         return title;
     }
 
+    public void SetBookInfo(ReaderManager.BookInfo info)
+    {
+        title = info.title;
+        textMeshTitle.text = title;
+        description = info.description;
+    }
+
 }
