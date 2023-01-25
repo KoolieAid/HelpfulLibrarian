@@ -1495,6 +1495,7 @@ MonoBehaviour:
   currentReader: {fileID: 1434572681}
   possibleBooks: []
   spawnCoords: {x: 0, y: 0, z: 0}
+  ReaderPrefab: {fileID: 0}
 --- !u!1 &587982073
 GameObject:
   m_ObjectHideFlags: 0
@@ -4907,7 +4908,7 @@ GameObject:
   - component: {fileID: 1552265863}
   - component: {fileID: 1552265862}
   m_Layer: 5
-  m_Name: Animal
+  m_Name: Request Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

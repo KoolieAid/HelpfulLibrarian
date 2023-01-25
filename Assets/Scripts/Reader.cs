@@ -32,9 +32,9 @@ public class Reader : MonoBehaviour
     {
         imageComp.sprite = referenceImages[index];
     }
-
+    
     public void RandomRequest()
     {
-        imageComp.sprite = referenceImages[Random.Range(0, referenceImages.Length)];
+        SetRequest(Random.Range(0, referenceImages.Length));
     }
 }
