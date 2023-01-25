@@ -11,6 +11,7 @@ namespace Tutorial
     /// Attach this to a <see cref="GameObject"/> to enable sequenced movement.
     /// <seealso cref="Sequence"/>
     /// </summary>
+    [AddComponentMenu("Tutorial/Sequence Controller")]
     public class SequenceController : MonoBehaviour
     {
         private Queue<Sequence> queue = new();

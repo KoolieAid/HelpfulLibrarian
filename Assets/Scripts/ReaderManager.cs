@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,7 @@ public class ReaderManager : MonoBehaviour
     public static ReaderManager Instance;
     
     public Reader currentReader;
+    [Min(1)] [SerializeField]
     private int stars = 3;
 
     public List<BookInfo> possibleBooks = new();
@@ -17,9 +19,14 @@ public class ReaderManager : MonoBehaviour
     [SerializeField] private GameObject ReaderPrefab;
     [SerializeField] private Transform CanvasParent;
 
+    [Tooltip("Fires when the player wins.")]
+    [SerializeField] private UnityEvent onPlayerWin;
+    [Tooltip("Fires when the player loses")]
+    [SerializeField] private UnityEvent onPlayerLose;
     private void Awake()
     {
         Instance = this;
+        if (possibleBooks.Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         if (currentReader != null) return; // For tutorial sequence
         NextReader();
     }
@@ -36,6 +43,7 @@ public class ReaderManager : MonoBehaviour
             if (stars <= 0)
             {
                 Debug.Log($"Player lost. Request: {currentReader.requestedTitle}. Book Selected: {book.GetTitle()}");
+                onPlayerLose.Invoke();
                 // Restart Scene?? idk
             }
 
@@ -50,23 +58,15 @@ public class ReaderManager : MonoBehaviour
     
     private void NextReader()
     {
-        // If theres no reader currently or on start of normal level (non tutorial)
-        if (currentReader == null)
-        {
-            ReplaceReader();
-            return;
-        }
-        
-        // If theres a reader (from previous level)
         // If theres no possible reader next
         if (possibleBooks.Count < 1)
         {
             Debug.Log("Player won the level");
+            onPlayerWin.Invoke();
             //SceneManager.LoadScene(gameObject.scene.name);
             return;
         }
         
-        // If there are possible readers left
         ReplaceReader();
     }
 
@@ -133,6 +133,7 @@ public class ReaderManager : MonoBehaviour
     public struct BookInfo
     {
         public string title;
+        [Multiline(5)]
         public string description;
     }
     
