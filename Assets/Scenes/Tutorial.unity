@@ -1493,9 +1493,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentReader: {fileID: 1434572681}
+  stars: 3
   possibleBooks: []
   spawnCoords: {x: 0, y: 0, z: 0}
   ReaderPrefab: {fileID: 0}
+  CanvasParent: {fileID: 0}
+  onPlayerWin:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerLose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &587982073
 GameObject:
   m_ObjectHideFlags: 0

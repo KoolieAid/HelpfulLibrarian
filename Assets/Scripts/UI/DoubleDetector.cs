@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class DoubleDetector : MonoBehaviour, IPointerClickHandler
 {
     private int tap;
+    [Range(0.01f, 3)]
+    [Tooltip("The delay between taps to register as a double tap")]
     [SerializeField] float interval;
     private bool waitingForDoubleTap;
     public UnityEvent onDoubleTap = new();

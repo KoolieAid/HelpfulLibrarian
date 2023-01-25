@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Tutorial
 {
+    [AddComponentMenu("Tutorial/Tool Tip Adapter x2")]
     public class Text2ToolTipAdapter : ToolTipAdapter
     {
         [SerializeField] private TextMeshProUGUI secondTextBox;

@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentReader: {fileID: 0}
+  stars: 3
   possibleBooks:
   - title: good title
     description: description yo
