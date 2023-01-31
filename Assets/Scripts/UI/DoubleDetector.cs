@@ -10,7 +10,7 @@ public class DoubleDetector : MonoBehaviour, IPointerClickHandler
     [Range(0.01f, 3)]
     [Tooltip("The delay between taps to register as a double tap")]
     [SerializeField] float interval;
-    private bool waitingForDoubleTap;
+    // private bool waitingForDoubleTap;
     public UnityEvent onDoubleTap = new();
     public UnityEvent onSingleTap = new();
 
@@ -24,9 +24,9 @@ public class DoubleDetector : MonoBehaviour, IPointerClickHandler
 
     IEnumerator DoubleTapInterval()
     {
-        waitingForDoubleTap = true;
+        // waitingForDoubleTap = true;
         yield return new WaitForSeconds(interval);
-        waitingForDoubleTap = false;
+        // waitingForDoubleTap = false;
 
         if (tap >= 2 )
         {
