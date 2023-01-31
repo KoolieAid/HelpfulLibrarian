@@ -7,8 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Level Data/Level")]
 public class Level : ScriptableObject
 {
-    [Min(1)] public int numberOfReaders = 1;
-
     [Tooltip("Theres a chance that one of these are going into the wrong answer section")]
     [SerializeField]
     private List<ReaderManager.BookInfo> correctAnswers = new();
