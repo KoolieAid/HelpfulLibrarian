@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a0b855e08b77a4b8bca0381fcebe21, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  numberOfReaders: 1
   correctAnswers:
   - title: Alamat ng Pinya
     keyword: {fileID: 11400000, guid: 352feab5c49d42e47b6f887993f1ab0f, type: 2}
@@ -44,7 +43,7 @@ MonoBehaviour:
     keyword: {fileID: 11400000, guid: 0e4848b516e12314a8ed88a21f5d5c45, type: 2}
     description: bawang moment
   - title: daga
-    keyword: {fileID: 0}
+    keyword: {fileID: 11400000, guid: a18b7f8ee90c3cd4eb3bac15f9c1bb8e, type: 2}
     description: daga moment
   - title: waocm
     keyword: {fileID: 0}

@@ -27,7 +27,7 @@ public class Reader : MonoBehaviour
         dialog.SetActive(b);
     }
 
-    public void SetRequest(Sprite img)
+    public void SetRequestImage(Sprite img)
     {
         imageComp.sprite = img;
     }

@@ -84,8 +84,6 @@ public class ReaderManager : MonoBehaviour
     /// </remarks>
     private void ReplaceReader()
     {
-        // var bookinfo = possibleBooks[Random.Range(0, possibleBooks.Count)];
-        // possibleBooks.Remove(bookinfo);
         var bookinfo = currentCorrectAnswers[Random.Range(0, currentCorrectAnswers.Count)];
         currentCorrectAnswers.Remove(bookinfo);
         
@@ -94,7 +92,7 @@ public class ReaderManager : MonoBehaviour
         // Instantiate a new reader with the book info
         var reader = GenerateReader();
         reader.requestedTitle = bookinfo.title;
-        reader.SetRequest(bookinfo.keyword.image);
+        reader.SetRequestImage(bookinfo.keyword.image);
         
         // TODO: Add the faces. Problem is: idk how to do animations, there are 3 sprites
         // reader.face.sprite = readerSprites[Random.Range(0, readerSprites.Length)];
@@ -120,7 +118,7 @@ public class ReaderManager : MonoBehaviour
     /// Regenerates the <see cref="Book"/> grid, includes the new book info
     /// </summary>
     /// <param name="correctBookInfo">Info that the supposedly correct book needs</param>
-    /// <returns>The targeted <see cref="Book"/></returns>
+    /// <returns>The correct <see cref="Book"/></returns>
     private Book GenerateBookGrid(BookInfo correctBookInfo)
     {
         // Would be possible to have this become a member instead of asking for components
