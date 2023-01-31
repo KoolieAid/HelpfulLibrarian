@@ -2,14 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
+using Image = UnityEngine.UI.Image;
 
 public class Reader : MonoBehaviour
 {
     [SerializeField] private GameObject dialog;
-    [SerializeField] private Sprite[] referenceImages;
     [SerializeField] private Image imageComp;
+    [SerializeField] public Image face;
     public string requestedTitle;
 
     private float _patience = 100f;
@@ -28,13 +27,8 @@ public class Reader : MonoBehaviour
         dialog.SetActive(b);
     }
 
-    public void SetRequest(int index)
+    public void SetRequest(Sprite img)
     {
-        imageComp.sprite = referenceImages[index];
-    }
-    
-    public void RandomRequest()
-    {
-        SetRequest(Random.Range(0, referenceImages.Length));
+        imageComp.sprite = img;
     }
 }

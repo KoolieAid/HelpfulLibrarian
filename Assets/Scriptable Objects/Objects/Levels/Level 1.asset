@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a0b855e08b77a4b8bca0381fcebe21, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  numberOfReaders: 1
+  correctAnswers:
+  - title: Alamat ng Pinya
+    keyword: {fileID: 11400000, guid: 352feab5c49d42e47b6f887993f1ab0f, type: 2}
+    description: Prutas na mayroong maraming tusok at matutulis na dahon. Kapag ito'y
+      binuksan, kulay dilaw at matamis ang loob ng prutas na ito.
+  - title: Doding Daga
+    keyword: {fileID: 11400000, guid: a18b7f8ee90c3cd4eb3bac15f9c1bb8e, type: 2}
+    description: "Isang maliit na hayop na mayroong mahabang buntot at nguso at kalat-kalat
+      ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala
+      ng iba\u2019t ibang mga sakit."
+  - title: 'Alamat ng Bawang '
+    keyword: {fileID: 11400000, guid: 0e4848b516e12314a8ed88a21f5d5c45, type: 2}
+    description: Halamang gulay na mayroong malakas na amoy at karaniwang sangkap
+      sa pagluluto at ginagamit rin ito sa panggagamot.
+  - title: Kwento ng Araw
+    keyword: {fileID: 11400000, guid: a53f25d802e7b2e4989be0a952930fa0, type: 2}
+    description: Nagsisilbi itong ilaw sa umaga at hapon at naglalabas ng init. Nagbibigay
+      buhay ang init nito sa lahat ng mga nilalang tulad ng mga tao, hayop at halaman.
+  - title: Kwento ng Uwak
+    keyword: {fileID: 11400000, guid: acb04ad9a52c4bc4a8a17bb8f5e48002, type: 2}
+    description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
+      na kuko at tuka. Mahilig ito kumain ng prutas.
+  - title: Alamat ng Aso
+    keyword: {fileID: 11400000, guid: 415c564750a5e474fab00b54830070b6, type: 2}
+    description: Mabalahibong hayop na mayroong apat na paa at buntot. Ito ay karaniwang
+      ginagawang alaga o bantay sa mga bahay at madalas itong tumatahol.
+  wrongAnswers:
+  - title: Boy Bawang
+    keyword: {fileID: 11400000, guid: 0e4848b516e12314a8ed88a21f5d5c45, type: 2}
+    description: bawang moment
+  - title: daga
+    keyword: {fileID: 0}
+    description: daga moment
+  - title: waocm
+    keyword: {fileID: 0}
+    description: daga moment
+  - title: cvca
+    keyword: {fileID: 0}
+    description: daga moment
+  - title: facacw
+    keyword: {fileID: 0}
+    description: daga moment
