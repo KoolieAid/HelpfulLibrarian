@@ -28,6 +28,7 @@ public class ReaderManager : MonoBehaviour
     [Header("Data")]
     [SerializeField] private Level levelData;
     [Tooltip("Chance of getting an answer book with the wrongs ones")]
+    [Range(0, 100)]
     [SerializeField] private float chanceOfCorrect;
 
     [SerializeField] private Sprite[] readerSprites;
