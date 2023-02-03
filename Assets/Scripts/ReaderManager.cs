@@ -26,7 +26,7 @@ public class ReaderManager : MonoBehaviour
     [SerializeField] private UnityEvent onPlayerLose;
     
     [Header("Data")]
-    [SerializeField] public Level levelData; // made public for testing
+    [SerializeField] private Level levelData; 
     [Tooltip("Chance of getting an answer book with the wrongs ones")]
     [Range(0, 100)]
     [SerializeField] private float chanceOfCorrect;
@@ -40,6 +40,7 @@ public class ReaderManager : MonoBehaviour
 
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
+
         if (currentReader != null) return; // For tutorial sequence
         NextReader();
     }
