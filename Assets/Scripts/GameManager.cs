@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UIElements;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public bool tutorialIsDone;
-    public Button levelsButton;
+    //public Button levelsButton;
 
     public LevelManager levelManager;
 
@@ -31,17 +31,22 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         tutorialIsDone = false;
-        levelManager = GetComponent<LevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tutorialIsDone)
-            levelsButton.interactable = true;
-        else
-            levelsButton.interactable = false;
+        /*
+        if (levelsButton == null && SceneManager.GetActiveScene().name == "Main Menu")
+            levelsButton = GameObject.Find("Level Select Button").GetComponent<Button>();
 
-
+        if (levelsButton != null)
+        {
+            if (tutorialIsDone)
+                levelsButton.interactable = true;
+            else
+                levelsButton.interactable = false;
+        }
+        */
     }
 }

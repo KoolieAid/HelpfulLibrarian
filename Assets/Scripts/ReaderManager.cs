@@ -73,7 +73,9 @@ public class ReaderManager : MonoBehaviour
     private void NextReader()
     {
         // If theres no possible reader next
-        if (currentCorrectAnswers.Count < 1)
+
+        Debug.Log(currentCorrectAnswers.Count);
+        if (currentCorrectAnswers.Count < 1 )
         {
             Debug.Log("Player won the level");
             onPlayerWin.Invoke();
