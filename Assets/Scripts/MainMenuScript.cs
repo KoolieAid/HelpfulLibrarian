@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
@@ -10,6 +11,15 @@ public class MainMenuScript : MonoBehaviour
     public GameObject gamemodePanel;
     public GameObject levelSelectPanel;
 
+    public Button levelSelectButton;
+
+    private void Start()
+    {
+        if (GameManager.instance.tutorialIsDone)
+        {
+            levelSelectButton.interactable = true;
+        }
+    }
 
     public void PlayButtonClicked()
     {
@@ -45,5 +55,10 @@ public class MainMenuScript : MonoBehaviour
         creditPanel.SetActive(creditPanel.name.Equals(panelToActivate));
         gamemodePanel.SetActive(gamemodePanel.name.Equals(panelToActivate));
         levelSelectPanel.SetActive(levelSelectPanel.name.Equals(panelToActivate));
+    }
+
+    public void SelectLevel(int levelNumber)
+    {
+        GameManager.instance.levelManager.LoadLevel(levelNumber);
     }
 }

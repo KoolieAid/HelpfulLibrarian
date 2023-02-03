@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public List<Level> levelDataList; // Store Level Data for all levels
-    int selectedLevel;
+    int selectedLevel = 0; // #0 is the turorial level
 
     // On level selected
     public void LoadLevel(int levelNumber)
@@ -18,6 +18,6 @@ public class LevelManager : MonoBehaviour
     // level scene retrives assigned level data for the level
     public Level GetLevelData()
     {
-        return levelDataList[selectedLevel - 1];
+        return levelDataList[selectedLevel];
     }
 }

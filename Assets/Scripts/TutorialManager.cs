@@ -14,4 +14,9 @@ public class TutorialManager : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void SetTutorialToDone()
+    {
+        GameManager.instance.tutorialIsDone = true;
+    }
 }
