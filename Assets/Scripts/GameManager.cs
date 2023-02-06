@@ -32,21 +32,4 @@ public class GameManager : MonoBehaviour
     {
         tutorialIsDone = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*
-        if (levelsButton == null && SceneManager.GetActiveScene().name == "Main Menu")
-            levelsButton = GameObject.Find("Level Select Button").GetComponent<Button>();
-
-        if (levelsButton != null)
-        {
-            if (tutorialIsDone)
-                levelsButton.interactable = true;
-            else
-                levelsButton.interactable = false;
-        }
-        */
-    }
 }

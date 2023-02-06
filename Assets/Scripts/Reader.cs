@@ -12,7 +12,7 @@ public class Reader : MonoBehaviour
     public string requestedTitle;
 
     public float initialPatience;
-    public float incramentAmount;
+    public float incrementAmount;
     private float currentPatience;
     [SerializeField]private Image patienceMeterFill;
 
@@ -25,7 +25,7 @@ public class Reader : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            currentPatience -= incramentAmount;
+            currentPatience -= incrementAmount;
             patienceMeterFill.fillAmount = (((currentPatience - 0f) * (1f - 0f)) / (initialPatience - 0f)) + 0f;
 
         }
