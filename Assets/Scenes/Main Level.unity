@@ -1044,6 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea48898b8873138499c013a5c288de84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testLevel: {fileID: 11400000, guid: 6345cdfafc668cc41bb5fabc13d31be7, type: 2}
   currentReader: {fileID: 0}
   stars: 3
   spawnCoords: {x: 253, y: 129, z: 0}
