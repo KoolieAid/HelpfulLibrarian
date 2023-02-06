@@ -11,14 +11,23 @@ public class Reader : MonoBehaviour
     [SerializeField] public Image face;
     public string requestedTitle;
 
-    private float _patience = 100f;
+    public float initialPatience;
+    public float incrementAmount;
+    private float currentPatience;
+    [SerializeField]private Image patienceMeterFill;
+
+
 
     private IEnumerator Start()
     {
+        currentPatience = initialPatience;
+
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            _patience -= 10f;
+            currentPatience -= incrementAmount;
+            patienceMeterFill.fillAmount = (((currentPatience - 0f) * (1f - 0f)) / (initialPatience - 0f)) + 0f;
+
         }
     }
 
