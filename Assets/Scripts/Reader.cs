@@ -20,14 +20,13 @@ public class Reader : MonoBehaviour
     private IEnumerator Start()
     {
         currentPatience = initialPatience;
-        //patienceMeterFill.fillAmount = 1f;
+
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
             currentPatience -= 1f;
             patienceMeterFill.fillAmount = (((currentPatience - 0f) * (1f - 0f)) / (initialPatience - 0f)) + 0f;
-            Debug.Log("currentPatience: " + currentPatience);
-            Debug.Log("patienceMeter Fill Amount: " + patienceMeterFill.fillAmount);
+
         }
     }
 
