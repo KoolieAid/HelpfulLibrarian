@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class ReaderManager : MonoBehaviour
 {
     public static ReaderManager Instance;
+
+    [Header("TESTING")] [SerializeField] private Level testLevel;
     
     [Header("Active Info")]
     public Reader currentReader;
@@ -24,20 +26,32 @@ public class ReaderManager : MonoBehaviour
     [SerializeField] private UnityEvent onPlayerWin;
     [Tooltip("Fires when the player loses")]
     [SerializeField] private UnityEvent onPlayerLose;
-    
+
+    [Header("Stars UI")] 
+    [SerializeField] private GameObject[] starsUI;
+
     [Header("Data")]
     [SerializeField] private Level levelData; 
     [Tooltip("Chance of getting an answer book with the wrongs ones")]
     [Range(0, 100)]
     [SerializeField] private float chanceOfCorrect;
-
+    
     [SerializeField] private Sprite[] readerSprites;
     private void Awake()
     {
         Instance = this;
+        
+        // try catch for accessible testing 
 
-        levelData = GameManager.instance.levelManager.GetLevelData();
-
+        try
+        {
+            levelData = GameManager.instance.levelManager.GetLevelData();
+        }
+        catch (Exception e)
+        {
+            levelData = testLevel;
+        }
+        
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
 
@@ -53,6 +67,7 @@ public class ReaderManager : MonoBehaviour
         {
             stars--;
             // Update the UI here.
+            starsUI[stars].gameObject.SetActive(false);
             
             if (stars <= 0)
             {
@@ -188,5 +203,6 @@ public class ReaderManager : MonoBehaviour
             return true;
         }
     }
+    
     
 }
