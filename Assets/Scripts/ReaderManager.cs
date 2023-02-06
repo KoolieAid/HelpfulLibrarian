@@ -41,13 +41,17 @@ public class ReaderManager : MonoBehaviour
     {
         Instance = this;
         
-        // Actual levelData
-        //levelData = GameManager.instance.levelManager.GetLevelData();
-        
-        // TESTING levelData
-        levelData = testLevel;
-        
+        // try catch for accessible testing 
 
+        try
+        {
+            levelData = GameManager.instance.levelManager.GetLevelData();
+        }
+        catch (Exception e)
+        {
+            levelData = testLevel;
+        }
+        
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
 
