@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 92039249}
   - component: {fileID: 92039248}
   - component: {fileID: 92039250}
+  - component: {fileID: 92039251}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -244,8 +245,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+      - m_Target: {fileID: 92039251}
+        m_TargetAssemblyTypeName: InGameBackButton, Assembly-CSharp
         m_MethodName: OnBackButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -256,6 +257,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &92039251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92039246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f85f98ab9f580345a4a653331a166c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &155745819
 GameObject:
   m_ObjectHideFlags: 0
