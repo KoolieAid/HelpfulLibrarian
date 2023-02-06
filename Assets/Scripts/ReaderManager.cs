@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class ReaderManager : MonoBehaviour
 {
     public static ReaderManager Instance;
+
+    [Header("TESTING")] [SerializeField] private Level testLevel;
     
     [Header("Active Info")]
     public Reader currentReader;
@@ -40,14 +41,12 @@ public class ReaderManager : MonoBehaviour
     {
         Instance = this;
         
-        try
-        {
-            levelData = GameManager.instance.levelManager.GetLevelData();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-        }
+        // Actual levelData
+        //levelData = GameManager.instance.levelManager.GetLevelData();
+        
+        // TESTING levelData
+        levelData = testLevel;
+        
 
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
