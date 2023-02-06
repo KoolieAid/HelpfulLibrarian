@@ -249,6 +249,7 @@ MonoBehaviour:
   face: {fileID: 8385512026773094904}
   requestedTitle: Alamat ng Pinya
   initialPatience: 10
+  incramentAmount: 1
   patienceMeterFill: {fileID: 2670178828641579920}
 --- !u!114 &8385512026773094902
 MonoBehaviour:
