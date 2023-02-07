@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TEST
   m_EditorClassIdentifier: 
   image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  wordVersion: asd
-  wordTranslation: asdasd
+  wordVersion: Test
+  wordTranslation: Test
