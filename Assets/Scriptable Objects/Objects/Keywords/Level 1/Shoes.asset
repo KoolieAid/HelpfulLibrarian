@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df647847e0fc694b999e95a02721b6f, type: 3}
   m_Name: Shoes
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  wordVersion: 
-  wordTranslation: 
+  image: {fileID: 21300000, guid: 120792befa96f204c8bb4bdd0a1cf47e, type: 3}
+  wordVersion: Sapatos
+  wordTranslation: Shoes

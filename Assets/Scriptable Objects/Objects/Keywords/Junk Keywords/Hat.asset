@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  wordVersion: 
-  wordTranslation: 
+  wordVersion: Sombrero
+  wordTranslation: Hat
