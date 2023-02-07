@@ -16,11 +16,11 @@ MonoBehaviour:
   - title: 'Ang barakong kambing '
     keyword: {fileID: 11400000, guid: 352feab5c49d42e47b6f887993f1ab0f, type: 2}
     description: Isang hayop na mayroong dalawang sungay at mahilig kumain ng damo.
-  - title: 'Ang elepante at ang anim na bulag '
+  - title: Ang anim na elepante
     keyword: {fileID: 11400000, guid: a18b7f8ee90c3cd4eb3bac15f9c1bb8e, type: 2}
     description: 'Isang dambuhalang hayop na mayroong malaking tainga at mahabang
       nguso. '
-  - title: Sandosenang Sapatos
+  - title: Sapatos ni Santiago
     keyword: {fileID: 11400000, guid: 0e4848b516e12314a8ed88a21f5d5c45, type: 2}
     description: Bagay na kadalasang may kasamang pares at sinusuot sa paa ng tao.
   - title: Ang Pitong Uwak
@@ -28,20 +28,20 @@ MonoBehaviour:
     description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
       na kuko at tuka.
   wrongAnswers:
-  - title: Ang kuwento ni Binibining Repolyo
+  - title: Kuwento ni Repolyo
     keyword: {fileID: 0}
     description: Gulay na hugis bilog at mayroong mga berdeng dahon.
-  - title: Ang pambihirang sombrero
+  - title: Sombrero ng Bumbero
     keyword: {fileID: 0}
     description: Isang bagay na sinusuot ng tao na nilalagay sa itaas ng ulo.
-  - title: Nananaginip ba ang Aso?
-    keyword: {fileID: 0}
+  - title: Ang mabait na Aso
+    keyword: {fileID: 11400000, guid: 415c564750a5e474fab00b54830070b6, type: 2}
     description: 'Hayop na mayroong apat na paa at karaniwang ginagawang alaga sa
       bahay at madalas itong tumatahol. '
   - title: Araw sa Palengke
     keyword: {fileID: 0}
     description: Nagsisilbi itong ilaw at nagbibigay buhay ang init nito sa lahat
       ng mga nilalang tulad ng mga tao, hayop at halaman.
-  - title: Araw sa Palengke
+  - title: Si Buhawi at si Bantay
     keyword: {fileID: 0}
     description: Hanging malakas at umiikot na mapanganib at nagdudulot ng pinsala.
