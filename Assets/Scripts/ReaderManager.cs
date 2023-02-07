@@ -42,13 +42,13 @@ public class ReaderManager : MonoBehaviour
         Instance = this;
         
         // try catch for accessible testing 
-
         try
         {
             levelData = GameManager.instance.levelManager.GetLevelData();
         }
-        catch (Exception e)
+        catch
         {
+            // If GameManager is unavailable, go to this. Means that the scene was not loaded from the main menu
             levelData = testLevel;
         }
         
