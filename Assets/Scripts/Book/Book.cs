@@ -81,7 +81,12 @@ public class Book : MonoBehaviour
         title = info.title;
         textMeshTitle.text = title;
         description = info.description;
-        
+
+        if (!info.keyword)
+        {
+            Debug.LogWarning($"Keyword is null for ${info.title}");
+            return;
+        }
         word = info.keyword.wordVersion;
         wordTranslation = info.keyword.wordTranslation;
     }
