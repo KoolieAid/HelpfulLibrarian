@@ -13,44 +13,35 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   correctAnswers:
-  - title: Alamat ng Pinya
+  - title: 'Ang barakong kambing '
     keyword: {fileID: 11400000, guid: 352feab5c49d42e47b6f887993f1ab0f, type: 2}
-    description: Prutas na mayroong maraming tusok at matutulis na dahon. Kapag ito'y
-      binuksan, kulay dilaw at matamis ang loob ng prutas na ito.
-  - title: Doding Daga
+    description: Isang hayop na mayroong dalawang sungay at mahilig kumain ng damo.
+  - title: 'Ang elepante at ang anim na bulag '
     keyword: {fileID: 11400000, guid: a18b7f8ee90c3cd4eb3bac15f9c1bb8e, type: 2}
-    description: "Isang maliit na hayop na mayroong mahabang buntot at nguso at kalat-kalat
-      ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala
-      ng iba\u2019t ibang mga sakit."
-  - title: 'Alamat ng Bawang '
+    description: 'Isang dambuhalang hayop na mayroong malaking tainga at mahabang
+      nguso. '
+  - title: Sandosenang Sapatos
     keyword: {fileID: 11400000, guid: 0e4848b516e12314a8ed88a21f5d5c45, type: 2}
-    description: Halamang gulay na mayroong malakas na amoy at karaniwang sangkap
-      sa pagluluto at ginagamit rin ito sa panggagamot.
-  - title: Kwento ng Araw
-    keyword: {fileID: 11400000, guid: a53f25d802e7b2e4989be0a952930fa0, type: 2}
-    description: Nagsisilbi itong ilaw sa umaga at hapon at naglalabas ng init. Nagbibigay
-      buhay ang init nito sa lahat ng mga nilalang tulad ng mga tao, hayop at halaman.
-  - title: Kwento ng Uwak
+    description: Bagay na kadalasang may kasamang pares at sinusuot sa paa ng tao.
+  - title: Ang Pitong Uwak
     keyword: {fileID: 11400000, guid: acb04ad9a52c4bc4a8a17bb8f5e48002, type: 2}
     description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
-      na kuko at tuka. Mahilig ito kumain ng prutas.
-  - title: Alamat ng Aso
-    keyword: {fileID: 11400000, guid: 415c564750a5e474fab00b54830070b6, type: 2}
-    description: Mabalahibong hayop na mayroong apat na paa at buntot. Ito ay karaniwang
-      ginagawang alaga o bantay sa mga bahay at madalas itong tumatahol.
+      na kuko at tuka.
   wrongAnswers:
-  - title: Boy Bawang
-    keyword: {fileID: 11400000, guid: 0e4848b516e12314a8ed88a21f5d5c45, type: 2}
-    description: bawang moment
-  - title: daga
-    keyword: {fileID: 11400000, guid: a18b7f8ee90c3cd4eb3bac15f9c1bb8e, type: 2}
-    description: daga moment
-  - title: waocm
+  - title: Ang kuwento ni Binibining Repolyo
     keyword: {fileID: 0}
-    description: daga moment
-  - title: cvca
+    description: Gulay na hugis bilog at mayroong mga berdeng dahon.
+  - title: Ang pambihirang sombrero
     keyword: {fileID: 0}
-    description: daga moment
-  - title: facacw
+    description: Isang bagay na sinusuot ng tao na nilalagay sa itaas ng ulo.
+  - title: Nananaginip ba ang Aso?
     keyword: {fileID: 0}
-    description: daga moment
+    description: 'Hayop na mayroong apat na paa at karaniwang ginagawang alaga sa
+      bahay at madalas itong tumatahol. '
+  - title: Araw sa Palengke
+    keyword: {fileID: 0}
+    description: Nagsisilbi itong ilaw at nagbibigay buhay ang init nito sa lahat
+      ng mga nilalang tulad ng mga tao, hayop at halaman.
+  - title: Araw sa Palengke
+    keyword: {fileID: 0}
+    description: Hanging malakas at umiikot na mapanganib at nagdudulot ng pinsala.

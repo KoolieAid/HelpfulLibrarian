@@ -84,7 +84,7 @@ public class Book : MonoBehaviour
 
         if (!info.keyword)
         {
-            Debug.LogWarning($"Keyword is null for ${info.title}");
+            Debug.LogWarning($"Keyword is null for {info.title}");
             return;
         }
         word = info.keyword.wordVersion;
