@@ -81,6 +81,9 @@ public class Book : MonoBehaviour
         title = info.title;
         textMeshTitle.text = title;
         description = info.description;
+        
+        word = info.keyword.wordVersion;
+        wordTranslation = info.keyword.wordTranslation;
     }
 
 }

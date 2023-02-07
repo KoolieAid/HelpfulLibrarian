@@ -1492,6 +1492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea48898b8873138499c013a5c288de84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testLevel: {fileID: 0}
   currentReader: {fileID: 1434572681}
   stars: 3
   spawnCoords: {x: 0, y: 0, z: 0}
@@ -1503,6 +1504,7 @@ MonoBehaviour:
   onPlayerLose:
     m_PersistentCalls:
       m_Calls: []
+  starsUI: []
   levelData: {fileID: 0}
   chanceOfCorrect: 0
   readerSprites: []
@@ -4837,6 +4839,9 @@ MonoBehaviour:
   imageComp: {fileID: 1552265862}
   face: {fileID: 0}
   requestedTitle: Alamat ng Pinya
+  initialPatience: 0
+  incrementAmount: 0
+  patienceMeterFill: {fileID: 0}
 --- !u!1 &1499407847
 GameObject:
   m_ObjectHideFlags: 0
