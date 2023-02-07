@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df647847e0fc694b999e95a02721b6f, type: 3}
   m_Name: Elephant
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  wordVersion: 
-  wordTranslation: 
+  image: {fileID: 21300000, guid: 8f74a6f1d6212a146babc0288b94e61d, type: 3}
+  wordVersion: Elepante
+  wordTranslation: Elephant
