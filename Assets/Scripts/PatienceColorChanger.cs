@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,11 +18,11 @@ public class PatienceColorChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (meterFill.fillAmount <= redThreshold)
-            meterFill.color = Color.Lerp(meterFill.color, redFill, 1f);
-        else if ((meterFill.fillAmount <= yellowThreshold))
-            meterFill.color = Color.Lerp(meterFill.color, yellowFill, 1f);
-        else if ((meterFill.fillAmount <= blueThreshold))
-            meterFill.color = Color.Lerp(meterFill.color, blueFill, 1f);
+        var bg = redFill;
+
+        bg = Color.Lerp(bg, yellowFill, System.Convert.ToSingle(meterFill.fillAmount >= redThreshold));
+        bg = Color.Lerp(bg, blueFill, System.Convert.ToSingle(meterFill.fillAmount >= yellowThreshold));
+
+        meterFill.color = bg;
     }
 }
