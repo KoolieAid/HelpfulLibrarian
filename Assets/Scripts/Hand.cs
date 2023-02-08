@@ -142,6 +142,11 @@ public class Hand : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        GetComponent<SequenceController>().ManualStart();
+    }
+
     public void Test()
     {
         us.Toggle();

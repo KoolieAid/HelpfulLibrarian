@@ -20,6 +20,10 @@ namespace Tutorial
         private void Start()
         {
             _internalCopy = new Queue<Sequence>(queue);
+        }
+
+        public void ManualStart()
+        {
             StartCoroutine(Loop());
         }
 
