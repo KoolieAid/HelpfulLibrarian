@@ -34,6 +34,7 @@ public class Book : MonoBehaviour
             
             Confirmattion.Instance.onConfirm.AddListener(() =>
             {
+                if (!ReaderManager.Instance) return; // Tutorial
                 ReaderManager.Instance.Compare(this);
             });
         });
