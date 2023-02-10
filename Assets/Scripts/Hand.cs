@@ -51,10 +51,10 @@ public class Hand : MonoBehaviour
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, startPopup, "Ang iyong trabaho ay tulungan ang mga bisita na hanapin ang librong gusto nila.","Your first job will is to help visitors find the books that they want."))
             .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Mukhang madali ito ngunit ang trabahong ito ay mahalaga.","This may seem very simple but it is a very important job."))
+            /*.AddSequence(new TwoToolTipSequence(controller, startPopup, "Mukhang madali ito ngunit ang trabahong ito ay mahalaga.","This may seem very simple but it is a very important job."))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, startPopup, "Nagbibigay ang library ng mga bagong kaalaman at kasanayan.","The library helps visitors learn new knowledge they need skills that they find interesting."))
-            .AddSequence(us)
+            .AddSequence(us)*/
             .AddSequence(new TwoToolTipSequence(controller, startPopup, "Ayan! May bago tayong bisita!","Oh look there is our first visitor"))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, startPopup, "Hayaan mong gabayan kita para makita mo ang kailangan mong gawin.","Let me guide you through this one so you can see how it is done."))
@@ -111,7 +111,7 @@ public class Hand : MonoBehaviour
             // need to differentiate the bookSelected and bookPress
 
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
-                "Pindutin ang 'Confirm' upang ibigay ang libro sa bisita.","Tap 'Confirm' to give the book to the visitor."))
+                "Pindutin ang tsek upang ibigay ang libro sa bisita.","Tap 'Confirm' to give the book to the visitor."))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
 
@@ -125,7 +125,10 @@ public class Hand : MonoBehaviour
             .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), handSpeed, rectTransform))
             .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
-                "Sa simula, mayroon kang tatlong star. Mababawasan ang star kapag may umalis na bista.","You start with 3 stars every level. A star would be removed if a visitor leaves."))
+                "Sa simula, mayroon kang tatlong star. Ito ang iyong mga puntos.","You start with 3 stars every level. A star would be removed if a visitor leaves."))
+            .AddSequence(us)
+            .AddSequence(new TwoToolTipSequence(controller, _adapter,
+                "Mababawasan ang iyong puntos kapag may umalis na bisita.","----"))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
                 "Kapag naubos ang tatlong star, ikaw ay matatalo.","You lose if you run out of stars."))

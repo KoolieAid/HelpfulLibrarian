@@ -34,7 +34,7 @@ public class Reader : MonoBehaviour
         {
             var greenFill = patienceMeterFill.color;
             yield return new WaitForSeconds(1.0f);
-            currentPatience -= incrementAmount;
+            DeductPatience();
             patienceMeterFill.fillAmount = currentPatience / initialPatience;
             
             var bg = redFill;
@@ -61,5 +61,10 @@ public class Reader : MonoBehaviour
     public void SetRequestImage(Sprite img)
     {
         imageComp.sprite = img;
+    }
+
+    public void DeductPatience()
+    {
+        currentPatience -= incrementAmount;
     }
 }
