@@ -65,17 +65,7 @@ public class ReaderManager : MonoBehaviour
         // If title does not match
         if (currentReader.requestedTitle != book.GetTitle())
         {
-            stars--;
-            // Update the UI here.
-            starsUI[stars].gameObject.SetActive(false);
-            
-            if (stars <= 0)
-            {
-                Debug.Log($"Player lost. Request: {currentReader.requestedTitle}. Book Selected: {book.GetTitle()}");
-                onPlayerLose.Invoke();
-                // Restart Scene?? idk
-            }
-
+            DeductStars();
             return false;
         }
 
@@ -83,6 +73,19 @@ public class ReaderManager : MonoBehaviour
         Debug.Log("CORRECT, going to next reader");
         NextReader();
         return true;
+    }
+
+    private void DeductStars()
+    {
+        stars--;
+        // Update the UI here.
+        starsUI[stars].gameObject.SetActive(false);
+        
+        if (stars <= 0)
+        {
+            onPlayerLose.Invoke();
+            if (currentReader.gameObject) Destroy(currentReader.gameObject);
+        }
     }
     
     private void NextReader()
@@ -92,9 +95,11 @@ public class ReaderManager : MonoBehaviour
         {
             Debug.Log("Player won the level");
             onPlayerWin.Invoke();
-            //SceneManager.LoadScene(gameObject.scene.name);
+            if (currentReader.gameObject) Destroy(currentReader.gameObject);
             return;
         }
+        
+        if (stars <= 0) return;
         
         ReplaceReader();
     }
@@ -131,6 +136,10 @@ public class ReaderManager : MonoBehaviour
         reader.GetComponent<RectTransform>().anchoredPosition = spawnCoords;
         reader.gameObject.transform.SetSiblingIndex(1); // 0 = Background; 1 = Object after background
         currentReader = reader;
+        
+        reader.onPatienceGone.AddListener(DeductStars);
+        reader.onPatienceGone.AddListener(NextReader);
+        
         return reader;
     }
 
