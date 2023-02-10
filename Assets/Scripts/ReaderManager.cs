@@ -65,7 +65,9 @@ public class ReaderManager : MonoBehaviour
         // If title does not match
         if (currentReader.requestedTitle != book.GetTitle())
         {
-            DeductStars();
+            //DeductStars();
+            // Deduct Timer
+            currentReader.DeductPatience();
             return false;
         }
 

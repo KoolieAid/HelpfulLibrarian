@@ -62,4 +62,10 @@ public class Reader : MonoBehaviour
     {
         imageComp.sprite = img;
     }
+
+    public void DeductPatience()
+    {
+        Debug.LogWarning("Patience Deducted");
+        currentPatience -= incrementAmount;
+    }
 }

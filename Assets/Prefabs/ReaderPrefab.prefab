@@ -248,8 +248,8 @@ MonoBehaviour:
   imageComp: {fileID: 8385512026622387448}
   face: {fileID: 8385512026773094904}
   requestedTitle: Alamat ng Pinya
-  initialPatience: 10
-  incrementAmount: 0.3
+  initialPatience: 15
+  incrementAmount: 1
   patienceMeterFill: {fileID: 2670178828641579920}
   onPatienceGone:
     m_PersistentCalls:
