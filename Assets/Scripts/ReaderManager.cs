@@ -73,23 +73,23 @@ public class ReaderManager : MonoBehaviour
             //DeductStars();
             // Deduct Timer
             currentReader.DeductPatience();
-
             cross.Play();
+            smoke.Play();
 
             return false;
         }
 
         // Correct?? Next reader pls
-        Debug.Log("CORRECT, going to next reader");
+        Debug.Log("CORRECT, going to next reader"); 
         heart.Play();
+        sparkle.Play();
+        
         NextReader();
         return true;
     }
 
     private void DeductStars()
     {
-
-
         stars--;
         // Update the UI here.
         starsUI[stars].gameObject.SetActive(false);
@@ -152,7 +152,9 @@ public class ReaderManager : MonoBehaviour
         
         reader.onPatienceGone.AddListener(DeductStars);
         reader.onPatienceGone.AddListener(NextReader);
-        
+
+        reader.GetComponent<ReaderSpriteSwaper>().SetReaderSprites();
+
         return reader;
     }
 

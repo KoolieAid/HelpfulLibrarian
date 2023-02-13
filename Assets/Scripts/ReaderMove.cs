@@ -9,21 +9,37 @@ public class ReaderMove : MonoBehaviour
     public float initialPosOffSet;
     public float finalPosX;
 
+    public bool isStoped;
 
-    private void Start()
+    private ParticleSystem sparkle;
+    private bool go;
+
+    void Start()
     {
-        Debug.Log("Reader Start");
-        NewReader();
+        transform.position = new Vector3(initialPosOffSet, transform.position.y, transform.position.z);
+        isStoped = false;
+        go = true;
+
+        sparkle = GameObject.Find("star").GetComponent<ParticleSystem>();
+        
     }
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.x < finalPosX)
+        {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
-    }
+            isStoped = false;
+        }
+        else
+        {
+            isStoped = true;
+            if (go)
+            {
+                go = false;
+                sparkle.Play();
+            }
+            
+        }
 
-    public void NewReader()
-    {
-        transform.position = new Vector3(initialPosOffSet, transform.position.y, transform.position.z);
     }
 }

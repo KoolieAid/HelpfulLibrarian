@@ -21,22 +21,31 @@ public class Reader : MonoBehaviour
     [SerializeField] private Color blueFill;
     [SerializeField] private Color yellowFill;
     [SerializeField] private Color redFill;
-    
+
     [SerializeField] [Range(0, 1)] private float blueThreshold;
     [SerializeField] [Range(0, 1)] private float yellowThreshold;
     [SerializeField] [Range(0, 1)] private float redThreshold;
 
+    private ReaderMove readerMove;
+    private ParticleSystem cross;
+    private ParticleSystem smoke;
+
     private IEnumerator Start()
     {
+        readerMove = GetComponent<ReaderMove>();
         currentPatience = initialPatience;
 
         while (true)
         {
+            ShowHideRequest(readerMove.isStoped);
             var greenFill = patienceMeterFill.color;
             yield return new WaitForSeconds(1.0f);
-            DeductPatience();
+
+            if (readerMove.isStoped)
+                DeductPatience();
+
             patienceMeterFill.fillAmount = currentPatience / initialPatience;
-            
+
             var bg = redFill;
 
             bg = Color.Lerp(bg, yellowFill, System.Convert.ToSingle(patienceMeterFill.fillAmount >= redThreshold));
@@ -44,9 +53,14 @@ public class Reader : MonoBehaviour
             bg = Color.Lerp(bg, greenFill, System.Convert.ToSingle(patienceMeterFill.fillAmount >= blueThreshold));
 
             patienceMeterFill.color = bg;
-            
+
             if (currentPatience <= 0)
             {
+                cross = GameObject.Find("x").GetComponent<ParticleSystem>();
+                smoke = GameObject.Find("smoke").GetComponent<ParticleSystem>();
+                cross.Play();
+                smoke.Play();
+
                 onPatienceGone.Invoke();
                 yield break;
             }
@@ -66,5 +80,10 @@ public class Reader : MonoBehaviour
     public void DeductPatience()
     {
         currentPatience -= incrementAmount;
+    }
+
+    public float GetPatience()
+    {
+        return patienceMeterFill.fillAmount;
     }
 }
