@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Events;
 using Image = UnityEngine.UI.Image;
@@ -11,6 +13,7 @@ public class Reader : MonoBehaviour
     [SerializeField] public Image face;
     public string requestedTitle;
 
+    [Header("Patience Variables")]
     public float initialPatience;
     public float incrementAmount;
     private float currentPatience;
@@ -27,8 +30,6 @@ public class Reader : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float redThreshold;
 
     private ReaderMove readerMove;
-    private ParticleSystem cross;
-    private ParticleSystem smoke;
 
     private IEnumerator Start()
     {
@@ -56,10 +57,8 @@ public class Reader : MonoBehaviour
 
             if (currentPatience <= 0)
             {
-                cross = GameObject.Find("x").GetComponent<ParticleSystem>();
-                smoke = GameObject.Find("smoke").GetComponent<ParticleSystem>();
-                cross.Play();
-                smoke.Play();
+                ReaderManager.Instance.particles["X"].Play();
+                ReaderManager.Instance.particles["Smoke"].Play();
 
                 onPatienceGone.Invoke();
                 yield break;
@@ -86,4 +85,5 @@ public class Reader : MonoBehaviour
     {
         return patienceMeterFill.fillAmount;
     }
+    
 }

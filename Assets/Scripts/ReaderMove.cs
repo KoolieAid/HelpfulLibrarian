@@ -10,8 +10,7 @@ public class ReaderMove : MonoBehaviour
     public float finalPosX;
 
     public bool isStoped;
-
-    private ParticleSystem sparkle;
+    
     private bool go;
 
     void Start()
@@ -19,8 +18,7 @@ public class ReaderMove : MonoBehaviour
         transform.position = new Vector3(initialPosOffSet, transform.position.y, transform.position.z);
         isStoped = false;
         go = true;
-
-        sparkle = GameObject.Find("star").GetComponent<ParticleSystem>();
+        
         
     }
     void Update()
@@ -36,7 +34,8 @@ public class ReaderMove : MonoBehaviour
             if (go)
             {
                 go = false;
-                sparkle.Play();
+                //Debug.Log(readerManager.particles.ContainsKey("Star"));
+                ReaderManager.Instance.particles["Star"].Play();
             }
             
         }

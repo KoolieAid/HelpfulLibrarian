@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -27,10 +28,12 @@ public class ReaderManager : MonoBehaviour
     [Tooltip("Fires when the player loses")]
     [SerializeField] private UnityEvent onPlayerLose;
 
-    [SerializeField] private ParticleSystem smoke;
+    [SerializedDictionary("Particle", "Particle GameObject")]
+    public SerializedDictionary<string, ParticleSystem> particles = new SerializedDictionary<string, ParticleSystem>();
+    /*[SerializeField] private ParticleSystem smoke;
     [SerializeField] private ParticleSystem cross;
     [SerializeField] private ParticleSystem sparkle;
-    [SerializeField] private ParticleSystem heart;
+    [SerializeField] private ParticleSystem heart;*/
 
     [Header("Stars UI")] 
     [SerializeField] private GameObject[] starsUI;
@@ -59,6 +62,8 @@ public class ReaderManager : MonoBehaviour
         
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
+        
+        
 
         if (currentReader != null) return; // For tutorial sequence
         NextReader();
@@ -73,16 +78,17 @@ public class ReaderManager : MonoBehaviour
             //DeductStars();
             // Deduct Timer
             currentReader.DeductPatience();
-            cross.Play();
-            smoke.Play();
+
+            particles["X"].Play();
+            particles["Smoke"].Play();
 
             return false;
         }
 
         // Correct?? Next reader pls
         Debug.Log("CORRECT, going to next reader"); 
-        heart.Play();
-        sparkle.Play();
+        particles["Heart"].Play();
+        particles["Star"].Play();
         
         NextReader();
         return true;
