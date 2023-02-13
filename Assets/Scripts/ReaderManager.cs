@@ -27,6 +27,11 @@ public class ReaderManager : MonoBehaviour
     [Tooltip("Fires when the player loses")]
     [SerializeField] private UnityEvent onPlayerLose;
 
+    [SerializeField] private ParticleSystem smoke;
+    [SerializeField] private ParticleSystem cross;
+    [SerializeField] private ParticleSystem sparkle;
+    [SerializeField] private ParticleSystem heart;
+
     [Header("Stars UI")] 
     [SerializeField] private GameObject[] starsUI;
 
@@ -68,17 +73,23 @@ public class ReaderManager : MonoBehaviour
             //DeductStars();
             // Deduct Timer
             currentReader.DeductPatience();
+
+            cross.Play();
+
             return false;
         }
 
         // Correct?? Next reader pls
         Debug.Log("CORRECT, going to next reader");
+        heart.Play();
         NextReader();
         return true;
     }
 
     private void DeductStars()
     {
+
+
         stars--;
         // Update the UI here.
         starsUI[stars].gameObject.SetActive(false);
@@ -186,6 +197,7 @@ public class ReaderManager : MonoBehaviour
 
         return correctBook;
     }
+
 
     [Serializable]
     public struct BookInfo
