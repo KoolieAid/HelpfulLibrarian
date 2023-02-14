@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ReaderMove : MonoBehaviour
@@ -10,35 +11,30 @@ public class ReaderMove : MonoBehaviour
     public float finalPosX;
 
     public bool isStoped;
-    
-    private bool go;
 
     void Start()
     {
         transform.position = new Vector3(initialPosOffSet, transform.position.y, transform.position.z);
         isStoped = false;
-        go = true;
-        
-        
+
+        StartCoroutine(MoveReader());
     }
     void Update()
     {
-        if (transform.position.x < finalPosX)
+
+    }
+
+    IEnumerator MoveReader()
+    {
+        while (transform.position.x < finalPosX)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-            isStoped = false;
+            //transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(finalPosX, transform.position.y, transform.position.z), speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
         }
-        else
-        {
-            isStoped = true;
-            if (go)
-            {
-                go = false;
-                //Debug.Log(readerManager.particles.ContainsKey("Star"));
-                ReaderManager.Instance.particles["Star"].Play();
-            }
-            
-        }
+        isStoped = true;
+        ReaderManager.Instance.particles["Star"].Play();
 
     }
 }

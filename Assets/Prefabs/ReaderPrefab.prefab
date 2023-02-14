@@ -262,10 +262,6 @@ MonoBehaviour:
   blueThreshold: 0.8
   yellowThreshold: 0.5
   redThreshold: 0.2
-  particles:
-    _serializedList:
-    - Key: 
-      Value: {fileID: 0}
 --- !u!114 &8385512026773094902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,9 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9804b5e3b9dfc4c97a44a885476afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  initialPosOffSet: -125
-  finalPosX: 75
+  speed: 250
+  initialPosOffSet: -200
+  finalPosX: 140
   isStoped: 0
 --- !u!114 &869861574356758862
 MonoBehaviour:
