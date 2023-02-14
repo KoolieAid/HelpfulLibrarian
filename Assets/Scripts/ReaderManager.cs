@@ -18,8 +18,7 @@ public class ReaderManager : MonoBehaviour
     private int stars = 3;
     private List<BookInfo> currentCorrectAnswers;
 
-    [Header("Book Animation")] 
-    [SerializeField] private Vector2 readerPos;
+    [Header("Book Animation")]
     [SerializeField] private float speed;
 
     [Header("Spawning")]
@@ -209,7 +208,29 @@ public class ReaderManager : MonoBehaviour
 
         return correctBook;
     }
+    
+    IEnumerator GiveBookAnimation(Book _book)
+    {
+        var bookPos = _book.GetComponent<RectTransform>();
+        var origBookPos = bookPos.anchoredPosition;
+        var readerPos = currentReader.GetComponent<RectTransform>();
+        var final = new Vector2(-250, 170);
+        
+        Reader.Instance.canDeduct = false;
+        
+        while (Vector2.Distance(bookPos.anchoredPosition, final) > 1f)
+        {
+            bookPos.anchoredPosition = Vector3.MoveTowards(bookPos.anchoredPosition,
+                final, speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
 
+        bookPos.anchoredPosition = origBookPos;
+        
+        Reader.Instance.canDeduct = true;
+        NextReader();
+        Debug.Log("Book Given");
+    }
 
     [Serializable]
     public struct BookInfo
@@ -238,18 +259,5 @@ public class ReaderManager : MonoBehaviour
             return true;
         }
     }
-
-    IEnumerator GiveBookAnimation(Book _book)
-    {
-        while (transform.position.x < readerPos.x && transform.position.y < readerPos.y)
-        {
-            //transform.Translate(Vector3.right * speed * Time.deltaTime);
-            _book.transform.position = Vector3.MoveTowards(transform.position,
-                readerPos, speed * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
-        
-        NextReader();
-        Debug.Log("Book Given");
-    }
+    
 }

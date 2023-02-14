@@ -8,6 +8,8 @@ using Image = UnityEngine.UI.Image;
 
 public class Reader : MonoBehaviour
 {
+    public static Reader Instance;
+    
     [SerializeField] private GameObject dialog;
     [SerializeField] private Image imageComp;
     [SerializeField] public Image face;
@@ -29,7 +31,14 @@ public class Reader : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float yellowThreshold;
     [SerializeField] [Range(0, 1)] private float redThreshold;
 
+    public bool canDeduct;
+    
     private ReaderMove readerMove;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private IEnumerator Start()
     {
@@ -38,11 +47,12 @@ public class Reader : MonoBehaviour
 
         while (true)
         {
-            ShowHideRequest(readerMove.isStoped);
+            ShowHideRequest(canDeduct);
             var greenFill = patienceMeterFill.color;
             yield return new WaitForSeconds(1.0f);
 
-            if (readerMove.isStoped)
+            //if (readerMove.isStoped)
+            if(canDeduct) 
                 DeductPatience();
 
             patienceMeterFill.fillAmount = currentPatience / initialPatience;
