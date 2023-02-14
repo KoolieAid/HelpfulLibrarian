@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
@@ -17,6 +18,10 @@ public class ReaderManager : MonoBehaviour
     private int stars = 3;
     private List<BookInfo> currentCorrectAnswers;
 
+    [Header("Book Animation")] 
+    [SerializeField] private Vector2 readerPos;
+    [SerializeField] private float speed;
+
     [Header("Spawning")]
     [SerializeField] private Vector3 spawnCoords;
     [SerializeField] private GameObject ReaderPrefab;
@@ -30,10 +35,6 @@ public class ReaderManager : MonoBehaviour
 
     [SerializedDictionary("Particle", "Particle GameObject")]
     public SerializedDictionary<string, ParticleSystem> particles = new SerializedDictionary<string, ParticleSystem>();
-    /*[SerializeField] private ParticleSystem smoke;
-    [SerializeField] private ParticleSystem cross;
-    [SerializeField] private ParticleSystem sparkle;
-    [SerializeField] private ParticleSystem heart;*/
 
     [Header("Stars UI")] 
     [SerializeField] private GameObject[] starsUI;
@@ -90,7 +91,10 @@ public class ReaderManager : MonoBehaviour
         particles["Heart"].Play();
         particles["Star"].Play();
         
-        NextReader();
+        // add book animation
+        StartCoroutine(GiveBookAnimation(book));
+        
+        //NextReader();
         return true;
     }
 
@@ -234,6 +238,18 @@ public class ReaderManager : MonoBehaviour
             return true;
         }
     }
-    
-    
+
+    IEnumerator GiveBookAnimation(Book _book)
+    {
+        while (transform.position.x < readerPos.x && transform.position.y < readerPos.y)
+        {
+            //transform.Translate(Vector3.right * speed * Time.deltaTime);
+            _book.transform.position = Vector3.MoveTowards(transform.position,
+                readerPos, speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        
+        NextReader();
+        Debug.Log("Book Given");
+    }
 }
