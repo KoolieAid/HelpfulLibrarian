@@ -7,35 +7,27 @@ public class ReaderMove : MonoBehaviour
 {
     public float speed;
 
-    public float initialPosOffSet;
-    public float finalPosX;
-
-    //public bool isStoped;
+    private RectTransform readerPos;
 
     void Start()
     {
-        transform.position = new Vector3(initialPosOffSet, transform.position.y, transform.position.z);
-        //isStoped = false;
+        readerPos = GetComponent<RectTransform>();
+
         Reader.Instance.canDeduct = false;
 
         StartCoroutine(MoveReader());
     }
-    void Update()
-    {
-
-    }
 
     IEnumerator MoveReader()
     {
-        while (transform.position.x < finalPosX)
+        var movePos = new Vector2(280, 129);
+        while (Vector2.Distance(readerPos.anchoredPosition, movePos) > 1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position,
-                new Vector3(finalPosX, transform.position.y, transform.position.z), speed * Time.deltaTime);
+            readerPos.anchoredPosition = Vector3.MoveTowards(readerPos.anchoredPosition, movePos, speed * Time.deltaTime);
+            
             yield return new WaitForEndOfFrame();
         }
-        //isStoped = true;
         Reader.Instance.canDeduct = true;
         ReaderManager.Instance.particles["Star"].Play();
-
     }
 }
