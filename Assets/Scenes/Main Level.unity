@@ -1446,7 +1446,7 @@ MonoBehaviour:
   currentReader: {fileID: 0}
   stars: 3
   speed: 1000
-  spawnCoords: {x: 253, y: 129, z: 0}
+  spawnCoords: {x: -340, y: 129, z: 0}
   ReaderPrefab: {fileID: 8385512026773094906, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
   CanvasParent: {fileID: 155745823}
   onPlayerWin:

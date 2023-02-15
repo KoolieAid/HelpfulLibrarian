@@ -7,15 +7,12 @@ public class ReaderMove : MonoBehaviour
 {
     public float speed;
 
-    [SerializeField] private Vector2 initialPosOffSet;
-
     private RectTransform readerPos;
 
     void Start()
     {
         readerPos = GetComponent<RectTransform>();
-        readerPos.anchoredPosition = initialPosOffSet;
-        
+
         Reader.Instance.canDeduct = false;
 
         StartCoroutine(MoveReader());
