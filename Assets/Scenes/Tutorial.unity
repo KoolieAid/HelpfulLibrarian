@@ -5620,8 +5620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\"Mabuhay! Natapos mo na ang tutorial! \n\nCongrats! You finished the
-    tutorial!\""
+  m_text: '"Mahusay! Natapos mo na ang tutorial! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}

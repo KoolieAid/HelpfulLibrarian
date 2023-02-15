@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ReaderMove : MonoBehaviour
@@ -9,37 +10,32 @@ public class ReaderMove : MonoBehaviour
     public float initialPosOffSet;
     public float finalPosX;
 
-    public bool isStoped;
-
-    private ParticleSystem sparkle;
-    private bool go;
+    //public bool isStoped;
 
     void Start()
     {
         transform.position = new Vector3(initialPosOffSet, transform.position.y, transform.position.z);
-        isStoped = false;
-        go = true;
+        //isStoped = false;
+        Reader.Instance.canDeduct = false;
 
-        sparkle = GameObject.Find("star").GetComponent<ParticleSystem>();
-        
+        StartCoroutine(MoveReader());
     }
     void Update()
     {
-        if (transform.position.x < finalPosX)
+
+    }
+
+    IEnumerator MoveReader()
+    {
+        while (transform.position.x < finalPosX)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-            isStoped = false;
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(finalPosX, transform.position.y, transform.position.z), speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
         }
-        else
-        {
-            isStoped = true;
-            if (go)
-            {
-                go = false;
-                sparkle.Play();
-            }
-            
-        }
+        //isStoped = true;
+        Reader.Instance.canDeduct = true;
+        ReaderManager.Instance.particles["Star"].Play();
 
     }
 }
