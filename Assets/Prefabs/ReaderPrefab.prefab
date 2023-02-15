@@ -407,9 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9804b5e3b9dfc4c97a44a885476afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
-  initialPosOffSet: -200
-  finalPosX: 140
+  speed: 400
+  initialPosOffSet: {x: -340, y: 129}
 --- !u!114 &869861574356758862
 MonoBehaviour:
   m_ObjectHideFlags: 0
