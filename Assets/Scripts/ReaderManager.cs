@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -16,6 +18,9 @@ public class ReaderManager : MonoBehaviour
     private int stars = 3;
     private List<BookInfo> currentCorrectAnswers;
 
+    [Header("Book Animation")]
+    [SerializeField] private float speed;
+
     [Header("Spawning")]
     [SerializeField] private Vector3 spawnCoords;
     [SerializeField] private GameObject ReaderPrefab;
@@ -26,6 +31,9 @@ public class ReaderManager : MonoBehaviour
     [SerializeField] private UnityEvent onPlayerWin;
     [Tooltip("Fires when the player loses")]
     [SerializeField] private UnityEvent onPlayerLose;
+
+    [SerializedDictionary("Particle", "Particle GameObject")]
+    public SerializedDictionary<string, ParticleSystem> particles = new SerializedDictionary<string, ParticleSystem>();
 
     [Header("Stars UI")] 
     [SerializeField] private GameObject[] starsUI;
@@ -54,6 +62,8 @@ public class ReaderManager : MonoBehaviour
         
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
+        
+        
 
         if (currentReader != null) return; // For tutorial sequence
         NextReader();
@@ -68,12 +78,22 @@ public class ReaderManager : MonoBehaviour
             //DeductStars();
             // Deduct Timer
             currentReader.DeductPatience();
+
+            particles["X"].Play();
+            particles["Smoke"].Play();
+
             return false;
         }
 
         // Correct?? Next reader pls
-        Debug.Log("CORRECT, going to next reader");
-        NextReader();
+        Debug.Log("CORRECT, going to next reader"); 
+        particles["Heart"].Play();
+        particles["Star"].Play();
+        
+        // add book animation
+        StartCoroutine(GiveBookAnimation(book));
+        
+        //NextReader();
         return true;
     }
 
@@ -141,7 +161,9 @@ public class ReaderManager : MonoBehaviour
         
         reader.onPatienceGone.AddListener(DeductStars);
         reader.onPatienceGone.AddListener(NextReader);
-        
+
+        reader.GetComponent<ReaderSpriteSwaper>().SetReaderSprites();
+
         return reader;
     }
 
@@ -186,6 +208,29 @@ public class ReaderManager : MonoBehaviour
 
         return correctBook;
     }
+    
+    IEnumerator GiveBookAnimation(Book _book)
+    {
+        var bookPos = _book.GetComponent<RectTransform>();
+        var origBookPos = bookPos.anchoredPosition;
+        var readerPos = currentReader.GetComponent<RectTransform>();
+        var final = new Vector2(-250, 170);
+        
+        Reader.Instance.canDeduct = false;
+        
+        while (Vector2.Distance(bookPos.anchoredPosition, final) > 1f)
+        {
+            bookPos.anchoredPosition = Vector3.MoveTowards(bookPos.anchoredPosition,
+                final, speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+        bookPos.anchoredPosition = origBookPos;
+        
+        Reader.Instance.canDeduct = true;
+        NextReader();
+        Debug.Log("Book Given");
+    }
 
     [Serializable]
     public struct BookInfo
@@ -214,6 +259,5 @@ public class ReaderManager : MonoBehaviour
             return true;
         }
     }
-    
     
 }
