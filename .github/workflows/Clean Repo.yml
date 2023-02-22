@@ -1,0 +1,19 @@
+
+name: Clean up repo
+
+on: workflow_dispatch
+
+jobs:
+
+  clean:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - run: git git reflog expire --expire="1 hour" --all
+    - run: git reflog expire --expire-unreachable="1 hour" --all
+    - run: git prune --expire="1 hour" -v
+    - run: git gc --aggressive --prune="1 hour"
+    
