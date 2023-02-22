@@ -1,8 +1,7 @@
 
 name: Clean up repo
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
 
