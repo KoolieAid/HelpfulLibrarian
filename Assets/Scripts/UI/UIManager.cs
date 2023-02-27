@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject statusPanel;
     [SerializeField] private GameObject starScore;
+    [SerializeField] private Animator[] shineAnimator;
     [SerializeField] private Vector2 finalStarPos;
     [SerializeField] private float timeToFinalPos;
     [SerializeField] private float finalScale;
@@ -48,6 +49,13 @@ public class UIManager : MonoBehaviour
         controller.AddSequence(new CustomSequence(controller, (sequence, o) =>
         {
             var rect = o.GetComponent<RectTransform>();
+
+            foreach (Animator a in shineAnimator)
+            {
+                if (a.isActiveAndEnabled)
+                    a.SetBool("Game Is Done", true);
+            }
+
             StartCoroutine(_StarMove(sequence, rect, finalStarPos));
         }));
     }
@@ -63,6 +71,12 @@ public class UIManager : MonoBehaviour
 
             if (Vector2.Distance(transform.anchoredPosition, final) <= 0.2f)
             {
+                foreach (Animator a in shineAnimator)
+                {
+                    if (a.isActiveAndEnabled)
+                        a.SetTrigger("Move Is Done");
+                }
+
                 sequence.SetStatus(true);
                 yield break;
             }
