@@ -46,7 +46,6 @@ public class Reader : MonoBehaviour
         readerMove = GetComponent<ReaderMove>();
         currentPatience = initialPatience;
 
-        //animator.runtimeAnimatorController = 
         animator.SetBool("Walking", true);
 
         while (true)
