@@ -9,7 +9,7 @@ using Image = UnityEngine.UI.Image;
 public class Reader : MonoBehaviour
 {
     public static Reader Instance;
-    
+
     [SerializeField] private GameObject dialog;
     [SerializeField] private Image imageComp;
     [SerializeField] public Image face;
@@ -32,8 +32,9 @@ public class Reader : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float redThreshold;
 
     public bool canDeduct;
-    
+
     private ReaderMove readerMove;
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
@@ -45,6 +46,9 @@ public class Reader : MonoBehaviour
         readerMove = GetComponent<ReaderMove>();
         currentPatience = initialPatience;
 
+        //animator.runtimeAnimatorController = 
+        animator.SetBool("Walking", true);
+
         while (true)
         {
             ShowHideRequest(canDeduct);
@@ -52,10 +56,15 @@ public class Reader : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
 
             //if (readerMove.isStoped)
-            if(canDeduct) 
+            if (canDeduct)
+            {
+                animator.SetBool("Walking", false);
                 DeductPatience();
+            }
+
 
             patienceMeterFill.fillAmount = currentPatience / initialPatience;
+            animator.SetFloat("Patience", patienceMeterFill.fillAmount);
 
             var bg = redFill;
 
@@ -95,5 +104,5 @@ public class Reader : MonoBehaviour
     {
         return patienceMeterFill.fillAmount;
     }
-    
+
 }
