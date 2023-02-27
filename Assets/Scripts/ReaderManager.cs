@@ -79,6 +79,8 @@ public class ReaderManager : MonoBehaviour
             // Deduct Timer
             currentReader.DeductPatience();
 
+            currentReader.TriggerWrongBookAnimation();
+
             particles["X"].Play();
             particles["Smoke"].Play();
 
@@ -161,8 +163,6 @@ public class ReaderManager : MonoBehaviour
         
         reader.onPatienceGone.AddListener(DeductStars);
         reader.onPatienceGone.AddListener(NextReader);
-
-        reader.GetComponent<ReaderSpriteSwaper>().SetReaderSprites();
 
         return reader;
     }

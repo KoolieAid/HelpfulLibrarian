@@ -62,7 +62,6 @@ public class Reader : MonoBehaviour
                 DeductPatience();
             }
 
-
             patienceMeterFill.fillAmount = currentPatience / initialPatience;
             animator.SetFloat("Patience", patienceMeterFill.fillAmount);
 
@@ -103,6 +102,11 @@ public class Reader : MonoBehaviour
     public float GetPatience()
     {
         return patienceMeterFill.fillAmount;
+    }
+
+    public void TriggerWrongBookAnimation()
+    {
+        animator.SetTrigger("Wrong Book");
     }
 
 }

@@ -417,18 +417,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8385512026773094906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d058cf06436f9774aac74b814653fc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reader: {fileID: 8385512026773094903}
-  spriteRendered: {fileID: 8385512026773094904}
-  readerSpriteLibrary:
-  - {fileID: 11400000, guid: 1eba6f43e8aa52049a243c063cdaa963, type: 2}
-  - {fileID: 11400000, guid: 42a8402a6b79991469ff179fb955a29a, type: 2}
-  - {fileID: 11400000, guid: 8d0d2011890172749986c92471b6eb7e, type: 2}
-  - {fileID: 11400000, guid: efa5e3f039b434146850f47ebbd71ef2, type: 2}
+  animatorControllers:
+  - {fileID: 9100000, guid: e36eeac90e5c1f24e8e3621f28e028bc, type: 2}
+  animator: {fileID: -819592810630961358}
 --- !u!95 &-819592810630961358
 Animator:
   serializedVersion: 4
