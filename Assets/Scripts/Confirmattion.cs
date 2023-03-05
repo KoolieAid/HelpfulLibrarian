@@ -13,13 +13,13 @@ public class Confirmattion : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void CloseConfirmation()
     {
         onConfirm.RemoveAllListeners();
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void Confirm()
