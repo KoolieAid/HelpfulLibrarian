@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace Memory_Game
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private Stack<GameObject> memory = new Stack<GameObject>(2);
+        private Stack<GameObject> memory = new(2);
 
         public void PrintMemory()
         {
-            string buffer = "";
+            StringBuilder builder = new();
             foreach (var item in memory)
             {
-                buffer += $"{item.name}\n";
+                builder.Append(item.name);
+                builder.Append("\n");
             }
-            Debug.Log(buffer);
+            Debug.Log(builder);
         }
 
         public void Pick(GameObject obj)
@@ -45,10 +47,7 @@ namespace Memory_Game
 
         public void DiscardAll()
         {
-            for (var i = 0; i < memory.Count; i++)
-            {
-                memory.Pop();
-            }
+            memory.Clear();
         }
 
         public void Compare()
