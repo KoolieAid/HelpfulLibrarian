@@ -8,18 +8,6 @@ namespace Memory_Game
     {
         [SerializeField] private Stack<GameObject> memory = new Stack<GameObject>(2);
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         public void PrintMemory()
         {
             string buffer = "";
@@ -35,7 +23,8 @@ namespace Memory_Game
             if (memory.Count >= 2)
             {
                 Debug.LogWarning("Stack is full");
-                // May pop all items? or reset
+                // Maybe pop all items? or reset
+                DiscardAll();
                 return;
             }
 
@@ -53,7 +42,28 @@ namespace Memory_Game
                 Debug.Log("Compare time");
             }
         }
-        
-        
+
+        public void DiscardAll()
+        {
+            for (var i = 0; i < memory.Count; i++)
+            {
+                memory.Pop();
+            }
+        }
+
+        public void Compare()
+        {
+            var copy = memory.ToArray();
+
+            if (copy.Length >= 2)
+            {
+                Debug.LogError($"Idk how you got here but congrats, there are more than 2 in the memory stack");
+                PrintMemory();
+                return;
+            }
+            
+            // TODO: Actual comparison
+            
+        }
     }
 }
