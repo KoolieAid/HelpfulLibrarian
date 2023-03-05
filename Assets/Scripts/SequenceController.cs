@@ -279,7 +279,6 @@ namespace Tutorial
         {
             _toolTip.SetText(_text);
             _toolTip.transform.parent.gameObject.SetActive(_turnOn);
-            Debug.Log($"parent is {_toolTip.transform.name}");
             isDone = true;
         }
     }
