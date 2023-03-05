@@ -278,7 +278,8 @@ namespace Tutorial
         public override void Execute(GameObject o)
         {
             _toolTip.SetText(_text);
-            _toolTip.gameObject.SetActive(_turnOn);
+            _toolTip.transform.parent.gameObject.SetActive(_turnOn);
+            Debug.Log($"parent is {_toolTip.transform.name}");
             isDone = true;
         }
     }
