@@ -78,17 +78,17 @@ public class ReaderManager : MonoBehaviour
 
             currentReader.TriggerWrongBookAnimation();
 
-            ParticleManager.Instance.particles["X"].Play();
-            ParticleManager.Instance.particles["Smoke"].Play();
+            ParticleManager.Instance.PlayParticle("X");
+            ParticleManager.Instance.PlayParticle("Smoke");
 
             return false;
         }
 
         // Correct?? Next reader pls
         Debug.Log("CORRECT, going to next reader");
-        ParticleManager.Instance.particles["Heart"].Play();
-        ParticleManager.Instance.particles["Star"].Play();
-        
+        ParticleManager.Instance.PlayParticle("Heart");
+        ParticleManager.Instance.PlayParticle("Star");
+
         // add book animation
         StartCoroutine(GiveBookAnimation(book));
         

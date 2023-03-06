@@ -8,10 +8,15 @@ public class ParticleManager : MonoBehaviour
     public static ParticleManager Instance;
 
     [SerializedDictionary("Particle", "Particle GameObject")]
-    public SerializedDictionary<string, ParticleSystem> particles = new SerializedDictionary<string, ParticleSystem>();
+    [SerializeField] private SerializedDictionary<string, ParticleSystem> particles = new SerializedDictionary<string, ParticleSystem>();
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void PlayParticle(string particleName)
+    {
+        particles[particleName].Play();
     }
 }

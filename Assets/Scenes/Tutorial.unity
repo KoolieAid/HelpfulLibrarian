@@ -6569,6 +6569,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1066755832}
+        m_TargetAssemblyTypeName: ParticleManager, Assembly-CSharp
+        m_MethodName: PlayParticle
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Star
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1066755832}
+        m_TargetAssemblyTypeName: ParticleManager, Assembly-CSharp
+        m_MethodName: PlayParticle
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Heart
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &639831774
 MonoBehaviour:
   m_ObjectHideFlags: 0
