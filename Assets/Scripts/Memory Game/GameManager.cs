@@ -27,6 +27,7 @@ namespace Memory_Game
                 Debug.LogWarning("Stack is full");
                 // Maybe pop all items? or reset
                 DiscardAll();
+                Pick(obj);
                 return;
             }
 
