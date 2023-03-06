@@ -74,8 +74,8 @@ public class Reader : MonoBehaviour
 
             if (currentPatience <= 0)
             {
-                ReaderManager.Instance.particles["X"].Play();
-                ReaderManager.Instance.particles["Smoke"].Play();
+                ParticleManager.Instance.particles["X"].Play();
+                ParticleManager.Instance.particles["Smoke"].Play();
 
                 onPatienceGone.Invoke();
                 yield break;

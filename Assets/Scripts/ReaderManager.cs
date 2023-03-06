@@ -32,9 +32,6 @@ public class ReaderManager : MonoBehaviour
     [Tooltip("Fires when the player loses")]
     [SerializeField] private UnityEvent onPlayerLose;
 
-    [SerializedDictionary("Particle", "Particle GameObject")]
-    public SerializedDictionary<string, ParticleSystem> particles = new SerializedDictionary<string, ParticleSystem>();
-
     [Header("Stars UI")] 
     [SerializeField] private GameObject[] starsUI;
 
@@ -81,16 +78,16 @@ public class ReaderManager : MonoBehaviour
 
             currentReader.TriggerWrongBookAnimation();
 
-            particles["X"].Play();
-            particles["Smoke"].Play();
+            ParticleManager.Instance.particles["X"].Play();
+            ParticleManager.Instance.particles["Smoke"].Play();
 
             return false;
         }
 
         // Correct?? Next reader pls
-        Debug.Log("CORRECT, going to next reader"); 
-        particles["Heart"].Play();
-        particles["Star"].Play();
+        Debug.Log("CORRECT, going to next reader");
+        ParticleManager.Instance.particles["Heart"].Play();
+        ParticleManager.Instance.particles["Star"].Play();
         
         // add book animation
         StartCoroutine(GiveBookAnimation(book));
