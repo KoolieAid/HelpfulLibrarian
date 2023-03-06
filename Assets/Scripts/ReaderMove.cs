@@ -28,6 +28,6 @@ public class ReaderMove : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Reader.Instance.canDeduct = true;
-        ReaderManager.Instance.particles["Star"].Play();
+        ParticleManager.Instance.PlayParticle("Star");
     }
 }

@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 8385512026773094902}
   - component: {fileID: 1987580161740596946}
   - component: {fileID: 869861574356758862}
+  - component: {fileID: -819592810630961358}
   m_Layer: 5
   m_Name: ReaderPrefab
   m_TagString: Untagged
@@ -269,8 +270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 234, y: 129}
-  m_SizeDelta: {x: 300, y: 352}
+  m_AnchoredPosition: {x: 219, y: 172.3902}
+  m_SizeDelta: {x: 370.0918, y: 418.7541}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8385512026773094905
 CanvasRenderer:
@@ -339,6 +340,7 @@ MonoBehaviour:
   yellowThreshold: 0.5
   redThreshold: 0.2
   canDeduct: 0
+  animator: {fileID: -819592810630961358}
 --- !u!114 &8385512026773094902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
-  initialPosOffSet: {x: -340, y: 129}
 --- !u!114 &869861574356758862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,13 +422,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d058cf06436f9774aac74b814653fc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reader: {fileID: 8385512026773094903}
-  spriteRendered: {fileID: 8385512026773094904}
-  readerSpriteLibrary:
-  - {fileID: 11400000, guid: 1eba6f43e8aa52049a243c063cdaa963, type: 2}
-  - {fileID: 11400000, guid: 42a8402a6b79991469ff179fb955a29a, type: 2}
-  - {fileID: 11400000, guid: 8d0d2011890172749986c92471b6eb7e, type: 2}
-  - {fileID: 11400000, guid: efa5e3f039b434146850f47ebbd71ef2, type: 2}
+  animatorControllers:
+  - {fileID: 9100000, guid: e36eeac90e5c1f24e8e3621f28e028bc, type: 2}
+  animator: {fileID: -819592810630961358}
+--- !u!95 &-819592810630961358
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385512026773094906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e36eeac90e5c1f24e8e3621f28e028bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8385512026925323068
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +534,7 @@ GameObject:
   - component: {fileID: 8385512028108023969}
   - component: {fileID: 8385512028108023967}
   - component: {fileID: 8385512028108023966}
+  - component: {fileID: 4932308256220098300}
   m_Layer: 5
   m_Name: TextBubble
   m_TagString: Untagged
@@ -583,3 +601,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4932308256220098300
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385512028108023968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d09664b440717564c9d0512e717f78b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
