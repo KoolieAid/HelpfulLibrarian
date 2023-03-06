@@ -30,7 +30,7 @@ public class Book : MonoBehaviour
         GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
         {
             // Show confirmation
-            Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
+            Confirmattion.Instance.gameObject.SetActive(true);
             
             Confirmattion.Instance.onConfirm.AddListener(() =>
             {
@@ -44,8 +44,7 @@ public class Book : MonoBehaviour
     
     public void ShowDescription()
     {
-        // Cover.instance.transform.parent.gameObject.SetActive(true);
-        Cover.instance.OpenCover();
+        Cover.instance.gameObject.SetActive(true);
         Cover.instance.SetCoverSprite(bookBackSprite);
         _isShowingDescription = true;
         Cover.instance.SetDescription(word, wordTranslation, description);
@@ -53,8 +52,7 @@ public class Book : MonoBehaviour
 
     public void HideDescription()
     {
-        // Cover.instance.transform.parent.gameObject.SetActive(false);
-        Cover.instance.CloseCover();
+        Cover.instance.gameObject.SetActive(false);
         _isShowingDescription = false;
         Cover.instance.SetDescription("", "", "");
     }

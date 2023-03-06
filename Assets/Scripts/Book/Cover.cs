@@ -19,7 +19,7 @@ public class Cover : MonoBehaviour
     private void Start()
     {
         instance = this;
-        transform.parent.gameObject.SetActive(false);
+        instance.gameObject.SetActive(false);
     }
 
     public void SetCoverSprite(Sprite renderSprite)
@@ -34,13 +34,8 @@ public class Cover : MonoBehaviour
         bodyText.text = desc;
     }
 
-    public void OpenCover()
-    {
-        transform.parent.gameObject.SetActive(true);
-    }
-
     public void CloseCover()
     {
-        transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
