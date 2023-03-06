@@ -32,9 +32,6 @@ public class ReaderManager : MonoBehaviour
     [Tooltip("Fires when the player loses")]
     [SerializeField] private UnityEvent onPlayerLose;
 
-    [SerializedDictionary("Particle", "Particle GameObject")]
-    public SerializedDictionary<string, ParticleSystem> particles = new SerializedDictionary<string, ParticleSystem>();
-
     [Header("Stars UI")] 
     [SerializeField] private GameObject[] starsUI;
 
@@ -79,17 +76,19 @@ public class ReaderManager : MonoBehaviour
             // Deduct Timer
             currentReader.DeductPatience();
 
-            particles["X"].Play();
-            particles["Smoke"].Play();
+            currentReader.TriggerWrongBookAnimation();
+
+            ParticleManager.Instance.PlayParticle("X");
+            ParticleManager.Instance.PlayParticle("Smoke");
 
             return false;
         }
 
         // Correct?? Next reader pls
-        Debug.Log("CORRECT, going to next reader"); 
-        particles["Heart"].Play();
-        particles["Star"].Play();
-        
+        Debug.Log("CORRECT, going to next reader");
+        ParticleManager.Instance.PlayParticle("Heart");
+        ParticleManager.Instance.PlayParticle("Star");
+
         // add book animation
         StartCoroutine(GiveBookAnimation(book));
         
@@ -161,8 +160,6 @@ public class ReaderManager : MonoBehaviour
         
         reader.onPatienceGone.AddListener(DeductStars);
         reader.onPatienceGone.AddListener(NextReader);
-
-        reader.GetComponent<ReaderSpriteSwaper>().SetReaderSprites();
 
         return reader;
     }
