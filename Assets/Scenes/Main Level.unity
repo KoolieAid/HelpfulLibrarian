@@ -674,8 +674,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1546,8 +1545,7 @@ MonoBehaviour:
   stars: 3
   speed: 1000
   spawnCoords: {x: -340, y: 129, z: 0}
-  ReaderPrefab: {fileID: 8385512026773094906, guid: 8e603eff96018a54bbfbc41867f13ddb,
-    type: 3}
+  ReaderPrefab: {fileID: 8385512026773094906, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
   CanvasParent: {fileID: 155745823}
   onPlayerWin:
     m_PersistentCalls:
@@ -1784,8 +1782,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2457,8 +2454,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2593,8 +2589,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3174,8 +3169,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3331,8 +3325,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3782,8 +3775,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4308,8 +4300,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4412,7 +4403,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: [{fileID: 1774436201}]
+  m_Children:
+  - {fileID: 1774436201}
   m_Father: {fileID: 155745823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5524,8 +5516,8 @@ MonoBehaviour:
   word: Daga
   wordTranslation: Rat
   description: "Isang maliit na hayop na mayroong mahabang buntot at nguso at kalat-kalat
-    ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala ng
-    iba\u2019t ibang mga sakit."
+    ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala
+    ng iba\u2019t ibang mga sakit."
 --- !u!114 &1755207636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5930,8 +5922,8 @@ MonoBehaviour:
   title: 'Alamat ng Bawang '
   word: Bawang
   wordTranslation: Garlic
-  description: 'Halamang gulay na mayroong malakas na amoy at karaniwang sangkap sa
-    pagluluto at ginagamit rin ito sa panggagamot. '
+  description: 'Halamang gulay na mayroong malakas na amoy at karaniwang sangkap
+    sa pagluluto at ginagamit rin ito sa panggagamot. '
 --- !u!114 &1893373496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6265,8 +6257,7 @@ MonoBehaviour:
   m_text: Gusto mo ba ibigay ang librong ito?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6381,8 +6372,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
