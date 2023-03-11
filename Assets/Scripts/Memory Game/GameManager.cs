@@ -55,7 +55,7 @@ namespace Memory_Game
         {
             var copy = memory.ToArray();
 
-            if (copy.Length >= 2)
+            if (copy.Length > 2)
             {
                 Debug.LogError($"Idk how you got here but congrats, there are more than 2 in the memory stack");
                 PrintMemory();
