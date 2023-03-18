@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Yellow Book
   m_EditorClassIdentifier: 
   bookFront: {fileID: 21300000, guid: 18b6a48a4945bcb4fa77b8dbe27318b0, type: 3}
-  bookBack: {fileID: 21300000, guid: f847de3672b4d5d4cb03f1036a4d5c7c, type: 3}
+  bookBack: {fileID: 21300000, guid: 5e8fa060111f6ca4d8d3ebb24eb50fbf, type: 3}

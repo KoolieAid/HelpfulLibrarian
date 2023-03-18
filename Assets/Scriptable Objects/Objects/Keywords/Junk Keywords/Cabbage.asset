@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df647847e0fc694b999e95a02721b6f, type: 3}
   m_Name: Cabbage
   m_EditorClassIdentifier: 
-  image: {fileID: 7482667652216324306, guid: 9215c44d762b34d4593e69aac6afe557, type: 3}
+  image: {fileID: 21300000, guid: 1cf92e0dd7c795843bada0a1b4e0fab7, type: 3}
   wordVersion: Repolyo
   wordTranslation: Cabbage
