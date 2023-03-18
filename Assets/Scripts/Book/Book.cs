@@ -15,6 +15,7 @@ public class Book : MonoBehaviour
     [SerializeField] private string title;
     [SerializeField] private string word;
     [SerializeField] private string wordTranslation;
+    private Image wordImage;
     [Multiline(5)]
     [SerializeField] private string description;
     private int spriteIndex;
@@ -48,7 +49,7 @@ public class Book : MonoBehaviour
         Cover.instance.OpenCover();
         Cover.instance.SetCoverSprite(bookBackSprite);
         _isShowingDescription = true;
-        Cover.instance.SetDescription(word, wordTranslation, description);
+        Cover.instance.SetDescription(word, wordTranslation, description, wordImage);
     }
 
     public void HideDescription()
@@ -56,7 +57,7 @@ public class Book : MonoBehaviour
         // Cover.instance.transform.parent.gameObject.SetActive(false);
         Cover.instance.CloseCover();
         _isShowingDescription = false;
-        Cover.instance.SetDescription("", "", "");
+        Cover.instance.SetDescription("", "", "", null);
     }
 
     public void ToggleDescription()
@@ -92,6 +93,9 @@ public class Book : MonoBehaviour
         }
         word = info.keyword.wordVersion;
         wordTranslation = info.keyword.wordTranslation;
+        wordImage.sprite = info.keyword.image;
+        
+        Debug.Log(info.keyword.image.name);
     }
 
 }

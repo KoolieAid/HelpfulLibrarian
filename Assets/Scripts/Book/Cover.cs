@@ -15,6 +15,7 @@ public class Cover : MonoBehaviour
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI titleTranslationText;
     [SerializeField] private TextMeshProUGUI bodyText;
+    [SerializeField] private Image subjImage;
 
     private void Start()
     {
@@ -27,11 +28,12 @@ public class Cover : MonoBehaviour
         img.sprite = renderSprite;
     }
 
-    public void SetDescription(string word, string wordTrans, string desc)
+    public void SetDescription(string word, string wordTrans, string desc, Image image)
     {
         titleText.text = word;
         titleTranslationText.text = "(" + wordTrans + ")";
         bodyText.text = desc;
+        subjImage = image;
     }
 
     public void OpenCover()
