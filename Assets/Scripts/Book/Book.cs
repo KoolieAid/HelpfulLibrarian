@@ -15,7 +15,7 @@ public class Book : MonoBehaviour
     [SerializeField] private string title;
     [SerializeField] private string word;
     [SerializeField] private string wordTranslation;
-    private Image wordImage;
+    private Sprite wordImage;
     [Multiline(5)]
     [SerializeField] private string description;
     private int spriteIndex;
@@ -27,6 +27,7 @@ public class Book : MonoBehaviour
         img.sprite = referenceSprites[spriteIndex].bookFront;
         bookBackSprite = referenceSprites[spriteIndex].bookBack;
         textMeshTitle.text = title;
+        //wordImage.sprite = ;
         
         GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
         {
@@ -93,9 +94,7 @@ public class Book : MonoBehaviour
         }
         word = info.keyword.wordVersion;
         wordTranslation = info.keyword.wordTranslation;
-        wordImage.sprite = info.keyword.image;
-        
-        Debug.Log(info.keyword.image.name);
+        wordImage = info.keyword.image;
     }
 
 }

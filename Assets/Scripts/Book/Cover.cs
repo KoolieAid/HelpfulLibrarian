@@ -28,12 +28,12 @@ public class Cover : MonoBehaviour
         img.sprite = renderSprite;
     }
 
-    public void SetDescription(string word, string wordTrans, string desc, Image image)
+    public void SetDescription(string word, string wordTrans, string desc, Sprite image)
     {
         titleText.text = word;
         titleTranslationText.text = "(" + wordTrans + ")";
         bodyText.text = desc;
-        subjImage = image;
+        subjImage.sprite = image;
     }
 
     public void OpenCover()
