@@ -22,13 +22,13 @@ public class ClickNDrag : MonoBehaviour
             if (targetObject && !selectedObject)
             {
                 selectedObject = targetObject.transform.gameObject;
-                selectedObject.GetComponent<BookStack>().SetRigidBodyStatus(false);
+                selectedObject.GetComponent<BookStack>().SetColliderStatus(false);
             }
         }
 
         if (Input.GetMouseButtonUp(0) && selectedObject)
         {
-            selectedObject.GetComponent<BookStack>().SetRigidBodyStatus(true);
+            selectedObject.GetComponent<BookStack>().SetColliderStatus(true);
             selectedObject = null;
         }
 

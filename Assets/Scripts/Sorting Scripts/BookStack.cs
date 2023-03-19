@@ -39,7 +39,7 @@ public class BookStack : MonoBehaviour
         }
     }
 
-    public void SetRigidBodyStatus(bool isActive)
+    public void SetColliderStatus(bool isActive)
     {
         GetComponent<Collider2D>().enabled = isActive;
     }
