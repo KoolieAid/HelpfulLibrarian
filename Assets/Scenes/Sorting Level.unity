@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 3
+  speed: 300
 --- !u!50 &91189362
 Rigidbody2D:
   serializedVersion: 4
@@ -1191,12 +1192,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 128462967}
         m_TargetAssemblyTypeName: BookshelfManager, Assembly-CSharp
-        m_MethodName: RightArrowClicked
-        m_Mode: 1
+        m_MethodName: ArrowClicked
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7124,6 +7125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 3
+  speed: 300
 --- !u!50 &684400734
 Rigidbody2D:
   serializedVersion: 4
@@ -7379,6 +7381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 3
+  speed: 300
 --- !u!50 &750561955
 Rigidbody2D:
   serializedVersion: 4
@@ -7764,6 +7767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 3
+  speed: 300
 --- !u!50 &938929888
 Rigidbody2D:
   serializedVersion: 4
@@ -19000,6 +19004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 3
+  speed: 300
 --- !u!50 &1338827418
 Rigidbody2D:
   serializedVersion: 4
@@ -19567,6 +19572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 3
+  speed: 300
 --- !u!50 &1410127797
 Rigidbody2D:
   serializedVersion: 4
@@ -26734,12 +26740,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 128462967}
         m_TargetAssemblyTypeName: BookshelfManager, Assembly-CSharp
-        m_MethodName: LeftArrowClicked
-        m_Mode: 1
+        m_MethodName: ArrowClicked
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

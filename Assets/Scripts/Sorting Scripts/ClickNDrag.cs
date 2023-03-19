@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ClickNDrag : MonoBehaviour
 {
-    public GameObject selectedObject;
-
+    private GameObject selectedObject;
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +19,16 @@ public class ClickNDrag : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
-            if (targetObject)
+            if (targetObject && !selectedObject)
             {
                 selectedObject = targetObject.transform.gameObject;
+                selectedObject.GetComponent<BookStack>().SetRigidBodyStatus(false);
             }
         }
 
         if (Input.GetMouseButtonUp(0) && selectedObject)
         {
+            selectedObject.GetComponent<BookStack>().SetRigidBodyStatus(true);
             selectedObject = null;
         }
 

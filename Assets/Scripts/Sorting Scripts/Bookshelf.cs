@@ -11,34 +11,29 @@ using UnityEngine;
         Topic6,
         Topic7,
     };
+
+
+
 public class Bookshelf : MonoBehaviour
 {
  
     [SerializeField] private Topics category;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public delegate void CheckBookAction(bool isCorrect);
+    public static event CheckBookAction OnSort;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("TriggerEnter");
-        if (collision.gameObject.GetComponent<BookStack>().category == category)
+        BookStack bookStack = collision.gameObject.GetComponent<BookStack>();
+        if (bookStack.category == category)
         {
-            Debug.Log("SAME");
+            if (OnSort != null)
+                OnSort(true);
         }
         else
         {
-            Debug.Log("DIFF");
+            if (OnSort != null)
+                OnSort(false);
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
