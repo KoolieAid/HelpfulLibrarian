@@ -1208,6 +1208,7 @@ GameObject:
   - component: {fileID: 1685103987}
   - component: {fileID: 1685103986}
   - component: {fileID: 1685103985}
+  - component: {fileID: 1685103989}
   m_Layer: 0
   m_Name: blue book
   m_TagString: Untagged
@@ -1244,7 +1245,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.78, y: 1.89}
+    oldSize: {x: 1.88, y: 2.07}
     newSize: {x: 1.78, y: 1.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1322,6 +1323,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 140.856, z: 0}
+--- !u!114 &1685103989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685103984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafb8a2499a24314e9fca1b9e6109730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1862806365
 GameObject:
   m_ObjectHideFlags: 0
