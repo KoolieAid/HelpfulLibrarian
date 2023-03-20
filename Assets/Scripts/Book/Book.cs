@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -13,7 +14,7 @@ public class Book : MonoBehaviour
     [SerializeField] private BookCover[] referenceSprites;
     [SerializeField] private Image img;
     [SerializeField] private string title;
-    [SerializeField] private string word;
+    [FormerlySerializedAs("word")] [SerializeField] private string coverTitle;
     [SerializeField] private string wordTranslation;
     [SerializeField] private Sprite wordImage;
     [Multiline(5)]
@@ -50,7 +51,7 @@ public class Book : MonoBehaviour
         Cover.instance.OpenCover();
         Cover.instance.SetCoverSprite(bookBackSprite);
         _isShowingDescription = true;
-        Cover.instance.SetDescription(word, wordTranslation, description, wordImage);
+        Cover.instance.SetDescription(coverTitle, wordTranslation, description, wordImage);
     }
 
     public void HideDescription()
@@ -93,8 +94,7 @@ public class Book : MonoBehaviour
             return;
         }
 
-        word = info.title;
-        // wordTranslation = info.keyword.wordTranslation;
+        coverTitle = info.title;
         wordImage = info.keyword.image;
     }
 
