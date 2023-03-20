@@ -138,7 +138,7 @@ public class ReaderManager : MonoBehaviour
         // Instantiate a new reader with the book info
         var reader = GenerateReader();
         reader.requestedTitle = bookinfo.title;
-        reader.SetRequestImage(bookinfo.keyword.image);
+        reader.SetRequestText(bookinfo.keyword.request);
         
         // TODO: Add the faces. Problem is: idk how to do animations, there are 3 sprites
         // reader.face.sprite = readerSprites[Random.Range(0, readerSprites.Length)];
@@ -228,33 +228,4 @@ public class ReaderManager : MonoBehaviour
         NextReader();
         Debug.Log("Book Given");
     }
-
-    [Serializable]
-    public struct BookInfo
-    {
-        public string title;
-        public Keyword keyword;
-    
-        [TextArea(3, 4)]
-        public string description;
-
-        public static bool operator==(BookInfo a, BookInfo b)
-        {
-            if (Equals(a, b)) return true;
-
-            if (a.title.Equals(b.title) && a.keyword.Equals(b.keyword)) return true;
-
-            return false;
-        }
-
-        public static bool operator !=(BookInfo a, BookInfo b)
-        {
-            if (Equals(a, b)) return false;
-
-            if (a.title.Equals(b.title) && a.keyword.Equals(b.keyword)) return false;
-
-            return true;
-        }
-    }
-    
 }

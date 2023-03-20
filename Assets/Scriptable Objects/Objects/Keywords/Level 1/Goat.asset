@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Goat
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: d5dc8fca4c9451a42bb4b736160e4655, type: 3}
-  wordVersion: Kambing
-  wordTranslation: Goat
+  request: Kumakain ng damo

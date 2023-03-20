@@ -13,35 +13,9 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   correctAnswers:
-  - title: 'Ang barakong kambing '
-    keyword: {fileID: 11400000, guid: 72871b863f8c27f4baa0cd7cf915a7a3, type: 2}
-    description: Isang hayop na mayroong dalawang sungay at mahilig kumain ng damo.
-  - title: Ang anim na elepante
-    keyword: {fileID: 11400000, guid: ec7472a74a834ba47b8bf60a36ff73f9, type: 2}
-    description: 'Isang dambuhalang hayop na mayroong malaking tainga at mahabang
-      nguso. '
-  - title: Sapatos ni Santiago
-    keyword: {fileID: 11400000, guid: 0978ab315f77e284684fe1f382ff1413, type: 2}
-    description: Bagay na kadalasang may kasamang pares at sinusuot sa paa ng tao.
-  - title: Ang Pitong Uwak
-    keyword: {fileID: 11400000, guid: acb04ad9a52c4bc4a8a17bb8f5e48002, type: 2}
-    description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
-      na kuko at tuka.
+  - {fileID: 11400000, guid: ba697148f23484b4b83dfdb1de0a7174, type: 2}
   wrongAnswers:
-  - title: Kuwento ni Repolyo
-    keyword: {fileID: 11400000, guid: c947fef0df16a384db5b0bad6fdbd828, type: 2}
-    description: Gulay na hugis bilog at mayroong mga berdeng dahon.
-  - title: Sombrero ng Bumbero
-    keyword: {fileID: 11400000, guid: ad913e8727414b64a9e2420e8f776a72, type: 2}
-    description: Isang bagay na sinusuot ng tao na nilalagay sa itaas ng ulo.
-  - title: Ang mabait na Aso
-    keyword: {fileID: 11400000, guid: 415c564750a5e474fab00b54830070b6, type: 2}
-    description: 'Hayop na mayroong apat na paa at karaniwang ginagawang alaga sa
-      bahay at madalas itong tumatahol. '
-  - title: Araw sa Palengke
-    keyword: {fileID: 11400000, guid: a53f25d802e7b2e4989be0a952930fa0, type: 2}
-    description: Nagsisilbi itong ilaw at nagbibigay buhay ang init nito sa lahat
-      ng mga nilalang tulad ng mga tao, hayop at halaman.
-  - title: Si Buhawi at si Bantay
-    keyword: {fileID: 11400000, guid: 79425e78ad506e8429fa311513cd67e9, type: 2}
-    description: Hanging malakas at umiikot na mapanganib at nagdudulot ng pinsala.
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

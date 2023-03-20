@@ -81,7 +81,7 @@ public class Book : MonoBehaviour
         return title;
     }
 
-    public void SetBookInfo(ReaderManager.BookInfo info)
+    public void SetBookInfo(BookInfo info)
     {
         title = info.title;
         textMeshTitle.text = title;
@@ -92,8 +92,9 @@ public class Book : MonoBehaviour
             Debug.LogWarning($"Keyword is null for {info.title}");
             return;
         }
-        word = info.keyword.wordVersion;
-        wordTranslation = info.keyword.wordTranslation;
+        
+        //word = info.keyword.wordVersion;
+        //wordTranslation = info.keyword.wordTranslation;
         wordImage = info.keyword.image;
     }
 
