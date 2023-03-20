@@ -93,7 +93,7 @@ public class Book : MonoBehaviour
             return;
         }
 
-        word = info.keyword.request;
+        word = info.title;
         // wordTranslation = info.keyword.wordTranslation;
         wordImage = info.keyword.image;
     }
