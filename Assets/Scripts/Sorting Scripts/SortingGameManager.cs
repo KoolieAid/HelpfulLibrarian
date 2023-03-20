@@ -18,18 +18,14 @@ public class SortingGameManager : MonoBehaviour
     }
     void GetPairedBooks()
     {
-        Debug.Log("GetPairedBooks()");
         for (int i = 0; i < stackedBooks.Length; i++)
         {
-            Debug.Log("Loop");
             if (i < pairedBooks.Length)
             {
-                Debug.Log("Book Pair");
                 stackedBooks[i].SetBooksInStack(pairedBooks[i].book1, pairedBooks[i].book2);
             }
             else
             {
-                Debug.Log("No Book Pair");
                 stackedBooks[i].GetComponent<Collider2D>().enabled = false;
             }
 
