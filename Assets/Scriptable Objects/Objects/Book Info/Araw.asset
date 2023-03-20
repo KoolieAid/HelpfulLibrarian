@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99fa08385e26f584ea819f23431a3eae, type: 3}
-  m_Name: Aso
+  m_Name: Araw
   m_EditorClassIdentifier: 
-  title: Ang mabait na Aso
-  keyword: {fileID: 11400000, guid: 415c564750a5e474fab00b54830070b6, type: 2}
-  description: Hayop na mayroong apat na paa at karaniwang ginagawang alaga sa bahay
-    at madalas itong tumatahol.
+  title: Araw sa Palengke
+  keyword: {fileID: 11400000, guid: a53f25d802e7b2e4989be0a952930fa0, type: 2}
+  description: Nagsisilbi itong ilaw at nagbibigay buhay ang init nito sa lahat ng
+    mga nilalang tulad ng mga tao, hayop at halaman
