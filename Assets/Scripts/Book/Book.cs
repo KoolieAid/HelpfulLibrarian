@@ -92,9 +92,9 @@ public class Book : MonoBehaviour
             Debug.LogWarning($"Keyword is null for {info.title}");
             return;
         }
-        
-        //word = info.keyword.wordVersion;
-        //wordTranslation = info.keyword.wordTranslation;
+
+        word = info.keyword.request;
+        // wordTranslation = info.keyword.wordTranslation;
         wordImage = info.keyword.image;
     }
 
