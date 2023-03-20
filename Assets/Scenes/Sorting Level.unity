@@ -415,6 +415,8 @@ MonoBehaviour:
   category: 3
   speed: 300
   bookLocation: 0
+  bookSprite: {fileID: 99610115}
+  interactable: 1
 --- !u!50 &91189362
 Rigidbody2D:
   serializedVersion: 4
@@ -6878,12 +6880,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 62.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7292,12 +7294,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 62.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7588,6 +7590,8 @@ MonoBehaviour:
   category: 3
   speed: 300
   bookLocation: 0
+  bookSprite: {fileID: 3914395}
+  interactable: 1
 --- !u!50 &684400734
 Rigidbody2D:
   serializedVersion: 4
@@ -7850,6 +7854,8 @@ MonoBehaviour:
   category: 3
   speed: 300
   bookLocation: 0
+  bookSprite: {fileID: 1387154598}
+  interactable: 1
 --- !u!50 &750561955
 Rigidbody2D:
   serializedVersion: 4
@@ -8240,10 +8246,13 @@ MonoBehaviour:
   pairedBooks:
   - book1: {fileID: 11400000, guid: 8eae406f397c5ac47861f142f8ce6db6, type: 2}
     book2: {fileID: 11400000, guid: 484ae134306f989488d7fd8e2a1c1a1f, type: 2}
+    pairCategory: 3
   - book1: {fileID: 11400000, guid: 706ae2862bee4d348bd920522b38cb30, type: 2}
     book2: {fileID: 11400000, guid: 24427734172ddcd4997f64132ef8f640, type: 2}
+    pairCategory: 2
   - book1: {fileID: 11400000, guid: ae1774639b88b9b4391df67d570248d2, type: 2}
     book2: {fileID: 11400000, guid: 346a12721015313468a192d49d50130a, type: 2}
+    pairCategory: 1
   stackedBooks:
   - {fileID: 750561954}
   - {fileID: 684400733}
@@ -8337,6 +8346,8 @@ MonoBehaviour:
   category: 3
   speed: 300
   bookLocation: 0
+  bookSprite: {fileID: 621673604}
+  interactable: 1
 --- !u!50 &938929888
 Rigidbody2D:
   serializedVersion: 4
@@ -8392,7 +8403,6 @@ RectTransform:
   - {fileID: 840062440}
   - {fileID: 1525950759}
   - {fileID: 1696125555}
-  - {fileID: 1737894732}
   - {fileID: 1920950586}
   - {fileID: 947828200}
   m_Father: {fileID: 0}
@@ -8497,8 +8507,9 @@ RectTransform:
   - {fileID: 384367027}
   - {fileID: 2000633711}
   - {fileID: 1234559655}
+  - {fileID: 1737894732}
   m_Father: {fileID: 944673172}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19615,6 +19626,8 @@ MonoBehaviour:
   category: 3
   speed: 300
   bookLocation: 0
+  bookSprite: {fileID: 2102330323}
+  interactable: 1
 --- !u!50 &1338827418
 Rigidbody2D:
   serializedVersion: 4
@@ -20189,6 +20202,8 @@ MonoBehaviour:
   category: 3
   speed: 300
   bookLocation: 0
+  bookSprite: {fileID: 1223708797}
+  interactable: 1
 --- !u!50 &1410127797
 Rigidbody2D:
   serializedVersion: 4
@@ -20853,7 +20868,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 24.7
-  m_fontSizeBase: 36
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
@@ -22010,7 +22025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1737894732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22024,13 +22039,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1785034115}
-  m_Father: {fileID: 944673172}
-  m_RootOrder: 3
+  m_Father: {fileID: 947828200}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 980, y: 1819.1637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737894733
 MonoBehaviour:
@@ -27851,7 +27866,7 @@ RectTransform:
   - {fileID: 2110014711}
   - {fileID: 446350367}
   m_Father: {fileID: 944673172}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -29422,7 +29437,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 24.7
-  m_fontSizeBase: 36
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BookStack : MonoBehaviour
 {
@@ -34,6 +35,12 @@ public class BookStack : MonoBehaviour
         Unsorted,
     };
     private SortStatus bookStatus;
+
+    public RawImage bookSprite;
+    public bool interactable = true;
+
+    public delegate void FailAction(bool failed, string name);
+    public static event FailAction OnFailBookSort;
 
     void OnEnable()
     {
@@ -86,8 +93,8 @@ public class BookStack : MonoBehaviour
         if (bookLocation == Location.OnCart)
         {
             StackCover.instance.SetDescriptions(booksInStack[0].bookData.title, booksInStack[1].bookData.title,
-                booksInStack[0].bookData.description, booksInStack[1].bookData.description,
-                booksInStack[0].bookData.keyword.image, booksInStack[1].bookData.keyword.image);
+                                                booksInStack[0].bookData.description, booksInStack[1].bookData.description,
+                                                booksInStack[0].bookData.keyword.image, booksInStack[1].bookData.keyword.image);
             StackCover.instance.OpenCovers();
         }
         else if (bookLocation == Location.OffCart)
@@ -112,13 +119,18 @@ public class BookStack : MonoBehaviour
         if (numOfTries > numOfChances)
         {
             SetColliderStatus(false); // No longer able to interact with this stack of books
+            interactable = false;
+            bookSprite.color = Color.grey;
+            if (OnFailBookSort != null)
+                OnFailBookSort(false, "failed");
         }
     }
     // Called at the start of this part of the game
-    public void SetBooksInStack(BookScriptableObject book1, BookScriptableObject book2)
+    public void SetBooksInStack(BookScriptableObject book1, BookScriptableObject book2, Topics topic)
     {
         booksInStack[0].bookData = book1;
         booksInStack[1].bookData = book2;
+        category = topic;
     }
 
     public void SetColliderStatus(bool isActive)

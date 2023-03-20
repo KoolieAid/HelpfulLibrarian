@@ -14,7 +14,7 @@ public class ClickNDrag : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Collider2D targetObject = Physics2D.OverlapPoint(inputPosition);
-            if (targetObject && !selectedObject && targetObject.CompareTag("BookStacks"))
+            if (targetObject && !selectedObject && targetObject.CompareTag("BookStacks") && targetObject.GetComponent<BookStack>().interactable)
             {
                 selectedObject = targetObject.transform.gameObject;
             }
