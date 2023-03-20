@@ -15,7 +15,7 @@ public class Book : MonoBehaviour
     [SerializeField] private string title;
     [SerializeField] private string word;
     [SerializeField] private string wordTranslation;
-    private Sprite wordImage;
+    [SerializeField] private Sprite wordImage;
     [Multiline(5)]
     [SerializeField] private string description;
     private int spriteIndex;
