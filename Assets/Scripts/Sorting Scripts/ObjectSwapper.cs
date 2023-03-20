@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookshelfManager : MonoBehaviour
+public class ObjectSwapper : MonoBehaviour
 {
     [SerializeField] private int speed;
+    [SerializeField] private int startingPos;
     [SerializeField] private Transform[] movePoints;
     private Vector3[] movePos;
     private Vector3 targetPos;
@@ -22,8 +23,8 @@ public class BookshelfManager : MonoBehaviour
         movePos = pos.ToArray();
 
         lastIndex = movePos.Length - 1;
-        transform.position = movePoints[movePos.Length / 2].position;
-        targetIndex = movePos.Length / 2;
+        transform.position = movePoints[startingPos].position;
+        targetIndex = startingPos;
     }
 
     public void ArrowClicked(int value)
