@@ -14,8 +14,10 @@ public class SortingGameManager : MonoBehaviour
     [SerializeField] private BookStack[] stackedBooks;
 
     private int numOfBooksToSort;
+    private int perfectScore;
+    private int score;
 
-    public delegate void BooksSortAction();
+    public delegate void BooksSortAction(int perfectScore, int score);
     public static event BooksSortAction OnSortAll;
 
     void OnEnable()
@@ -56,6 +58,8 @@ public class SortingGameManager : MonoBehaviour
                 stackedBooks[i].gameObject.SetActive(false);
             }
         }
+
+        perfectScore = numOfBooksToSort;
     }
 
     void BooksToSortTracker(bool isCorrect, string name)
@@ -63,6 +67,7 @@ public class SortingGameManager : MonoBehaviour
         if (isCorrect)
         {
             numOfBooksToSort -= 1;
+            score += 1;
         }
         if (!isCorrect && name == "failed")
         {
@@ -72,10 +77,9 @@ public class SortingGameManager : MonoBehaviour
         if (numOfBooksToSort <= 0)
         {
             if (OnSortAll != null)
-                OnSortAll(); // Done Sorting All Books Event
-
-            Debug.Log("ALL DONE");
+                OnSortAll(perfectScore, score); // Done Sorting All Books Event
         }
-
     }
+
+    
 }
