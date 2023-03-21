@@ -4,8 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public struct BookPairs
 {
-    public BookScriptableObject book1;
-    public BookScriptableObject book2;
+    public BookInfo book1;
+    public BookInfo book2;
     public Topics pairCategory;
 }
 public class SortingGameManager : MonoBehaviour
@@ -37,7 +37,7 @@ public class SortingGameManager : MonoBehaviour
         GetPairedBooks();// testing only
     }
 
-    public void SetLastPairedBooks(BookScriptableObject book1, BookScriptableObject book2, Topics topic)
+    public void SetLastPairedBooks(BookInfo book1, BookInfo book2, Topics topic)
     {
         pairedBooks[pairedBooks.Length].book1 = book1;
         pairedBooks[pairedBooks.Length].book2 = book2;

@@ -8,7 +8,7 @@ public class BookStack : MonoBehaviour
     [System.Serializable]
     private struct books
     {
-        public BookScriptableObject bookData;
+        public BookInfo bookData;
         public BookCover bookCover;
     }
     [SerializeField] private books[] booksInStack = new books[2];
@@ -126,7 +126,7 @@ public class BookStack : MonoBehaviour
         }
     }
     // Called at the start of this part of the game
-    public void SetBooksInStack(BookScriptableObject book1, BookScriptableObject book2, Topics topic)
+    public void SetBooksInStack(BookInfo book1, BookInfo book2, Topics topic)
     {
         booksInStack[0].bookData = book1;
         booksInStack[1].bookData = book2;
