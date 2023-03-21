@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Crow
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: f69b74ff73da1934689019ebea8601f4, type: 3}
-  wordVersion: Uwak
-  wordTranslation: Crow
+  request: Kulay itim na ibon

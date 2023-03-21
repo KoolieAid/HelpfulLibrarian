@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -13,9 +14,9 @@ public class Book : MonoBehaviour
     [SerializeField] private BookCover[] referenceSprites;
     [SerializeField] private Image img;
     [SerializeField] private string title;
-    [SerializeField] private string word;
+    [FormerlySerializedAs("word")] [SerializeField] private string coverTitle;
     [SerializeField] private string wordTranslation;
-    private Sprite wordImage;
+    [SerializeField] private Sprite wordImage;
     [Multiline(5)]
     [SerializeField] private string description;
     private int spriteIndex;
@@ -50,7 +51,7 @@ public class Book : MonoBehaviour
         Cover.instance.OpenCover();
         Cover.instance.SetCoverSprite(bookBackSprite);
         _isShowingDescription = true;
-        Cover.instance.SetDescription(word, wordTranslation, description, wordImage);
+        Cover.instance.SetDescription(coverTitle, wordTranslation, description, wordImage);
     }
 
     public void HideDescription()
@@ -81,7 +82,7 @@ public class Book : MonoBehaviour
         return title;
     }
 
-    public void SetBookInfo(ReaderManager.BookInfo info)
+    public void SetBookInfo(BookInfo info)
     {
         title = info.title;
         textMeshTitle.text = title;
@@ -92,8 +93,8 @@ public class Book : MonoBehaviour
             Debug.LogWarning($"Keyword is null for {info.title}");
             return;
         }
-        word = info.keyword.wordVersion;
-        wordTranslation = info.keyword.wordTranslation;
+
+        coverTitle = info.title;
         wordImage = info.keyword.image;
     }
 

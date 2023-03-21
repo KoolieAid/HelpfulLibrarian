@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Hat
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 1cf92e0dd7c795843bada0a1b4e0fab7, type: 3}
-  wordVersion: Sombrero
-  wordTranslation: Hat
+  request: nilalagay sa itaas ng ulo
