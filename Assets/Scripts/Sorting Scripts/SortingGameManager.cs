@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using Image = UnityEngine.UI.Image;
 
 [System.Serializable]
@@ -9,12 +10,20 @@ public struct BookPairs
     public BookInfo book1;
     public BookInfo book2;
     public Topics pairCategory;
+=======
+[System.Serializable]
+public struct BookPairs
+{
+    public BookScriptableObject book1;
+    public BookScriptableObject book2;
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
 }
 public class SortingGameManager : MonoBehaviour
 {
     [SerializeField] private BookPairs[] pairedBooks;
     [SerializeField] private BookStack[] stackedBooks;
 
+<<<<<<< HEAD
     private int numOfBooksToSort;
     private int perfectScore;
     private int score;
@@ -65,11 +74,19 @@ public class SortingGameManager : MonoBehaviour
     }
 
     public void GetPairedBooks()
+=======
+    private void Start()
+    {
+        GetPairedBooks();// testing only
+    }
+    void GetPairedBooks()
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
     {
         for (int i = 0; i < stackedBooks.Length; i++)
         {
             if (i < pairedBooks.Length)
             {
+<<<<<<< HEAD
                 stackedBooks[i].SetBooksInStack(pairedBooks[i].book1, pairedBooks[i].book2, pairedBooks[i].pairCategory);
                 numOfBooksToSort += 1;
             }
@@ -136,4 +153,15 @@ public class SortingGameManager : MonoBehaviour
     }
 
     
+=======
+                stackedBooks[i].SetBooksInStack(pairedBooks[i].book1, pairedBooks[i].book2);
+            }
+            else
+            {
+                stackedBooks[i].GetComponent<Collider2D>().enabled = false;
+            }
+
+        }
+    }
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
 }

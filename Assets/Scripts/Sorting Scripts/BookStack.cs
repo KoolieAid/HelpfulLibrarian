@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.UI;
+=======
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
 
 public class BookStack : MonoBehaviour
 {
     [System.Serializable]
     private struct books
     {
+<<<<<<< HEAD
         public BookInfo bookData;
+=======
+        public BookScriptableObject bookData;
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
         public BookCover bookCover;
     }
     [SerializeField] private books[] booksInStack = new books[2];
@@ -36,12 +43,15 @@ public class BookStack : MonoBehaviour
     };
     private SortStatus bookStatus;
 
+<<<<<<< HEAD
     public RawImage bookSprite;
     public bool interactable = true;
 
     public delegate void FailAction(bool failed, string name);
     public static event FailAction OnFailBookSort;
 
+=======
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
     void OnEnable()
     {
         Bookshelf.OnSort += SortCheck;
@@ -93,8 +103,13 @@ public class BookStack : MonoBehaviour
         if (bookLocation == Location.OnCart)
         {
             StackCover.instance.SetDescriptions(booksInStack[0].bookData.title, booksInStack[1].bookData.title,
+<<<<<<< HEAD
                                                 booksInStack[0].bookData.description, booksInStack[1].bookData.description,
                                                 booksInStack[0].bookData.keyword.image, booksInStack[1].bookData.keyword.image);
+=======
+                booksInStack[0].bookData.description, booksInStack[1].bookData.description,
+                booksInStack[0].bookData.keyword.image, booksInStack[1].bookData.keyword.image);
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
             StackCover.instance.OpenCovers();
         }
         else if (bookLocation == Location.OffCart)
@@ -119,6 +134,7 @@ public class BookStack : MonoBehaviour
         if (numOfTries > numOfChances)
         {
             SetColliderStatus(false); // No longer able to interact with this stack of books
+<<<<<<< HEAD
             interactable = false;
             bookSprite.color = Color.grey;
             if (OnFailBookSort != null)
@@ -131,6 +147,15 @@ public class BookStack : MonoBehaviour
         booksInStack[0].bookData = book1;
         booksInStack[1].bookData = book2;
         category = topic;
+=======
+        }
+    }
+    // Called at the start of this part of the game
+    public void SetBooksInStack(BookScriptableObject book1, BookScriptableObject book2)
+    {
+        booksInStack[0].bookData = book1;
+        booksInStack[1].bookData = book2;
+>>>>>>> 9835f7587c216599e86b832458db9a9f7b94088c
     }
 
     public void SetColliderStatus(bool isActive)
