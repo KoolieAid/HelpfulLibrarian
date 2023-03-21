@@ -134,6 +134,4 @@ public class SortingGameManager : MonoBehaviour
             timerIsPaused = true;
         }
     }
-
-    
 }
