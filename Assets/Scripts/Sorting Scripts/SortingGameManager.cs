@@ -53,8 +53,8 @@ public class SortingGameManager : MonoBehaviour
     private void Start()
     {
         GetPairedBooks();// testing only, should be called by main Game Mgr
-        //StartTimer(); // testing only, should be called by main Game Mgr
-        StartCoroutine("StartTimer");
+        StartCoroutine("StartTimer");// testing only, should be called by main Game Mgr
+
     }
 
     public void SetLastPairedBooks(BookInfo book1, BookInfo book2, Topics topic)
@@ -81,13 +81,19 @@ public class SortingGameManager : MonoBehaviour
 
         perfectScore = numOfBooksToSort;
     }
+
     IEnumerator StartTimer()
     {
-        Debug.Log("StartTimer()");
         currentTime = initialTime;
 
         while (true)
-        {
+        {   
+            if (currentTime <= 0 || timerIsPaused)
+            {
+                if (OnSortAll != null)
+                    OnSortAll(perfectScore, score);
+                yield break;
+            }
             var greenFill = timerBarFill.color;
             currentTime -= 1.0f;
             
@@ -102,12 +108,7 @@ public class SortingGameManager : MonoBehaviour
 
             timerBarFill.color = bg;
 
-            if (currentTime <= 0 || timerIsPaused)
-            {
-                if (OnSortAll != null)
-                    OnSortAll(perfectScore, score);
-                yield break;
-            }
+            
             yield return new WaitForSeconds(1.0f);
         }
         
