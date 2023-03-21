@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Image = UnityEngine.UI.Image;
+
 [System.Serializable]
 public struct BookPairs
 {
@@ -17,6 +19,20 @@ public class SortingGameManager : MonoBehaviour
     private int perfectScore;
     private int score;
 
+    [Header("Timer Variables")]
+    [SerializeField] private Image timerBarFill;
+    [SerializeField] private float initialTime;
+    private float currentTime;
+    private bool timerIsPaused = false;
+
+    [Header("Timer Bar Aesthetics")]
+    [SerializeField] private Color blueFill;
+    [SerializeField] private Color yellowFill;
+    [SerializeField] private Color redFill;
+    [SerializeField] [Range(0, 1)] private float blueThreshold;
+    [SerializeField] [Range(0, 1)] private float yellowThreshold;
+    [SerializeField] [Range(0, 1)] private float redThreshold;
+
     public delegate void BooksSortAction(int perfectScore, int score);
     public static event BooksSortAction OnSortAll;
 
@@ -32,9 +48,13 @@ public class SortingGameManager : MonoBehaviour
     }
 
 
+
+
     private void Start()
     {
-        GetPairedBooks();// testing only
+        GetPairedBooks();// testing only, should be called by main Game Mgr
+        //StartTimer(); // testing only, should be called by main Game Mgr
+        StartCoroutine("StartTimer");
     }
 
     public void SetLastPairedBooks(BookInfo book1, BookInfo book2, Topics topic)
@@ -61,6 +81,37 @@ public class SortingGameManager : MonoBehaviour
 
         perfectScore = numOfBooksToSort;
     }
+    IEnumerator StartTimer()
+    {
+        Debug.Log("StartTimer()");
+        currentTime = initialTime;
+
+        while (true)
+        {
+            var greenFill = timerBarFill.color;
+            currentTime -= 1.0f;
+            
+
+            timerBarFill.fillAmount = currentTime / initialTime;
+
+            var bg = redFill;
+
+            bg = Color.Lerp(bg, yellowFill, System.Convert.ToSingle(timerBarFill.fillAmount >= redThreshold));
+            bg = Color.Lerp(bg, blueFill, System.Convert.ToSingle(timerBarFill.fillAmount >= yellowThreshold));
+            bg = Color.Lerp(bg, greenFill, System.Convert.ToSingle(timerBarFill.fillAmount >= blueThreshold));
+
+            timerBarFill.color = bg;
+
+            if (currentTime <= 0 || timerIsPaused)
+            {
+                if (OnSortAll != null)
+                    OnSortAll(perfectScore, score);
+                yield break;
+            }
+            yield return new WaitForSeconds(1.0f);
+        }
+        
+    }
 
     void BooksToSortTracker(bool isCorrect, string name)
     {
@@ -78,6 +129,8 @@ public class SortingGameManager : MonoBehaviour
         {
             if (OnSortAll != null)
                 OnSortAll(perfectScore, score); // Done Sorting All Books Event
+
+            timerIsPaused = true;
         }
     }
 
