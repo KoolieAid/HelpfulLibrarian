@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Violet Book
   m_EditorClassIdentifier: 
   bookFront: {fileID: 21300000, guid: 07b7ba5fcd386c84897bbf70587a96d3, type: 3}
-  bookBack: {fileID: 21300000, guid: 92e7ae51b8cb9ef4a957be5dbb9c040a, type: 3}
+  bookBack: {fileID: 21300000, guid: 366ae645a5c9a6045969efa6727ce570, type: 3}

@@ -6,10 +6,6 @@ using UnityEngine;
 public class Keyword : ScriptableObject
 {
     public Sprite image;
+    public string request;
     
-    [Tooltip("Filipino Version")]
-    public string wordVersion;
-    
-    [Tooltip("English Version")]
-    public string wordTranslation;
 }

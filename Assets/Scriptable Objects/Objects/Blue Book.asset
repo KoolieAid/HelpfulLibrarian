@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Blue Book
   m_EditorClassIdentifier: 
   bookFront: {fileID: 21300000, guid: 2d4fa5a05611e7a43bae7816c3031bdd, type: 3}
-  bookBack: {fileID: 21300000, guid: 743eba8eae54c2947952aa34ec50c736, type: 3}
+  bookBack: {fileID: 21300000, guid: 9ae4336ae81e0cc48b909f32fa634db0, type: 3}

@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Image = UnityEngine.UI.Image;
 
 public class Reader : MonoBehaviour
@@ -11,7 +13,7 @@ public class Reader : MonoBehaviour
     public static Reader Instance;
 
     [SerializeField] private GameObject dialog;
-    [SerializeField] private Image imageComp;
+    [FormerlySerializedAs("imageComp")] [SerializeField] private TextMeshProUGUI readerReq;
     [SerializeField] public Image face;
     public string requestedTitle;
 
@@ -88,9 +90,9 @@ public class Reader : MonoBehaviour
         dialog.SetActive(b);
     }
 
-    public void SetRequestImage(Sprite img)
+    public void SetRequestText(string text)
     {
-        imageComp.sprite = img;
+        readerReq.text = text;
     }
 
     public void DeductPatience()

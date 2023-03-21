@@ -9,19 +9,19 @@ public class Level : ScriptableObject
 {
     [Tooltip("Theres a chance that one of these are going into the wrong answer section")]
     [SerializeField]
-    private List<ReaderManager.BookInfo> correctAnswers = new();
+    private List<BookInfo> correctAnswers = new();
 
     [Tooltip("This will NEVER become a correct answer")]
     [SerializeField]
-    private List<ReaderManager.BookInfo> wrongAnswers = new();
+    private List<BookInfo> wrongAnswers = new();
 
-    public ReadOnlyCollection<ReaderManager.BookInfo> GetCorrectAnswers()
+    public ReadOnlyCollection<BookInfo> GetCorrectAnswers()
     {
-        return new ReadOnlyCollection<ReaderManager.BookInfo>(correctAnswers);
+        return new ReadOnlyCollection<BookInfo>(correctAnswers);
     }
 
-    public ReadOnlyCollection<ReaderManager.BookInfo> GetWrongAnswers()
+    public ReadOnlyCollection<BookInfo> GetWrongAnswers()
     {
-        return new ReadOnlyCollection<ReaderManager.BookInfo>(wrongAnswers);
+        return new ReadOnlyCollection<BookInfo>(wrongAnswers);
     }
 }

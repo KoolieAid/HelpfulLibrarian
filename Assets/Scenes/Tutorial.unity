@@ -130,118 +130,95 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 155745823}
     m_Modifications:
-    - target: {fileID: 8385512026773094903, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094903, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: incrementAmount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094906, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094906, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_Name
       value: ReaderPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_SizeDelta.x
       value: 342
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_SizeDelta.y
       value: 386
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -295
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 129
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-        type: 3}
+    - target: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -308,8 +285,7 @@ MonoBehaviour:
   m_text: MAIN MENU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -992,8 +968,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1128,8 +1103,7 @@ MonoBehaviour:
   m_text: RETRY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1305,8 +1279,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 237119272}
   title: Kwento ng Araw
-  word: Araw
+  word: Kwento ng Araw
   wordTranslation: Sun
+  wordImage: {fileID: 21300000, guid: 4fb4061348d780d49a14c09e82f5eef8, type: 3}
   description: Nagsisilbi itong ilaw sa umaga at hapon at naglalabas ng init. Nagbibigay
     buhay ang init nito sa lahat ng mga nilalang tulad ng mga tao, hayop at halaman.
 --- !u!114 &237119275
@@ -1504,7 +1479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &381796872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6556,8 +6531,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7065,8 +7039,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.79, y: -109.7}
-  m_SizeDelta: {x: 265.9, y: 240.98}
+  m_AnchoredPosition: {x: -8.79, y: -182.34306}
+  m_SizeDelta: {x: 265.9, y: 163.5467}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784497728
 MonoBehaviour:
@@ -7090,9 +7064,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7123,7 +7096,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7227,8 +7200,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7489,8 +7461,7 @@ MonoBehaviour:
   m_text: Your first job will is to help visitors find the books that they want
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7760,8 +7731,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7853,7 +7823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.3, y: 305}
+  m_AnchoredPosition: {x: 0, y: 97}
   m_SizeDelta: {x: 390.9, y: 94.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &988278983
@@ -7917,8 +7887,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8162,8 +8131,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1048429604}
   title: Alamat ng Pinya
-  word: Pinya
+  word: Alamat ng Pinya
   wordTranslation: Pineapple
+  wordImage: {fileID: 21300000, guid: 9d1ecc6e8e02938498aa3ee3b7cf1e97, type: 3}
   description: Prutas na mayroong maraming tusok at matutulis na dahon. Kapag ito'y
     binuksan, kulay dilaw at matamis ang loob ng prutas na ito.
 --- !u!114 &1048429608
@@ -8279,6 +8249,82 @@ MonoBehaviour:
       Value: {fileID: 530076208}
     - Key: X
       Value: {fileID: 1499714338}
+--- !u!1 &1083058897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083058898}
+  - component: {fileID: 1083058900}
+  - component: {fileID: 1083058899}
+  m_Layer: 5
+  m_Name: BookReq Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1083058898
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083058897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1670694668}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.3645, y: 252.5619}
+  m_SizeDelta: {x: 197.6447, y: 177.9202}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1083058899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083058897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9d1ecc6e8e02938498aa3ee3b7cf1e97, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1083058900
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083058897}
+  m_CullTransparentMesh: 1
 --- !u!1 &1098468855
 GameObject:
   m_ObjectHideFlags: 0
@@ -8499,8 +8545,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8784,8 +8829,7 @@ MonoBehaviour:
   m_text: Place Text Here
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8961,8 +9005,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1216775518}
   title: Alamat ng Aso
-  word: Aso
+  word: Alamat ng Aso
   wordTranslation: Dog
+  wordImage: {fileID: 21300000, guid: 0e5dcdb7f1a268c44bd6d1ae817fedfb, type: 3}
   description: 'Mabalahibong hayop na mayroong apat na paa at buntot. Ito ay karaniwang
     ginagawang alaga o bantay sa mga bahay at madalas itong tumatahol.  '
 --- !u!114 &1216775521
@@ -9120,10 +9165,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onConfirm:
     m_PersistentCalls:
-      m_Calls: [{m_Target: {fileID: 0}, m_TargetAssemblyTypeName: '', m_MethodName: '',
-          m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: '',
-            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '', m_BoolArgument: 0},
-          m_CallState: 2}]
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1222565046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9223,8 +9277,7 @@ MonoBehaviour:
   m_text: Tittle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9327,7 +9380,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: [{fileID: 1148332525}]
+  m_Children:
+  - {fileID: 1148332525}
   m_Father: {fileID: 155745823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14558,8 +14612,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19756,6 +19809,7 @@ RectTransform:
   - {fileID: 981839186}
   - {fileID: 784497727}
   - {fileID: 1680538230}
+  - {fileID: 1083058898}
   m_Father: {fileID: 1843065385}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19780,6 +19834,7 @@ MonoBehaviour:
   titleText: {fileID: 981839184}
   titleTranslationText: {fileID: 2106675102}
   bodyText: {fileID: 784497728}
+  subjImage: {fileID: 1083058899}
 --- !u!114 &1670694670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19800,7 +19855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 743eba8eae54c2947952aa34ec50c736, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ae4336ae81e0cc48b909f32fa634db0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20065,8 +20120,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1709569542}
   title: 'Kwento ng Uwak '
-  word: Uwak
+  word: 'Kwento ng Uwak '
   wordTranslation: Crow
+  wordImage: {fileID: 21300000, guid: f69b74ff73da1934689019ebea8601f4, type: 3}
   description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
     na kuko at tuka. Mahilig ito kumain ng prutas.
 --- !u!114 &1709569545
@@ -20347,11 +20403,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1755207633}
   title: Doding Daga
-  word: Daga
+  word: Doding Daga
   wordTranslation: Rat
+  wordImage: {fileID: 21300000, guid: 435076488b3f8f3438fd0db45e8c4e8d, type: 3}
   description: "Isang maliit na hayop na mayroong mahabang buntot at nguso at kalat-kalat
-    ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala ng
-    iba\u2019t ibang mga sakit."
+    ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala
+    ng iba\u2019t ibang mga sakit."
 --- !u!114 &1755207636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20665,8 +20722,7 @@ MonoBehaviour:
   m_text: '"Mahusay! Natapos mo na ang tutorial! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25654,10 +25710,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1893373493}
   title: 'Alamat ng Bawang '
-  word: Bawang
+  word: 'Alamat ng Bawang '
   wordTranslation: Garlic
-  description: 'Halamang gulay na mayroong malakas na amoy at karaniwang sangkap sa
-    pagluluto at ginagamit rin ito sa panggagamot. '
+  wordImage: {fileID: 21300000, guid: 8428ab8d27df1e746a7c6dcc17440874, type: 3}
+  description: 'Halamang gulay na mayroong malakas na amoy at karaniwang sangkap
+    sa pagluluto at ginagamit rin ito sa panggagamot. '
 --- !u!114 &1893373496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25980,8 +26037,7 @@ MonoBehaviour:
   m_text: 'Gusto mo ba ibigay ang librong ito? '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26096,8 +26152,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -26188,13 +26243,12 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -82}
+  m_AnchoredPosition: {x: -766, y: -82}
   m_SizeDelta: {x: 275.6, y: 72.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8385512026768972531 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8385512026773094903, guid: 8e603eff96018a54bbfbc41867f13ddb,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 8385512026773094903, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
   m_PrefabInstance: {fileID: 13048580}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -26205,7 +26259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!224 &8385512026768972543 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 8385512026773094907, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
   m_PrefabInstance: {fileID: 13048580}
   m_PrefabAsset: {fileID: 0}
