@@ -7,7 +7,7 @@ namespace Memory_Game
 {
     public class GameManager : MonoBehaviour
     {
-        private Stack<GameObject> memory = new(2);
+        private Stack<Mem_Book> memory = new(2);
 
         public void PrintMemory()
         {
@@ -20,7 +20,7 @@ namespace Memory_Game
             Debug.Log(builder);
         }
 
-        public void Pick(GameObject obj)
+        public void Pick(Mem_Book obj)
         {
             if (memory.Count >= 2)
             {
@@ -43,11 +43,16 @@ namespace Memory_Game
             {
                 // Compare both items in memory
                 Debug.Log("Compare time");
+                Compare();
             }
         }
 
         public void DiscardAll()
         {
+            foreach (var book in memory)
+            {
+                book.FlipOver();
+            }
             memory.Clear();
         }
 
@@ -64,6 +69,7 @@ namespace Memory_Game
             
             // TODO: Actual comparison
             
+            // DiscardAll();
         }
     }
 }

@@ -1,11 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Asyncoroutine;
+using UnityEngine.Events;
 
 public class Mem_Book : MonoBehaviour
 {
-	private Camera _camera;
+    // Don't ever edit this
+    private enum FlipState
+    {
+        Cover = 0,
+        Back = 180,
+    }
     
+	private Camera _camera;
+    private bool isFlipping;
+    [SerializeField] private FlipState state = FlipState.Cover;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] [Range(0, 1)] private float rotationPrecision = 1f;
+
+    public UnityEvent<Mem_Book> onTouch;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +31,32 @@ public class Mem_Book : MonoBehaviour
     {
         if (!Input.GetMouseButtonDown(0)) return;
         
-        Debug.Log("yo");
+        FlipOver();
+        onTouch.Invoke(this);
+    }
+
+    public async void FlipOver()
+    {
+        if (isFlipping) return;
+        isFlipping = true;
+
+        var targetState = state == FlipState.Cover ? FlipState.Back : FlipState.Cover;
+        var targetRotation = Quaternion.Euler(0, (float)targetState, 0);
+        for (;;)
+        {
+            await new WaitForEndOfFrame();
+            state = targetState;
+
+            var currentRotation = transform.localRotation;
+            var output = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime * 10f);
+            transform.localRotation = output;
+
+            if (Mathf.Abs((float)targetState - transform.localRotation.eulerAngles.y) < rotationPrecision)
+            {
+                break;
+            }
+        }
         
-        // var r = _camera.ScreenPointToRay(Input.mousePosition);
-        //
-        // if (Physics.Raycast(r, out RaycastHit hit))
-        // {
-        //     Debug.Log($"{hit.collider.name}");
-        // }
-        // else
-        // {
-        //     Debug.Log("wala");
-        // }
+        isFlipping = false;
     }
 }
