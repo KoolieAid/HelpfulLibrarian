@@ -19,12 +19,13 @@ public class StackCover : MonoBehaviour
     [SerializeField] private bookCovers[] bookCoversInStack = new bookCovers[2];
 
     public bool isOpen;
+    [SerializeField] private GameObject covers;
 
     private void Start()
     {
         instance = this;
         isOpen = false;
-        gameObject.SetActive(false);
+        CloseCovers();
     }
 
     public void SetCoverSprites(Sprite renderSprite1, Sprite renderSprite2)
@@ -46,13 +47,15 @@ public class StackCover : MonoBehaviour
 
     public void OpenCovers()
     {
-        gameObject.SetActive(true);
+        covers.SetActive(true);
+        //covers.transform.position = new Vector3(0, 0, 0);
         isOpen = true;
     }
 
     public void CloseCovers()
     {
         isOpen = false;
-        gameObject.SetActive(false);
+        covers.SetActive(false);
+        //covers.transform.position = new Vector3(0, 2000, 0);
     }
 }

@@ -31,12 +31,12 @@ public class BookStack : MonoBehaviour
 
     private enum SortStatus
     {
-        Sorted,
         Unsorted,
+        Sorted,
     };
     private SortStatus bookStatus;
 
-    public RawImage bookSprite;
+    public Image bookSprite;
     public bool interactable = true;
 
     public delegate void FailAction(bool failed, string name);
@@ -90,8 +90,10 @@ public class BookStack : MonoBehaviour
 
     public void BookClicked()
     {
+
         if (bookLocation == Location.OnCart)
         {
+            StackCover.instance.SetCoverSprites(booksInStack[0].bookCover.bookBack, booksInStack[1].bookCover.bookBack);
             StackCover.instance.SetDescriptions(booksInStack[0].bookData.title, booksInStack[1].bookData.title,
                                                 booksInStack[0].bookData.description, booksInStack[1].bookData.description,
                                                 booksInStack[0].bookData.keyword.image, booksInStack[1].bookData.keyword.image);
@@ -110,6 +112,7 @@ public class BookStack : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
     }
 
     void TryCounter()
