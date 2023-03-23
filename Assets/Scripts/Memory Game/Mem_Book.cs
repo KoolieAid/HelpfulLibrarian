@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using Asyncoroutine;
 using UnityEngine.Events;
@@ -12,8 +14,8 @@ public class Mem_Book : MonoBehaviour
         Cover = 0,
         Back = 180,
     }
-    
-	private Camera _camera;
+
+    private Camera _camera;
     private bool isFlipping;
     [SerializeField] private FlipState state = FlipState.Cover;
     [SerializeField] private float speed = 10f;
@@ -21,20 +23,24 @@ public class Mem_Book : MonoBehaviour
 
     public UnityEvent<Mem_Book> onTouch;
 
+    [SerializeField] private BookInfo info;
+
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
     }
-	
-    void OnMouseOver()
+
+    async void OnMouseOver()
     {
         if (!Input.GetMouseButtonDown(0)) return;
-        
+
         FlipOver();
+        await new WaitUntil(() => !isFlipping);
         onTouch.Invoke(this);
     }
 
+    // Only for visual
     public async void FlipOver()
     {
         if (isFlipping) return;
@@ -56,7 +62,7 @@ public class Mem_Book : MonoBehaviour
                 break;
             }
         }
-        
+
         isFlipping = false;
     }
 }

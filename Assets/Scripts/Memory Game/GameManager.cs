@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,9 @@ namespace Memory_Game
 {
     public class GameManager : MonoBehaviour
     {
-        private Stack<Mem_Book> memory = new(2);
+        private Stack<Mem_Book> memory = new();
+
+        public int size;
 
         public void PrintMemory()
         {
@@ -18,6 +21,11 @@ namespace Memory_Game
                 builder.Append("\n");
             }
             Debug.Log(builder);
+        }
+
+        private void Update()
+        {
+            size = memory.Count;
         }
 
         public void Pick(Mem_Book obj)
@@ -34,6 +42,8 @@ namespace Memory_Game
             if (memory.Contains(obj))
             {
                 Debug.Log("Item is already in memory, pick a new one");
+                // obj.FlipOver();
+                memory.ForceRemove(obj);
                 return;
             }
             
@@ -68,8 +78,12 @@ namespace Memory_Game
             }
             
             // TODO: Actual comparison
-            
+            // PrintMemory();
             // DiscardAll();
+
+            var first = copy[0];
+            var sec = copy[1];
+            
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Asyncoroutine
 {
@@ -48,9 +49,15 @@ namespace Asyncoroutine
             return new AwaiterCoroutine<WaitWhile>(waitWhile);
         }
 
-        public static AwaiterCoroutine<WWW> GetAwaiter(this WWW www)
+        // public static AwaiterCoroutine<WWW> GetAwaiter(this WWW www)
+        // {
+        //     return new AwaiterCoroutine<WWW>(www);
+        // }
+        //
+        
+        public static AwaiterCoroutine<UnityWebRequest> GetAwaiter(this UnityWebRequest www)
         {
-            return new AwaiterCoroutine<WWW>(www);
+            return new AwaiterCoroutine<UnityWebRequest>(www);
         }
 
         public static AwaiterCoroutine<AsyncOperation> GetAwaiter(this AsyncOperation asyncOperation)
