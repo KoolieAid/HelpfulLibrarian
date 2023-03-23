@@ -76,14 +76,21 @@ namespace Memory_Game
                 PrintMemory();
                 return;
             }
-            
-            // TODO: Actual comparison
-            // PrintMemory();
-            // DiscardAll();
 
             var first = copy[0];
             var sec = copy[1];
-            
+            if (first.info == sec.info)
+            {
+                foreach (var b in copy)
+                {
+                    b.Lock();
+                }
+                memory.Clear();
+            }
+            else
+            {
+                DiscardAll();
+            }
         }
     }
 }

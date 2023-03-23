@@ -17,13 +17,14 @@ public class Mem_Book : MonoBehaviour
 
     private Camera _camera;
     private bool isFlipping;
+    private bool isLocked = false;
     [SerializeField] private FlipState state = FlipState.Cover;
     [SerializeField] private float speed = 10f;
-    [SerializeField] [Range(0, 1)] private float rotationPrecision = 1f;
+    [SerializeField] [Range(0, 2)] private float rotationPrecision = 1f;
 
     public UnityEvent<Mem_Book> onTouch;
 
-    [SerializeField] private BookInfo info;
+    public BookInfo info;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class Mem_Book : MonoBehaviour
     async void OnMouseOver()
     {
         if (!Input.GetMouseButtonDown(0)) return;
+        if (isLocked) return;
 
         FlipOver();
         await new WaitUntil(() => !isFlipping);
@@ -54,15 +56,20 @@ public class Mem_Book : MonoBehaviour
             state = targetState;
 
             var currentRotation = transform.localRotation;
-            var output = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime * 10f);
+            var output = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime * speed);
             transform.localRotation = output;
 
-            if (Mathf.Abs((float)targetState - transform.localRotation.eulerAngles.y) < rotationPrecision)
+            if (Mathf.Abs((float)targetState - transform.localRotation.eulerAngles.y) <= rotationPrecision)
             {
                 break;
             }
         }
 
         isFlipping = false;
+    }
+
+    public void Lock()
+    {
+        isLocked = true;
     }
 }
