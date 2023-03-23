@@ -23,7 +23,8 @@ public class UIManager : MonoBehaviour
     {
         if (statusPanel)
             statusPanel.SetActive(false);
-        SetUpStarScore();
+        if (starScore)
+            SetUpStarScore();
     }
 
     public void OnBackButtonClicked()

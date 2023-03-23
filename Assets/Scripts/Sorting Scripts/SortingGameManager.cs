@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
+using System;
 
 [System.Serializable]
 public struct BookPairs
@@ -33,22 +34,18 @@ public class SortingGameManager : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float yellowThreshold;
     [SerializeField] [Range(0, 1)] private float redThreshold;
 
-    public delegate void BooksSortAction(int perfectScore, int score);
-    public static event BooksSortAction OnSortAll;
+    public static Action<int, int> OnGameEnd;
 
     void OnEnable()
     {
         Bookshelf.OnSort += BooksToSortTracker;
-        BookStack.OnFailBookSort += BooksToSortTracker;
+        BookStack.OnFailBook += BooksToSortTracker;
     }
     void OnDisable()
     {
         Bookshelf.OnSort -= BooksToSortTracker;
-        BookStack.OnFailBookSort -= BooksToSortTracker;
+        BookStack.OnFailBook -= BooksToSortTracker;
     }
-
-
-
 
     private void Start()
     {
@@ -90,8 +87,8 @@ public class SortingGameManager : MonoBehaviour
         {   
             if (currentTime <= 0 || timerIsPaused)
             {
-                if (OnSortAll != null)
-                    OnSortAll(perfectScore, score);
+                if (OnGameEnd != null)
+                    OnGameEnd(perfectScore, score);
                 yield break;
             }
             var greenFill = timerBarFill.color;
@@ -128,8 +125,8 @@ public class SortingGameManager : MonoBehaviour
 
         if (numOfBooksToSort <= 0)
         {
-            if (OnSortAll != null)
-                OnSortAll(perfectScore, score); // Done Sorting All Books Event
+            if (OnGameEnd != null)
+                OnGameEnd(perfectScore, score);
 
             timerIsPaused = true;
         }

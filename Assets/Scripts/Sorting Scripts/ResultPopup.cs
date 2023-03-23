@@ -19,11 +19,11 @@ public class ResultPopup : MonoBehaviour
 
     void OnEnable()
     {
-        SortingGameManager.OnSortAll += ShowResults;
+        SortingGameManager.OnGameEnd += ShowResults;
     }
     void OnDisable()
     {
-        SortingGameManager.OnSortAll -= ShowResults;
+        SortingGameManager.OnGameEnd -= ShowResults;
     }
 
     void ShowResults(int value1, int value2)

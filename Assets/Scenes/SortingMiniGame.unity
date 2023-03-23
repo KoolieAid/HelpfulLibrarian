@@ -1533,9 +1533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booksInStack:
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   category: 0
   speed: 300
@@ -2054,9 +2054,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booksInStack:
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: bae748a82a2058e4bbe2c1c20563e99c, type: 2}
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: bae748a82a2058e4bbe2c1c20563e99c, type: 2}
   category: 0
   speed: 300
@@ -2706,9 +2706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booksInStack:
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: ef5aa5f4d8694c543b67a65bcf2e2e68, type: 2}
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: ef5aa5f4d8694c543b67a65bcf2e2e68, type: 2}
   category: 0
   speed: 300
@@ -3136,9 +3136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booksInStack:
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: a648118d29f820d4b81e22c3268cf09a, type: 2}
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: a648118d29f820d4b81e22c3268cf09a, type: 2}
   category: 0
   speed: 300
@@ -3989,9 +3989,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booksInStack:
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: 75d0e00c36588ce4c832b72b18ed66d6, type: 2}
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: 75d0e00c36588ce4c832b72b18ed66d6, type: 2}
   category: 0
   speed: 300
@@ -5131,9 +5131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booksInStack:
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: 94048930d7449b643b96bee417747820, type: 2}
-  - bookData: {fileID: 0}
+  - bookInfo: {fileID: 0}
     bookCover: {fileID: 11400000, guid: 94048930d7449b643b96bee417747820, type: 2}
   category: 0
   speed: 300
@@ -5881,6 +5881,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pairedBooks:
+  - book1: {fileID: 11400000, guid: 85c171e488d90384dbf700e1973af8da, type: 2}
+    book2: {fileID: 11400000, guid: ec06c5b2f0f0a564e8b9756128f6c488, type: 2}
+    pairCategory: 3
   - book1: {fileID: 11400000, guid: 85c171e488d90384dbf700e1973af8da, type: 2}
     book2: {fileID: 11400000, guid: ec06c5b2f0f0a564e8b9756128f6c488, type: 2}
     pairCategory: 3

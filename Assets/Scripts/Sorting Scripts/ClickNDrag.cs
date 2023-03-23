@@ -8,11 +8,11 @@ public class ClickNDrag : MonoBehaviour
     private bool isPlayable = true;
     void OnEnable()
     {
-        SortingGameManager.OnSortAll += StopInput;
+        SortingGameManager.OnGameEnd += StopInput;
     }
     void OnDisable()
     {
-        SortingGameManager.OnSortAll -= StopInput;
+        SortingGameManager.OnGameEnd -= StopInput;
     }
 
     void StopInput(int value1, int value2)
