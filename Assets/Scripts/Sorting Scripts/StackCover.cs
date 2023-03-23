@@ -19,40 +19,42 @@ public class StackCover : MonoBehaviour
     [SerializeField] private bookCovers[] bookCoversInStack = new bookCovers[2];
 
     public bool isOpen;
+    [SerializeField] private GameObject covers;
 
     private void Start()
     {
         instance = this;
         isOpen = false;
-        gameObject.SetActive(false);
+        CloseCovers();
     }
 
-    public void SetCoverSprites(Sprite renderSprite1, Sprite renderSprite2)
+    public void SetCoverData(BookSet bookSet1, BookSet bookSet2)
     {
-        bookCoversInStack[0].img.sprite = renderSprite1;
-        bookCoversInStack[1].img.sprite = renderSprite2;
+        bookCoversInStack[0].img.sprite = bookSet1.bookCover.bookBack;
+        SetDescription(0, bookSet1.bookInfo.title, bookSet1.bookInfo.description, bookSet1.bookInfo.keyword.image);
+
+        bookCoversInStack[1].img.sprite = bookSet2.bookCover.bookBack;
+        SetDescription(1, bookSet2.bookInfo.title, bookSet2.bookInfo.description, bookSet2.bookInfo.keyword.image);
     }
 
-    public void SetDescriptions(string title1, string title2, string desc1, string desc2, Sprite image1, Sprite image2)
+    void SetDescription(int index, string title, string description, Sprite image)
     {
-        bookCoversInStack[0].titleText.text = title1;
-        bookCoversInStack[0].bodyText.text = desc1;
-        bookCoversInStack[0].subjImage.sprite = image1;
-
-        bookCoversInStack[1].titleText.text = title2;
-        bookCoversInStack[1].bodyText.text = desc2;
-        bookCoversInStack[1].subjImage.sprite = image2;
+        bookCoversInStack[index].titleText.text = title;
+        bookCoversInStack[index].bodyText.text = description;
+        bookCoversInStack[index].subjImage.sprite = image;
     }
 
     public void OpenCovers()
     {
-        gameObject.SetActive(true);
+        covers.SetActive(true);
+        //covers.transform.position = new Vector3(0, 0, 0);
         isOpen = true;
     }
 
     public void CloseCovers()
     {
         isOpen = false;
-        gameObject.SetActive(false);
+        covers.SetActive(false);
+        //covers.transform.position = new Vector3(0, 2000, 0);
     }
 }
