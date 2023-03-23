@@ -36,7 +36,8 @@ public class Mem_Book : MonoBehaviour
     {
         if (!Input.GetMouseButtonDown(0)) return;
         if (isLocked) return;
-
+        
+        if (isFlipping) return;
         FlipOver();
         await new WaitUntil(() => !isFlipping);
         onTouch.Invoke(this);
@@ -45,7 +46,6 @@ public class Mem_Book : MonoBehaviour
     // Only for visual
     public async void FlipOver()
     {
-        if (isFlipping) return;
         isFlipping = true;
 
         var targetState = state == FlipState.Cover ? FlipState.Back : FlipState.Cover;

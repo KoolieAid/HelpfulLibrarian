@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   speed: 10
-  rotationPrecision: 0.159
+  rotationPrecision: 1
   onTouch:
     m_PersistentCalls:
       m_Calls:
@@ -1739,7 +1739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   speed: 10
-  rotationPrecision: 0.159
+  rotationPrecision: 1
   onTouch:
     m_PersistentCalls:
       m_Calls:
@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   speed: 10
-  rotationPrecision: 0.159
+  rotationPrecision: 1
   onTouch:
     m_PersistentCalls:
       m_Calls:
