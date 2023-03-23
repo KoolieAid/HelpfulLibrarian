@@ -23,7 +23,6 @@ public class MainMenuScript : MonoBehaviour
         {
             levelSelectButton.interactable = true;
         }
-        
     }
 
     public void PlayButtonClicked()
