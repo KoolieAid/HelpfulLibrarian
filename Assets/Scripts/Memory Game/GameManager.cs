@@ -41,7 +41,7 @@ namespace Memory_Game
 
             if (memory.Contains(obj))
             {
-                Debug.Log("Item is already in memory, pick a new one");
+                // Debug.Log("Item is already in memory, pick a new one");
                 // obj.FlipOver();
                 memory.ForceRemove(obj);
                 return;

@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using Asyncoroutine;
 using UnityEngine.Events;
 
-public class Mem_Book : MonoBehaviour
+public abstract class Mem_Book : MonoBehaviour
 {
     // Don't ever edit this
     private enum FlipState
@@ -30,7 +27,10 @@ public class Mem_Book : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
+        SetUp();
     }
+
+    public abstract void SetUp();
 
     async void OnMouseOver()
     {

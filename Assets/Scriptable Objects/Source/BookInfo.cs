@@ -11,6 +11,9 @@ public class BookInfo : ScriptableObject
     [TextArea(3, 4)]
     public string description;
 
+    [Tooltip("The word to be highlighted in the title. NEEDS TO BE PRESENT")]
+    public string highlightWord;
+
     public static bool operator==(BookInfo a, BookInfo b)
     {
         if (Equals(a, b)) return true;
