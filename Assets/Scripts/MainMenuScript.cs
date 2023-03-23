@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -13,17 +14,23 @@ public class MainMenuScript : MonoBehaviour
 
     public Button levelSelectButton;
 
+    [Header("Level Buttons")]
+    public Button[] levelButtons;
+
     private void Start()
     {
         if (GameManager.instance.tutorialIsDone)
         {
             levelSelectButton.interactable = true;
         }
+        
     }
 
     public void PlayButtonClicked()
     {
         ActivatePanel(gamemodePanel.name);
+        
+        UnlockLevelButtons();
     }
     public void CreditButtonClicked()
     {
@@ -60,5 +67,19 @@ public class MainMenuScript : MonoBehaviour
     public void SelectLevel(int levelNumber)
     {
         GameManager.instance.levelManager.LoadLevel(levelNumber);
+    }
+
+    private void UnlockLevelButtons()
+    {
+        // unlock each levels
+        for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.ToArray().Length + 1; i++)
+        {
+            if (!levelButtons[i].interactable)
+            {
+                levelButtons[i].interactable = true;
+                
+                Debug.Log($"Unlocked button {levelButtons[i]}");
+            }
+        }
     }
 }
