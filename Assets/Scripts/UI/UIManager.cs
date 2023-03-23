@@ -21,8 +21,10 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        statusPanel.SetActive(false);
-        SetUpStarScore();
+        if (statusPanel)
+            statusPanel.SetActive(false);
+        if (starScore)
+            SetUpStarScore();
     }
 
     public void OnBackButtonClicked()
@@ -37,7 +39,8 @@ public class UIManager : MonoBehaviour
 
     public void ShowLevelStatus()
     {
-        statusPanel.SetActive(true);
+        if (statusPanel)
+            statusPanel.SetActive(true);
         controller.ManualStart();
     }
 

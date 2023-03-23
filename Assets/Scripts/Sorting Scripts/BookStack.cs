@@ -1,16 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BookStack : MonoBehaviour
-{
-    [System.Serializable]
-    private struct books
+[System.Serializable]
+    public struct BookSet
     {
-        public BookScriptableObject bookData;
+        public BookInfo bookInfo;
         public BookCover bookCover;
     }
-    [SerializeField] private books[] booksInStack = new books[2];
+public class BookStack : MonoBehaviour
+{
+    
+    [SerializeField] private BookSet[] booksInStack = new BookSet[2];
     public Topics category;
 
     private Vector3 originalPos;
@@ -30,10 +33,15 @@ public class BookStack : MonoBehaviour
 
     private enum SortStatus
     {
-        Sorted,
         Unsorted,
+        Sorted,
     };
     private SortStatus bookStatus;
+
+    public Image bookSprite;
+    public bool interactable = true;
+
+    public static Action<bool, string> OnFailBook;
 
     void OnEnable()
     {
@@ -83,11 +91,10 @@ public class BookStack : MonoBehaviour
 
     public void BookClicked()
     {
+
         if (bookLocation == Location.OnCart)
         {
-            StackCover.instance.SetDescriptions(booksInStack[0].bookData.title, booksInStack[1].bookData.title,
-                booksInStack[0].bookData.description, booksInStack[1].bookData.description,
-                booksInStack[0].bookData.keyword.image, booksInStack[1].bookData.keyword.image);
+            StackCover.instance.SetCoverData(booksInStack[0], booksInStack[1]);
             StackCover.instance.OpenCovers();
         }
         else if (bookLocation == Location.OffCart)
@@ -103,6 +110,7 @@ public class BookStack : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
     }
 
     void TryCounter()
@@ -112,13 +120,18 @@ public class BookStack : MonoBehaviour
         if (numOfTries > numOfChances)
         {
             SetColliderStatus(false); // No longer able to interact with this stack of books
+            interactable = false;
+            bookSprite.color = Color.grey;
+            if (OnFailBook != null)
+                OnFailBook(false, "failed");
         }
     }
     // Called at the start of this part of the game
-    public void SetBooksInStack(BookScriptableObject book1, BookScriptableObject book2)
+    public void SetBooksInStack(BookInfo book1, BookInfo book2, Topics topic)
     {
-        booksInStack[0].bookData = book1;
-        booksInStack[1].bookData = book2;
+        booksInStack[0].bookInfo = book1;
+        booksInStack[1].bookInfo = book2;
+        category = topic;
     }
 
     public void SetColliderStatus(bool isActive)
