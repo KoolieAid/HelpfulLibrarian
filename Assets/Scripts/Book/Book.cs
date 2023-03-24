@@ -28,8 +28,7 @@ public class Book : MonoBehaviour
         img.sprite = referenceSprites[spriteIndex].bookFront;
         bookBackSprite = referenceSprites[spriteIndex].bookBack;
         textMeshTitle.text = title;
-        //wordImage.sprite = ;
-        
+
         GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
         {
             // Show confirmation
@@ -84,6 +83,9 @@ public class Book : MonoBehaviour
 
     public void SetBookInfo(BookInfo info)
     {
+        spriteIndex = Random.Range(0, referenceSprites.Length);
+        img.sprite = referenceSprites[spriteIndex].bookFront;
+        
         title = info.title;
         textMeshTitle.text = title;
         description = info.description;

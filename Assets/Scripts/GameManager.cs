@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public bool tutorialIsDone;
-    //public Button levelsButton;
 
     public LevelManager levelManager;
 
@@ -22,11 +21,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        
         DontDestroyOnLoad(gameObject);
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         tutorialIsDone = false;
