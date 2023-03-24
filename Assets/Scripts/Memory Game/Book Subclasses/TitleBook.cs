@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Memory_Game.Book_Subclasses
 {
     [DisallowMultipleComponent]
-    public class TitleBook : Mem_Book
+    public sealed class TitleBook : Mem_Book
     {
         [SerializeField] private TextMeshPro text;
         [SerializeField] private Color highlightColor;

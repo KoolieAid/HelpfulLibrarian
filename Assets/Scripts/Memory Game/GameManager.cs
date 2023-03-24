@@ -3,13 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Memory_Game
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance;
         private Stack<Mem_Book> memory = new();
 
+        [SerializeField] private GameObject imagePrefab;
+        [SerializeField] private GameObject textPrefab;
+        [SerializeField] private BookInfo[] booksToSpawn;
+        [SerializeField] private BookCover[] covers;
+        [SerializeField] private GameObject bookParent;
+
+        [Header("Grid")] 
+        
+        [SerializeField] [Min(1)] private int rows;
+        [SerializeField] [Min(1)] private int columns;
+        [SerializeField] [Min(0)] private float offsetX;
+        [SerializeField] [Min(0)] private float offsetY;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        #region Debug Parts
+
+        public List<Mem_Book> cards;
+        [Header("Debugging")]
+        [Min(0)]
         public int size;
 
         public void PrintMemory()
@@ -26,6 +51,60 @@ namespace Memory_Game
         private void Update()
         {
             size = memory.Count;
+        }
+        #endregion
+
+        private void Start()
+        {
+            GenerateGrid();
+        }
+
+        private void GenerateGrid()
+        {
+            // List<Mem_Book> cards = new();
+            for (var i = 0; i < booksToSpawn.Length; i++)
+            {
+                BookInfo info = booksToSpawn[i];
+                var imageCard = Instantiate(imagePrefab, bookParent.transform).GetComponent<Mem_Book>();
+                imageCard.info = info;
+                imageCard.onTouch.AddListener(book => Instance.Pick(book));
+                cards.Add(imageCard);
+
+                var textCard = Instantiate(textPrefab, bookParent.transform).GetComponent<Mem_Book>();
+                textCard.info = info;
+                textCard.onTouch.AddListener(book => Instance.Pick(book));
+                cards.Add(textCard);
+                
+            }
+            
+            // EVERYDAY IM SHUFFLIN'
+            // Fisher-Yates shuffle algorithm
+            for (int i = cards.Count - 1; i > 0; i--)
+            {
+                int j = UnityEngine.Random.Range(0, i + 1);
+                var temp = cards[i];
+                cards[i] = cards[j];
+                cards[j] = temp;
+            }
+            
+            // TODO: set up locations
+            Assert.IsTrue(cards.Count <= rows * columns, "Cards are more than the number of grid");
+
+            var index = 0;
+            for (var y = 0; y < rows; ++y)
+            {
+                for (var x = 0; x < columns; ++x)
+                {
+                    cards[index].transform.position = new Vector3(x * offsetX, y * offsetY, 0);
+                    index++;
+                }
+            }
+        }
+
+        private void SpawnSingle(GameObject o, BookInfo info)
+        {
+            var obj = Instantiate(o, transform).GetComponent<Mem_Book>();
+            obj.info = info;
         }
 
         public void Pick(Mem_Book obj)
@@ -77,14 +156,10 @@ namespace Memory_Game
                 return;
             }
 
-            var first = copy[0];
-            var sec = copy[1];
+            var (first, sec) = (copy[0], copy[1]);
             if (first.info == sec.info)
             {
-                foreach (var b in copy)
-                {
-                    b.Lock();
-                }
+                Array.ForEach(copy, b => b.Lock());
                 memory.Clear();
             }
             else

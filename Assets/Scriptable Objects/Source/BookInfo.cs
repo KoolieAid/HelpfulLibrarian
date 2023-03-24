@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Level Data/BookInfo")]
-public class BookInfo : ScriptableObject
+public sealed class BookInfo : ScriptableObject
 {
     public string title;
     public Keyword keyword;
