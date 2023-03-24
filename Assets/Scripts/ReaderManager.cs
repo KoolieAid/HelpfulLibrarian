@@ -68,6 +68,7 @@ public class ReaderManager : MonoBehaviour
     private void Start()
     {
         onPlayerWin.AddListener(UnlockNextLevel);
+        onPlayerWin.AddListener(UIManager.uiManager.EnableNextButton);
     }
 
     public bool Compare(Book book)
