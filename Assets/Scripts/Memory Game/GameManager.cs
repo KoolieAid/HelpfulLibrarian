@@ -67,18 +67,8 @@ namespace Memory_Game
             for (var i = 0; i < booksToSpawn.Length; i++)
             {
                 BookInfo info = booksToSpawn[i];
-                var imageCard = Instantiate(imagePrefab, bookParent.transform).GetComponent<Mem_Book>();
-                imageCard.info = info;
-                imageCard.ChangeCovers(covers[Random.Range(0, covers.Length)]);
-                imageCard.onTouch.AddListener(book => Instance.Pick(book));
-                cards.Add(imageCard);
-
-                var textCard = Instantiate(textPrefab, bookParent.transform).GetComponent<Mem_Book>();
-                textCard.info = info;
-                textCard.ChangeCovers(covers[Random.Range(0, covers.Length)]);
-                textCard.onTouch.AddListener(book => Instance.Pick(book));
-                cards.Add(textCard);
-                
+                SpawnSingle(imagePrefab, info);
+                SpawnSingle(textPrefab, info);
             }
             
             // EVERYDAY IM SHUFFLIN'
@@ -91,8 +81,7 @@ namespace Memory_Game
                 cards[j] = temp;
             }
             
-            // TODO: set up locations
-            Assert.IsTrue(cards.Count <= rows * columns, "Cards are more than the number of grid");
+            Assert.IsTrue(cards.Count == rows * columns, "Cards need to be the same size with the grid size");
 
             var index = 0;
             for (var y = 0; y < rows; ++y)
@@ -111,8 +100,11 @@ namespace Memory_Game
 
         private void SpawnSingle(GameObject o, BookInfo info)
         {
-            var obj = Instantiate(o, transform).GetComponent<Mem_Book>();
-            obj.info = info;
+            var card = Instantiate(o, bookParent.transform).GetComponent<Mem_Book>();
+            card.info = info;
+            card.ChangeCovers(covers[Random.Range(0, covers.Length)]);
+            card.onTouch.AddListener(book => Instance.Pick(book));
+            cards.Add(card);
         }
 
         public void Pick(Mem_Book obj)
@@ -129,7 +121,6 @@ namespace Memory_Game
             if (memory.Contains(obj))
             {
                 // Debug.Log("Item is already in memory, pick a new one");
-                // obj.FlipOver();
                 memory.ForceRemove(obj);
                 return;
             }
@@ -139,7 +130,6 @@ namespace Memory_Game
             if (memory.Count >= 2)
             {
                 // Compare both items in memory
-                Debug.Log("Compare time");
                 Compare();
             }
         }
