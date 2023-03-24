@@ -95,7 +95,9 @@ namespace Memory_Game
             {
                 for (var x = 0; x < columns; ++x)
                 {
-                    cards[index].transform.position = new Vector3(x * offsetX, y * offsetY, 0);
+                    cards[index].transform.position = new Vector3((x * offsetX) - (offsetX / 2),
+                        (y * offsetY) - (offsetY / 2) - 1, // idk why i need a 1 here but ok
+                        0);
                     index++;
                 }
             }
