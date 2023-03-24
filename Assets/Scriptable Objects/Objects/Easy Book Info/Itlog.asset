@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3011d86fc9e9f5a4a8ab897390f63ae2, type: 3}
-  m_Name: Green Book
+  m_Script: {fileID: 11500000, guid: 99fa08385e26f584ea819f23431a3eae, type: 3}
+  m_Name: Itlog
   m_EditorClassIdentifier: 
-  bookFront: {fileID: 21300000, guid: ec6d67c3899dbf34d8b749a9161f3269, type: 3}
-  bookBack: {fileID: 21300000, guid: 7945b50ccae3e49408600e823b1c52c3, type: 3}
+  title: Bilog na Itlog
+  keyword: {fileID: 11400000, guid: 8d64f5374aa327941a8c1d53bd9c4854, type: 2}
+  description: Hugis bilog na galing sa inahing manok, siksik sa bitamina at sustansya.
