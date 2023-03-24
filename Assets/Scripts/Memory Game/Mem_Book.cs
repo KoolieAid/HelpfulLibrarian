@@ -68,7 +68,11 @@ public abstract class Mem_Book : MonoBehaviour
             var output = Quaternion.Slerp(currentRotation, targetRotation, Time.deltaTime * speed);
             transform.localRotation = output;
 
-            if (Mathf.Abs((float)targetState - transform.localRotation.eulerAngles.y) <= rotationPrecision)
+            if (
+                (Mathf.Abs((float)targetState - transform.localRotation.eulerAngles.y) <= rotationPrecision) ||
+                (Mathf.Abs((float)targetState - transform.localRotation.eulerAngles.y) >
+                 358) // Some band aid fix that idk math to fix
+            )
             {
                 break;
             }
