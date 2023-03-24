@@ -926,8 +926,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 237119272}
   title: 'Kwento ng Araw '
-  word: Araw
+  coverTitle: Araw
   wordTranslation: Sun
+  wordImage: {fileID: 0}
   description: Nagsisilbi itong ilaw sa umaga at hapon at naglalabas ng init. Nagbibigay
     buhay ang init nito sa lahat ng mga nilalang tulad ng mga tao, hayop at halaman.
 --- !u!114 &237119275
@@ -3680,8 +3681,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1048429604}
   title: Alamat ng Pinya
-  word: Pinya
+  coverTitle: Pinya
   wordTranslation: Pineapple
+  wordImage: {fileID: 0}
   description: Prutas na mayroong maraming tusok at matutulis na dahon. Kapag ito'y
     binuksan, kulay dilaw at matamis ang loob ng prutas na ito.
 --- !u!114 &1048429608
@@ -4066,8 +4068,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1216775518}
   title: Alamat ng Aso
-  word: Aso
+  coverTitle: Aso
   wordTranslation: Dog
+  wordImage: {fileID: 0}
   description: 'Mabalahibong hayop na mayroong apat na paa at buntot. Ito ay karaniwang
     ginagawang alaga o bantay sa mga bahay at madalas itong tumatahol.  '
 --- !u!114 &1216775521
@@ -5335,8 +5338,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1709569542}
   title: 'Kwento ng Uwak '
-  word: Uwak
+  coverTitle: Uwak
   wordTranslation: Crow
+  wordImage: {fileID: 0}
   description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
     na kuko at tuka. Mahilig ito kumain ng prutas.
 --- !u!114 &1709569545
@@ -5516,8 +5520,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1755207633}
   title: 'Doding Daga '
-  word: Daga
+  coverTitle: Daga
   wordTranslation: Rat
+  wordImage: {fileID: 0}
   description: "Isang maliit na hayop na mayroong mahabang buntot at nguso at kalat-kalat
     ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala
     ng iba\u2019t ibang mga sakit."
@@ -5923,8 +5928,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1893373493}
   title: 'Alamat ng Bawang '
-  word: Bawang
+  coverTitle: Bawang
   wordTranslation: Garlic
+  wordImage: {fileID: 0}
   description: 'Halamang gulay na mayroong malakas na amoy at karaniwang sangkap
     sa pagluluto at ginagamit rin ito sa panggagamot. '
 --- !u!114 &1893373496

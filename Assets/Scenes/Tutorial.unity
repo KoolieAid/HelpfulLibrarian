@@ -1279,7 +1279,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 237119272}
   title: Kwento ng Araw
-  word: Kwento ng Araw
+  coverTitle: Kwento ng Araw
   wordTranslation: Sun
   wordImage: {fileID: 21300000, guid: 4fb4061348d780d49a14c09e82f5eef8, type: 3}
   description: Nagsisilbi itong ilaw sa umaga at hapon at naglalabas ng init. Nagbibigay
@@ -1479,7 +1479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &381796872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8131,7 +8131,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1048429604}
   title: Alamat ng Pinya
-  word: Alamat ng Pinya
+  coverTitle: Alamat ng Pinya
   wordTranslation: Pineapple
   wordImage: {fileID: 21300000, guid: 9d1ecc6e8e02938498aa3ee3b7cf1e97, type: 3}
   description: Prutas na mayroong maraming tusok at matutulis na dahon. Kapag ito'y
@@ -8414,6 +8414,8 @@ MonoBehaviour:
   Chichay: {fileID: 8385512026768972531}
   endPopup: {fileID: 1499407847}
   startPopup: {fileID: 113521879}
+  correctBook: {fileID: 1048429602}
+  bookGivingSpeed: 1000
 --- !u!114 &1098468859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8803,8 +8805,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.887, y: -8}
-  m_SizeDelta: {x: 547.77, y: 195.6338}
+  m_AnchoredPosition: {x: 3.395, y: -25.6}
+  m_SizeDelta: {x: 498.4717, y: 195.6338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210135677
 MonoBehaviour:
@@ -9005,7 +9007,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1216775518}
   title: Alamat ng Aso
-  word: Alamat ng Aso
+  coverTitle: Alamat ng Aso
   wordTranslation: Dog
   wordImage: {fileID: 21300000, guid: 0e5dcdb7f1a268c44bd6d1ae817fedfb, type: 3}
   description: 'Mabalahibong hayop na mayroong apat na paa at buntot. Ito ay karaniwang
@@ -20120,7 +20122,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1709569542}
   title: 'Kwento ng Uwak '
-  word: 'Kwento ng Uwak '
+  coverTitle: 'Kwento ng Uwak '
   wordTranslation: Crow
   wordImage: {fileID: 21300000, guid: f69b74ff73da1934689019ebea8601f4, type: 3}
   description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
@@ -20403,7 +20405,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1755207633}
   title: Doding Daga
-  word: Doding Daga
+  coverTitle: Doding Daga
   wordTranslation: Rat
   wordImage: {fileID: 21300000, guid: 435076488b3f8f3438fd0db45e8c4e8d, type: 3}
   description: "Isang maliit na hayop na mayroong mahabang buntot at nguso at kalat-kalat
@@ -25710,7 +25712,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   img: {fileID: 1893373493}
   title: 'Alamat ng Bawang '
-  word: 'Alamat ng Bawang '
+  coverTitle: 'Alamat ng Bawang '
   wordTranslation: Garlic
   wordImage: {fileID: 21300000, guid: 8428ab8d27df1e746a7c6dcc17440874, type: 3}
   description: 'Halamang gulay na mayroong malakas na amoy at karaniwang sangkap

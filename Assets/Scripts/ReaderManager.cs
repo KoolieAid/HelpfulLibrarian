@@ -5,6 +5,7 @@ using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class ReaderManager : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class ReaderManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
+
         // try catch for accessible testing 
         try
         {
@@ -60,10 +61,13 @@ public class ReaderManager : MonoBehaviour
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
         
-        
-
         if (currentReader != null) return; // For tutorial sequence
         NextReader();
+    }
+
+    private void Start()
+    {
+        onPlayerWin.AddListener(UnlockNextLevel);
     }
 
     public bool Compare(Book book)
@@ -116,6 +120,7 @@ public class ReaderManager : MonoBehaviour
         {
             Debug.Log("Player won the level");
             onPlayerWin.Invoke();
+
             if (currentReader.gameObject) Destroy(currentReader.gameObject);
             return;
         }
@@ -227,5 +232,15 @@ public class ReaderManager : MonoBehaviour
         Reader.Instance.canDeduct = true;
         NextReader();
         Debug.Log("Book Given");
+    }
+
+    private void UnlockNextLevel()
+    {
+        var l = GameManager.instance.levelManager;
+        
+        if(l.levelsUnlocked.Contains(l.selectedLevel + 1))
+            return;
+        
+        l.levelsUnlocked.Add(l.selectedLevel + 1);
     }
 }

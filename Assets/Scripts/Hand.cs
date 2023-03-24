@@ -17,6 +17,9 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject endPopup;
     [SerializeField] private Text2ToolTipAdapter startPopup;
 
+    [SerializeField] private GameObject correctBook;
+    [SerializeField] private float bookGivingSpeed = 1000f;
+
     private int handSpeed = 700;
     
     /*
@@ -117,13 +120,21 @@ public class Hand : MonoBehaviour
 
             // should be using the confirm instead of the next button
             .AddSequence(confirm)
+            .AddSequence(new TwoToolTipSequence(controller, _adapter))
+            
+            // give correct book
+            .AddSequence(new CustomSequence(controller, ((sequence, o) =>
+            {
+                StartCoroutine(GiveBook());
+                sequence.SetStatus(true);
+            })))
+            
             .AddSequence(new WaitSequence(controller, 1.0f))
-
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
 
             // Scoring
             .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), handSpeed, rectTransform))
-            .AddSequence(new WaitSequence(controller, 2.0f))
+            .AddSequence(new WaitSequence(controller, 1.5f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
                 "Sa simula, mayroon kang tatlong star. Ito ang iyong mga puntos.","You start with 3 stars every level. A star would be removed if a visitor leaves."))
             .AddSequence(us)
@@ -173,5 +184,22 @@ public class Hand : MonoBehaviour
     public void ComfirmPressed()
     {
         confirm.Toggle();
+    }
+
+    IEnumerator GiveBook()
+    {
+        var bookPos = correctBook.GetComponent<RectTransform>();
+        var final = new Vector2(-250, 170);
+        
+        Reader.Instance.canDeduct = false;
+        
+        while (Vector2.Distance(bookPos.anchoredPosition, final) > 1f)
+        {
+            bookPos.anchoredPosition = Vector3.MoveTowards(bookPos.anchoredPosition,
+                final, bookGivingSpeed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        
+        Destroy(correctBook);
     }
 }

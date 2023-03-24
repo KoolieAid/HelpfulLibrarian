@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fa08385e26f584ea819f23431a3eae, type: 3}
-  m_Name: Sapatos
+  m_Script: {fileID: 11500000, guid: 7df647847e0fc694b999e95a02721b6f, type: 3}
+  m_Name: Kidlat
   m_EditorClassIdentifier: 
-  title: Sapatos ni Santiago
-  keyword: {fileID: 11400000, guid: 0978ab315f77e284684fe1f382ff1413, type: 2}
-  description: Bagay na kadalasang may kasamang pares at sinusuot sa paa ng tao.
+  image: {fileID: 21300000, guid: 132ff9384e3c9ca4d8ed9dca1ee70e2d, type: 3}
+  request: kidlat request
