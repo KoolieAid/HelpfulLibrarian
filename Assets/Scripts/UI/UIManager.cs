@@ -82,6 +82,9 @@ public class UIManager : MonoBehaviour
     {
         var l = GameManager.instance.levelManager;
 
+        if (l.selectedLevel > l.levelDataList.Count)
+            return;
+        
         l.selectedLevel += 1;
         l.LoadLevel(l.selectedLevel);
     }
