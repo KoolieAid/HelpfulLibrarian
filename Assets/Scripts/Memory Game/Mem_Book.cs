@@ -23,6 +23,9 @@ public abstract class Mem_Book : MonoBehaviour
 
     public BookInfo info;
 
+    [SerializeField] private SpriteRenderer cover;
+    [SerializeField] private SpriteRenderer back;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,12 @@ public abstract class Mem_Book : MonoBehaviour
     }
 
     public abstract void SetUp();
+
+    public void ChangeCovers(BookCover cover)
+    {
+        this.cover.sprite = cover.bookFront;
+        back.sprite = cover.bookFront;
+    }
 
     async void OnMouseOver()
     {

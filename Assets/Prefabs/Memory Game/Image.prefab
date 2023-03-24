@@ -68,6 +68,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   info: {fileID: 11400000, guid: 19546ed705a275944b5bbef608b6694d, type: 2}
+  cover: {fileID: 7354754643329892046}
+  back: {fileID: 7354754644862666031}
   renderer: {fileID: 7354754643728462625}
 --- !u!212 &7354754643329892046
 SpriteRenderer:

@@ -331,6 +331,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   info: {fileID: 11400000, guid: 19546ed705a275944b5bbef608b6694d, type: 2}
+  cover: {fileID: 4153474236632681151}
+  back: {fileID: 4153474235937637535}
   text: {fileID: 4153474236126648172}
   highlightColor: {r: 0.17687672, g: 0.8867924, b: 0.16313636, a: 1}
 --- !u!212 &4153474236632681151
