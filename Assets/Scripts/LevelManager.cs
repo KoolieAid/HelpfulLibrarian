@@ -10,11 +10,6 @@ public class LevelManager : MonoBehaviour
     public int selectedLevel = 0; // #0 is the tutorial level
 
     public List<int> levelsUnlocked = new List<int>();
-    
-    private void Awake()
-    {
-        GameManager.instance.levelManager = this;
-    }
 
     // On level selected
     public void LoadLevel(int levelNumber)

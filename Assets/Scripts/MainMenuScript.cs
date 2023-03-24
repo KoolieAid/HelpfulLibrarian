@@ -71,7 +71,7 @@ public class MainMenuScript : MonoBehaviour
     private void UnlockLevelButtons()
     {
         // unlock each levels
-        for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.ToArray().Length + 1; i++)
+        for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count + 1; i++)
         {
             if (!levelButtons[i].interactable)
             {

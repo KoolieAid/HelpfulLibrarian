@@ -1556,7 +1556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &445372751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8415,6 +8415,7 @@ MonoBehaviour:
   endPopup: {fileID: 1499407847}
   startPopup: {fileID: 113521879}
   correctBook: {fileID: 1048429602}
+  bookGivingSpeed: 1000
 --- !u!114 &1098468859
 MonoBehaviour:
   m_ObjectHideFlags: 0

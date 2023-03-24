@@ -236,10 +236,6 @@ public class ReaderManager : MonoBehaviour
 
     private void UnlockNextLevel()
     {
-        // TODO: Try and make the game manager talk with the main menu SIMILAR TO ALEX'S TUTORIAL
-        
-        // (selectedLevel + 1) add this to the level manager
-
         var l = GameManager.instance.levelManager;
         
         if(l.levelsUnlocked.Contains(l.selectedLevel + 1))

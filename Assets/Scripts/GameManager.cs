@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        //instance = this; 
-        
         if (instance == null)
             instance = this;
         else
@@ -30,20 +28,5 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         tutorialIsDone = false;
-        
-        StartCoroutine(SetLevelManager());
-    }
-
-    IEnumerator SetLevelManager()
-    {
-        for (;;)
-        {
-            if (levelManager == null)
-            {
-                levelManager = gameObject.GetComponent<LevelManager>();
-                Debug.Log("level manager not null now");
-            }
-            yield return null;
-        }
     }
 }

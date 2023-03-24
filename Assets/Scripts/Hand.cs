@@ -18,6 +18,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private Text2ToolTipAdapter startPopup;
 
     [SerializeField] private GameObject correctBook;
+    [SerializeField] private float bookGivingSpeed = 1000f;
 
     private int handSpeed = 700;
     
@@ -188,8 +189,6 @@ public class Hand : MonoBehaviour
     IEnumerator GiveBook()
     {
         var bookPos = correctBook.GetComponent<RectTransform>();
-        //var origBookPos = bookPos.anchoredPosition;
-        //var readerPos = Chichay.GetComponent<RectTransform>();
         var final = new Vector2(-250, 170);
         
         Reader.Instance.canDeduct = false;
@@ -197,11 +196,10 @@ public class Hand : MonoBehaviour
         while (Vector2.Distance(bookPos.anchoredPosition, final) > 1f)
         {
             bookPos.anchoredPosition = Vector3.MoveTowards(bookPos.anchoredPosition,
-                final, 1000 * Time.deltaTime);
+                final, bookGivingSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-
-        //bookPos.anchoredPosition = origBookPos;
+        
         Destroy(correctBook);
     }
 }
