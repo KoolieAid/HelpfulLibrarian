@@ -10,7 +10,6 @@ namespace Memory_Game
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance;
         private Stack<Mem_Book> memory = new();
 
         [SerializeField] private GameObject imagePrefab;
@@ -26,11 +25,6 @@ namespace Memory_Game
         [SerializeField] [Min(0)] private float offsetX;
         [SerializeField] [Min(0)] private float offsetY;
         [SerializeField] private int cardsLeft;
-
-        private void Awake()
-        {
-            Instance = this;
-        }
 
         #region Debug Parts
 
@@ -103,7 +97,7 @@ namespace Memory_Game
             var card = Instantiate(o, bookParent.transform).GetComponent<Mem_Book>();
             card.info = info;
             card.ChangeCovers(covers[Random.Range(0, covers.Length)]);
-            card.onTouch.AddListener(book => Instance.Pick(book));
+            card.onTouch.AddListener(Pick);
             cards.Add(card);
         }
 
