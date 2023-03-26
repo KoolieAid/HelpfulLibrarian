@@ -19,6 +19,7 @@ namespace Memory_Game
         [SerializeField] private BookInfo[] booksToSpawn;
         [SerializeField] private BookCover[] covers;
         [SerializeField] private GameObject bookParent;
+        private List<Mem_Book> cards = new();
 
         [Header("Grid")] 
         
@@ -47,6 +48,7 @@ namespace Memory_Game
             {
                 lvlDone = true;
                 UIManager.uiManager.ShowLevelStatus();
+                cards.ForEach(b => b.Lock());
             };
             
             onWin.AddListener(_);
@@ -72,7 +74,6 @@ namespace Memory_Game
 
         private void GenerateGrid()
         {
-            List<Mem_Book> cards = new();
             for (var i = 0; i < booksToSpawn.Length; i++)
             {
                 BookInfo info = booksToSpawn[i];

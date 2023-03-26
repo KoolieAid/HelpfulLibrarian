@@ -769,7 +769,7 @@ MonoBehaviour:
   cardsLeft: 0
   holderYOffset: 0.6
   patienceBar: {fileID: 2128017216}
-  totalSeconds: 5
+  totalSeconds: 30
   onWin:
     m_PersistentCalls:
       m_Calls: []
