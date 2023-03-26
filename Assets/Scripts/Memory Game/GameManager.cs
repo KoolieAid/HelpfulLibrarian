@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using Asyncoroutine;
+using UnityEngine.Events;
 
 namespace Memory_Game
 {
@@ -26,43 +28,56 @@ namespace Memory_Game
         [SerializeField] [Min(0)] private float offsetY;
         [SerializeField] private int cardsLeft;
 
-        #region Debug Parts
+        [SerializeField] private float holderYOffset = 0.6f;
 
-        public List<Mem_Book> cards;
-        [Header("Debugging")]
-        [Min(0)]
-        public int size;
+        [Header("Patience")] [SerializeField] private Image patienceBar;
+        [SerializeField] private float totalSeconds = 30f;
 
-        public void PrintMemory()
-        {
-            StringBuilder builder = new();
-            foreach (var item in memory)
-            {
-                builder.Append(item.name);
-                builder.Append("\n");
-            }
-            Debug.Log(builder);
-        }
-
-        private void Update()
-        {
-            size = memory.Count;
-        }
-        #endregion
+        [Header("Events")]
+        public UnityEvent onWin;
+        public UnityEvent onLose;
+        private bool lvlDone = false;
 
         private void Start()
         {
             GenerateGrid();
+            StartPatienceTimer();
+
+            UnityAction _ = () =>
+            {
+                lvlDone = true;
+                UIManager.uiManager.ShowLevelStatus();
+            };
+            
+            onWin.AddListener(_);
+            onLose.AddListener(_);
+        }
+
+        private async void StartPatienceTimer()
+        {
+            while (!lvlDone)
+            {
+                await new WaitForEndOfFrame();
+
+                patienceBar.fillAmount -= (1f / totalSeconds) * Time.deltaTime;
+
+                if (patienceBar.fillAmount <= 0)
+                {
+                    break;
+                }
+            }
+            
+            onLose.Invoke();
         }
 
         private void GenerateGrid()
         {
-            // List<Mem_Book> cards = new();
+            List<Mem_Book> cards = new();
             for (var i = 0; i < booksToSpawn.Length; i++)
             {
                 BookInfo info = booksToSpawn[i];
-                SpawnSingle(imagePrefab, info);
-                SpawnSingle(textPrefab, info);
+                SpawnSingle(imagePrefab, info, cards);
+                SpawnSingle(textPrefab, info, cards);
             }
             
             // EVERYDAY IM SHUFFLIN'
@@ -90,9 +105,11 @@ namespace Memory_Game
             }
 
             cardsLeft = booksToSpawn.Length * 2;
+
+            bookParent.transform.position += Vector3.down * holderYOffset;
         }
 
-        private void SpawnSingle(GameObject o, BookInfo info)
+        private void SpawnSingle(GameObject o, BookInfo info, List<Mem_Book> cards)
         {
             var card = Instantiate(o, bookParent.transform).GetComponent<Mem_Book>();
             card.info = info;
@@ -144,7 +161,6 @@ namespace Memory_Game
             if (copy.Length > 2)
             {
                 Debug.LogError($"Idk how you got here but congrats, there are more than 2 in the memory stack");
-                PrintMemory();
                 return;
             }
 
@@ -156,6 +172,7 @@ namespace Memory_Game
                 if ((cardsLeft -= 2) <= 0)
                 {
                     Debug.Log("Player wins");
+                    onWin.Invoke();
                 }
             }
             else
