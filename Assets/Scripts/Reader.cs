@@ -54,7 +54,7 @@ public class Reader : MonoBehaviour
         {
             ShowHideRequest(canDeduct);
             var greenFill = patienceMeterFill.color;
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForEndOfFrame();
 
             //if (readerMove.isStoped)
             if (canDeduct)
@@ -74,7 +74,7 @@ public class Reader : MonoBehaviour
 
             patienceMeterFill.color = bg;
 
-            if (currentPatience <= 0)
+            if (patienceMeterFill.fillAmount <= 0)
             {
                 ParticleManager.Instance.PlayParticle("X");
                 ParticleManager.Instance.PlayParticle("Smoke");
@@ -96,6 +96,11 @@ public class Reader : MonoBehaviour
     }
 
     public void DeductPatience()
+    {
+        currentPatience -= (initialPatience / initialPatience) * Time.deltaTime;
+    }
+
+    public void ForceDeductPatience()
     {
         currentPatience -= incrementAmount;
     }
