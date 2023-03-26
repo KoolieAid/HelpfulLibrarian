@@ -237,6 +237,12 @@ public class ReaderManager : MonoBehaviour
 
     private void UnlockNextLevel()
     {
+        if (GameManager.instance == null)
+        {
+            Debug.LogWarning("Game Manager is null");
+            return;
+        }
+        
         var l = GameManager.instance.levelManager;
         
         if(l.levelsUnlocked.Contains(l.selectedLevel + 1))
