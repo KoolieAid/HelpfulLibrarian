@@ -34,10 +34,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
         DontDestroyOnLoad(gameObject);
     }
-    
+
     void Start()
     {
         tutorialIsDone = false;
@@ -63,7 +63,8 @@ public class GameManager : MonoBehaviour
             {
                 int v;
                 levelScore.TryGetValue(i, out v);
-                menuScript.SetLevelStarScore(i, v);
+                if (v != menuScript.GetLevelStarScore(i))
+                    menuScript.SetLevelStarScore(i, v);
             }
         }
     }

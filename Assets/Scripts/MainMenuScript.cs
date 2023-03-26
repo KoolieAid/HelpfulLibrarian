@@ -77,6 +77,12 @@ public class MainMenuScript : MonoBehaviour
     {
         recordOfStars[levelNum] = starScore;
     }
+    public int GetLevelStarScore(int levelNum)
+    {
+        int i;
+        recordOfStars.TryGetValue(levelNum, out i);
+        return i;
+    }
 
     public void TutorialButtonClicked()
     {
