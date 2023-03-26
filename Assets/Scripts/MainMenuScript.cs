@@ -22,7 +22,7 @@ public class MainMenuScript : MonoBehaviour
     public StarManager[] starManagers = new StarManager[9];
     private Dictionary<int, int> recordOfStars = new Dictionary<int, int>()
     {
-        {1, 1},
+        {1, 0},
         {2, 0},
         {3, 0},
         {4, 0},
@@ -38,8 +38,6 @@ public class MainMenuScript : MonoBehaviour
         {
             levelSelectButton.interactable = true;
         }
-
-        
     }
 
     public void PlayButtonClicked()
@@ -65,7 +63,7 @@ public class MainMenuScript : MonoBehaviour
 
     void ShowStars()
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < starManagers.Length; i++)
         {
             int value;
             recordOfStars.TryGetValue(i + 1, out value);
