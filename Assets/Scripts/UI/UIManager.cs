@@ -6,6 +6,7 @@ using Tutorial;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -18,6 +19,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float timeToFinalPos;
     [SerializeField] private float finalScale;
     private SequenceController controller;
+
+    [SerializeField] private Button nextLevelButton;
+
+    public static UIManager uiManager;
+
+    private void Awake()
+    {
+        uiManager = this;
+    }
 
     private void Start()
     {
@@ -61,6 +71,22 @@ public class UIManager : MonoBehaviour
 
             StartCoroutine(_StarMove(sequence, rect, finalStarPos));
         }));
+    }
+
+    public void EnableNextButton()
+    {
+        nextLevelButton.interactable = true;
+    }
+
+    public void OnNextLevelButtonClicked()
+    {
+        var l = GameManager.instance.levelManager;
+
+        if (l.selectedLevel > l.levelDataList.Count)
+            return;
+        
+        l.selectedLevel += 1;
+        l.LoadLevel(l.selectedLevel);
     }
 
     private IEnumerator _StarMove(CustomSequence sequence, RectTransform transform, Vector2 final)
