@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
         {
             MainMenuScript menuScript = GameObject.Find("~Main Menu Mgr").GetComponent<MainMenuScript>();
 
-            for (int i = 1; i < 10; i++)
+            foreach (var s in levelScore)
             {
                 int v;
-                levelScore.TryGetValue(i, out v);
-                if (v != menuScript.GetLevelStarScore(i))
-                    menuScript.SetLevelStarScore(i, v);
+                levelScore.TryGetValue(s.Key, out v);
+                if (v != menuScript.GetLevelStarScore(s.Key))
+                    menuScript.SetLevelStarScore(s.Key, v);
             }
         }
     }
