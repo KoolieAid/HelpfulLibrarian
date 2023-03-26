@@ -386,7 +386,7 @@ MonoBehaviour:
   readerReq: {fileID: 8539094683632042445}
   face: {fileID: 8385512026773094904}
   requestedTitle: Alamat ng Pinya
-  initialPatience: 35
+  initialPatience: 45
   incrementAmount: 1
   patienceMeterFill: {fileID: 2670178828641579920}
   onPatienceGone:
