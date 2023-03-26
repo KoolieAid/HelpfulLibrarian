@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 
@@ -43,6 +45,8 @@ public class ReaderManager : MonoBehaviour
     [SerializeField] private float chanceOfCorrect;
     
     [SerializeField] private Sprite[] readerSprites;
+
+    [SerializeField] private int correct;
     private void Awake()
     {
         Instance = this;
@@ -60,6 +64,7 @@ public class ReaderManager : MonoBehaviour
         
         if (levelData.GetCorrectAnswers().Count < 1) Debug.LogWarning($"No possible books detected. Please resolve this.");
         currentCorrectAnswers = new List<BookInfo>(levelData.GetCorrectAnswers());
+        correct = currentCorrectAnswers.Count;
         
         if (currentReader != null) return; // For tutorial sequence
         NextReader();
@@ -102,9 +107,35 @@ public class ReaderManager : MonoBehaviour
 
     private void DeductStars()
     {
-        stars--;
+        correct--;
+        int tStars = 0;
+
+        var perc = (float)correct / levelData.GetCorrectAnswers().Count;
+        if (perc > 0.8f)
+        {
+            tStars = 3;
+        }
+        else if (perc > 0.5f)
+        {
+            tStars = 2;
+        }
+        else if (perc > 0f)
+        {
+            tStars = 1;
+        } 
+
+        stars = tStars;
+
         // Update the UI here.
-        starsUI[stars].gameObject.SetActive(false);
+        foreach (var s in starsUI)
+        {
+            s.SetActive(false);
+        }
+
+        for (int i = 0; i < tStars; i++)
+        {
+            starsUI[i].gameObject.SetActive(true);
+        }
         
         if (stars <= 0)
         {
