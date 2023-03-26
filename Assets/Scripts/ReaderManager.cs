@@ -80,8 +80,6 @@ public class ReaderManager : MonoBehaviour
     void RecordScore()
     {
         GameManager.instance.SetScores(levelData.GetLevelNumber(), stars);
-
-        
     }
     public bool Compare(Book book)
     {
