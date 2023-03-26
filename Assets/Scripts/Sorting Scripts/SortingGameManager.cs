@@ -84,7 +84,8 @@ public class SortingGameManager : MonoBehaviour
         currentTime = initialTime;
 
         while (true)
-        {   
+        {
+            yield return new WaitForEndOfFrame();
             if (currentTime <= 0 || timerIsPaused)
             {
                 if (OnGameEnd != null)
@@ -92,8 +93,13 @@ public class SortingGameManager : MonoBehaviour
                 yield break;
             }
             var greenFill = timerBarFill.color;
-            currentTime -= 1.0f;
-            
+            /// Actual computation
+            /// (distance / time) * deltaTime
+            /// Think of 1 second as 1 meter
+            /// so we get
+            /// (initialTime / initialTime) * delta time
+            /// To simplify we get this:
+            currentTime -= Time.deltaTime;
 
             timerBarFill.fillAmount = currentTime / initialTime;
 
@@ -105,8 +111,6 @@ public class SortingGameManager : MonoBehaviour
 
             timerBarFill.color = bg;
 
-            
-            yield return new WaitForSeconds(1.0f);
         }
         
     }
