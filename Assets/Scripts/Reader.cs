@@ -97,7 +97,13 @@ public class Reader : MonoBehaviour
 
     public void DeductPatience()
     {
-        currentPatience -= (initialPatience / initialPatience) * Time.deltaTime;
+        /// Actual computation
+        /// (distance / time) * deltaTime
+        /// Think of 1 second as 1 meter
+        /// so we get
+        /// (initialPatience / initialPatience) * delta time
+        /// To simplify we get this:
+        currentPatience -= Time.deltaTime;
     }
 
     public void ForceDeductPatience()
