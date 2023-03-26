@@ -68,8 +68,13 @@ public class ReaderManager : MonoBehaviour
     private void Start()
     {
         onPlayerWin.AddListener(UnlockNextLevel);
+        onPlayerWin.AddListener(RecordScore);
+        onPlayerLose.AddListener(RecordScore);
     }
-
+    void RecordScore()
+    {
+        GameManager.instance.SetScores(levelData.GetLevelNumber(), stars);
+    }
     public bool Compare(Book book)
     {
         // Debug.Log($"Request: {currentReader.requestedTitle}. Book title: {book.GetTitle()}. Evaluation: {currentReader.requestedTitle == book.GetTitle()}");

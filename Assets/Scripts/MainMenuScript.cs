@@ -17,12 +17,29 @@ public class MainMenuScript : MonoBehaviour
     [Header("Level Buttons")]
     public Button[] levelButtons;
 
+
+    [Header("Level Stars")]
+    public StarManager[] starManagers = new StarManager[9];
+    private Dictionary<int, int> recordOfStars = new Dictionary<int, int>()
+    {
+        {1, 1},
+        {2, 0},
+        {3, 0},
+        {4, 0},
+        {5, 0},
+        {6, 0},
+        {7, 0},
+        {8, 0},
+        {9, 0}
+    };
     private void Start()
     {
         if (GameManager.instance.tutorialIsDone)
         {
             levelSelectButton.interactable = true;
         }
+
+        
     }
 
     public void PlayButtonClicked()
@@ -43,7 +60,24 @@ public class MainMenuScript : MonoBehaviour
     public void LevelSelectButtonClicked()
     {
         ActivatePanel(levelSelectPanel.name);
+        ShowStars();
     }
+
+    void ShowStars()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            int value;
+            recordOfStars.TryGetValue(i + 1, out value);
+            starManagers[i].SetStarsToActive(value);
+        }
+    }
+
+    public void SetLevelStarScore(int levelNum, int starScore)
+    {
+        recordOfStars[levelNum] = starScore;
+    }
+
     public void TutorialButtonClicked()
     {
         // Go to Tutorial Scene
