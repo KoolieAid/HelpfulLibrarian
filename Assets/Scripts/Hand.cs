@@ -20,6 +20,8 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject correctBook;
     [SerializeField] private float bookGivingSpeed = 1000f;
 
+    [SerializeField] private GameObject scoreStatusPanel;
+
     private int handSpeed = 700;
     
     /*
@@ -46,23 +48,19 @@ public class Hand : MonoBehaviour
         controller.AddSequence(new WaitSequence(controller, 2.0f))
 
             // Narrative Popup
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Kamusta! ikaw siguro ang bagong librarian.","Oh Hello! You must be the new librarian."))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Kamusta! ikaw siguro ang bagong librarian.","Oh Hello! You must be the new librarian."))
             .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Maligayang pagdating sa ating library.","Well then let me be the first to welcome you to the library. "))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Maligayang pagdating sa ating library.","Well then let me be the first to welcome you to the library. "))
             .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Sasabihin ko sayo ang mga kailangan mong gawin.","I was assigned to help get you all set up. "))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Sasabihin ko sayo ang mga kailangan mong gawin.","I was assigned to help get you all set up. "))
             .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Ang iyong trabaho ay tulungan ang mga bisita na hanapin ang librong gusto nila.","Your first job will is to help visitors find the books that they want."))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Ang iyong trabaho ay tulungan ang mga bisita na hanapin ang librong gusto nila.","Your first job will is to help visitors find the books that they want."))
             .AddSequence(us)
-            /*.AddSequence(new TwoToolTipSequence(controller, startPopup, "Mukhang madali ito ngunit ang trabahong ito ay mahalaga.","This may seem very simple but it is a very important job."))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Ayan! May bago tayong bisita!","Oh look there is our first visitor"))
             .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Nagbibigay ang library ng mga bagong kaalaman at kasanayan.","The library helps visitors learn new knowledge they need skills that they find interesting."))
-            .AddSequence(us)*/
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Ayan! May bago tayong bisita!","Oh look there is our first visitor"))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Hayaan mong gabayan kita para makita mo ang kailangan mong gawin.","Let me guide you through this one so you can see how it is done."))
             .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, startPopup, "Hayaan mong gabayan kita para makita mo ang kailangan mong gawin.","Let me guide you through this one so you can see how it is done."))
-            .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, startPopup))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter))
             
             // Visitor Request
             .AddSequence(new CustomSequence(controller, (s, o) =>
@@ -95,8 +93,6 @@ public class Hand : MonoBehaviour
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
             .AddSequence(bookPress)
-            // .AddSequence(new ToolTipSequence(controller, _adapter, "Pindutin ang naka-highlight upang makita ang deskripsyon ng salita. \n \n Tap the highlighted word to show its description."))
-            // .AddSequence(us)
             .AddSequence(new WaitSequence(controller, 1.0f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
                 "Pindutin ang \"X\" upang isara ang libro.","Tap the \"X\" button of the book to close it."))
@@ -133,16 +129,21 @@ public class Hand : MonoBehaviour
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
 
             // Scoring
-            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(397, 706f), handSpeed, rectTransform))
-            .AddSequence(new WaitSequence(controller, 1.5f))
+            .AddSequence(new CustomSequence(controller, (sequence, o) =>
+            {
+                scoreStatusPanel.SetActive(true);
+                sequence.SetStatus(true);
+            }))
+            .AddSequence(new MoveSequenceCanvas(controller, new Vector2(110, -86f), handSpeed, rectTransform))
+            .AddSequence(new WaitSequence(controller, 2.0f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
-                "Sa simula, mayroon kang tatlong star. Ito ang iyong mga puntos.","You start with 3 stars every level. A star would be removed if a visitor leaves."))
+                "Ang mga bituin na ito ang iyong mga puntos","--"))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
-                "Mababawasan ang iyong puntos kapag may umalis na bisita.","----"))
+                "Kailangan mo ng isang butuin upang makapasa at magpatuloy","----"))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
-                "Kapag naubos ang tatlong star, ikaw ay matatalo.","You lose if you run out of stars."))
+                "Maaring kang umulit kapag nais mong kompletuhin ang mga bituin.","--"))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
 

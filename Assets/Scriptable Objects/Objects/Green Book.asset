@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Green Book
   m_EditorClassIdentifier: 
   bookFront: {fileID: 21300000, guid: ec6d67c3899dbf34d8b749a9161f3269, type: 3}
-  bookBack: {fileID: 21300000, guid: 479c7b71c09003c49824be8cc5923c66, type: 3}
+  bookBack: {fileID: 21300000, guid: 7945b50ccae3e49408600e823b1c52c3, type: 3}

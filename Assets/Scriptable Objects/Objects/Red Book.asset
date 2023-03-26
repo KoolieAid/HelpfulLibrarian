@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Red Book
   m_EditorClassIdentifier: 
   bookFront: {fileID: 21300000, guid: 6fabaf2223949e843abeaa54685d8ecd, type: 3}
-  bookBack: {fileID: 21300000, guid: 88f38f35f9d16a643a04ea4c7b2c030e, type: 3}
+  bookBack: {fileID: 21300000, guid: cabe79b81e2991c45b60e400d261cd3d, type: 3}
