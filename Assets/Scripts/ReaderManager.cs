@@ -84,7 +84,7 @@ public class ReaderManager : MonoBehaviour
         {
             //DeductStars();
             // Deduct Timer
-            currentReader.DeductPatience();
+            currentReader.ForceDeductPatience();
 
             currentReader.TriggerWrongBookAnimation();
 
