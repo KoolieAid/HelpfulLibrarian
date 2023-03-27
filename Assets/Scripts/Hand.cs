@@ -152,6 +152,7 @@ public class Hand : MonoBehaviour
             .AddSequence(new CustomSequence(controller, (sequence, o) =>
             {
                 endPopup.SetActive(true);
+                GameManager.instance.TutorialFinished();
                 sequence.SetStatus(true);
             }));
 
