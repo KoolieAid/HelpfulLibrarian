@@ -7,6 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Level Data/Level")]
 public class Level : ScriptableObject
 {
+    [SerializeField]
+    private int levelNum;
+
     [Tooltip("Theres a chance that one of these are going into the wrong answer section")]
     [SerializeField]
     private List<BookInfo> correctAnswers = new();
@@ -23,5 +26,10 @@ public class Level : ScriptableObject
     public ReadOnlyCollection<BookInfo> GetWrongAnswers()
     {
         return new ReadOnlyCollection<BookInfo>(wrongAnswers);
+    }
+
+    public int GetLevelNumber()
+    {
+        return levelNum;
     }
 }
