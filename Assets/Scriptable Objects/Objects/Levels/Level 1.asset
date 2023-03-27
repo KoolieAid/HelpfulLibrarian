@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a0b855e08b77a4b8bca0381fcebe21, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
+  levelNum: 1
   correctAnswers:
   - {fileID: 11400000, guid: ba697148f23484b4b83dfdb1de0a7174, type: 2}
   - {fileID: 11400000, guid: 43eed913c608c35429ba9139289ecc6a, type: 2}
