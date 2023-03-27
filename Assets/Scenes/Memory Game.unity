@@ -751,9 +751,9 @@ MonoBehaviour:
   imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e, type: 3}
   textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1, type: 3}
   booksToSpawn:
-  - {fileID: 11400000, guid: 9dc6230a33abd7d40a55cbff475e8d4c, type: 2}
-  - {fileID: 11400000, guid: a4390d1400d2a234faee23bb677f9994, type: 2}
-  - {fileID: 11400000, guid: 1c878cc60a02ead44b4d9130c95f1064, type: 2}
+  - {fileID: 11400000, guid: 19546ed705a275944b5bbef608b6694d, type: 2}
+  - {fileID: 11400000, guid: 4e22b89f09cab6d4fb35d654617e31d9, type: 2}
+  - {fileID: 11400000, guid: 42965cefc81d5b04284d700e5536a47f, type: 2}
   covers:
   - {fileID: 11400000, guid: a648118d29f820d4b81e22c3268cf09a, type: 2}
   - {fileID: 11400000, guid: 75d0e00c36588ce4c832b72b18ed66d6, type: 2}
