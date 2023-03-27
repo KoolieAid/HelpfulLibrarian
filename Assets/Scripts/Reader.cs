@@ -23,6 +23,7 @@ public class Reader : MonoBehaviour
     private float currentPatience;
     [SerializeField] private Image patienceMeterFill;
     public UnityEvent onPatienceGone = new();
+    [SerializeField] private bool isTutorial = false;
 
     [Header("Patience Bar Aesthetics")]
     [SerializeField] private Color blueFill;
@@ -57,7 +58,7 @@ public class Reader : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
             //if (readerMove.isStoped)
-            if (canDeduct)
+            if (canDeduct && !isTutorial)
             {
                 animator.SetBool("Walking", false);
                 DeductPatience();
