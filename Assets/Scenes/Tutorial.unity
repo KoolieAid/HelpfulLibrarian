@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 155745823}
     m_Modifications:
     - target: {fileID: 8385512026773094903, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385512026773094903, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
       propertyPath: incrementAmount
       value: 0
       objectReference: {fileID: 0}
