@@ -13,13 +13,13 @@ public class Reader : MonoBehaviour
     public static Reader Instance;
 
     [SerializeField] private GameObject dialog;
-    [FormerlySerializedAs("imageComp")] [SerializeField] private TextMeshProUGUI readerReq;
+    [SerializeField] private TextMeshProUGUI readerReq;
     [SerializeField] public Image face;
     public string requestedTitle;
 
     [Header("Patience Variables")]
     public float initialPatience;
-    public float incrementAmount;
+    public float decrementAmount;
     private float currentPatience;
     [SerializeField] private Image patienceMeterFill;
     public UnityEvent onPatienceGone = new();
@@ -109,7 +109,7 @@ public class Reader : MonoBehaviour
 
     public void ForceDeductPatience()
     {
-        currentPatience -= incrementAmount;
+        currentPatience -= decrementAmount;
     }
 
     public float GetPatience()
