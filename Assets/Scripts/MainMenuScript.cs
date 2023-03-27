@@ -34,6 +34,7 @@ public class MainMenuScript : MonoBehaviour
         {8, 0},
         {9, 0}
     };
+
     private void Start()
     {
         if (GameManager.instance.tutorialIsDone)
@@ -61,6 +62,13 @@ public class MainMenuScript : MonoBehaviour
     {
         ActivatePanel(levelSelectPanel.name);
         ShowStars();
+        ShowMinigames();
+    }
+    void ShowMinigames()
+    {
+        if (GameManager.instance.levelManager.levelsUnlocked.Contains(4)) miniGameButton[0].interactable = true;
+        if (GameManager.instance.levelManager.levelsUnlocked.Contains(7)) miniGameButton[1].interactable = true;
+        if (GameManager.instance.levelManager.levelsUnlocked.Contains(10)) miniGameButton[2].interactable = true;
     }
 
     void ShowStars()
@@ -113,6 +121,7 @@ public class MainMenuScript : MonoBehaviour
         // unlock each levels
         for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count + 1; i++)
         {
+
             if (!levelButtons[i].interactable)
             {
                 levelButtons[i].interactable = true;

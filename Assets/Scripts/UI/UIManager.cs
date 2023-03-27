@@ -13,6 +13,7 @@ using Vector3 = UnityEngine.Vector3;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject statusPanel;
+    [SerializeField] private GameObject menuButton;
     [SerializeField] private GameObject starScore;
     [SerializeField] private Animator[] shineAnimator;
     [SerializeField] private Vector2 finalStarPos;
@@ -53,6 +54,12 @@ public class UIManager : MonoBehaviour
             statusPanel.SetActive(true);
         if (controller)
             controller.ManualStart();
+
+        if (GameManager.instance.levelManager.selectedLevel % 3 == 0 && menuButton != null)
+        {
+            Debug.Log("Menu Button");
+            menuButton.SetActive(false);
+        }
     }
 
     private void SetUpStarScore()
@@ -81,13 +88,26 @@ public class UIManager : MonoBehaviour
 
     public void OnNextLevelButtonClicked()
     {
-        var l = GameManager.instance.levelManager;
-
-        if (l.selectedLevel > l.levelDataList.Count)
-            return;
         
-        l.selectedLevel += 1;
-        l.LoadLevel(l.selectedLevel);
+        var l = GameManager.instance.levelManager;
+        if (l.selectedLevel % 3 == 0)
+        {
+            SceneManager.LoadSceneAsync("Memory Game");
+        }
+        else
+        {
+            if (l.selectedLevel > l.levelDataList.Count)
+                return;
+        
+            l.selectedLevel += 1;
+            l.LoadLevel(l.selectedLevel);
+        }
+        
+    }
+
+    public void OnMemoryNextLevelButtonClicked()
+    {
+        SceneManager.LoadSceneAsync("SortingMiniGame");
     }
 
     private IEnumerator _StarMove(CustomSequence sequence, RectTransform transform, Vector2 final)

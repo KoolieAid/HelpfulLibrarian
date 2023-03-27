@@ -10,6 +10,7 @@ public struct BookPairs
     public BookInfo book1;
     public BookInfo book2;
     public Topics pairCategory;
+    public Topics pairCategory2;
 }
 public class SortingGameManager : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class SortingGameManager : MonoBehaviour
 
     private void Start()
     {
+        // SetLastBooks() // this needs to be callsed first
         GetPairedBooks();// testing only, should be called by main Game Mgr
         StartCoroutine("StartTimer");// testing only, should be called by main Game Mgr
 
@@ -131,8 +133,27 @@ public class SortingGameManager : MonoBehaviour
         {
             if (OnGameEnd != null)
                 OnGameEnd(perfectScore, score);
+                UnlockNextLevel();
 
             timerIsPaused = true;
         }
+    }
+
+        private void UnlockNextLevel()
+    {
+        if (GameManager.instance == null)
+        {
+            Debug.LogWarning("Game Manager is null");
+            return;
+        }
+        
+        var l = GameManager.instance.levelManager;
+        if(l.levelsUnlocked.Contains(l.selectedLevel + 1))
+           return;
+        
+        l.levelsUnlocked.Add(/*l.selectedLevel + 1*/2);
+        l.levelsUnlocked.Add(/*l.selectedLevel + 1*/3);
+        l.levelsUnlocked.Add(/*l.selectedLevel + 1*/4);
+        
     }
 }

@@ -6195,6 +6195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusPanel: {fileID: 140526842}
+  menuButton: {fileID: 300704546}
   starScore: {fileID: 381732624}
   shineAnimator:
   - {fileID: 912253154}

@@ -18,6 +18,7 @@ public class Bookshelf : MonoBehaviour
 
     [SerializeField] private Topics category;
     public static Action<bool, string> OnSort;
+    public string topicCategory;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

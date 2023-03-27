@@ -280,10 +280,10 @@ public class ReaderManager : MonoBehaviour
         }
         
         var l = GameManager.instance.levelManager;
-        
         if(l.levelsUnlocked.Contains(l.selectedLevel + 1))
-            return;
+           return;
         
         l.levelsUnlocked.Add(l.selectedLevel + 1);
+        
     }
 }

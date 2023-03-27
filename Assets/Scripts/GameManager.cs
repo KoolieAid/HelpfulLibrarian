@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour
                     menuScript.SetLevelStarScore(s.Key, v);
             }
         }
+        else if (scene.name == "SortingMiniGame")
+        {
+
+        }
     }
 
     public void SetScores(int levelNum, int numOfStars)

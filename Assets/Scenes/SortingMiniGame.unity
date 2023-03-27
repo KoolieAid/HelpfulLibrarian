@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 0
+  topicCategory: 
 --- !u!61 &97189292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1151,6 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 4
+  topicCategory: 
 --- !u!61 &351927383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1421,6 +1423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusPanel: {fileID: 0}
+  menuButton: {fileID: 0}
   starScore: {fileID: 0}
   shineAnimator:
   - {fileID: 0}
@@ -5053,6 +5056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 1
+  topicCategory: 
 --- !u!61 &1548152195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5349,6 +5353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 6
+  topicCategory: 
 --- !u!61 &1632237071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5465,6 +5470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 3
+  topicCategory: 
 --- !u!61 &1661353589
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5579,6 +5585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 5
+  topicCategory: 
 --- !u!61 &1704281291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5885,9 +5892,11 @@ MonoBehaviour:
   - book1: {fileID: 11400000, guid: 85c171e488d90384dbf700e1973af8da, type: 2}
     book2: {fileID: 11400000, guid: ec06c5b2f0f0a564e8b9756128f6c488, type: 2}
     pairCategory: 3
+    pairCategory2: 0
   - book1: {fileID: 11400000, guid: 85c171e488d90384dbf700e1973af8da, type: 2}
     book2: {fileID: 11400000, guid: ec06c5b2f0f0a564e8b9756128f6c488, type: 2}
     pairCategory: 3
+    pairCategory2: 0
   stackedBooks:
   - {fileID: 859829672}
   - {fileID: 1082886516}
@@ -5896,7 +5905,7 @@ MonoBehaviour:
   - {fileID: 1565584897}
   - {fileID: 425971005}
   timerBarFill: {fileID: 2032004164}
-  initialTime: 60
+  initialTime: 5
   blueFill: {r: 0.14509805, g: 0.6666667, b: 0.882353, a: 1}
   yellowFill: {r: 0.854902, g: 0.8431373, b: 0.3803922, a: 1}
   redFill: {r: 0.69411767, g: 0.10196079, b: 0.16078432, a: 1}
@@ -6615,6 +6624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 2
+  topicCategory: 
 --- !u!61 &1988278008
 BoxCollider2D:
   m_ObjectHideFlags: 0
