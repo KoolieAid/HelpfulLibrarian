@@ -16,3 +16,4 @@ MonoBehaviour:
   keyword: {fileID: 11400000, guid: 28e3627798193404ea1b05df7c4cb4ac, type: 2}
   description: Liwanag o kuryente na nanggagaling sa mga ulap kapag mayroong malakas
     na ulan.
+  highlightWord: Kidlat

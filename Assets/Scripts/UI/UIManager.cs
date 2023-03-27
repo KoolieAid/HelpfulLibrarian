@@ -51,7 +51,8 @@ public class UIManager : MonoBehaviour
     {
         if (statusPanel)
             statusPanel.SetActive(true);
-        controller.ManualStart();
+        if (controller)
+            controller.ManualStart();
     }
 
     private void SetUpStarScore()
