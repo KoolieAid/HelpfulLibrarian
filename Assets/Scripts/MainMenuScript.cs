@@ -17,6 +17,8 @@ public class MainMenuScript : MonoBehaviour
     [Header("Level Buttons")]
     public Button[] levelButtons;
 
+    [SerializeField] private Button[] miniGameButton;
+
 
     [Header("Level Stars")]
     public StarManager[] starManagers = new StarManager[9];
