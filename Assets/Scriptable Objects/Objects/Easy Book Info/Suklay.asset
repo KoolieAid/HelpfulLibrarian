@@ -15,3 +15,4 @@ MonoBehaviour:
   title: Suklay ni Chichay
   keyword: {fileID: 11400000, guid: 06df1a75f093edd40864ee06c9130378, type: 2}
   description: Bagay na ginagamit ng isang tao para ayusin o linisin ang buhok.
+  highlightWord: Suklay

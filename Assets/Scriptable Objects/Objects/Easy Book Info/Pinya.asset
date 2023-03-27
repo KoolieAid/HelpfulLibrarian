@@ -16,3 +16,4 @@ MonoBehaviour:
   keyword: {fileID: 11400000, guid: 352feab5c49d42e47b6f887993f1ab0f, type: 2}
   description: Prutas na mayroong maraming tusok at matutulis na dahon. Kapag ito'y
     binuksan, kulay dilaw at matamis ang loob ng prutas na ito.
+  highlightWord: Pinya
