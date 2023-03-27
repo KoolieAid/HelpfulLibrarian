@@ -13,8 +13,8 @@ using UnityEngine.UI;
 public class BookStack : MonoBehaviour
 {
     
-    [SerializeField] private BookSet[] booksInStack = new BookSet[2];
-    public Topics category;
+    [SerializeField] private BookSet bookSet;
+    public string category;
 
     private Vector3 originalPos;
     public int speed = 300;
@@ -94,7 +94,7 @@ public class BookStack : MonoBehaviour
 
         if (bookLocation == Location.OnCart)
         {
-            StackCover.instance.SetCoverData(booksInStack[0], booksInStack[1]);
+            StackCover.instance.SetCoverData(bookSet);
             StackCover.instance.OpenCovers();
         }
         else if (bookLocation == Location.OffCart)
@@ -127,10 +127,9 @@ public class BookStack : MonoBehaviour
         }
     }
     // Called at the start of this part of the game
-    public void SetBooksInStack(BookInfo book1, BookInfo book2, Topics topic)
+    public void SetBooksInStack(BookInfo book, string topic)
     {
-        booksInStack[0].bookInfo = book1;
-        booksInStack[1].bookInfo = book2;
+        bookSet.bookInfo = book;
         category = topic;
     }
 

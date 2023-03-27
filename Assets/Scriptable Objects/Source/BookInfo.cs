@@ -6,6 +6,7 @@ using UnityEngine;
 public sealed class BookInfo : ScriptableObject
 {
     public string title;
+    public string category;
     public Keyword keyword;
 
     [TextArea(3, 4)]

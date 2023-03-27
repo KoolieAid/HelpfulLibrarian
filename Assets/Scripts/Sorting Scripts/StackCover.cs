@@ -16,7 +16,7 @@ public class StackCover : MonoBehaviour
         public TextMeshProUGUI bodyText;
         public Image subjImage;
     }
-    [SerializeField] private bookCovers[] bookCoversInStack = new bookCovers[2];
+    [SerializeField] private bookCovers bookCoversInStack;
 
     public bool isOpen;
     [SerializeField] private GameObject covers;
@@ -28,26 +28,22 @@ public class StackCover : MonoBehaviour
         CloseCovers();
     }
 
-    public void SetCoverData(BookSet bookSet1, BookSet bookSet2)
+    public void SetCoverData(BookSet bookSet)
     {
-        bookCoversInStack[0].img.sprite = bookSet1.bookCover.bookBack;
-        SetDescription(0, bookSet1.bookInfo.title, bookSet1.bookInfo.description, bookSet1.bookInfo.keyword.image);
-
-        bookCoversInStack[1].img.sprite = bookSet2.bookCover.bookBack;
-        SetDescription(1, bookSet2.bookInfo.title, bookSet2.bookInfo.description, bookSet2.bookInfo.keyword.image);
+        bookCoversInStack.img.sprite = bookSet.bookCover.bookBack;
+        SetDescription(bookSet.bookInfo.title, bookSet.bookInfo.description, bookSet.bookInfo.keyword.image);
     }
 
-    void SetDescription(int index, string title, string description, Sprite image)
+    void SetDescription(string title, string description, Sprite image)
     {
-        bookCoversInStack[index].titleText.text = title;
-        bookCoversInStack[index].bodyText.text = description;
-        bookCoversInStack[index].subjImage.sprite = image;
+        bookCoversInStack.titleText.text = title;
+        bookCoversInStack.bodyText.text = description;
+        bookCoversInStack.subjImage.sprite = image;
     }
 
     public void OpenCovers()
     {
         covers.SetActive(true);
-        //covers.transform.position = new Vector3(0, 0, 0);
         isOpen = true;
     }
 
@@ -55,6 +51,5 @@ public class StackCover : MonoBehaviour
     {
         isOpen = false;
         covers.SetActive(false);
-        //covers.transform.position = new Vector3(0, 2000, 0);
     }
 }
