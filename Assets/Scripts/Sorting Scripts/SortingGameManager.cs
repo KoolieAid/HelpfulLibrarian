@@ -16,6 +16,7 @@ public class SortingGameManager : MonoBehaviour
     [SerializeField] private BookStack[] cartBooks;
     [SerializeField] private Bookshelf[] bookShelves = new Bookshelf[7];
     private List<string> categoryList = new List<string>();
+    [SerializeField] private string[] decoyCategories;
 
     private int numOfBooksToSort;
     private int perfectScore;
@@ -93,8 +94,8 @@ public class SortingGameManager : MonoBehaviour
         {
             categoryList.Add(sB.category);
         }
-        categoryList.Add("Nothing Here / Dud");// make a list or array of possible DECOY coategory names
-
+        categoryList.Add(decoyCategories[UnityEngine.Random.Range(0, decoyCategories.Length)]);
+        
         SetBookShelfCategoies();
     }
     void SetBookShelfCategoies()
