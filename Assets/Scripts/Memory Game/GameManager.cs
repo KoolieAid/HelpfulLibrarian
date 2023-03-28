@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using Asyncoroutine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
 
 namespace Memory_Game
 {
@@ -16,11 +18,14 @@ namespace Memory_Game
         public static GameManager Instance;
         private Stack<Mem_Book> memory = new();
 
+        public Level lvls;
+
         [SerializeField] private GameObject imagePrefab;
         [SerializeField] private GameObject textPrefab;
         [SerializeField] private BookInfo[] booksToSpawn;
         [SerializeField] private BookCover[] covers;
         [SerializeField] private GameObject bookParent;
+        public int lvlIteration = 0;
         private List<Mem_Book> cards = new();
 
         [Header("Grid")] 
@@ -41,23 +46,60 @@ namespace Memory_Game
         public UnityEvent onLose;
         private bool lvlDone = false;
 
+        [Header("UI")] [SerializeField] private Button next;
+
         [Header("Debug")] public List<BookInfo> decoyList = new();
 
         private void Start()
         {
             Instance = this;
+            booksToSpawn = lvls.firstSet;
             GenerateGrid();
             StartPatienceTimer();
+            next.interactable = false;
 
             UnityAction _ = () =>
             {
                 lvlDone = true;
-                UIManager.uiManager.ShowLevelStatus();
+                // UIManager.uiManager.ShowLevelStatus();
                 cards.ForEach(b => b.Lock());
+
+                if (++lvlIteration < 1)
+                {
+                    NextLevel();
+                    return;
+                }
+
+                next.interactable = true;
+            };
+
+            UnityAction win = () =>
+            {
+                lvlDone = true;
+                cards.ForEach(b => b.Lock());
+                
+                ++lvlIteration;
+                // If iter is on 2, which is all done
+                if (lvlIteration > 1)
+                {
+                    next.interactable = true;
+                    UIManager.uiManager.ShowLevelStatus();
+                    return;
+                }
+                // If not done
+                NextLevel();
+            };
+
+            UnityAction lose = () =>
+            {
+                lvlDone = true;
+                cards.ForEach(b => b.Lock());
+                
+                UIManager.uiManager.ShowLevelStatus();
             };
             
-            onWin.AddListener(_);
-            onLose.AddListener(_);
+            onWin.AddListener(win);
+            onLose.AddListener(lose);
         }
 
         private async void StartPatienceTimer()
@@ -70,6 +112,7 @@ namespace Memory_Game
 
                 if (patienceBar.fillAmount <= 0)
                 {
+                    lvlDone = true;
                     break;
                 }
             }
@@ -187,9 +230,37 @@ namespace Memory_Game
             }
         }
 
+        public void NextLevel()
+        {
+            cards.ForEach(b =>
+            {
+                Destroy(b.gameObject);
+            });
+            cards.Clear();
+
+            Assert.IsTrue(lvlIteration == 1, "Bro how u got here");
+
+            booksToSpawn = lvls.secondSet;
+
+            GenerateGrid();
+
+            lvlDone = false;
+            patienceBar.fillAmount = 1f;
+            
+            StartPatienceTimer();
+        }
+
+        public void WholeRestart()
+        {
+            SceneManager.LoadSceneAsync("Memory Game", LoadSceneMode.Additive).completed += _ =>
+            {
+                SceneManager.UnloadSceneAsync(gameObject.scene);
+            };
+        }
+
         public List<BookInfo> GetBooksToSpawn()
         {
-            return new List<BookInfo>(booksToSpawn);
+            return lvls.firstSet.Concat(lvls.secondSet).ToList();
         }
 
         public void NextLevelClicked()

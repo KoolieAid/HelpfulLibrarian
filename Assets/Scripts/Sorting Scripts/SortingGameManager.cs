@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 using System;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct SortingBook
@@ -188,7 +189,7 @@ public class SortingGameManager : MonoBehaviour
         }
     }
 
-        private void UnlockNextLevel()
+    private void UnlockNextLevel()
     {
         if (GameManager.instance == null)
         {

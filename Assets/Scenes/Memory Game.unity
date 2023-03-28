@@ -424,7 +424,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657610131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae68f1870d93ea6409f7864c2f4eaf19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvls: {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
   imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e, type: 3}
   textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1, type: 3}
   booksToSpawn:
@@ -762,6 +763,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 94048930d7449b643b96bee417747820, type: 2}
   - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
   bookParent: {fileID: 1201955299}
+  lvlIteration: 0
   rows: 3
   columns: 2
   offsetX: 2.5
@@ -776,6 +778,7 @@ MonoBehaviour:
   onLose:
     m_PersistentCalls:
       m_Calls: []
+  next: {fileID: 780982187}
   decoyList:
   - {fileID: 11400000, guid: 518d0926e4f8e1f4994374c00d58d45e, type: 2}
   - {fileID: 11400000, guid: 85c171e488d90384dbf700e1973af8da, type: 2}
@@ -1500,9 +1503,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714361780}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: RestartCurrentScene
+      - m_Target: {fileID: 714361778}
+        m_TargetAssemblyTypeName: Memory_Game.GameManager, Assembly-CSharp
+        m_MethodName: WholeRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1652,7 +1655,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929247882}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1929247884
 Camera:
   m_ObjectHideFlags: 0
