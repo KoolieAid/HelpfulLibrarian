@@ -48,8 +48,6 @@ namespace Memory_Game
 
         [Header("UI")] [SerializeField] private Button next;
 
-        [Header("Debug")] public List<BookInfo> decoyList = new();
-
         private void Start()
         {
             Instance = this;
@@ -266,8 +264,7 @@ namespace Memory_Game
         public void NextLevelClicked()
         {
             SortingGameManager.Instance.canvas.SetActive(true);
-            // SortingGameManager.Instance.ManualStart(GetBooksToSpawn());
-            SortingGameManager.Instance.ManualStart(decoyList);
+            SortingGameManager.Instance.ManualStart(GetBooksToSpawn());
             // await new WaitForSeconds(1);
             SceneManager.UnloadSceneAsync(gameObject.scene);
         }

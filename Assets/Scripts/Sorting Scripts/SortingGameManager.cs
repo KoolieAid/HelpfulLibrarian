@@ -206,4 +206,18 @@ public class SortingGameManager : MonoBehaviour
         l.levelsUnlocked.Add(/*l.selectedLevel + 1*/4);
         
     }
+
+    public void RestartGame()
+    {
+        
+        SceneManager.LoadSceneAsync("SortingMiniGame").completed += _ =>
+        {
+            var temp = sortingBookList;
+            Instance.canvas.SetActive(true);
+            Instance.sortingBookList = temp;
+            Instance.SetCartBooksData();
+            Instance.GetAllCategories();
+            Instance.StartCoroutine(nameof(StartTimer));
+        };
+    }
 }
