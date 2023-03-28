@@ -776,6 +776,13 @@ MonoBehaviour:
   onLose:
     m_PersistentCalls:
       m_Calls: []
+  decoyList:
+  - {fileID: 11400000, guid: 518d0926e4f8e1f4994374c00d58d45e, type: 2}
+  - {fileID: 11400000, guid: 85c171e488d90384dbf700e1973af8da, type: 2}
+  - {fileID: 11400000, guid: ec06c5b2f0f0a564e8b9756128f6c488, type: 2}
+  - {fileID: 11400000, guid: 9dc6230a33abd7d40a55cbff475e8d4c, type: 2}
+  - {fileID: 11400000, guid: a4390d1400d2a234faee23bb677f9994, type: 2}
+  - {fileID: 11400000, guid: 1c878cc60a02ead44b4d9130c95f1064, type: 2}
 --- !u!4 &714361779
 Transform:
   m_ObjectHideFlags: 0
@@ -895,9 +902,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714361780}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnMemoryNextLevelButtonClicked
+      - m_Target: {fileID: 714361778}
+        m_TargetAssemblyTypeName: Memory_Game.GameManager, Assembly-CSharp
+        m_MethodName: NextLevelClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

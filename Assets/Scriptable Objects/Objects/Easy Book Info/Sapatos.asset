@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sapatos
   m_EditorClassIdentifier: 
   title: Sapatos ni Santiago
+  category: Kasuotan
   keyword: {fileID: 11400000, guid: 0978ab315f77e284684fe1f382ff1413, type: 2}
   description: Bagay na kadalasang may kasamang pares at sinusuot sa paa ng tao.
   highlightWord: Sapatos

@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Asyncoroutine;
 using Tutorial;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -92,22 +94,27 @@ public class UIManager : MonoBehaviour
         var l = GameManager.instance.levelManager;
         if (l.selectedLevel % 3 == 0)
         {
-            SceneManager.LoadSceneAsync("Memory Game");
-        }
-        else
-        {
-            if (l.selectedLevel > l.levelDataList.Count)
-                return;
-        
-            l.selectedLevel += 1;
-            l.LoadLevel(l.selectedLevel);
+            SceneManager.LoadSceneAsync("SortingMiniGame").completed += _ =>
+            {
+                SceneManager.LoadSceneAsync("Memory Game", LoadSceneMode.Additive).completed += _ =>
+                {
+                    SortingGameManager.Instance.canvas.SetActive(false);
+                };
+            };
         }
         
     }
 
     public void OnMemoryNextLevelButtonClicked()
     {
-        SceneManager.LoadSceneAsync("SortingMiniGame");
+        // SceneManager.LoadSceneAsync("SortingMiniGame");
+        SceneManager.UnloadSceneAsync("Memory Game").completed += async _ =>
+        {
+            SortingGameManager.Instance.canvas.SetActive(true);
+            await new WaitForSeconds(1);
+            Debug.Log($"books spawned: {Memory_Game.GameManager.Instance.GetBooksToSpawn()}");
+            SortingGameManager.Instance.ManualStart(Memory_Game.GameManager.Instance.GetBooksToSpawn());
+        };
     }
 
     private IEnumerator _StarMove(CustomSequence sequence, RectTransform transform, Vector2 final)

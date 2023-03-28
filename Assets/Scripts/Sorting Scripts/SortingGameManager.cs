@@ -12,6 +12,8 @@ public struct SortingBook
 }
 public class SortingGameManager : MonoBehaviour
 {
+    public static SortingGameManager Instance;
+    
     [SerializeField] private List<SortingBook> sortingBookList = new List<SortingBook>();
     [SerializeField] private BookStack[] cartBooks;
     [SerializeField] private Bookshelf[] bookShelves = new Bookshelf[7];
@@ -38,6 +40,8 @@ public class SortingGameManager : MonoBehaviour
 
     public static Action<int, int> OnGameEnd;
 
+    public GameObject canvas;
+
     void OnEnable()
     {
         Bookshelf.OnSort += BooksToSortTracker;
@@ -49,14 +53,31 @@ public class SortingGameManager : MonoBehaviour
         BookStack.OnFailBook -= BooksToSortTracker;
     }
 
+    private void Awake()
+    {
+        Instance = this;
+        if (GameManager.instance != null)
+        {
+            Debug.Log("Thorough debug mode");
+            canvas.SetActive(false);
+        }
+    }
+
     private void Start()
     {
         // [In Order]
         // SetSortingBookList();
-        SetCartBooksData();// testing only, should be called by what ever starts the game
-        GetAllCategories();// testing only, should be called by  what ever starts the game
-        StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
+        // SetCartBooksData();// testing only, should be called by what ever starts the game
+        // GetAllCategories();// testing only, should be called by  what ever starts the game
+        // StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
+    }
 
+    public void ManualStart(List<BookInfo> books)
+    {
+        SetSortingBookList(books);
+        SetCartBooksData();
+        GetAllCategories();
+        StartCoroutine(nameof(StartTimer));
     }
 
     public void SetSortingBookList(List<BookInfo> bookList)

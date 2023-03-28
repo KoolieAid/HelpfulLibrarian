@@ -7,11 +7,13 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using Asyncoroutine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Memory_Game
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance;
         private Stack<Mem_Book> memory = new();
 
         [SerializeField] private GameObject imagePrefab;
@@ -39,8 +41,11 @@ namespace Memory_Game
         public UnityEvent onLose;
         private bool lvlDone = false;
 
+        [Header("Debug")] public List<BookInfo> decoyList = new();
+
         private void Start()
         {
+            Instance = this;
             GenerateGrid();
             StartPatienceTimer();
 
@@ -180,6 +185,20 @@ namespace Memory_Game
             {
                 DiscardAll();
             }
+        }
+
+        public List<BookInfo> GetBooksToSpawn()
+        {
+            return new List<BookInfo>(booksToSpawn);
+        }
+
+        public void NextLevelClicked()
+        {
+            SortingGameManager.Instance.canvas.SetActive(true);
+            // SortingGameManager.Instance.ManualStart(GetBooksToSpawn());
+            SortingGameManager.Instance.ManualStart(decoyList);
+            // await new WaitForSeconds(1);
+            SceneManager.UnloadSceneAsync(gameObject.scene);
         }
     }
 }
