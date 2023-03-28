@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             {
                 int v;
                 levelScore.TryGetValue(s.Key, out v);
-                if (v != menuScript.GetLevelStarScore(s.Key))
+                if (v > menuScript.GetLevelStarScore(s.Key))
                     menuScript.SetLevelStarScore(s.Key, v);
             }
         }
