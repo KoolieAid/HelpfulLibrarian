@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Kamatis
   m_EditorClassIdentifier: 
   title: Ang Kamatis ni Feliz
+  category: Bilog na Prutas
   keyword: {fileID: 11400000, guid: 571083420cd464247ad3ae042c5b971b, type: 2}
   description: Bilog na prutas na mayroong pulang kulay at mayroong matamis at maasim
     na lasa.

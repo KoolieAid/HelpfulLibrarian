@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Araw
   m_EditorClassIdentifier: 
   title: Araw sa Palengke
+  category: Malapit sa Ulap
   keyword: {fileID: 11400000, guid: a53f25d802e7b2e4989be0a952930fa0, type: 2}
   description: Nagsisilbi itong ilaw at nagbibigay buhay ang init nito sa lahat ng
     mga nilalang tulad ng mga tao, hayop at halaman
