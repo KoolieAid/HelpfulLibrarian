@@ -5,17 +5,18 @@ using Image = UnityEngine.UI.Image;
 using System;
 
 [System.Serializable]
-public struct BookPairs
+public struct SortingBook
 {
-    public BookInfo book1;
-    public BookInfo book2;
-    public Topics pairCategory;
-    public Topics pairCategory2;
+    public BookInfo book;
+    public string category;
 }
 public class SortingGameManager : MonoBehaviour
 {
-    [SerializeField] private BookPairs[] pairedBooks;
-    [SerializeField] private BookStack[] stackedBooks;
+    [SerializeField] private List<SortingBook> sortingBookList = new List<SortingBook>();
+    [SerializeField] private BookStack[] cartBooks;
+    [SerializeField] private Bookshelf[] bookShelves = new Bookshelf[7];
+    private List<string> categoryList = new List<string>();
+    [SerializeField] private string[] decoyCategories;
 
     private int numOfBooksToSort;
     private int perfectScore;
@@ -50,35 +51,62 @@ public class SortingGameManager : MonoBehaviour
 
     private void Start()
     {
-        // SetLastBooks() // this needs to be callsed first
-        GetPairedBooks();// testing only, should be called by main Game Mgr
-        StartCoroutine("StartTimer");// testing only, should be called by main Game Mgr
+        // [In Order]
+        // SetSortingBookList();
+        SetCartBooksData();// testing only, should be called by what ever starts the game
+        GetAllCategories();// testing only, should be called by  what ever starts the game
+        StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
 
     }
 
-    public void SetLastPairedBooks(BookInfo book1, BookInfo book2, Topics topic)
+    public void SetSortingBookList(List<BookInfo> bookList)
     {
-        pairedBooks[pairedBooks.Length].book1 = book1;
-        pairedBooks[pairedBooks.Length].book2 = book2;
-        pairedBooks[pairedBooks.Length].pairCategory = topic;
-    }
-
-    public void GetPairedBooks()
-    {
-        for (int i = 0; i < stackedBooks.Length; i++)
+        foreach (BookInfo b in bookList)
         {
-            if (i < pairedBooks.Length)
+            SortingBook sortingBook = new SortingBook();
+            sortingBook.book = b;
+            sortingBook.category = b.GetBookCategory();
+
+            sortingBookList.Add(sortingBook);
+        }
+    }
+
+    public void SetCartBooksData()
+    {
+        for (int i = 0; i < cartBooks.Length; i++)
+        {
+            if (i < sortingBookList.Count)
             {
-                stackedBooks[i].SetBooksInStack(pairedBooks[i].book1, pairedBooks[i].book2, pairedBooks[i].pairCategory);
+                cartBooks[i].SetBooksInStack(sortingBookList[i].book, sortingBookList[i].category);
                 numOfBooksToSort += 1;
             }
             else
             {
-                stackedBooks[i].gameObject.SetActive(false);
+                cartBooks[i].gameObject.SetActive(false);
             }
         }
 
         perfectScore = numOfBooksToSort;
+    }
+    void GetAllCategories()
+    {
+        foreach (SortingBook sB in sortingBookList)
+        {
+            categoryList.Add(sB.category);
+        }
+        categoryList.Add(decoyCategories[UnityEngine.Random.Range(0, decoyCategories.Length)]);
+        
+        SetBookShelfCategoies();
+    }
+    void SetBookShelfCategoies()
+    {
+        for(int i = 0; i < bookShelves.Length; i++)
+        {
+            int n = UnityEngine.Random.Range(0, categoryList.Count);
+            string name = categoryList[n];
+            bookShelves[i].SetCategory(name);
+            categoryList.RemoveAt(n);
+        }
     }
 
     IEnumerator StartTimer()
