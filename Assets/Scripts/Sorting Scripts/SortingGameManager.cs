@@ -12,7 +12,7 @@ public struct SortingBook
 }
 public class SortingGameManager : MonoBehaviour
 {
-    [SerializeField] private SortingBook[] books;
+    [SerializeField] private List<SortingBook> sortingBookList = new List<SortingBook>();
     [SerializeField] private BookStack[] cartBooks;
     [SerializeField] private Bookshelf[] bookShelves = new Bookshelf[7];
     private List<string> categoryList = new List<string>();
@@ -50,25 +50,33 @@ public class SortingGameManager : MonoBehaviour
 
     private void Start()
     {
-        GetPairedBooks();// testing only, should be called by main Game Mgr
-        GetAllCategories();// testing only, should be called by main Game Mgr
-        StartCoroutine("StartTimer");// testing only, should be called by main Game Mgr
+        // [In Order]
+        // SetSortingBookList();
+        SetCartBooksData();// testing only, should be called by what ever starts the game
+        GetAllCategories();// testing only, should be called by  what ever starts the game
+        StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
 
     }
 
-    public void SetLastBook(BookInfo book, string topic)
+    public void SetSortingBookList(List<BookInfo> bookList)
     {
-        books[books.Length].book = book;
-        books[books.Length].category = topic;
+        foreach (BookInfo b in bookList)
+        {
+            SortingBook sortingBook = new SortingBook();
+            sortingBook.book = b;
+            sortingBook.category = b.GetBookCategory();
+
+            sortingBookList.Add(sortingBook);
+        }
     }
 
-    public void GetPairedBooks()
+    public void SetCartBooksData()
     {
         for (int i = 0; i < cartBooks.Length; i++)
         {
-            if (i < books.Length)
+            if (i < sortingBookList.Count)
             {
-                cartBooks[i].SetBooksInStack(books[i].book, books[i].category);
+                cartBooks[i].SetBooksInStack(sortingBookList[i].book, sortingBookList[i].category);
                 numOfBooksToSort += 1;
             }
             else
@@ -81,11 +89,11 @@ public class SortingGameManager : MonoBehaviour
     }
     void GetAllCategories()
     {
-        foreach (SortingBook sB in books)
+        foreach (SortingBook sB in sortingBookList)
         {
             categoryList.Add(sB.category);
         }
-        categoryList.Add("Nothing Here / Dud");
+        categoryList.Add("Nothing Here / Dud");// make a list or array of possible DECOY coategory names
 
         SetBookShelfCategoies();
     }

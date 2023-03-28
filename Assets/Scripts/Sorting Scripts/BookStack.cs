@@ -14,12 +14,12 @@ public class BookStack : MonoBehaviour
 {
     
     [SerializeField] private BookSet bookSet;
-    public string category;
+    private string category;
 
     private Vector3 originalPos;
     public int speed = 300;
 
-    private Collider2D collider2D;
+    private Collider2D bookCollider;
 
     private int numOfChances = 3;
     private int numOfTries;
@@ -56,7 +56,7 @@ public class BookStack : MonoBehaviour
     void Start()
     {
         originalPos = transform.position;
-        collider2D = GetComponent<Collider2D>();
+        bookCollider = GetComponent<Collider2D>();
         bookStatus = SortStatus.Unsorted;
         bookLocation = Location.OnCart;
     }
@@ -135,7 +135,7 @@ public class BookStack : MonoBehaviour
 
     public void SetColliderStatus(bool isActive)
     {
-        collider2D.enabled = isActive;
+        bookCollider.enabled = isActive;
     }
 
     IEnumerator ReturnToStartPos()
@@ -147,5 +147,15 @@ public class BookStack : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         SetColliderStatus(true);
+    }
+
+    public void SetBookCategory(string categoryName)
+    {
+        category = categoryName;
+    }
+
+    public string GetBookCategory()
+    {
+        return category;
     }
 }

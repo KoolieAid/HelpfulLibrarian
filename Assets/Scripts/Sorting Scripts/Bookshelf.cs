@@ -14,7 +14,7 @@ public class Bookshelf : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         BookStack bookStack = collision.GetComponent<BookStack>();
-        if (collision.GetComponent<BookStack>() && bookStack.category == category)
+        if (collision.GetComponent<BookStack>() && bookStack.GetBookCategory() == category)
         {
             if (OnSort != null)
                 OnSort(true, bookStack.name);

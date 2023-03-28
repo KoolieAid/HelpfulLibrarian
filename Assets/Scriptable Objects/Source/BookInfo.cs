@@ -6,7 +6,7 @@ using UnityEngine;
 public sealed class BookInfo : ScriptableObject
 {
     public string title;
-    public string category;
+    [SerializeField] private string category;
     public Keyword keyword;
 
     [TextArea(3, 4)]
@@ -31,5 +31,9 @@ public sealed class BookInfo : ScriptableObject
         if (a.title.Equals(b.title) && a.keyword.Equals(b.keyword)) return false;
 
         return true;
+    }
+    public string GetBookCategory()
+    {
+        return category;
     }
 }
