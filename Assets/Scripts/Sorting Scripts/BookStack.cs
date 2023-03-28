@@ -13,13 +13,13 @@ using UnityEngine.UI;
 public class BookStack : MonoBehaviour
 {
     
-    [SerializeField] private BookSet[] booksInStack = new BookSet[2];
-    public Topics category;
+    [SerializeField] private BookSet bookSet;
+    private string category;
 
     private Vector3 originalPos;
     public int speed = 300;
 
-    private Collider2D collider2D;
+    private Collider2D bookCollider;
 
     private int numOfChances = 3;
     private int numOfTries;
@@ -56,7 +56,7 @@ public class BookStack : MonoBehaviour
     void Start()
     {
         originalPos = transform.position;
-        collider2D = GetComponent<Collider2D>();
+        bookCollider = GetComponent<Collider2D>();
         bookStatus = SortStatus.Unsorted;
         bookLocation = Location.OnCart;
     }
@@ -94,7 +94,7 @@ public class BookStack : MonoBehaviour
 
         if (bookLocation == Location.OnCart)
         {
-            StackCover.instance.SetCoverData(booksInStack[0], booksInStack[1]);
+            StackCover.instance.SetCoverData(bookSet);
             StackCover.instance.OpenCovers();
         }
         else if (bookLocation == Location.OffCart)
@@ -127,16 +127,15 @@ public class BookStack : MonoBehaviour
         }
     }
     // Called at the start of this part of the game
-    public void SetBooksInStack(BookInfo book1, BookInfo book2, Topics topic)
+    public void SetBooksInStack(BookInfo book, string topic)
     {
-        booksInStack[0].bookInfo = book1;
-        booksInStack[1].bookInfo = book2;
+        bookSet.bookInfo = book;
         category = topic;
     }
 
     public void SetColliderStatus(bool isActive)
     {
-        collider2D.enabled = isActive;
+        bookCollider.enabled = isActive;
     }
 
     IEnumerator ReturnToStartPos()
@@ -148,5 +147,15 @@ public class BookStack : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         SetColliderStatus(true);
+    }
+
+    public void SetBookCategory(string categoryName)
+    {
+        category = categoryName;
+    }
+
+    public string GetBookCategory()
+    {
+        return category;
     }
 }

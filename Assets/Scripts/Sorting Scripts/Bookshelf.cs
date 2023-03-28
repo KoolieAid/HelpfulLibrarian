@@ -2,27 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum Topics // Change Topic Options when we have the Final Categories
-{
-    Topic1,
-    Topic2,
-    Topic3,
-    Topic4,
-    Topic5,
-    Topic6,
-    Topic7,
-};
+using TMPro;
 
 public class Bookshelf : MonoBehaviour
 {
 
-    [SerializeField] private Topics category;
+    [SerializeField] private string category;
+    [SerializeField] private TextMeshProUGUI categoryText;
     public static Action<bool, string> OnSort;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         BookStack bookStack = collision.GetComponent<BookStack>();
-        if (collision.GetComponent<BookStack>() && bookStack.category == category)
+        if (collision.GetComponent<BookStack>() && bookStack.GetBookCategory() == category)
         {
             if (OnSort != null)
                 OnSort(true, bookStack.name);
@@ -32,5 +24,11 @@ public class Bookshelf : MonoBehaviour
             if (OnSort != null)
                 OnSort(false, bookStack.name);
         }
+    }
+
+    public void SetCategory(string categoryName)
+    {
+        category = categoryName;
+        categoryText.text = category;
     }
 }
