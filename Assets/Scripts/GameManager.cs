@@ -78,5 +78,8 @@ public class GameManager : MonoBehaviour
         levelScore[levelNum] = numOfStars;
     }
 
-
+    public void TutorialFinished()
+    {
+        tutorialIsDone = true;
+    }
 }
