@@ -1,13 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using AYellowpaper.SerializedCollections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
-using UnityEngine.UI;
 
 public class ReaderManager : MonoBehaviour
 {
@@ -182,8 +178,6 @@ public class ReaderManager : MonoBehaviour
         reader.requestedTitle = bookinfo.title;
         reader.SetRequestText(bookinfo);
         
-        // TODO: Add the faces. Problem is: idk how to do animations, there are 3 sprites
-        // reader.face.sprite = readerSprites[Random.Range(0, readerSprites.Length)];
         reader.gameObject.SetActive(true);
     }
 

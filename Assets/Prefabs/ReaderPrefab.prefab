@@ -387,7 +387,7 @@ MonoBehaviour:
   face: {fileID: 8385512026773094904}
   requestedTitle: Alamat ng Pinya
   initialPatience: 45
-  decrementAmount: 0
+  decrementAmount: 1
   patienceMeterFill: {fileID: 2670178828641579920}
   onPatienceGone:
     m_PersistentCalls:
