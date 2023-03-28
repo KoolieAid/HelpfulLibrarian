@@ -8,4 +8,6 @@ public class Keyword : ScriptableObject
     public Sprite image;
     public string request;
     
+    [Tooltip("Words to be highlighted in the request. CASE SENSITIVE")]
+    public List<string> highlightedWords;
 }

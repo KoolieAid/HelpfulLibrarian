@@ -180,7 +180,7 @@ public class ReaderManager : MonoBehaviour
         // Instantiate a new reader with the book info
         var reader = GenerateReader();
         reader.requestedTitle = bookinfo.title;
-        reader.SetRequestText(bookinfo.keyword.request);
+        reader.SetRequestText(bookinfo);
         
         // TODO: Add the faces. Problem is: idk how to do animations, there are 3 sprites
         // reader.face.sprite = readerSprites[Random.Range(0, readerSprites.Length)];
