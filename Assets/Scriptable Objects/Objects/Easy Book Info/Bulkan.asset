@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bulkan
   m_EditorClassIdentifier: 
   title: Si Bulkan at Bathala
+  category: Anyong Lupa
   keyword: {fileID: 11400000, guid: bed2c7fb38dec46449ff63b57c593d6c, type: 2}
   description: Anyong lupa na may butas sa tuktok at maaaring magbuga ng abo at kumukulong
     putik.

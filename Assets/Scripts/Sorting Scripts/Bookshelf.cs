@@ -10,6 +10,7 @@ public class Bookshelf : MonoBehaviour
     [SerializeField] private string category;
     [SerializeField] private TextMeshProUGUI categoryText;
     public static Action<bool, string> OnSort;
+    public string topicCategory;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

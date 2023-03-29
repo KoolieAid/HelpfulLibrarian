@@ -148,6 +148,8 @@ public class ReaderManager : MonoBehaviour
     
     private void NextReader()
     {
+        if (stars <= 0) return;
+        
         // If theres no possible reader next
         if (currentCorrectAnswers.Count < 1 )
         {
@@ -157,9 +159,7 @@ public class ReaderManager : MonoBehaviour
             if (currentReader.gameObject) Destroy(currentReader.gameObject);
             return;
         }
-        
-        if (stars <= 0) return;
-        
+
         ReplaceReader();
     }
 
@@ -274,10 +274,10 @@ public class ReaderManager : MonoBehaviour
         }
         
         var l = GameManager.instance.levelManager;
-        
         if(l.levelsUnlocked.Contains(l.selectedLevel + 1))
-            return;
+           return;
         
         l.levelsUnlocked.Add(l.selectedLevel + 1);
+        
     }
 }

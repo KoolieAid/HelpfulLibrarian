@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sombrero
   m_EditorClassIdentifier: 
   title: Sombrero ng Bombero
+  category: Kasuotan
   keyword: {fileID: 11400000, guid: ad913e8727414b64a9e2420e8f776a72, type: 2}
   description: Isang bagay na sinusuot ng tao na nilalagay sa itaas ng ulo.
   highlightWord: Sombrero

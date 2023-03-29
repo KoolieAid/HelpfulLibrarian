@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bundok
   m_EditorClassIdentifier: 
   title: Bundok Arayat
+  category: Anyong Lupa
   keyword: {fileID: 11400000, guid: e0b3a8f539a106044b6eeb35a4910549, type: 2}
   description: "Isang anyong lupa na mataas at matarik at mayroong matulis na tuktok.
     \n"

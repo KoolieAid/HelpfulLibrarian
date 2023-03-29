@@ -17,6 +17,8 @@ public class MainMenuScript : MonoBehaviour
     [Header("Level Buttons")]
     public Button[] levelButtons;
 
+    [SerializeField] private Button[] miniGameButton;
+
 
     [Header("Level Stars")]
     public StarManager[] starManagers = new StarManager[9];
@@ -32,6 +34,7 @@ public class MainMenuScript : MonoBehaviour
         {8, 0},
         {9, 0}
     };
+
     private void Start()
     {
         if (GameManager.instance.tutorialIsDone)
@@ -59,6 +62,13 @@ public class MainMenuScript : MonoBehaviour
     {
         ActivatePanel(levelSelectPanel.name);
         ShowStars();
+        ShowMinigames();
+    }
+    void ShowMinigames()
+    {
+        if (GameManager.instance.levelManager.levelsUnlocked.Contains(4)) miniGameButton[0].interactable = true;
+        if (GameManager.instance.levelManager.levelsUnlocked.Contains(7)) miniGameButton[1].interactable = true;
+        if (GameManager.instance.levelManager.levelsUnlocked.Contains(10)) miniGameButton[2].interactable = true;
     }
 
     void ShowStars()
@@ -106,11 +116,17 @@ public class MainMenuScript : MonoBehaviour
         GameManager.instance.levelManager.LoadLevel(levelNumber);
     }
 
+    public void SelectMinigame(int minigameNumber)
+    {
+        GameManager.instance.levelManager.LoadMinigame(minigameNumber);
+    }
+
     private void UnlockLevelButtons()
     {
         // unlock each levels
         for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count + 1; i++)
         {
+
             if (!levelButtons[i].interactable)
             {
                 levelButtons[i].interactable = true;

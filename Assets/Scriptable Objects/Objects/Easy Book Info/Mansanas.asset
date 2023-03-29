@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mansanas
   m_EditorClassIdentifier: 
   title: Mansanas ni Mattias
+  category: Mga Ibon
   keyword: {fileID: 11400000, guid: c18a4c718ee92c1458ecb3fb2b8fb052, type: 2}
   description: Prutas na bunga ng isang puno at mayroon itong pula o berdeng kulay.
   highlightWord: Mansanas

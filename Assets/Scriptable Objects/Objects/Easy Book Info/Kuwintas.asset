@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Kuwintas
   m_EditorClassIdentifier: 
   title: Ang Suwerteng Kuwintas
+  category: Kasuotan
   keyword: {fileID: 11400000, guid: 30c10a59c1f8c4a40824c121872dfc3f, type: 2}
   description: Bagay na isinusuot at nakasabit at nakaikot sa leeg ng isang tao.
   highlightWord: Kuwintas

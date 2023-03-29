@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Asyncoroutine;
 using Tutorial;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +15,7 @@ using Vector3 = UnityEngine.Vector3;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject statusPanel;
+    [SerializeField] private GameObject menuButton;
     [SerializeField] private GameObject starScore;
     [SerializeField] private Animator[] shineAnimator;
     [SerializeField] private Vector2 finalStarPos;
@@ -53,6 +56,11 @@ public class UIManager : MonoBehaviour
             statusPanel.SetActive(true);
         if (controller)
             controller.ManualStart();
+
+        if (GameManager.instance.levelManager.selectedLevel % 3 == 0 && menuButton != null)
+        {
+            menuButton.SetActive(false);
+        }
     }
 
     private void SetUpStarScore()
@@ -81,13 +89,29 @@ public class UIManager : MonoBehaviour
 
     public void OnNextLevelButtonClicked()
     {
-        var l = GameManager.instance.levelManager;
-
-        if (l.selectedLevel > l.levelDataList.Count)
-            return;
         
-        l.selectedLevel += 1;
-        l.LoadLevel(l.selectedLevel);
+        var l = GameManager.instance.levelManager;
+        if (l.selectedLevel % 3 == 0)
+        {
+            l.LoadMinigame(l.selectedLevel);
+        }
+        else
+        {
+            l.selectedLevel += 1;
+            l.LoadLevel(l.selectedLevel);
+        }
+    }
+
+    public void OnMemoryNextLevelButtonClicked()
+    {
+        // SceneManager.LoadSceneAsync("SortingMiniGame");
+        SceneManager.UnloadSceneAsync("Memory Game").completed += async _ =>
+        {
+            SortingGameManager.Instance.canvas.SetActive(true);
+            await new WaitForSeconds(1);
+            Debug.Log($"books spawned: {Memory_Game.GameManager.Instance.GetBooksToSpawn()}");
+            SortingGameManager.Instance.ManualStart(Memory_Game.GameManager.Instance.GetBooksToSpawn());
+        };
     }
 
     private IEnumerator _StarMove(CustomSequence sequence, RectTransform transform, Vector2 final)

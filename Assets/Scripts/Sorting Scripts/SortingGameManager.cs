@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 using System;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct SortingBook
@@ -12,11 +13,13 @@ public struct SortingBook
 }
 public class SortingGameManager : MonoBehaviour
 {
+    public static SortingGameManager Instance;
+    
     [SerializeField] private List<SortingBook> sortingBookList = new List<SortingBook>();
     [SerializeField] private BookStack[] cartBooks;
     [SerializeField] private Bookshelf[] bookShelves = new Bookshelf[7];
     private List<string> categoryList = new List<string>();
-    [SerializeField] private string[] decoyCategories;
+    [SerializeField] private List<string> decoyCategories = new List<string>();
 
     private int numOfBooksToSort;
     private int perfectScore;
@@ -38,6 +41,8 @@ public class SortingGameManager : MonoBehaviour
 
     public static Action<int, int> OnGameEnd;
 
+    public GameObject canvas;
+
     void OnEnable()
     {
         Bookshelf.OnSort += BooksToSortTracker;
@@ -49,14 +54,22 @@ public class SortingGameManager : MonoBehaviour
         BookStack.OnFailBook -= BooksToSortTracker;
     }
 
-    private void Start()
+    private void Awake()
     {
-        // [In Order]
-        // SetSortingBookList();
-        SetCartBooksData();// testing only, should be called by what ever starts the game
-        GetAllCategories();// testing only, should be called by  what ever starts the game
-        StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
+        Instance = this;
+        if (GameManager.instance != null)
+        {
+            Debug.Log("Thorough debug mode");
+            canvas.SetActive(false);
+        }
+    }
 
+    public void ManualStart(List<BookInfo> books)
+    {
+        SetSortingBookList(books);
+        SetCartBooksData();
+        GetAllCategories();
+        StartCoroutine(nameof(StartTimer));
     }
 
     public void SetSortingBookList(List<BookInfo> bookList)
@@ -94,7 +107,13 @@ public class SortingGameManager : MonoBehaviour
         {
             categoryList.Add(sB.category);
         }
-        categoryList.Add(decoyCategories[UnityEngine.Random.Range(0, decoyCategories.Length)]);
+        
+        for (int i = 0;categoryList.Count <= cartBooks.Length; i++)
+        {
+            int n = UnityEngine.Random.Range(0, decoyCategories.Count);
+            categoryList.Add(decoyCategories[n]);
+            decoyCategories.RemoveAt(n);
+        }
         
         SetBookShelfCategoies();
     }
@@ -103,6 +122,7 @@ public class SortingGameManager : MonoBehaviour
         for(int i = 0; i < bookShelves.Length; i++)
         {
             int n = UnityEngine.Random.Range(0, categoryList.Count);
+            Debug.Log(n);
             string name = categoryList[n];
             bookShelves[i].SetCategory(name);
             categoryList.RemoveAt(n);
@@ -161,8 +181,38 @@ public class SortingGameManager : MonoBehaviour
         {
             if (OnGameEnd != null)
                 OnGameEnd(perfectScore, score);
+                UnlockNextLevel();
 
             timerIsPaused = true;
         }
+    }
+
+    private void UnlockNextLevel()
+    {
+        if (GameManager.instance == null)
+        {
+            Debug.LogWarning("Game Manager is null");
+            return;
+        }
+        
+        var l = GameManager.instance.levelManager;
+        if(l.levelsUnlocked.Contains(l.selectedLevel + 1))
+           return;
+        
+        l.levelsUnlocked.Add(l.selectedLevel + 1);
+    }
+
+    public void RestartGame()
+    {
+        
+        SceneManager.LoadSceneAsync("SortingMiniGame").completed += _ =>
+        {
+            var temp = sortingBookList;
+            Instance.canvas.SetActive(true);
+            Instance.sortingBookList = temp;
+            Instance.SetCartBooksData();
+            Instance.GetAllCategories();
+            Instance.StartCoroutine(nameof(StartTimer));
+        };
     }
 }

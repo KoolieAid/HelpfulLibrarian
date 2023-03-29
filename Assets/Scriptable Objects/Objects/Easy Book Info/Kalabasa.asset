@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Kalabasa
   m_EditorClassIdentifier: 
   title: Kamusta Kalabasa?
+  category: Bilog na Prutas
   keyword: {fileID: 11400000, guid: c76a4959d648763468d982667649b754, type: 2}
   description: 'Isang malaking prutas na may bilog na hugis at kulay kahel o dilaw
     na laman.

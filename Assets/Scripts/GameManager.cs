@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool tutorialIsDone;
+    public bool tutorialIsDone = false;
 
     public LevelManager levelManager;
 
@@ -38,11 +38,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        tutorialIsDone = false;
-    }
-
     // called first
     void OnEnable()
     {
@@ -63,7 +58,7 @@ public class GameManager : MonoBehaviour
             {
                 int v;
                 levelScore.TryGetValue(s.Key, out v);
-                if (v != menuScript.GetLevelStarScore(s.Key))
+                if (v > menuScript.GetLevelStarScore(s.Key))
                     menuScript.SetLevelStarScore(s.Key, v);
             }
         }

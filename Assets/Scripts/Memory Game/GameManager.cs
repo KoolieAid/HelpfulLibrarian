@@ -1,24 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using Asyncoroutine;
+using JetBrains.Annotations;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
 
 namespace Memory_Game
 {
     public class GameManager : MonoBehaviour
     {
+        public static GameManager Instance;
         private Stack<Mem_Book> memory = new();
+
+        public Level lvls;
 
         [SerializeField] private GameObject imagePrefab;
         [SerializeField] private GameObject textPrefab;
         [SerializeField] private BookInfo[] booksToSpawn;
         [SerializeField] private BookCover[] covers;
         [SerializeField] private GameObject bookParent;
+        public int lvlIteration = 0;
         private List<Mem_Book> cards = new();
 
         [Header("Grid")] 
@@ -39,20 +47,52 @@ namespace Memory_Game
         public UnityEvent onLose;
         private bool lvlDone = false;
 
+        [Header("UI")] [SerializeField] private Button next;
+
+
         private void Start()
         {
+            Instance = this;
+            try
+            {
+                lvls = global::GameManager.instance.levelManager.GetMinigameData();
+            }
+            catch
+            {
+                Debug.LogError("No level in the dictionary. Please check");
+                return;
+            }
+            booksToSpawn = lvls.firstSet;
             GenerateGrid();
             StartPatienceTimer();
-
-            UnityAction _ = () =>
+            next.interactable = false;
+            
+            
+            onWin.AddListener(() =>
             {
                 lvlDone = true;
-                UIManager.uiManager.ShowLevelStatus();
                 cards.ForEach(b => b.Lock());
-            };
+                
+                ++lvlIteration;
+                // If iter is on 2, which is all done
+                if (lvlIteration > 1)
+                {
+                    next.interactable = true;
+                    UIManager.uiManager.ShowLevelStatus();
+                    return;
+                }
+                // If not done
+                NextLevel();
+            });
             
-            onWin.AddListener(_);
-            onLose.AddListener(_);
+            
+            onLose.AddListener(() =>
+            {
+                lvlDone = true;
+                cards.ForEach(b => b.Lock());
+                
+                UIManager.uiManager.ShowLevelStatus();
+            });
         }
 
         private async void StartPatienceTimer()
@@ -65,6 +105,7 @@ namespace Memory_Game
 
                 if (patienceBar.fillAmount <= 0)
                 {
+                    lvlDone = true;
                     break;
                 }
             }
@@ -91,7 +132,7 @@ namespace Memory_Game
                 cards[j] = temp;
             }
             
-            Assert.IsTrue(cards.Count == rows * columns, "Cards need to be the same size with the grid size");
+            Assert.AreEqual(cards.Count, rows * columns, "Cards need to be the same size with the grid size");
 
             var index = 0;
             for (var y = 0; y < rows; ++y)
@@ -158,12 +199,8 @@ namespace Memory_Game
         public void Compare()
         {
             var copy = memory.ToArray();
-
-            if (copy.Length > 2)
-            {
-                Debug.LogError($"Idk how you got here but congrats, there are more than 2 in the memory stack");
-                return;
-            }
+            
+            Assert.IsFalse(copy.Length > 2, "Idk how you got here but congrats, there are more than 2 in the memory stack");
 
             var (first, sec) = (copy[0], copy[1]);
             if (first.info == sec.info)
@@ -180,6 +217,47 @@ namespace Memory_Game
             {
                 DiscardAll();
             }
+        }
+
+        public void NextLevel()
+        {
+            cards.ForEach(b =>
+            {
+                Destroy(b.gameObject);
+            });
+            cards.Clear();
+
+            Assert.AreEqual(lvlIteration, 1, "Bro how u got here");
+
+            booksToSpawn = lvls.secondSet;
+
+            GenerateGrid();
+
+            lvlDone = false;
+            patienceBar.fillAmount = 1f;
+            
+            StartPatienceTimer();
+        }
+
+        public void WholeRestart()
+        {
+            SceneManager.LoadSceneAsync("Memory Game", LoadSceneMode.Additive).completed += _ =>
+            {
+                SceneManager.UnloadSceneAsync(gameObject.scene);
+            };
+        }
+
+        public List<BookInfo> GetBooksToSpawn()
+        {
+            return lvls.firstSet.Concat(lvls.secondSet).ToList();
+        }
+
+        public void NextLevelClicked()
+        {
+            SortingGameManager.Instance.canvas.SetActive(true);
+            SortingGameManager.Instance.ManualStart(GetBooksToSpawn());
+            // await new WaitForSeconds(1);
+            SceneManager.UnloadSceneAsync(gameObject.scene);
         }
     }
 }

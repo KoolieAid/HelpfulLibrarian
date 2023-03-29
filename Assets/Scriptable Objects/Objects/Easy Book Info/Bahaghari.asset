@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bahaghari
   m_EditorClassIdentifier: 
   title: Alamat ng Bahaghari
+  category: Malapit sa Ulap
   keyword: {fileID: 11400000, guid: 80fe51d1e8fa2aa4aa085a1e1fd4a1be, type: 2}
   description: 'Isang arko na maraming kulay at lumalabas sa kalangitan pagkatapos
     umulan. '
