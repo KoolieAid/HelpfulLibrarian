@@ -64,15 +64,6 @@ public class SortingGameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        // [In Order]
-        // SetSortingBookList();
-         SetCartBooksData();// testing only, should be called by what ever starts the game
-         GetAllCategories();// testing only, should be called by  what ever starts the game
-         StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
-    }
-
     public void ManualStart(List<BookInfo> books)
     {
         SetSortingBookList(books);

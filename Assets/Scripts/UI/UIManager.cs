@@ -101,7 +101,11 @@ public class UIManager : MonoBehaviour
                 };
             };
         }
-        
+        else
+        {
+            l.selectedLevel += 1;
+            l.LoadLevel(l.selectedLevel);
+        }
     }
 
     public void OnMemoryNextLevelButtonClicked()
