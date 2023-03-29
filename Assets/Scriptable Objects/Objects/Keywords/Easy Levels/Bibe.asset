@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 0cfb908a5cd2b3744a57dbccd4860a70, type: 3}
   request: Ibon na mapurol ang tuka
+  highlightedWords: []
