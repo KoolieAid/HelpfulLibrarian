@@ -3,26 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using AYellowpaper.SerializedCollections;
 
 public class LevelManager : MonoBehaviour
 {
     public List<Level> levelDataList; // Store Level Data for all levels
     public int selectedLevel = 0; // #0 is the tutorial level
     
-    public Dictionary<int,Memory_Game.Level> minigameLevelDataDictionary = new Dictionary<int, Memory_Game.Level>(); // Store Level Data for all Minigame levels
-    public List<int> minigameLevels = new List<int>();
-    public List<Memory_Game.Level>minigameLevelData = new List<Memory_Game.Level>();
+    public SerializedDictionary<int,Memory_Game.Level>minigameLevelDataDictionary = new SerializedDictionary<int, Memory_Game.Level>();
+    
     public int selectedMinigame = 0;
 
     public List<int> levelsUnlocked = new List<int>();
 
-    private void Start()
-    {
-        for (int i = 0; i < minigameLevels.Count; i++)
-        {
-            minigameLevelDataDictionary.Add(minigameLevels[i], minigameLevelData[i]);
-        }
-    }
 
     // On level selected
     public void LoadLevel(int levelNumber)

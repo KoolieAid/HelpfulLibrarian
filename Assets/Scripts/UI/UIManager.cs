@@ -109,8 +109,8 @@ public class UIManager : MonoBehaviour
         {
             SortingGameManager.Instance.canvas.SetActive(true);
             await new WaitForSeconds(1);
-            Debug.Log($"books spawned: {Memory_Game.MemoryGameManager.Instance.GetBooksToSpawn()}");
-            SortingGameManager.Instance.ManualStart(Memory_Game.MemoryGameManager.Instance.GetBooksToSpawn());
+            Debug.Log($"books spawned: {Memory_Game.GameManager.Instance.GetBooksToSpawn()}");
+            SortingGameManager.Instance.ManualStart(Memory_Game.GameManager.Instance.GetBooksToSpawn());
         };
     }
 
