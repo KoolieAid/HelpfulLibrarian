@@ -59,7 +59,6 @@ public class UIManager : MonoBehaviour
 
         if (GameManager.instance.levelManager.selectedLevel % 3 == 0 && menuButton != null)
         {
-            Debug.Log("Menu Button");
             menuButton.SetActive(false);
         }
     }

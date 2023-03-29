@@ -19,7 +19,7 @@ public class SortingGameManager : MonoBehaviour
     [SerializeField] private BookStack[] cartBooks;
     [SerializeField] private Bookshelf[] bookShelves = new Bookshelf[7];
     private List<string> categoryList = new List<string>();
-    [SerializeField] private string[] decoyCategories;
+    [SerializeField] private List<string> decoyCategories = new List<string>();
 
     private int numOfBooksToSort;
     private int perfectScore;
@@ -68,9 +68,9 @@ public class SortingGameManager : MonoBehaviour
     {
         // [In Order]
         // SetSortingBookList();
-        // SetCartBooksData();// testing only, should be called by what ever starts the game
-        // GetAllCategories();// testing only, should be called by  what ever starts the game
-        // StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
+         SetCartBooksData();// testing only, should be called by what ever starts the game
+         GetAllCategories();// testing only, should be called by  what ever starts the game
+         StartCoroutine("StartTimer");// testing only, should be called by  what ever starts the game
     }
 
     public void ManualStart(List<BookInfo> books)
@@ -116,7 +116,13 @@ public class SortingGameManager : MonoBehaviour
         {
             categoryList.Add(sB.category);
         }
-        categoryList.Add(decoyCategories[UnityEngine.Random.Range(0, decoyCategories.Length)]);
+        
+        for (int i = 0;categoryList.Count <= cartBooks.Length; i++)
+        {
+            int n = UnityEngine.Random.Range(0, decoyCategories.Count);
+            categoryList.Add(decoyCategories[n]);
+            decoyCategories.RemoveAt(n);
+        }
         
         SetBookShelfCategoies();
     }
@@ -125,6 +131,7 @@ public class SortingGameManager : MonoBehaviour
         for(int i = 0; i < bookShelves.Length; i++)
         {
             int n = UnityEngine.Random.Range(0, categoryList.Count);
+            Debug.Log(n);
             string name = categoryList[n];
             bookShelves[i].SetCategory(name);
             categoryList.RemoveAt(n);
@@ -201,10 +208,7 @@ public class SortingGameManager : MonoBehaviour
         if(l.levelsUnlocked.Contains(l.selectedLevel + 1))
            return;
         
-        l.levelsUnlocked.Add(/*l.selectedLevel + 1*/2);
-        l.levelsUnlocked.Add(/*l.selectedLevel + 1*/3);
-        l.levelsUnlocked.Add(/*l.selectedLevel + 1*/4);
-        
+        l.levelsUnlocked.Add(l.selectedLevel + 1);
     }
 
     public void RestartGame()
