@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Talong
   m_EditorClassIdentifier: 
   title: Si Bong Talong
+  category: 
   keyword: {fileID: 11400000, guid: 0c105a942be316a4ab9e97bc9a83c2af, type: 2}
   description: 'Masustansyang prutas na kulay ube na mayroong pahabang hugis.
 

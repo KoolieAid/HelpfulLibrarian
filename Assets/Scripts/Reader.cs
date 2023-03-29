@@ -1,11 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using AYellowpaper.SerializedCollections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using Image = UnityEngine.UI.Image;
 
 public class Reader : MonoBehaviour
@@ -24,6 +22,7 @@ public class Reader : MonoBehaviour
     [SerializeField] private Image patienceMeterFill;
     public UnityEvent onPatienceGone = new();
     [SerializeField] private bool isTutorial = false;
+    [SerializeField] private Color highlightColor;
 
     [Header("Patience Bar Aesthetics")]
     [SerializeField] private Color blueFill;
@@ -91,9 +90,17 @@ public class Reader : MonoBehaviour
         dialog.SetActive(b);
     }
 
-    public void SetRequestText(string text)
+    public void SetRequestText(BookInfo info)
     {
-        readerReq.text = text;
+        readerReq.text = info.keyword.request;
+        string buff = readerReq.text;
+        
+        foreach (var highlight in info.keyword.highlightedWords)
+        {
+            buff = buff.Replace(highlight, $"<color=#{ColorUtility.ToHtmlStringRGBA(highlightColor)}>{highlight}</color>");
+        }
+
+        readerReq.text = buff;
     }
 
     public void DeductPatience()

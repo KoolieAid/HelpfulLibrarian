@@ -387,11 +387,13 @@ MonoBehaviour:
   face: {fileID: 8385512026773094904}
   requestedTitle: Alamat ng Pinya
   initialPatience: 45
-  incrementAmount: 1
+  decrementAmount: 1
   patienceMeterFill: {fileID: 2670178828641579920}
   onPatienceGone:
     m_PersistentCalls:
       m_Calls: []
+  isTutorial: 0
+  highlightColor: {r: 0.56335896, g: 0.6509434, b: 0.20572266, a: 1}
   blueFill: {r: 0.14509805, g: 0.6666667, b: 0.882353, a: 1}
   yellowFill: {r: 0.854902, g: 0.8431373, b: 0.3803922, a: 1}
   redFill: {r: 0.69411767, g: 0.10196079, b: 0.16078432, a: 1}
