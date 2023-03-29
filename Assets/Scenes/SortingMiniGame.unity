@@ -494,7 +494,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 126428913}
   m_OnClick:
     m_PersistentCalls:
@@ -2490,6 +2490,7 @@ MonoBehaviour:
   score: {fileID: 914863527}
   perfectScore: {fileID: 431060695}
   resultsPopup: {fileID: 360508563}
+  mainMenuButton: {fileID: 126428912}
 --- !u!1 &754617377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6293,7 +6294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1909762643
 RectTransform:
   m_ObjectHideFlags: 0

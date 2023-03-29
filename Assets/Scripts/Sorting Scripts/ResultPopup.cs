@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class ResultPopup : MonoBehaviour
 {
-
     public TextMeshProUGUI score;
     public TextMeshProUGUI perfectScore;
 
-    public GameObject resultsPopup;
+    [SerializeField] private GameObject resultsPopup;
+    [SerializeField] private Button mainMenuButton;
 
     private void Start()
     {
@@ -31,5 +31,10 @@ public class ResultPopup : MonoBehaviour
         perfectScore.text = value1.ToString();
         score.text = value2.ToString();
         resultsPopup.SetActive(true);
+
+        if (value2 >= (value1 / 2f))
+        {
+            mainMenuButton.interactable = true;
+        }
     }
 }
