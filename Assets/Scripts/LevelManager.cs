@@ -38,9 +38,7 @@ public class LevelManager : MonoBehaviour
 
     public Memory_Game.Level GetMinigameData()
     {
-        Memory_Game.Level data;
-        minigameLevelDataDictionary.TryGetValue(selectedMinigame, out data);
-        return data;
+        return minigameLevelDataDictionary[selectedMinigame];
     }
 
     // level scene retrieves assigned level data for the level
