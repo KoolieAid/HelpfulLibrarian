@@ -3571,6 +3571,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6345cdfafc668cc41bb5fabc13d31be7, type: 2}
   - {fileID: 11400000, guid: a7e0d7a717befdd4984ede29bb64ac87, type: 2}
   - {fileID: 11400000, guid: 40419bb7a7fa2574fbaad8dabf66d2db, type: 2}
+  - {fileID: 11400000, guid: 2d81d7cea78bc044e9bd88c46ffaa94e, type: 2}
+  - {fileID: 11400000, guid: 5199c023ad950f14c9f6555abcb90b9e, type: 2}
+  - {fileID: 11400000, guid: df2e1b1706849bf4eaf69e09ff26321e, type: 2}
+  - {fileID: 11400000, guid: 2e7a41aac9761e7418c7c4142dfa4f32, type: 2}
+  - {fileID: 11400000, guid: 1e9f93e8b584a7647a80ba2a53d1e59e, type: 2}
+  - {fileID: 11400000, guid: 9ee1335ba404e6040acf5ffe5fa8105f, type: 2}
   selectedLevel: 0
   minigameLevelDataDictionary:
     _serializedList:
