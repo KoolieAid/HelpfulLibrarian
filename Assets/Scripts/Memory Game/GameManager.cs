@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
 using Asyncoroutine;
+using JetBrains.Annotations;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Button = UnityEngine.UI.Button;
@@ -52,28 +53,22 @@ namespace Memory_Game
         private void Start()
         {
             Instance = this;
-            lvls = global::GameManager.instance.levelManager.GetMinigameData();
+            try
+            {
+                lvls = global::GameManager.instance.levelManager.GetMinigameData();
+            }
+            catch
+            {
+                Debug.LogError("No level in the dictionary. Please check");
+                return;
+            }
             booksToSpawn = lvls.firstSet;
             GenerateGrid();
             StartPatienceTimer();
             next.interactable = false;
-
-            UnityAction _ = () =>
-            {
-                lvlDone = true;
-                // UIManager.uiManager.ShowLevelStatus();
-                cards.ForEach(b => b.Lock());
-
-                if (++lvlIteration < 1)
-                {
-                    NextLevel();
-                    return;
-                }
-
-                next.interactable = true;
-            };
-
-            UnityAction win = () =>
+            
+            
+            onWin.AddListener(() =>
             {
                 lvlDone = true;
                 cards.ForEach(b => b.Lock());
@@ -88,18 +83,16 @@ namespace Memory_Game
                 }
                 // If not done
                 NextLevel();
-            };
-
-            UnityAction lose = () =>
+            });
+            
+            
+            onLose.AddListener(() =>
             {
                 lvlDone = true;
                 cards.ForEach(b => b.Lock());
                 
                 UIManager.uiManager.ShowLevelStatus();
-            };
-            
-            onWin.AddListener(win);
-            onLose.AddListener(lose);
+            });
         }
 
         private async void StartPatienceTimer()
@@ -122,6 +115,8 @@ namespace Memory_Game
 
         private void GenerateGrid()
         {
+            Assert.AreEqual(cards.Count, rows * columns, "Cards need to be the same size with the grid size");
+            
             for (var i = 0; i < booksToSpawn.Length; i++)
             {
                 BookInfo info = booksToSpawn[i];
@@ -138,8 +133,6 @@ namespace Memory_Game
                 cards[i] = cards[j];
                 cards[j] = temp;
             }
-            
-            Assert.IsTrue(cards.Count == rows * columns, "Cards need to be the same size with the grid size");
 
             var index = 0;
             for (var y = 0; y < rows; ++y)
@@ -206,12 +199,8 @@ namespace Memory_Game
         public void Compare()
         {
             var copy = memory.ToArray();
-
-            if (copy.Length > 2)
-            {
-                Debug.LogError($"Idk how you got here but congrats, there are more than 2 in the memory stack");
-                return;
-            }
+            
+            Assert.IsFalse(copy.Length > 2, "Idk how you got here but congrats, there are more than 2 in the memory stack");
 
             var (first, sec) = (copy[0], copy[1]);
             if (first.info == sec.info)
@@ -238,7 +227,7 @@ namespace Memory_Game
             });
             cards.Clear();
 
-            Assert.IsTrue(lvlIteration == 1, "Bro how u got here");
+            Assert.AreEqual(lvlIteration, 1, "Bro how u got here");
 
             booksToSpawn = lvls.secondSet;
 
