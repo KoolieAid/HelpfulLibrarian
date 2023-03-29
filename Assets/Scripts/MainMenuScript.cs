@@ -116,6 +116,11 @@ public class MainMenuScript : MonoBehaviour
         GameManager.instance.levelManager.LoadLevel(levelNumber);
     }
 
+    public void SelectMinigame(int minigameNumber)
+    {
+        GameManager.instance.levelManager.LoadMinigame(minigameNumber);
+    }
+
     private void UnlockLevelButtons()
     {
         // unlock each levels

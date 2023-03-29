@@ -2668,7 +2668,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 787295077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 924947569}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: SelectMinigame
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &787295077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2980,7 +2992,6 @@ MonoBehaviour:
   - {fileID: 190077623}
   - {fileID: 1203587427}
   - {fileID: 696997653}
-  miniManagers: {fileID: 0}
 --- !u!4 &924947570
 Transform:
   m_ObjectHideFlags: 0
@@ -3561,6 +3572,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7e0d7a717befdd4984ede29bb64ac87, type: 2}
   - {fileID: 11400000, guid: 40419bb7a7fa2574fbaad8dabf66d2db, type: 2}
   selectedLevel: 0
+  minigameLevels: 030000000600000009000000
+  minigameLevelData:
+  - {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
+  - {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
+  - {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
+  selectedMinigame: 0
   levelsUnlocked: 
 --- !u!1 &1082943726
 GameObject:
@@ -4335,7 +4352,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188176570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 924947569}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: SelectMinigame
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1188176570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7291,7 +7320,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2043034975}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 924947569}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: SelectMinigame
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2043034975
 MonoBehaviour:
   m_ObjectHideFlags: 0

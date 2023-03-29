@@ -13,9 +13,9 @@ using Image = UnityEngine.UI.Image;
 
 namespace Memory_Game
 {
-    public class GameManager : MonoBehaviour
+    public class MemoryGameManager : MonoBehaviour
     {
-        public static GameManager Instance;
+        public static MemoryGameManager Instance;
         private Stack<Mem_Book> memory = new();
 
         public Level lvls;
@@ -48,9 +48,11 @@ namespace Memory_Game
 
         [Header("UI")] [SerializeField] private Button next;
 
+
         private void Start()
         {
             Instance = this;
+            lvls = GameManager.instance.levelManager.GetMinigameData();
             booksToSpawn = lvls.firstSet;
             GenerateGrid();
             StartPatienceTimer();

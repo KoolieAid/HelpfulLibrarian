@@ -93,13 +93,7 @@ public class UIManager : MonoBehaviour
         var l = GameManager.instance.levelManager;
         if (l.selectedLevel % 3 == 0)
         {
-            SceneManager.LoadSceneAsync("SortingMiniGame").completed += _ =>
-            {
-                SceneManager.LoadSceneAsync("Memory Game", LoadSceneMode.Additive).completed += _ =>
-                {
-                    SortingGameManager.Instance.canvas.SetActive(false);
-                };
-            };
+            l.LoadMinigame(l.selectedLevel);
         }
         else
         {
@@ -115,8 +109,8 @@ public class UIManager : MonoBehaviour
         {
             SortingGameManager.Instance.canvas.SetActive(true);
             await new WaitForSeconds(1);
-            Debug.Log($"books spawned: {Memory_Game.GameManager.Instance.GetBooksToSpawn()}");
-            SortingGameManager.Instance.ManualStart(Memory_Game.GameManager.Instance.GetBooksToSpawn());
+            Debug.Log($"books spawned: {Memory_Game.MemoryGameManager.Instance.GetBooksToSpawn()}");
+            SortingGameManager.Instance.ManualStart(Memory_Game.MemoryGameManager.Instance.GetBooksToSpawn());
         };
     }
 

@@ -727,8 +727,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714361779}
-  - component: {fileID: 714361778}
   - component: {fileID: 714361780}
+  - component: {fileID: 714361781}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -736,56 +736,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &714361778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714361777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae68f1870d93ea6409f7864c2f4eaf19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lvls: {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
-  imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e, type: 3}
-  textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1, type: 3}
-  booksToSpawn:
-  - {fileID: 11400000, guid: 19546ed705a275944b5bbef608b6694d, type: 2}
-  - {fileID: 11400000, guid: 4e22b89f09cab6d4fb35d654617e31d9, type: 2}
-  - {fileID: 11400000, guid: 42965cefc81d5b04284d700e5536a47f, type: 2}
-  covers:
-  - {fileID: 11400000, guid: a648118d29f820d4b81e22c3268cf09a, type: 2}
-  - {fileID: 11400000, guid: 75d0e00c36588ce4c832b72b18ed66d6, type: 2}
-  - {fileID: 11400000, guid: ef5aa5f4d8694c543b67a65bcf2e2e68, type: 2}
-  - {fileID: 11400000, guid: bae748a82a2058e4bbe2c1c20563e99c, type: 2}
-  - {fileID: 11400000, guid: 94048930d7449b643b96bee417747820, type: 2}
-  - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
-  bookParent: {fileID: 1201955299}
-  lvlIteration: 0
-  rows: 3
-  columns: 2
-  offsetX: 2.5
-  offsetY: 2.5
-  cardsLeft: 0
-  holderYOffset: 0.6
-  patienceBar: {fileID: 2128017216}
-  totalSeconds: 30
-  onWin:
-    m_PersistentCalls:
-      m_Calls: []
-  onLose:
-    m_PersistentCalls:
-      m_Calls: []
-  next: {fileID: 780982187}
-  decoyList:
-  - {fileID: 11400000, guid: 518d0926e4f8e1f4994374c00d58d45e, type: 2}
-  - {fileID: 11400000, guid: 85c171e488d90384dbf700e1973af8da, type: 2}
-  - {fileID: 11400000, guid: ec06c5b2f0f0a564e8b9756128f6c488, type: 2}
-  - {fileID: 11400000, guid: 9dc6230a33abd7d40a55cbff475e8d4c, type: 2}
-  - {fileID: 11400000, guid: a4390d1400d2a234faee23bb677f9994, type: 2}
-  - {fileID: 11400000, guid: 1c878cc60a02ead44b4d9130c95f1064, type: 2}
 --- !u!4 &714361779
 Transform:
   m_ObjectHideFlags: 0
@@ -821,6 +771,49 @@ MonoBehaviour:
   timeToFinalPos: 0
   finalScale: 0
   nextLevelButton: {fileID: 0}
+--- !u!114 &714361781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714361777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae68f1870d93ea6409f7864c2f4eaf19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvls: {fileID: 0}
+  imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e, type: 3}
+  textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1, type: 3}
+  booksToSpawn:
+  - {fileID: 11400000, guid: 19546ed705a275944b5bbef608b6694d, type: 2}
+  - {fileID: 11400000, guid: 4e22b89f09cab6d4fb35d654617e31d9, type: 2}
+  - {fileID: 11400000, guid: 42965cefc81d5b04284d700e5536a47f, type: 2}
+  covers:
+  - {fileID: 11400000, guid: a648118d29f820d4b81e22c3268cf09a, type: 2}
+  - {fileID: 11400000, guid: 75d0e00c36588ce4c832b72b18ed66d6, type: 2}
+  - {fileID: 11400000, guid: ef5aa5f4d8694c543b67a65bcf2e2e68, type: 2}
+  - {fileID: 11400000, guid: bae748a82a2058e4bbe2c1c20563e99c, type: 2}
+  - {fileID: 11400000, guid: 94048930d7449b643b96bee417747820, type: 2}
+  - {fileID: 11400000, guid: 344d525aacd18bb42b69ea4e6b7a2899, type: 2}
+  bookParent: {fileID: 1201955299}
+  lvlIteration: 0
+  rows: 3
+  columns: 2
+  offsetX: 2.5
+  offsetY: 2.5
+  cardsLeft: 0
+  holderYOffset: 0.6
+  patienceBar: {fileID: 2128017216}
+  totalSeconds: 30
+  onWin:
+    m_PersistentCalls:
+      m_Calls: []
+  onLose:
+    m_PersistentCalls:
+      m_Calls: []
+  next: {fileID: 780982187}
 --- !u!1 &780982185
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,8 +898,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714361778}
-        m_TargetAssemblyTypeName: Memory_Game.GameManager, Assembly-CSharp
+      - m_Target: {fileID: 714361781}
+        m_TargetAssemblyTypeName: Memory_Game.MemoryGameManager, Assembly-CSharp
         m_MethodName: NextLevelClicked
         m_Mode: 1
         m_Arguments:
@@ -1503,7 +1496,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714361778}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Memory_Game.GameManager, Assembly-CSharp
         m_MethodName: WholeRestart
         m_Mode: 1
