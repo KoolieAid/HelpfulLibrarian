@@ -115,8 +115,6 @@ namespace Memory_Game
 
         private void GenerateGrid()
         {
-            Assert.AreEqual(cards.Count, rows * columns, "Cards need to be the same size with the grid size");
-            
             for (var i = 0; i < booksToSpawn.Length; i++)
             {
                 BookInfo info = booksToSpawn[i];
@@ -133,6 +131,8 @@ namespace Memory_Game
                 cards[i] = cards[j];
                 cards[j] = temp;
             }
+            
+            Assert.AreEqual(cards.Count, rows * columns, "Cards need to be the same size with the grid size");
 
             var index = 0;
             for (var y = 0; y < rows; ++y)
