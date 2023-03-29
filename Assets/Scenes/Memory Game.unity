@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 714361781}
         m_TargetAssemblyTypeName: Memory_Game.GameManager, Assembly-CSharp
         m_MethodName: WholeRestart
         m_Mode: 1

@@ -148,6 +148,8 @@ public class ReaderManager : MonoBehaviour
     
     private void NextReader()
     {
+        if (stars <= 0) return;
+        
         // If theres no possible reader next
         if (currentCorrectAnswers.Count < 1 )
         {
@@ -157,9 +159,7 @@ public class ReaderManager : MonoBehaviour
             if (currentReader.gameObject) Destroy(currentReader.gameObject);
             return;
         }
-        
-        if (stars <= 0) return;
-        
+
         ReplaceReader();
     }
 
