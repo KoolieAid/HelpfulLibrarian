@@ -24,6 +24,7 @@ public class Book : MonoBehaviour
     
     private bool isDragging = false;
     private Vector3 originalPosition;
+    private bool onReader = false;
 
     private void Start()
     {
@@ -31,18 +32,6 @@ public class Book : MonoBehaviour
         img.sprite = referenceSprites[spriteIndex].bookFront;
         bookBackSprite = referenceSprites[spriteIndex].bookBack;
         textMeshTitle.text = title;
-
-        GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
-        {
-            // Show confirmation
-            Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
-            
-            Confirmattion.Instance.onConfirm.AddListener(() =>
-            {
-                if (!ReaderManager.Instance) return; // Tutorial
-                ReaderManager.Instance.Compare(this);
-            });
-        });
 
         originalPosition = transform.position;
 
@@ -62,9 +51,32 @@ public class Book : MonoBehaviour
         {
             isDragging = false;
             gameObject.transform.position = originalPosition;
+
+            if (onReader)
+            {
+                Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
+                
+                Confirmattion.Instance.onConfirm.AddListener(() =>
+                {
+                    if (!ReaderManager.Instance) return; // Tutorial
+                    ReaderManager.Instance.Compare(this);
+                });
+            }
         });
     }
     
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.GetComponent<Reader>()) return;
+        onReader = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.GetComponent<Reader>()) return;
+        onReader = false;
+    }
+
     public void ShowDescription()
     {
         if (isDragging) return;
