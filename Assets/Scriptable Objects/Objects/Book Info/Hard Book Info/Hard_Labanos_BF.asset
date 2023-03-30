@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fa08385e26f584ea819f23431a3eae, type: 3}
+  m_Name: Hard_Labanos_BF
+  m_EditorClassIdentifier: 
+  title: Si Karlos Labanos
+  category: 
+  keyword: {fileID: 11400000, guid: dbf6c5cc2911bf24bb87b68c89f96d9e, type: 2}
+  description: Hugis-bilog na gulay na kulay-rosas at nagbibigay ng sustansya.
+  highlightWord: Labanos

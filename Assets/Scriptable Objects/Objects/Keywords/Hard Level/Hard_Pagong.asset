@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df647847e0fc694b999e95a02721b6f, type: 3}
+  m_Name: Hard_Pagong
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: ea0c027d15da68f4eae98c0a3a0ea552, type: 3}
+  request: 'Ito ay na mabagal gumapang ngunit mabilis itong lumangoy sa dagat. '
+  highlightedWords: []

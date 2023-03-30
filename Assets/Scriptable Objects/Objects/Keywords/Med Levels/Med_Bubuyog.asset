@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df647847e0fc694b999e95a02721b6f, type: 3}
+  m_Name: Med_Bubuyog
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 49d06a1c133204248b367a271c3d23eb, type: 3}
+  request: bubuyog req
+  highlightedWords: []

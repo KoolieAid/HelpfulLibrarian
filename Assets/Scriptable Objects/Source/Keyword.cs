@@ -6,6 +6,8 @@ using UnityEngine;
 public class Keyword : ScriptableObject
 {
     public Sprite image;
+    
+    [TextArea(3, 4)]
     public string request;
     
     [Tooltip("Words to be highlighted in the request. CASE SENSITIVE")]
