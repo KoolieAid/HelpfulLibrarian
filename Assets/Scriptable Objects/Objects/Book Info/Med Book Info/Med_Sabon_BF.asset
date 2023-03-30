@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Med_Sabon_BF
   m_EditorClassIdentifier: 
   title: Walang Katapusang Sabon
-  category: 
+  category: Gamit sa Banyo
   keyword: {fileID: 11400000, guid: 54f6a03d91f319f4ba12d59c2853ea78, type: 2}
   description: Bagay na ginagamit ng tao habang naliligo at bumubula ito sa balat.
   highlightWord: Sabon

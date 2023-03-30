@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hard_Dyip_BF
   m_EditorClassIdentifier: 
   title: Dyip ni Kuya Wil
-  category: 
+  category: Sinasakyan ng Tao
   keyword: {fileID: 11400000, guid: a7ed26bca96592d49b43cc97c5e7390f, type: 2}
   description: Uri ng transportasyon na puno ng pasahero at makukulay na dekorasyon.
   highlightWord: Dyip

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hard_Loro_BF
   m_EditorClassIdentifier: 
   title: Ang Tatlong Loro
-  category: 
+  category: Hayop na Makulay
   keyword: {fileID: 11400000, guid: da399d6ffb2bdbc46bba0f8c0cd85a07, type: 2}
   description: Makulay na ibon na mayroong kurbadong tuka at kayang gayahin ang pananalita
     ng tao.

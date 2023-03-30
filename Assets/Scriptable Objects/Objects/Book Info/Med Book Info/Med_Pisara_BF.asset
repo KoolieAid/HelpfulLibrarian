@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Med_Pisara_BF
   m_EditorClassIdentifier: 
   title: Pisara ni Aling Ciara
-  category: 
+  category: Gamit Pampaaralan
   keyword: {fileID: 11400000, guid: e721a562d5051ff439a7a5c588327553, type: 2}
   description: Bagay na ginagamit ng guro upang magsulat at magturo sa mga mag-aaral
   highlightWord: Pisara

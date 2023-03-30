@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hard_Pridyider_BF
   m_EditorClassIdentifier: 
   title: Pridyider ng Emir
-  category: 
+  category: Nilalagyan ng Pagkain
   keyword: {fileID: 11400000, guid: 4fa265d0f6031ea429a92be8377a00c0, type: 2}
   description: Kagamitan kung saan pinapalamig at preserbahin ang mga pagkain o inumin.
   highlightWord: Pridyider

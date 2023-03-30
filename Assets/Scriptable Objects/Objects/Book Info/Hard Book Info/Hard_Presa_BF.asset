@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hard_Presa_BF
   m_EditorClassIdentifier: 
   title: Sorpresa na Presa
-  category: 
+  category: Matatamis na Prutas
   keyword: {fileID: 11400000, guid: ff485d6adab517e4aaf216a5f1c5853d, type: 2}
   description: Pulang prutas na hugis puso at mayroong maasim na lasa.
   highlightWord: Presa

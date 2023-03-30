@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Med_Gitara_BF
   m_EditorClassIdentifier: 
   title: Ang Gitara ni Amira
-  category: 
+  category: Mga Instrumento
   keyword: {fileID: 11400000, guid: ce4d376ed08324648a445bbaf8617bbc, type: 2}
   description: Instrumentong pangmusika na mayroong mga kwerdas na ginagamitan ng
     mga daliri upang tumugtog ito.

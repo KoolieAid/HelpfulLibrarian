@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Med_Palayok_BF
   m_EditorClassIdentifier: 
   title: Ang Palabok sa Palayok
-  category: 
+  category: Gamit sa Kusina
   keyword: {fileID: 11400000, guid: f2acb58aaa892774ca8d6d9f099aff7b, type: 2}
   description: Bagay na hugis silindro at mayroong butas at takip sa tuktok na pinaglalagyan
     ng pagkain.

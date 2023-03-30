@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hard_Simbahan_BF
   m_EditorClassIdentifier: 
   title: Simbahan ng Quiapo
-  category: 
+  category: Mga Mataong Lugar
   keyword: {fileID: 11400000, guid: d9bb64d9696150a47b0f3ff9cb995e60, type: 2}
   description: Isang lugar na ginagamit ng publiko para magsimba.
   highlightWord: Simbahan

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Med_Pagong_BF
   m_EditorClassIdentifier: 
   title: Si Tong Pagong
-  category: 
+  category: Hayop na Pantubig
   keyword: {fileID: 11400000, guid: 80af3af8b640bb64a827b5cb3a747d6a, type: 2}
   description: 'Hayop na mayroong malaking talukab at maaaring mamuhay sa lupa at
     tubig.

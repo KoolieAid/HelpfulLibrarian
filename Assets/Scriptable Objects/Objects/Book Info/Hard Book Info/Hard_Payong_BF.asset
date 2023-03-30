@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hard_Payong_BF
   m_EditorClassIdentifier: 
   title: 'Ang Payong ni Pagong '
-  category: 
+  category: Makikita kapag umuulan
   keyword: {fileID: 11400000, guid: ff328c0fedfa7b147870a1c6b81d937f, type: 2}
   description: Kagamitan na pamprotekta sa init ng araw o sa buhos ng ulan.
   highlightWord: Payong
