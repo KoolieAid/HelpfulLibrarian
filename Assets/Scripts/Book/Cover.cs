@@ -17,6 +17,8 @@ public class Cover : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bodyText;
     [SerializeField] private Image subjImage;
 
+    public bool isOpen = false;
+
     private void Start()
     {
         instance = this;
@@ -39,10 +41,12 @@ public class Cover : MonoBehaviour
     public void OpenCover()
     {
         transform.parent.gameObject.SetActive(true);
+        isOpen = true;
     }
 
     public void CloseCover()
     {
+        isOpen = false;
         transform.parent.gameObject.SetActive(false);
     }
 }

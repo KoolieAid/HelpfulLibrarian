@@ -15,7 +15,6 @@ public class BookClickNDrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         // If the game is playable and there is at least one touch input
         if (!isPlayable || Input.touchCount == 0)
         {
@@ -33,7 +32,7 @@ public class BookClickNDrag : MonoBehaviour
             GameObject targetObject = GetObjectAtPosition(inputPosition);
 
             // If the object is a BookStack and is interactable
-            if (targetObject != null && targetObject.CompareTag("BookStacks") && targetObject.GetComponent<BookStack>().interactable)
+            if (targetObject != null && targetObject.CompareTag("BookStacks") && targetObject.GetComponent<Book>())
             {
                 // Set the selected object to the touched BookStack
                 selectedObject = targetObject.transform.gameObject;
@@ -43,13 +42,11 @@ public class BookClickNDrag : MonoBehaviour
         else if (touch.phase == TouchPhase.Ended && selectedObject)
         {
             // Call the BookClicked method on the selected BookStack
-            selectedObject.GetComponent<BookStack>().BookClicked();
+            selectedObject.GetComponent<Book>().BookClicked();
             selectedObject = null;
         }
-
-        if (selectedObject && !StackCover.instance.isOpen && isPlayable)
         // If a Bookstack is selected and the stack cover is closed
-        if (selectedObject != null && !StackCover.instance.isOpen)
+        if (selectedObject != null && !Cover.instance.isOpen)
         {
             // Move the selected BookStack to the touch position
             selectedObject.transform.position = inputPosition;

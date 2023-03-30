@@ -143,7 +143,7 @@ public class BookStack : MonoBehaviour
         SetColliderStatus(false);
         while (Vector2.Distance(transform.position, originalPos) > 1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, originalPos, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, originalPos, speed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
         SetColliderStatus(true);

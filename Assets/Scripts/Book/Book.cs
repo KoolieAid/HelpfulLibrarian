@@ -22,14 +22,26 @@ public class Book : MonoBehaviour
     private int spriteIndex;
     private Sprite bookBackSprite;
 
+    private enum Location
+    {
+        OnCounter,
+        OffCounter,
+    };
+
+    private Location locationOnScreen;
+    [SerializeField] private Collider2D bookCollider;
+    [SerializeField] private int speed = 300;
+    [SerializeField] private Vector2 originalPos;
+
     private void Start()
     {
+        originalPos = transform.position;
         spriteIndex = Random.Range(0, referenceSprites.Length);
         img.sprite = referenceSprites[spriteIndex].bookFront;
         bookBackSprite = referenceSprites[spriteIndex].bookBack;
         textMeshTitle.text = title;
 
-        GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
+        /*GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
         {
             // Show confirmation
             Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
@@ -40,8 +52,38 @@ public class Book : MonoBehaviour
                 ReaderManager.Instance.Compare(this);
             });
         });
-
+*/
         
+    }
+
+    public void BookClicked()
+    {
+        if (locationOnScreen == Location.OnCounter)
+        {
+            ShowDescription();
+        }
+
+        StartCoroutine("ReturnToStartPos");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "TableCounter") locationOnScreen = Location.OnCounter;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "TableCounter") locationOnScreen = Location.OffCounter;
+    }
+
+    IEnumerator ReturnToStartPos()
+    {
+        bookCollider.enabled = false;
+        while (Vector2.Distance(transform.position, originalPos) > 1f)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, originalPos, speed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        bookCollider.enabled = true;
     }
     
     public void ShowDescription()
