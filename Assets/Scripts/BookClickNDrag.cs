@@ -57,7 +57,6 @@ public class BookClickNDrag : MonoBehaviour
     private GameObject GetObjectAtPosition(Vector3 position)
     {
         Collider2D targetCollider = Physics2D.OverlapPoint(position);
-        Debug.Log(targetCollider?.name);
         return targetCollider?.gameObject;
     }
     

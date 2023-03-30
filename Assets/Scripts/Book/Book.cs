@@ -33,27 +33,20 @@ public class Book : MonoBehaviour
     [SerializeField] private int speed = 300;
     [SerializeField] private Vector2 originalPos;
 
+    private bool isOverRequester = false;
+
     private void Start()
     {
         originalPos = transform.position;
         spriteIndex = Random.Range(0, referenceSprites.Length);
         img.sprite = referenceSprites[spriteIndex].bookFront;
         bookBackSprite = referenceSprites[spriteIndex].bookBack;
-        textMeshTitle.text = title;
+        textMeshTitle.text = title;     
+    }
 
-        /*GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
-        {
-            // Show confirmation
-            Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
-            
-            Confirmattion.Instance.onConfirm.AddListener(() =>
-            {
-                if (!ReaderManager.Instance) return; // Tutorial
-                ReaderManager.Instance.Compare(this);
-            });
-        });
-*/
-        
+    public void SetToOriginalPosition()
+    {
+        transform.position = originalPos;
     }
 
     public void BookClicked()
@@ -61,18 +54,28 @@ public class Book : MonoBehaviour
         if (locationOnScreen == Location.OnCounter)
         {
             ShowDescription();
+            StartCoroutine("ReturnToStartPos");
         }
 
-        StartCoroutine("ReturnToStartPos");
+        if (locationOnScreen == Location.OffCounter && isOverRequester)
+        {
+            if (!ReaderManager.Instance) return; // Tutorial
+
+            ReaderManager.Instance.Compare(this);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "TableCounter") locationOnScreen = Location.OnCounter;
+        string name = collision.gameObject.name;
+        if (name == "TableCounter") locationOnScreen = Location.OnCounter;
+        if (name.Contains("ReaderPrefab")) isOverRequester = true;
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "TableCounter") locationOnScreen = Location.OffCounter;
+        string name = collision.gameObject.name;
+        if (name == "TableCounter") locationOnScreen = Location.OffCounter;
+        if (name.Contains("ReaderPrefab")) isOverRequester = false;
     }
 
     IEnumerator ReturnToStartPos()

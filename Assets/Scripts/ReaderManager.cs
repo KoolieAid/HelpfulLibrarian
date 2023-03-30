@@ -79,15 +79,19 @@ public class ReaderManager : MonoBehaviour
     }
     public bool Compare(Book book)
     {
+        Debug.Log("Compare()");
         // Debug.Log($"Request: {currentReader.requestedTitle}. Book title: {book.GetTitle()}. Evaluation: {currentReader.requestedTitle == book.GetTitle()}");
         // If title does not match
         if (currentReader.requestedTitle != book.GetTitle())
         {
+            Debug.Log("Wrong");
             //DeductStars();
             // Deduct Timer
             currentReader.ForceDeductPatience();
 
             currentReader.TriggerWrongBookAnimation();
+
+            book.StartCoroutine("ReturnToStartPos");
 
             ParticleManager.Instance.PlayParticle("X");
             ParticleManager.Instance.PlayParticle("Smoke");
@@ -101,9 +105,10 @@ public class ReaderManager : MonoBehaviour
         ParticleManager.Instance.PlayParticle("Star");
 
         // add book animation
-        StartCoroutine(GiveBookAnimation(book));
+        //StartCoroutine(GiveBookAnimation(book));
+        book.SetToOriginalPosition();
         
-        //NextReader();
+        NextReader();
         return true;
     }
 
