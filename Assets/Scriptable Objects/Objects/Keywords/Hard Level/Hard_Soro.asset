@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hard_Soro
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: c7474ac83633384458d9a7e49b8cb0b4, type: 3}
-  request: Isang hayop na may mabalahibong buntot at mala kahel na balahibo.
+  request: Ito ay mayroong mabalahibong buntot at mala kahel na balahibo.
   highlightedWords: []

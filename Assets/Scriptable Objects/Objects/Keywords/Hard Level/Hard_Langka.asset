@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hard_Langka
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 42749345424c4344e823d5721b649f06, type: 3}
-  request: Luntiang prutas na maaaring ihalo sa mga panghimagas dahil sa manamis-namis
-    nitong lasa.
+  request: Ito ay kulay luntian at hugis pabilog na maaaring ihalo sa mga panghimagas
+    dahil sa manamis-namis nitong lasa.
   highlightedWords: []

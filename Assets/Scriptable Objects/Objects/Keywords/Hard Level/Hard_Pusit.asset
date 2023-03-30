@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hard_Pusit
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: d32764ea4708d734a9e8c304452117a2, type: 3}
-  request: 'Ang hayop na ito ay kayang magbuga ng madilim na ulap para makatakas
-    sa malalaking isda. '
+  request: Ito ay nakagagawa ng madilim na ulap sa tubig upang lituhin at makatakas
+    sa malalaking isda.
   highlightedWords: []

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Si Buhawi at si Bantay
   category: 
-  keyword: {fileID: 11400000, guid: 4b1c73754e83d6841b1331106fb7a1d9, type: 2}
+  keyword: {fileID: 11400000, guid: a955de360d3ccd3478dc6f9d73e2fef0, type: 2}
   description: Hanging malakas at umiikot na mapanganib at nagdudulot ng pinsala.
   highlightWord: Buhawi

@@ -6045,7 +6045,7 @@ MonoBehaviour:
   - Go
   - Here
   timerBarFill: {fileID: 2032004164}
-  initialTime: 60
+  initialTime: 120
   blueFill: {r: 0.14509805, g: 0.6666667, b: 0.882353, a: 1}
   yellowFill: {r: 0.854902, g: 0.8431373, b: 0.3803922, a: 1}
   redFill: {r: 0.69411767, g: 0.10196079, b: 0.16078432, a: 1}

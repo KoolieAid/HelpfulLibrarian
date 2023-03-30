@@ -50,7 +50,7 @@ public class Hand : MonoBehaviour
             // Narrative Popup
             .AddSequence(new TwoToolTipSequence(controller, _adapter, "Kamusta! ikaw siguro ang bagong librarian.","Oh Hello! You must be the new librarian."))
             .AddSequence(us)
-            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Maligayang pagdating sa ating library.","Well then let me be the first to welcome you to the library. "))
+            .AddSequence(new TwoToolTipSequence(controller, _adapter, "Maligayang pagdating sa ating silid-aklatan.","Well then let me be the first to welcome you to the library. "))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter, "Sasabihin ko sayo ang mga kailangan mong gawin.","I was assigned to help get you all set up. "))
             .AddSequence(us)

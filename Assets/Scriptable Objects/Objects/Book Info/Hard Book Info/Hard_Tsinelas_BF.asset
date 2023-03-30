@@ -15,5 +15,6 @@ MonoBehaviour:
   title: Tsinelas ni Elias
   category: 
   keyword: {fileID: 11400000, guid: e22e5f7a4f834514db5f8ccaeccf93cc, type: 2}
-  description: Kasuotan na komportable suotin at madalas ginagamit sa loob ng bahay.
+  description: Kasuotan na madaling suotin sa paa at madalas ginagamit sa loob ng
+    bahay.
   highlightWord: Tsinelas

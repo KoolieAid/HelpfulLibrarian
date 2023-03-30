@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Hard_SilidAklatan
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 9ffe6929fc5a7544e90bfd849bdd9b48, type: 3}
-  request: Ito ay lugar kung saan maraming mga libro na maaaring basahin ng mga tao.
+  request: Ito ay isang silid o gusalis kung saan maraming mga libro na maaaring
+    basahin ng mga tao.
   highlightedWords: []

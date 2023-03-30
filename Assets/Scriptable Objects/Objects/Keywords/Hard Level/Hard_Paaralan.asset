@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hard_Paaralan
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 9d4f7fef2fcd18d47a92dafbc458fe52, type: 3}
-  request: Ito ay isang lugar na mayroong maraming mga estudyante na nais matuto.
+  request: Ito ay pinapasukan ng mga estudyanteng na nais makapagtapos ng pag-aaral
   highlightedWords: []

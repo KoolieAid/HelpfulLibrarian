@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hard_Walis
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 87b3db0742405c44eaeacca68ef81d1f, type: 3}
-  request: 'Ito ay isang bagay na ginagamit ng tao upang alisin ang mga dumi sa kwarto. '
+  request: 'Isang bagay na maaaring gamitin ng tao upang alisin ang mga dumi sa sahig. '
   highlightedWords: []

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Hard_Pridyider
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 79d2c96c7f1a0ee4f956e4c037e6d741, type: 3}
-  request: 'Ito ay isang bagay na nilalagyan ng mga prutas at gulay para hindi ito
-    mabulok. '
+  request: Isang bagay na pinapanatiling sariwa ang mga karne, prutas, at gulay.
   highlightedWords: []

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hard_Kidlat
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 132ff9384e3c9ca4d8ed9dca1ee70e2d, type: 3}
-  request: Ito ay ilaw na biglang lumalabas sa kalangitan kapag mayroong bagyo.
+  request: Ito ay isang ilaw na biglang lumalabas sa kalangitan kapag mayroong bagyo.
   highlightedWords: []

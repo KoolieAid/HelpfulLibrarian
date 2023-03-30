@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Hard_Ospital
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: f260bb0df6b478d4599eee8ccc6464f8, type: 3}
-  request: Ito ay maaaring puntahan kapag mayroong malubhang karamdaman tulad ng
-    diabetes.
+  request: Ito ay maaaring puntahan ng tao kapag mayroong malubhang karamdaman.
   highlightedWords: []

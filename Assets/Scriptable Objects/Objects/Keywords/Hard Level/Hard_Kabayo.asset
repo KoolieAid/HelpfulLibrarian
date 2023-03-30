@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hard_Kabayo
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 140a03357f5e7fb46bed8ac457163a26, type: 3}
-  request: Isang hayop na kumakain ng damo at kasama ng tao kapag pumupunta sa malalayong
+  request: Ito ay kumakain ng damo at kasama ng tao kapag pumupunta sa malalayong
     lugar.
   highlightedWords: []

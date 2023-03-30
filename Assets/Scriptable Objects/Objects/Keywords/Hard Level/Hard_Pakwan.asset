@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Hard_Pakwan
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 907c60a907bed434ea3eb82e9c3df90b, type: 3}
-  request: Ito ay isang makapal at mayroong manamis-namis at makatas na laman.
+  request: Ito ay isang pagkain na makapal at mayroong manamis-namis at makatas na
+    laman.
   highlightedWords: []

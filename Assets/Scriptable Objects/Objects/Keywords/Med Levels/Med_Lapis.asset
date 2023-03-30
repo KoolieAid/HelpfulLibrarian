@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Med_Lapis
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: f7135de504c5f434aac29caa33c8812b, type: 3}
-  request: Ito ay napatutulos at ginagamit sa pagguhit.
+  request: Ito ay napatutulis at ginagamit sa pagguhit.
   highlightedWords:
   - napatutulos
   - pagguhit.

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df647847e0fc694b999e95a02721b6f, type: 3}
   m_Name: Hard_Mansanas
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 5d4e56c803e4d9b44a2c8cd5f25ad99f, type: 3}
+  image: {fileID: 21300000, guid: c9561c599cf22e742830dc3506a718cc, type: 3}
   request: mansanas req
   highlightedWords: []

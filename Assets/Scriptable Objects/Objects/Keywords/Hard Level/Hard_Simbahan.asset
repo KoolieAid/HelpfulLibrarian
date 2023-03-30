@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hard_Simbahan
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 4ad54eb971c0a7b4b93e583c53bd6e1f, type: 3}
-  request: Ito ay isang lugar kung saan nagdadasal o nagpapakasal ang mga tao.
+  request: Ito ay isang gusali kung saan nagdadasal o nagpapakasal ang mga tao.
   highlightedWords: []

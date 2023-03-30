@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hard_Kalabasa
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: f28409e4878824c4ab0b28575d98b131, type: 3}
-  request: Ang pagkaing ito ay manilaw-nilaw at nagbibigay sustansya para sa mga
-    mata.
+  request: Ang pagkaing ito ay manilaw-nilaw ang loob at nagbibigay sustansya para
+    sa mga mata.
   highlightedWords: []
