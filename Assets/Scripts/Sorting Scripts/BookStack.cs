@@ -40,6 +40,8 @@ public class BookStack : MonoBehaviour
 
     public Image bookSprite;
     public bool interactable = true;
+    private bool isOverBookshelf = false;
+    private Bookshelf bookshelf;
 
     public static Action<bool, string> OnFailBook;
 
@@ -68,6 +70,7 @@ public class BookStack : MonoBehaviour
             if (status) // Sorted Correctly
             {
                 bookStatus = SortStatus.Sorted;
+                gameObject.SetActive(false);
                 StopCoroutine("ReturnToStartPos");
             }
             else if (!status)  // Sorted Incorrectly
@@ -77,38 +80,52 @@ public class BookStack : MonoBehaviour
                 StartCoroutine("ReturnToStartPos");
             }
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Cart") bookLocation = Location.OnCart;
+        string name  = collision.gameObject.name;
+        if (name == "Cart") 
+        {
+            bookLocation = Location.OnCart;
+        }
+        if (name.Contains("Shelf"))
+        {
+            isOverBookshelf = true;
+            bookshelf = collision.gameObject.GetComponent<Bookshelf>();
+        } 
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Cart") bookLocation = Location.OffCart;
+        string name  = collision.gameObject.name;
+        if (name == "Cart")
+        {
+            bookLocation = Location.OffCart;
+        }
+        if (name.Contains("Shelf")) 
+        {
+            isOverBookshelf = false;
+            bookshelf = null;
+        } 
     }
 
     public void BookClicked()
     {
 
-        if (bookLocation == Location.OnCart)
+        if (bookLocation == Location.OffCart && isOverBookshelf)
+        {
+            bookshelf.CompareCaterory(this);
+        }
+        else if (bookLocation == Location.OnCart)
         {
             StackCover.instance.SetCoverData(bookSet);
             StackCover.instance.OpenCovers();
         }
-        else if (bookLocation == Location.OffCart)
-        {
-            StartCoroutine("ReturnToStartPos");
-        }
+
 
         if (bookStatus == SortStatus.Unsorted)
         {
             StartCoroutine("ReturnToStartPos");
-        }
-        else if (bookStatus == SortStatus.Sorted)
-        {
-            gameObject.SetActive(false);
         }
 
     }

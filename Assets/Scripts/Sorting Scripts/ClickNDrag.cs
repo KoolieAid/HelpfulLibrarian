@@ -34,7 +34,7 @@ public class ClickNDrag : MonoBehaviour
         Vector3 inputPosition = touch.position;
 
         // If the touch event begins
-        if (touch.phase == TouchPhase.Began)
+        if (touch.phase == TouchPhase.Began && !StackCover.instance.isOpen)
         {
             // Get the object the touch is over
             GameObject targetObject = GetObjectAtPosition(inputPosition);
@@ -66,7 +66,6 @@ public class ClickNDrag : MonoBehaviour
     private GameObject GetObjectAtPosition(Vector3 position)
     {
         Collider2D targetCollider = Physics2D.OverlapPoint(position);
-        Debug.Log(targetCollider?.name);
         return targetCollider?.gameObject;
     }
 }

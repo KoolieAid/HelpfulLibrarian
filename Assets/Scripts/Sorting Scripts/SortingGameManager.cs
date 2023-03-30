@@ -64,6 +64,13 @@ public class SortingGameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        SetCartBooksData();
+        GetAllCategories();
+        StartCoroutine(nameof(StartTimer));
+    }
+
     public void ManualStart(List<BookInfo> books)
     {
         SetSortingBookList(books);
