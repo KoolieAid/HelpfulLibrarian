@@ -64,6 +64,13 @@ public class SortingGameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        SetCartBooksData();
+        GetAllCategories();
+        StartCoroutine(nameof(StartTimer));
+    }
+
     public void ManualStart(List<BookInfo> books)
     {
         SetSortingBookList(books);
@@ -122,7 +129,6 @@ public class SortingGameManager : MonoBehaviour
         for(int i = 0; i < bookShelves.Length; i++)
         {
             int n = UnityEngine.Random.Range(0, categoryList.Count);
-            Debug.Log(n);
             string name = categoryList[n];
             bookShelves[i].SetCategory(name);
             categoryList.RemoveAt(n);
