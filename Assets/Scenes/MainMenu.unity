@@ -1614,7 +1614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -94.023}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -140}
+  m_AnchoredPosition: {x: -31, y: -523}
   m_SizeDelta: {x: 432, y: 1210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610343431
@@ -3043,7 +3043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.903}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -489}
+  m_AnchoredPosition: {x: -25, y: -179}
   m_SizeDelta: {x: 450, y: 1255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942295003
@@ -3571,15 +3571,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6345cdfafc668cc41bb5fabc13d31be7, type: 2}
   - {fileID: 11400000, guid: a7e0d7a717befdd4984ede29bb64ac87, type: 2}
   - {fileID: 11400000, guid: 40419bb7a7fa2574fbaad8dabf66d2db, type: 2}
+  - {fileID: 11400000, guid: 2d81d7cea78bc044e9bd88c46ffaa94e, type: 2}
+  - {fileID: 11400000, guid: 5199c023ad950f14c9f6555abcb90b9e, type: 2}
+  - {fileID: 11400000, guid: df2e1b1706849bf4eaf69e09ff26321e, type: 2}
+  - {fileID: 11400000, guid: 2e7a41aac9761e7418c7c4142dfa4f32, type: 2}
+  - {fileID: 11400000, guid: 1e9f93e8b584a7647a80ba2a53d1e59e, type: 2}
+  - {fileID: 11400000, guid: 9ee1335ba404e6040acf5ffe5fa8105f, type: 2}
   selectedLevel: 0
   minigameLevelDataDictionary:
     _serializedList:
     - Key: 3
       Value: {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
     - Key: 6
-      Value: {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
+      Value: {fileID: 11400000, guid: bd34f56694b7fd64ca58511ed84652d2, type: 2}
     - Key: 9
-      Value: {fileID: 11400000, guid: d6bff01658a52b2409c031aeea12eda6, type: 2}
+      Value: {fileID: 11400000, guid: 32f2dde311c894845a26447368532139, type: 2}
   selectedMinigame: 0
   levelsUnlocked: 
 --- !u!1 &1082943726

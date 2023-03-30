@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Kamatis
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 271cbaf8b084da24690a7fe11bec73a0, type: 3}
-  request: bilog na kulay pulang prutas
+  request: Matamis at maasim na prutas
+  highlightedWords: []

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fa08385e26f584ea819f23431a3eae, type: 3}
+  m_Name: Hard_Simbahan_BF
+  m_EditorClassIdentifier: 
+  title: Simbahan ng Quiapo
+  category: Mga Mataong Lugar
+  keyword: {fileID: 11400000, guid: d9bb64d9696150a47b0f3ff9cb995e60, type: 2}
+  description: Isang lugar na ginagamit ng publiko para magsimba.
+  highlightWord: Simbahan
