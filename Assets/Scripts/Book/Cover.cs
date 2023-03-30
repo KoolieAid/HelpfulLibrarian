@@ -33,7 +33,7 @@ public class Cover : MonoBehaviour
     public void SetDescription(string word, string wordTrans, string desc, Sprite image)
     {
         titleText.text = word;
-        titleTranslationText.text = "(" + wordTrans + ")";
+        //titleTranslationText.text = "(" + wordTrans + ")";
         bodyText.text = desc;
         subjImage.sprite = image;
     }

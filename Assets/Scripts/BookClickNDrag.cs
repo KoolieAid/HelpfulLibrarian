@@ -9,6 +9,7 @@ public class BookClickNDrag : MonoBehaviour
 
     public void StopInput()
     {
+        Debug.Log("StopInput()");
         isPlayable = false;
     }
 
@@ -26,7 +27,7 @@ public class BookClickNDrag : MonoBehaviour
         Vector3 inputPosition = touch.position;
 
         // If the touch event begins
-        if (touch.phase == TouchPhase.Began)
+        if (touch.phase == TouchPhase.Began && !Cover.instance.isOpen)
         {
             // Get the object the touch is over
             GameObject targetObject = GetObjectAtPosition(inputPosition);

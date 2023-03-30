@@ -105,10 +105,11 @@ public class ReaderManager : MonoBehaviour
         ParticleManager.Instance.PlayParticle("Star");
 
         // add book animation
-        //StartCoroutine(GiveBookAnimation(book));
-        book.SetToOriginalPosition();
+        StartCoroutine(DelayNextReader(book));
         
-        NextReader();
+
+        
+        //NextReader();
         return true;
     }
 
@@ -246,30 +247,20 @@ public class ReaderManager : MonoBehaviour
 
         return correctBook;
     }
-    
-    IEnumerator GiveBookAnimation(Book _book)
+    IEnumerator DelayNextReader(Book _book)
     {
-        var bookPos = _book.GetComponent<RectTransform>();
-        var origBookPos = bookPos.anchoredPosition;
-        var readerPos = currentReader.GetComponent<RectTransform>();
-        var final = new Vector2(-250, 170);
-        
         Reader.Instance.canDeduct = false;
+        _book.SetToOriginalPosition();
+        _book.gameObject.SetActive(false);
         
-        while (Vector2.Distance(bookPos.anchoredPosition, final) > 1f)
-        {
-            bookPos.anchoredPosition = Vector3.MoveTowards(bookPos.anchoredPosition,
-                final, speed * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
+        yield return new WaitForSeconds(1.0f);
 
-        bookPos.anchoredPosition = origBookPos;
-        
         Reader.Instance.canDeduct = true;
+        _book.gameObject.SetActive(true);
+        
         NextReader();
-        Debug.Log("Book Given");
     }
-
+    
     private void UnlockNextLevel()
     {
         if (GameManager.instance == null)
