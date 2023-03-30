@@ -21,6 +21,9 @@ public class Book : MonoBehaviour
     [SerializeField] private string description;
     private int spriteIndex;
     private Sprite bookBackSprite;
+    
+    private bool isDragging = false;
+    private Vector3 originalPosition;
 
     private void Start()
     {
@@ -41,11 +44,30 @@ public class Book : MonoBehaviour
             });
         });
 
+        originalPosition = transform.position;
+
+        var dragComp = GetComponent<Draggable>();
+
+        dragComp.onDrag = data =>
+        {
+            gameObject.transform.position = data.position;
+        };
+
+        dragComp.onBeginDrag.AddListener(() =>
+        {
+            isDragging = true;
+        });
         
+        dragComp.onEndDrag.AddListener(() =>
+        {
+            isDragging = false;
+            gameObject.transform.position = originalPosition;
+        });
     }
     
     public void ShowDescription()
     {
+        if (isDragging) return;
         // Cover.instance.transform.parent.gameObject.SetActive(true);
         Cover.instance.OpenCover();
         Cover.instance.SetCoverSprite(bookBackSprite);
