@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Repolyo
   m_EditorClassIdentifier: 
   title: Kuwento ni Repolyo
-  category: Berdeng Pakwan
+  category: Berdeng Pagkain
   keyword: {fileID: 11400000, guid: c947fef0df16a384db5b0bad6fdbd828, type: 2}
   description: Gulay na hugis bilog at mayroong mga berdeng dahon.
   highlightWord: Repolyo
