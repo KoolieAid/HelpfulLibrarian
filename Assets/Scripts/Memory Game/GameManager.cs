@@ -47,7 +47,11 @@ namespace Memory_Game
         public UnityEvent onLose;
         private bool lvlDone = false;
 
-        [Header("UI")] [SerializeField] private Button next;
+        [Header("UI")] 
+        [SerializeField] private Button next;
+        [SerializeField] private GameObject mahusayImage;
+        [SerializeField] private GameObject awitImage;
+        
 
 
         private void Start()
@@ -70,6 +74,7 @@ namespace Memory_Game
             
             onWin.AddListener(() =>
             {
+                ShowWinResult();
                 lvlDone = true;
                 cards.ForEach(b => b.Lock());
                 
@@ -88,6 +93,7 @@ namespace Memory_Game
             
             onLose.AddListener(() =>
             {
+                ShowLoseResult();
                 lvlDone = true;
                 cards.ForEach(b => b.Lock());
                 
@@ -258,6 +264,16 @@ namespace Memory_Game
             SortingGameManager.Instance.ManualStart(GetBooksToSpawn());
             // await new WaitForSeconds(1);
             SceneManager.UnloadSceneAsync(gameObject.scene);
+        }
+
+        private void ShowWinResult()
+        {
+            mahusayImage.SetActive(true);
+        }
+
+        private void ShowLoseResult()
+        {
+            awitImage.SetActive(true);
         }
     }
 }
