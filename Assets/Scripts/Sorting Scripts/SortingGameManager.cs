@@ -43,6 +43,8 @@ public class SortingGameManager : MonoBehaviour
 
     public GameObject canvas;
 
+    [Header("UI Score")] [SerializeField] private GameObject[] bookUIScore;
+
     void OnEnable()
     {
         Bookshelf.OnSort += BooksToSortTracker;
@@ -139,7 +141,10 @@ public class SortingGameManager : MonoBehaviour
             if (currentTime <= 0 || timerIsPaused)
             {
                 if (OnGameEnd != null)
-                    OnGameEnd(perfectScore, score);
+                {
+                    OnGameEnd(perfectScore, score); 
+                    ShowBookScore();
+                }
                 yield break;
             }
             var greenFill = timerBarFill.color;
@@ -214,5 +219,13 @@ public class SortingGameManager : MonoBehaviour
             Instance.GetAllCategories();
             Instance.StartCoroutine(nameof(StartTimer));
         };
+    }
+
+    private void ShowBookScore()
+    {
+        for (int i = 0; i < score; i++)
+        {
+            bookUIScore[i].SetActive(true);
+        }
     }
 }
