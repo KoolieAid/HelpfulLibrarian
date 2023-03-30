@@ -21,38 +21,6 @@ public class ClickNDrag : MonoBehaviour
     }
 
     // Update is called once per frame
-    /*void Update()
-    {
-        if (Input.touchCount > 0 && isPlayable)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector3 inputPosition = Input.GetTouch(0).position;;
-
-            if (touch.phase == TouchPhase.Began)
-            {
-                GameObject g = Physics2D.OverlapPoint(inputPosition).gameObject;
-                Debug.Log(g.name);
-
-                Collider2D targetObject = Physics2D.OverlapPoint(inputPosition);
-                Debug.Log(targetObject.name);
-                if (targetObject && !selectedObject && targetObject.CompareTag("BookStacks") && targetObject.GetComponent<BookStack>().interactable)
-                {
-                    Debug.Log("TOUCH targetObject");
-                    selectedObject = targetObject.transform.gameObject;
-                }
-            }
-            else if (touch.phase == TouchPhase.Ended && selectedObject)
-            {
-                selectedObject.GetComponent<BookStack>().BookClicked();
-                selectedObject = null;
-            }
-
-            if (selectedObject && !StackCover.instance.isOpen)
-            {
-                selectedObject.transform.position = inputPosition;
-            }
-        }
-    }*/
     void Update()
     {
         // If the game is playable and there is at least one touch input

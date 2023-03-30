@@ -6020,9 +6020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c531921865889042a65219e636f6ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingBookList:
-  - book: {fileID: 11400000, guid: 518d0926e4f8e1f4994374c00d58d45e, type: 2}
-    category: Bird
+  sortingBookList: []
   cartBooks:
   - {fileID: 859829672}
   - {fileID: 1082886516}
