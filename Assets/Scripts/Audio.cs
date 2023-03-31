@@ -12,16 +12,11 @@ public class Audio : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
         
         DontDestroyOnLoad(this.gameObject);
-
-        GameObject[] test;
-        test = GameObject.FindGameObjectsWithTag("Audio");
-
-        if (test.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
     }
 }
