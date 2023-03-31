@@ -124,7 +124,6 @@ public class SortingGameManager : MonoBehaviour
         for(int i = 0; i < bookShelves.Length; i++)
         {
             int n = UnityEngine.Random.Range(0, categoryList.Count);
-            Debug.Log(n);
             string name = categoryList[n];
             bookShelves[i].SetCategory(name);
             categoryList.RemoveAt(n);
