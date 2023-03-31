@@ -64,7 +64,6 @@ namespace Memory_Game
             catch
             {
                 Debug.LogError("No level in the dictionary. Please check");
-                return;
             }
             booksToSpawn = lvls.firstSet;
             GenerateGrid();
