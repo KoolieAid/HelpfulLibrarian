@@ -20,7 +20,8 @@ public class ReaderMove : MonoBehaviour
 
     IEnumerator MoveReader()
     {
-        var movePos = new Vector2(280, 129);
+        // var movePos = new Vector2(280, 129);
+        var movePos = new Vector2(-286, 129);
         while (Vector2.Distance(readerPos.anchoredPosition, movePos) > 1f)
         {
             readerPos.anchoredPosition = Vector3.MoveTowards(readerPos.anchoredPosition, movePos, speed * Time.deltaTime);
