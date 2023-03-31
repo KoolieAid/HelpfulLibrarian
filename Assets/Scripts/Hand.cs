@@ -141,6 +141,12 @@ public class Hand : MonoBehaviour
             // })))
             
             .AddSequence(new WaitSequence(controller, 1.0f))
+            .AddSequence(new CustomSequence(controller, ((sequence, o) =>
+            {
+                ParticleManager.Instance.PlayParticle("Heart");
+                ParticleManager.Instance.PlayParticle("Star");
+                sequence.SetStatus(true);
+            })))
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
 
             // Scoring
@@ -234,7 +240,9 @@ public class Hand : MonoBehaviour
             if (Vector2.Distance(rect.anchoredPosition, final) < 1f)
             {
                 // Reset
+                yield return new WaitForSeconds(0.5f);
                 rect.anchoredPosition = original;
+                yield return new WaitForSeconds(0.5f);
             }
         }
     }
