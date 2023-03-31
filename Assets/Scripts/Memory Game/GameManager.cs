@@ -52,8 +52,6 @@ namespace Memory_Game
         [SerializeField] private GameObject mahusayImage;
         [SerializeField] private GameObject awitImage;
         
-
-
         private void Start()
         {
             Instance = this;
