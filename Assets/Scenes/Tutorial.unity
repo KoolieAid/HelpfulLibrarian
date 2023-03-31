@@ -8863,6 +8863,7 @@ MonoBehaviour:
   startPopup: {fileID: 113521879}
   correctBook: {fileID: 1048429602}
   bookGivingSpeed: 1000
+  book1: {fileID: 1048429602}
   scoreStatusPanel: {fileID: 1258618209}
 --- !u!114 &1098468859
 MonoBehaviour:

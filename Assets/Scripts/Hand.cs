@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Asyncoroutine;
 using Tutorial;
 using UnityEngine;
 
@@ -20,6 +19,7 @@ public class Hand : MonoBehaviour
 
     [SerializeField] private GameObject correctBook;
     [SerializeField] private float bookGivingSpeed = 1000f;
+    [SerializeField] private GameObject book1;
 
     [SerializeField] private GameObject scoreStatusPanel;
 
@@ -131,16 +131,13 @@ public class Hand : MonoBehaviour
 
             .AddSequence(confirm)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
-            
-            // give correct book
-            // Drag update prompts to remove this
-            // .AddSequence(new CustomSequence(controller, ((sequence, o) =>
-            // {
-            //     StartCoroutine(GiveBook());
-            //     sequence.SetStatus(true);
-            // })))
-            
             .AddSequence(new WaitSequence(controller, 1.0f))
+
+            .AddSequence(new CustomSequence(controller, ((sequence, o) =>
+            {
+                Destroy(book1);
+                sequence.SetStatus(true);
+            })))
             .AddSequence(new CustomSequence(controller, ((sequence, o) =>
             {
                 ParticleManager.Instance.PlayParticle("Heart");
@@ -207,23 +204,6 @@ public class Hand : MonoBehaviour
     public void ComfirmPressed()
     {
         confirm.Toggle();
-    }
-
-    IEnumerator GiveBook()
-    {
-        var bookPos = correctBook.GetComponent<RectTransform>();
-        var final = new Vector2(-250, 170);
-        
-        Reader.Instance.canDeduct = false;
-        
-        while (Vector2.Distance(bookPos.anchoredPosition, final) > 1f)
-        {
-            bookPos.anchoredPosition = Vector3.MoveTowards(bookPos.anchoredPosition,
-                final, bookGivingSpeed * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
-        
-        Destroy(correctBook);
     }
 
     private IEnumerator DragRepeat()
