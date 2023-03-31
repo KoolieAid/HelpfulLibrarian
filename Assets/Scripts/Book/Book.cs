@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -25,6 +26,9 @@ public class Book : MonoBehaviour
     private bool isDragging = false;
     private Vector3 originalPosition;
     private bool onReader = false;
+
+    public UnityEvent onBookSelected;
+    public UnityEvent onBookPressed;
 
     private void Start()
     {
@@ -55,6 +59,7 @@ public class Book : MonoBehaviour
 
             if (onReader)
             {
+                onBookSelected.Invoke();
                 Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
                 
                 Confirmattion.Instance.onConfirm.AddListener(() =>
@@ -81,6 +86,7 @@ public class Book : MonoBehaviour
     public void ShowDescription()
     {
         if (isDragging) return;
+        onBookPressed.Invoke();
         // Cover.instance.transform.parent.gameObject.SetActive(true);
         Cover.instance.OpenCover();
         Cover.instance.SetCoverSprite(bookBackSprite);
@@ -104,11 +110,6 @@ public class Book : MonoBehaviour
             return;
         }
         ShowDescription();
-    }
-
-    public void ShowConfirmation()
-    {
-        
     }
 
     public string GetTitle()

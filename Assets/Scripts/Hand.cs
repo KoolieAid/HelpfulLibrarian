@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Asyncoroutine;
 using Tutorial;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject scoreStatusPanel;
 
     private int handSpeed = 700;
+
+    private Coroutine dragRoutine;
     
     /*
      * 1. Introduction
@@ -93,7 +96,7 @@ public class Hand : MonoBehaviour
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
             .AddSequence(bookPress)
-            .AddSequence(new WaitSequence(controller, 1.0f))
+            .AddSequence(new WaitSequence(controller, 0.5f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
                 "Pindutin ang \"X\" upang isara ang libro.","Tap the \"X\" button of the book to close it."))
             .AddSequence(us)
@@ -101,11 +104,25 @@ public class Hand : MonoBehaviour
             .AddSequence(bookClose)
             .AddSequence(new WaitSequence(controller, 0.5f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
-                "Pindutin ng dalawang beses ang libro para piliin ito.","Double tap to select the book."))
+                "Dalhin ang librong napili papunta sa bisita.","Drag book to reader to select the book."))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
+            
+            // Simulate dragging the book
+            .AddSequence(new CustomSequence(controller, async (seq, _) =>
+            {
+                dragRoutine = StartCoroutine(DragRepeat());
+                seq.SetStatus(true);
+            }))
+            
             .AddSequence(bookSelected)
-            .AddSequence(new WaitSequence(controller, 1.5f))
+            .AddSequence(new CustomSequence(controller, (seq, _) =>
+            {
+                StopCoroutine(dragRoutine);
+                dragRoutine = null;
+                seq.SetStatus(true);
+            }))
+            .AddSequence(new WaitSequence(controller, 1.0f))
 
             // need to differentiate the bookSelected and bookPress
 
@@ -119,11 +136,12 @@ public class Hand : MonoBehaviour
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
             
             // give correct book
-            .AddSequence(new CustomSequence(controller, ((sequence, o) =>
-            {
-                StartCoroutine(GiveBook());
-                sequence.SetStatus(true);
-            })))
+            // Drag update prompts to remove this
+            // .AddSequence(new CustomSequence(controller, ((sequence, o) =>
+            // {
+            //     StartCoroutine(GiveBook());
+            //     sequence.SetStatus(true);
+            // })))
             
             .AddSequence(new WaitSequence(controller, 1.0f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
@@ -135,7 +153,7 @@ public class Hand : MonoBehaviour
                 sequence.SetStatus(true);
             }))
             .AddSequence(new MoveSequenceCanvas(controller, new Vector2(110, -86f), handSpeed, rectTransform))
-            .AddSequence(new WaitSequence(controller, 2.0f))
+            .AddSequence(new WaitSequence(controller, 1.0f))
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
                 "Ang mga bituin na ito ang iyong mga puntos","--"))
             .AddSequence(us)
@@ -152,7 +170,7 @@ public class Hand : MonoBehaviour
             .AddSequence(new CustomSequence(controller, (sequence, o) =>
             {
                 endPopup.SetActive(true);
-                GameManager.instance.TutorialFinished();
+                GameManager.instance?.TutorialFinished();
                 sequence.SetStatus(true);
             }));
 
@@ -203,5 +221,24 @@ public class Hand : MonoBehaviour
         }
         
         Destroy(correctBook);
+    }
+
+    private IEnumerator DragRepeat()
+    {
+        var rect = GetComponent<RectTransform>();
+        var final = new Vector2(-250, 170);
+        var original = rect.anchoredPosition;
+        for (;;)
+        {
+            yield return new WaitForEndOfFrame();
+
+            rect.anchoredPosition = Vector3.MoveTowards(rect.anchoredPosition, final, handSpeed * Time.deltaTime);
+
+            if (Vector2.Distance(rect.anchoredPosition, final) < 1f)
+            {
+                // Reset
+                rect.anchoredPosition = original;
+            }
+        }
     }
 }
