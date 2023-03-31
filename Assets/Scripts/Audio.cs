@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
+    public static Audio Instance;
+    
+    public AudioSource correctAnswerSfx;
+    public AudioSource wrongAnswerSfx;
+    public AudioSource winSfx;
+
     void Awake()
     {
+        Instance = this;
+        
         DontDestroyOnLoad(this.gameObject);
 
         GameObject[] test;
@@ -15,10 +23,5 @@ public class Audio : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
-    
-    void Update()
-    {
-        
     }
 }
