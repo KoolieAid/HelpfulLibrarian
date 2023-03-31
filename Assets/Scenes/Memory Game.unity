@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae68f1870d93ea6409f7864c2f4eaf19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvls: {fileID: 0}
+  lvls: {fileID: 11400000, guid: 32f2dde311c894845a26447368532139, type: 2}
   imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e, type: 3}
   textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1, type: 3}
   booksToSpawn:
