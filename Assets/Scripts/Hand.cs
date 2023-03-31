@@ -124,14 +124,11 @@ public class Hand : MonoBehaviour
             }))
             .AddSequence(new WaitSequence(controller, 1.0f))
 
-            // need to differentiate the bookSelected and bookPress
-
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
                 "Pindutin ang tsek upang ibigay ang libro sa bisita.","Tap 'Confirm' to give the book to the visitor."))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
 
-            // should be using the confirm instead of the next button
             .AddSequence(confirm)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
             
