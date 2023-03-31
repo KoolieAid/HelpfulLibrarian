@@ -559,7 +559,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -935,6 +935,12 @@ MonoBehaviour:
   wordImage: {fileID: 0}
   description: Nagsisilbi itong ilaw sa umaga at hapon at naglalabas ng init. Nagbibigay
     buhay ang init nito sa lahat ng mga nilalang tulad ng mga tao, hayop at halaman.
+  onBookSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onBookPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &237119275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,7 +1637,7 @@ MonoBehaviour:
   currentReader: {fileID: 0}
   stars: 3
   speed: 1000
-  spawnCoords: {x: -340, y: 129, z: 0}
+  spawnCoords: {x: -1000, y: 129, z: 0}
   ReaderPrefab: {fileID: 8385512026773094906, guid: 8e603eff96018a54bbfbc41867f13ddb, type: 3}
   CanvasParent: {fileID: 155745823}
   onPlayerWin:
@@ -3789,6 +3795,12 @@ MonoBehaviour:
   wordImage: {fileID: 0}
   description: Prutas na mayroong maraming tusok at matutulis na dahon. Kapag ito'y
     binuksan, kulay dilaw at matamis ang loob ng prutas na ito.
+  onBookSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onBookPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1048429608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4262,6 +4274,12 @@ MonoBehaviour:
   wordImage: {fileID: 0}
   description: 'Mabalahibong hayop na mayroong apat na paa at buntot. Ito ay karaniwang
     ginagawang alaga o bantay sa mga bahay at madalas itong tumatahol.  '
+  onBookSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onBookPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1216775521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5618,6 +5636,12 @@ MonoBehaviour:
   wordImage: {fileID: 0}
   description: Isang uri ng ibon na kilala sa kulay itim nitong balahibo at matalas
     na kuko at tuka. Mahilig ito kumain ng prutas.
+  onBookSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onBookPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1709569545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5887,6 +5911,12 @@ MonoBehaviour:
   description: "Isang maliit na hayop na mayroong mahabang buntot at nguso at kalat-kalat
     ang mga buhok nito. Ito ay karaniwang tinatawag na peste at maaaring magdala
     ng iba\u2019t ibang mga sakit."
+  onBookSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onBookPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1755207636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6380,6 +6410,12 @@ MonoBehaviour:
   wordImage: {fileID: 0}
   description: 'Halamang gulay na mayroong malakas na amoy at karaniwang sangkap
     sa pagluluto at ginagamit rin ito sa panggagamot. '
+  onBookSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  onBookPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1893373496
 MonoBehaviour:
   m_ObjectHideFlags: 0
