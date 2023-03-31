@@ -45,6 +45,7 @@ public class Book : MonoBehaviour
         dragComp.onBeginDrag.AddListener(() =>
         {
             isDragging = true;
+            transform.SetAsLastSibling();
         });
         
         dragComp.onEndDrag.AddListener(() =>

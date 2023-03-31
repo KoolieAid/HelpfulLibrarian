@@ -18,9 +18,7 @@ public class BookStack : MonoBehaviour
 
     private Vector2 originalPos;
     public int speed = 300;
-
     private Collider2D bookCollider;
-
     private int numOfChances = 3;
     private int numOfTries;
 
@@ -46,8 +44,6 @@ public class BookStack : MonoBehaviour
     {
         originalPos = transform.position;
         bookCollider = GetComponent<Collider2D>();
-
-
         var dragComp = GetComponent<Draggable>();
 
         dragComp.onDrag = data =>
@@ -91,7 +87,6 @@ public class BookStack : MonoBehaviour
             TryCounter();
             StartCoroutine("ReturnToStartPos");
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -126,7 +121,7 @@ public class BookStack : MonoBehaviour
 
         if (numOfTries > numOfChances)
         {
-            SetColliderStatus(false); // No longer able to interact with this stack of books
+            bookCollider.enabled = false; // No longer able to interact with this stack of books
             interactable = false;
             bookSprite.color = Color.grey;
             if (OnFailBook != null)
@@ -138,11 +133,6 @@ public class BookStack : MonoBehaviour
     {
         bookSet.bookInfo = book;
         category = topic;
-    }
-
-    public void SetColliderStatus(bool isActive)
-    {
-        bookCollider.enabled = isActive;
     }
 
     IEnumerator ReturnToStartPos()
