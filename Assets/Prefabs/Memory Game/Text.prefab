@@ -334,7 +334,7 @@ MonoBehaviour:
   cover: {fileID: 4153474236632681151}
   back: {fileID: 4153474235937637535}
   text: {fileID: 4153474236126648172}
-  highlightColor: {r: 0.17687672, g: 0.8867924, b: 0.16313636, a: 1}
+  highlightColor: {r: 0.7752093, g: 0.9339623, b: 0.4176397, a: 1}
 --- !u!212 &4153474236632681151
 SpriteRenderer:
   m_ObjectHideFlags: 0
