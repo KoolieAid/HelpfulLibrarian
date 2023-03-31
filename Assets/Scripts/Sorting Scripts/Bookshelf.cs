@@ -12,10 +12,9 @@ public class Bookshelf : MonoBehaviour
     public static Action<bool, string> OnSort;
     public string topicCategory;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void CompareCaterory(BookStack bookStack)
     {
-        BookStack bookStack = collision.GetComponent<BookStack>();
-        if (collision.GetComponent<BookStack>() && bookStack.GetBookCategory() == category)
+        if (bookStack.GetBookCategory() == category)
         {
             if (OnSort != null)
                 OnSort(true, bookStack.name);
