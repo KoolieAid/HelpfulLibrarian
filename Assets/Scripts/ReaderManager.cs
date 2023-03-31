@@ -101,9 +101,9 @@ public class ReaderManager : MonoBehaviour
         ParticleManager.Instance.PlayParticle("Star");
 
         // add book animation
-        StartCoroutine(GiveBookAnimation(book));
+        // StartCoroutine(GiveBookAnimation(book));
         
-        //NextReader();
+        NextReader();
         return true;
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -21,6 +22,13 @@ public class Book : MonoBehaviour
     [SerializeField] private string description;
     private int spriteIndex;
     private Sprite bookBackSprite;
+    
+    private bool isDragging = false;
+    private Vector3 originalPosition;
+    private bool onReader = false;
+
+    public UnityEvent onBookSelected;
+    public UnityEvent onBookPressed;
 
     private void Start()
     {
@@ -29,23 +37,56 @@ public class Book : MonoBehaviour
         bookBackSprite = referenceSprites[spriteIndex].bookBack;
         textMeshTitle.text = title;
 
-        GetComponent<DoubleDetector>().onDoubleTap.AddListener(() =>
-        {
-            // Show confirmation
-            Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
-            
-            Confirmattion.Instance.onConfirm.AddListener(() =>
-            {
-                if (!ReaderManager.Instance) return; // Tutorial
-                ReaderManager.Instance.Compare(this);
-            });
-        });
+        originalPosition = transform.position;
 
+        var dragComp = GetComponent<Draggable>();
+
+        dragComp.onDrag = data =>
+        {
+            gameObject.transform.position = data.position;
+        };
+
+        dragComp.onBeginDrag.AddListener(() =>
+        {
+            isDragging = true;
+            transform.SetAsLastSibling();
+        });
         
+        dragComp.onEndDrag.AddListener(() =>
+        {
+            isDragging = false;
+            gameObject.transform.position = originalPosition;
+
+            if (onReader)
+            {
+                onBookSelected.Invoke();
+                Confirmattion.Instance.gameObject.transform.parent.gameObject.SetActive(true);
+                
+                Confirmattion.Instance.onConfirm.AddListener(() =>
+                {
+                    if (!ReaderManager.Instance) return; // Tutorial
+                    ReaderManager.Instance.Compare(this);
+                });
+            }
+        });
     }
     
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.GetComponent<Reader>()) return;
+        onReader = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.GetComponent<Reader>()) return;
+        onReader = false;
+    }
+
     public void ShowDescription()
     {
+        if (isDragging) return;
+        onBookPressed.Invoke();
         // Cover.instance.transform.parent.gameObject.SetActive(true);
         Cover.instance.OpenCover();
         Cover.instance.SetCoverSprite(bookBackSprite);
@@ -69,11 +110,6 @@ public class Book : MonoBehaviour
             return;
         }
         ShowDescription();
-    }
-
-    public void ShowConfirmation()
-    {
-        
     }
 
     public string GetTitle()
