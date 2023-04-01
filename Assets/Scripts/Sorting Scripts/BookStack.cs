@@ -48,7 +48,8 @@ public class BookStack : MonoBehaviour
 
         dragComp.onDrag = data =>
         {
-            gameObject.transform.position = data.position;
+            if(interactable)
+                gameObject.transform.position = data.position;
         };
 
         dragComp.onBeginDrag.AddListener(() =>
