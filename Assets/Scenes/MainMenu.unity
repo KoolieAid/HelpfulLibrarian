@@ -3552,7 +3552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03275f85bbcf5d847ba31afc1f34db0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialIsDone: 1
+  tutorialIsDone: 0
   levelManager: {fileID: 1059564421}
 --- !u!114 &1059564421
 MonoBehaviour:
@@ -3587,7 +3587,7 @@ MonoBehaviour:
     - Key: 9
       Value: {fileID: 11400000, guid: 32f2dde311c894845a26447368532139, type: 2}
   selectedMinigame: 0
-  levelsUnlocked: 020000000300000004000000
+  levelsUnlocked: 
 --- !u!1 &1082943726
 GameObject:
   m_ObjectHideFlags: 0
@@ -6105,13 +6105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0f21121fa8ed345907a711a14d3b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctAnswerSfx: {fileID: 0}
-  wrongAnswerSfx: {fileID: 0}
-  winSfx: {fileID: 0}
-  newVisitorSfx: {fileID: 0}
-  miniGameCorrectAnswerSfx: {fileID: 0}
-  miniGameWrongAnswerSfx: {fileID: 0}
-  playerLoseSfx: {fileID: 0}
   gameSfx:
     _serializedList:
     - Key: CorrectAnswer

@@ -5,8 +5,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
-using Asyncoroutine;
-using JetBrains.Annotations;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Button = UnityEngine.UI.Button;
@@ -51,6 +49,8 @@ namespace Memory_Game
         [SerializeField] private Button next;
         [SerializeField] private GameObject mahusayImage;
         [SerializeField] private GameObject awitImage;
+
+        private Coroutine zenTimerCoroutine;
         
         private void Start()
         {
@@ -65,12 +65,13 @@ namespace Memory_Game
             }
             booksToSpawn = lvls.firstSet;
             GenerateGrid();
-            StartPatienceTimer();
+            zenTimerCoroutine = StartCoroutine(StartPatienceTimer());
             next.interactable = false;
             
             
             onWin.AddListener(() =>
             {
+                StopCoroutine(zenTimerCoroutine);
                 lvlDone = true;
                 cards.ForEach(b => b.Lock());
                 
@@ -98,11 +99,11 @@ namespace Memory_Game
             });
         }
 
-        private async void StartPatienceTimer()
+        private IEnumerator StartPatienceTimer()
         {
             while (!lvlDone)
             {
-                await new WaitForEndOfFrame();
+                yield return new WaitForEndOfFrame();
 
                 patienceBar.fillAmount -= (1f / totalSeconds) * Time.deltaTime;
 
@@ -214,7 +215,6 @@ namespace Memory_Game
                 memory.Clear();
                 if ((cardsLeft -= 2) <= 0)
                 {
-                    Debug.Log("Player wins");
                     onWin.Invoke();
                 }
             }
@@ -241,7 +241,7 @@ namespace Memory_Game
             lvlDone = false;
             patienceBar.fillAmount = 1f;
             
-            StartPatienceTimer();
+            zenTimerCoroutine = StartCoroutine(StartPatienceTimer());
         }
 
         public void WholeRestart()
