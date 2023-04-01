@@ -127,6 +127,7 @@ public class UIManager : MonoBehaviour
             {
                 foreach (Animator a in shineAnimator)
                 {
+                    Audio.Instance.winSfx.Play();
                     if (a.isActiveAndEnabled)
                         a.SetTrigger("Move Is Done");
                 }

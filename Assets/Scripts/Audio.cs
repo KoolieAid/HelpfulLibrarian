@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Audio : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Audio : MonoBehaviour
     public AudioSource correctAnswerSfx;
     public AudioSource wrongAnswerSfx;
     public AudioSource winSfx;
+    public AudioSource newVisitorSfx;
+
+    public AudioSource miniGameCorrectAnswerSfx;
+    public AudioSource miniGameWrongAnswerSfx;
+    public AudioSource playerLoseSfx;
 
     void Awake()
     {

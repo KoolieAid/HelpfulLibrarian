@@ -71,7 +71,6 @@ namespace Memory_Game
             
             onWin.AddListener(() =>
             {
-                ShowWinResult();
                 lvlDone = true;
                 cards.ForEach(b => b.Lock());
                 
@@ -81,6 +80,7 @@ namespace Memory_Game
                 {
                     next.interactable = true;
                     UIManager.uiManager.ShowLevelStatus();
+                    ShowWinResult();
                     return;
                 }
                 // If not done
@@ -192,6 +192,7 @@ namespace Memory_Game
 
         public void DiscardAll()
         {
+            Audio.Instance.miniGameWrongAnswerSfx.Play();
             foreach (var book in memory)
             {
                 book.FlipOver();
@@ -209,6 +210,7 @@ namespace Memory_Game
             if (first.info == sec.info)
             {
                 Array.ForEach(copy, b => b.Lock());
+                Audio.Instance.miniGameCorrectAnswerSfx.Play();
                 memory.Clear();
                 if ((cardsLeft -= 2) <= 0)
                 {
@@ -265,11 +267,13 @@ namespace Memory_Game
 
         private void ShowWinResult()
         {
+            Audio.Instance.winSfx.Play();
             mahusayImage.SetActive(true);
         }
 
         private void ShowLoseResult()
         {
+            Audio.Instance.playerLoseSfx.Play();
             awitImage.SetActive(true);
         }
     }
