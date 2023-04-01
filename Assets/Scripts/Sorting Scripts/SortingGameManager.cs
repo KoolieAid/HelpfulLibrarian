@@ -42,6 +42,7 @@ public class SortingGameManager : MonoBehaviour
     public static Action<int, int> OnGameEnd;
 
     public GameObject canvas;
+    [SerializeField] private GameObject tutorialCanvas;
 
     [Header("UI Score")] [SerializeField] private GameObject[] bookUIScore;
 
@@ -68,6 +69,7 @@ public class SortingGameManager : MonoBehaviour
 
     public void ManualStart(List<BookInfo> books)
     {
+        Time.timeScale = 0;
         SetSortingBookList(books);
         SetCartBooksData();
         GetAllCategories();
@@ -211,6 +213,7 @@ public class SortingGameManager : MonoBehaviour
         
         SceneManager.LoadSceneAsync("SortingMiniGame").completed += _ =>
         {
+            Time.timeScale = 0;
             var temp = sortingBookList;
             Instance.canvas.SetActive(true);
             Instance.sortingBookList = temp;
@@ -226,5 +229,11 @@ public class SortingGameManager : MonoBehaviour
         {
             bookUIScore[i].SetActive(true);
         }
+    }
+
+    public void PlaySortingGame()
+    {
+        tutorialCanvas.SetActive(false);
+        Time.timeScale = 1;
     }
 }

@@ -49,6 +49,7 @@ namespace Memory_Game
         [SerializeField] private Button next;
         [SerializeField] private GameObject mahusayImage;
         [SerializeField] private GameObject awitImage;
+        [SerializeField] private GameObject tutorialCanvas;
         
         [Header("Timer Bar Aesthetics")]
         [SerializeField] private Color blueFill;
@@ -59,10 +60,13 @@ namespace Memory_Game
         [SerializeField] [Range(0, 1)] private float redThreshold = 0.3f;
 
         private Coroutine zenTimerCoroutine;
-        
+
         private void Start()
         {
             Instance = this;
+
+            Time.timeScale = 0;
+
             try
             {
                 lvls = global::GameManager.instance.levelManager.GetMinigameData();
@@ -293,6 +297,12 @@ namespace Memory_Game
         {
             Audio.Instance.PlaySfx("PlayerLose");
             awitImage.SetActive(true);
+        }
+
+        public void PlayMemoryGame()
+        {
+            tutorialCanvas.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }

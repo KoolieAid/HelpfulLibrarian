@@ -3552,7 +3552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03275f85bbcf5d847ba31afc1f34db0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialIsDone: 0
+  tutorialIsDone: 1
   levelManager: {fileID: 1059564421}
   debugCount: 0
 --- !u!114 &1059564421
@@ -3588,7 +3588,7 @@ MonoBehaviour:
     - Key: 9
       Value: {fileID: 11400000, guid: 32f2dde311c894845a26447368532139, type: 2}
   selectedMinigame: 0
-  levelsUnlocked: 
+  levelsUnlocked: 020000000300000004000000
 --- !u!1 &1082943726
 GameObject:
   m_ObjectHideFlags: 0
