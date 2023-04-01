@@ -91,6 +91,7 @@ public class ReaderManager : MonoBehaviour
 
             ParticleManager.Instance.PlayParticle("X");
             ParticleManager.Instance.PlayParticle("Smoke");
+            Audio.Instance.PlaySfx("WrongAnswer");
 
             return false;
         }
@@ -99,6 +100,7 @@ public class ReaderManager : MonoBehaviour
         Debug.Log("CORRECT, going to next reader");
         ParticleManager.Instance.PlayParticle("Heart");
         ParticleManager.Instance.PlayParticle("Star");
+        Audio.Instance.PlaySfx("CorrectAnswer");
 
         // add book animation
         // StartCoroutine(GiveBookAnimation(book));

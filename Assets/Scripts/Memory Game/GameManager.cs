@@ -5,8 +5,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
-using Asyncoroutine;
-using JetBrains.Annotations;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Button = UnityEngine.UI.Button;
@@ -53,6 +51,8 @@ namespace Memory_Game
         [SerializeField] private GameObject awitImage;
         [SerializeField] private GameObject tutorialCanvas;
         
+        private Coroutine zenTimerCoroutine;
+
         private void Start()
         {
             Instance = this;
@@ -69,13 +69,13 @@ namespace Memory_Game
             }
             booksToSpawn = lvls.firstSet;
             GenerateGrid();
-            StartPatienceTimer();
+            zenTimerCoroutine = StartCoroutine(StartPatienceTimer());
             next.interactable = false;
             
             
             onWin.AddListener(() =>
             {
-                ShowWinResult();
+                StopCoroutine(zenTimerCoroutine);
                 lvlDone = true;
                 cards.ForEach(b => b.Lock());
                 
@@ -85,6 +85,7 @@ namespace Memory_Game
                 {
                     next.interactable = true;
                     UIManager.uiManager.ShowLevelStatus();
+                    ShowWinResult();
                     return;
                 }
                 // If not done
@@ -102,11 +103,11 @@ namespace Memory_Game
             });
         }
 
-        private async void StartPatienceTimer()
+        private IEnumerator StartPatienceTimer()
         {
             while (!lvlDone)
             {
-                await new WaitForEndOfFrame();
+                yield return new WaitForEndOfFrame();
 
                 patienceBar.fillAmount -= (1f / totalSeconds) * Time.deltaTime;
 
@@ -196,6 +197,7 @@ namespace Memory_Game
 
         public void DiscardAll()
         {
+            Audio.Instance.PlaySfx("MinigameWrong");
             foreach (var book in memory)
             {
                 book.FlipOver();
@@ -213,10 +215,10 @@ namespace Memory_Game
             if (first.info == sec.info)
             {
                 Array.ForEach(copy, b => b.Lock());
+                Audio.Instance.PlaySfx("MinigameCorrect");
                 memory.Clear();
                 if ((cardsLeft -= 2) <= 0)
                 {
-                    Debug.Log("Player wins");
                     onWin.Invoke();
                 }
             }
@@ -243,7 +245,7 @@ namespace Memory_Game
             lvlDone = false;
             patienceBar.fillAmount = 1f;
             
-            StartPatienceTimer();
+            zenTimerCoroutine = StartCoroutine(StartPatienceTimer());
         }
 
         public void WholeRestart()
@@ -269,11 +271,13 @@ namespace Memory_Game
 
         private void ShowWinResult()
         {
+            Audio.Instance.PlaySfx("Win");
             mahusayImage.SetActive(true);
         }
 
         private void ShowLoseResult()
         {
+            Audio.Instance.PlaySfx("PlayerLose");
             awitImage.SetActive(true);
         }
 
