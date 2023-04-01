@@ -1548,7 +1548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &381796872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8865,6 +8865,13 @@ MonoBehaviour:
   bookGivingSpeed: 1000
   book1: {fileID: 1048429602}
   scoreStatusPanel: {fileID: 1258618209}
+  draggableBooks:
+  - {fileID: 1048429609}
+  - {fileID: 1755207638}
+  - {fileID: 1893373498}
+  - {fileID: 237119277}
+  - {fileID: 1709569547}
+  - {fileID: 1216775523}
 --- !u!114 &1098468859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21702,7 +21709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1843065385
 RectTransform:
   m_ObjectHideFlags: 0
