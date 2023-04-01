@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
             // good luck future me to explain this shit that i came up in 3 mins, no docs  
         
-            var total = levelManager.levelDataList.Count - 1;
+            var total = levelManager.levelDataList.Count;
 
             var b4 = levelManager.levelsUnlocked.Count + 1;
 
@@ -98,6 +98,8 @@ public class GameManager : MonoBehaviour
             {
                 levelManager.levelsUnlocked.Add(i + 1);
             }
+
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
