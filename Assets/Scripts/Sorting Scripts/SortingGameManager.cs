@@ -213,6 +213,7 @@ public class SortingGameManager : MonoBehaviour
         
         SceneManager.LoadSceneAsync("SortingMiniGame").completed += _ =>
         {
+            Time.timeScale = 0;
             var temp = sortingBookList;
             Instance.canvas.SetActive(true);
             Instance.sortingBookList = temp;
