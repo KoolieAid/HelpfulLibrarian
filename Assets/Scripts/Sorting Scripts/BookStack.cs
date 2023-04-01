@@ -80,15 +80,15 @@ public class BookStack : MonoBehaviour
         
         if (status) // Sorted Correctly
         {
-            Audio.Instance.miniGameCorrectAnswerSfx.Play();
+            Audio.Instance.PlaySfx("MinigameCorrect");
             
             StopCoroutine("ReturnToStartPos");
             gameObject.SetActive(false);
         }
         else if (!status)  // Sorted Incorrectly
         {
-            Audio.Instance.miniGameWrongAnswerSfx.Play();
-            
+            Audio.Instance.PlaySfx("MinigameWrong");
+
             TryCounter();
             StartCoroutine("ReturnToStartPos");
         }

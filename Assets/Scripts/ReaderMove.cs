@@ -30,6 +30,6 @@ public class ReaderMove : MonoBehaviour
         }
         Reader.Instance.canDeduct = true;
         ParticleManager.Instance.PlayParticle("Star");
-        Audio.Instance.newVisitorSfx.Play();
+        Audio.Instance.PlaySfx("NewVisitor");
     }
 }

@@ -192,7 +192,7 @@ namespace Memory_Game
 
         public void DiscardAll()
         {
-            Audio.Instance.miniGameWrongAnswerSfx.Play();
+            Audio.Instance.PlaySfx("MinigameWrong");
             foreach (var book in memory)
             {
                 book.FlipOver();
@@ -210,7 +210,7 @@ namespace Memory_Game
             if (first.info == sec.info)
             {
                 Array.ForEach(copy, b => b.Lock());
-                Audio.Instance.miniGameCorrectAnswerSfx.Play();
+                Audio.Instance.PlaySfx("MinigameCorrect");
                 memory.Clear();
                 if ((cardsLeft -= 2) <= 0)
                 {
@@ -267,13 +267,13 @@ namespace Memory_Game
 
         private void ShowWinResult()
         {
-            Audio.Instance.winSfx.Play();
+            Audio.Instance.PlaySfx("Win");
             mahusayImage.SetActive(true);
         }
 
         private void ShowLoseResult()
         {
-            Audio.Instance.playerLoseSfx.Play();
+            Audio.Instance.PlaySfx("PlayerLose");
             awitImage.SetActive(true);
         }
     }

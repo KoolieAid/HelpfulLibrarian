@@ -1,20 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Audio : MonoBehaviour
 {
     public static Audio Instance;
-    
-    public AudioSource correctAnswerSfx;
-    public AudioSource wrongAnswerSfx;
-    public AudioSource winSfx;
-    public AudioSource newVisitorSfx;
 
-    public AudioSource miniGameCorrectAnswerSfx;
-    public AudioSource miniGameWrongAnswerSfx;
-    public AudioSource playerLoseSfx;
+    [SerializedDictionary("Audio Name", "Audio")]
+    public SerializedDictionary<string, AudioClip> gameSfx;
 
     void Awake()
     {
@@ -24,5 +19,20 @@ public class Audio : MonoBehaviour
             Destroy(gameObject);
         
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void PlaySfx(string _clipName)
+    {
+        StartCoroutine(StartAudioClip(_clipName));
+    }
+
+    IEnumerator StartAudioClip(string _audioName)
+    {
+        var s = gameObject.AddComponent<AudioSource>();
+        s.PlayOneShot(gameSfx[_audioName], 0.13f);
+        
+        yield return new WaitUntil(() => !s.isPlaying);
+        
+        Destroy(s);
     }
 }

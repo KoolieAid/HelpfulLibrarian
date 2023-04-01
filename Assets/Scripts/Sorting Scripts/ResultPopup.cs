@@ -35,11 +35,11 @@ public class ResultPopup : MonoBehaviour
         if (value2 >= (value1 / 2f))
         {
             mainMenuButton.interactable = true;
-            Audio.Instance.winSfx.Play();
+            Audio.Instance.PlaySfx("Win");
             
             return;
         }
         
-        Audio.Instance.playerLoseSfx.Play();
+        Audio.Instance.PlaySfx("PlayerLose");
     }
 }
