@@ -78,6 +78,7 @@ public class Reader : MonoBehaviour
             {
                 ParticleManager.Instance.PlayParticle("X");
                 ParticleManager.Instance.PlayParticle("Smoke");
+                Audio.Instance.PlaySfx("WrongAnswer");
 
                 onPatienceGone.Invoke();
                 yield break;

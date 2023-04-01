@@ -6105,6 +6105,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0f21121fa8ed345907a711a14d3b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSfx:
+    _serializedList:
+    - Key: CorrectAnswer
+      Value: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+    - Key: WrongAnswer
+      Value: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
+    - Key: Win
+      Value: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+    - Key: NewVisitor
+      Value: {fileID: 8300000, guid: c659f244bdb3a1d44a8de0e8b05e5321, type: 3}
+    - Key: MinigameCorrect
+      Value: {fileID: 8300000, guid: 0c008ee3ee72a4362a35be25fa5de043, type: 3}
+    - Key: MinigameWrong
+      Value: {fileID: 8300000, guid: 89e6bc608da7b47d4914f3d9c2484e48, type: 3}
+    - Key: PlayerLose
+      Value: {fileID: 8300000, guid: a0010a1a0c474473b81729eb770c485f, type: 3}
 --- !u!1 &1649674695
 GameObject:
   m_ObjectHideFlags: 0
