@@ -51,6 +51,14 @@ namespace Memory_Game
         [SerializeField] private GameObject awitImage;
         [SerializeField] private GameObject tutorialCanvas;
         
+        [Header("Timer Bar Aesthetics")]
+        [SerializeField] private Color blueFill;
+        [SerializeField] private Color yellowFill;
+        [SerializeField] private Color redFill;
+        [SerializeField] [Range(0, 1)] private float blueThreshold = 0.8f;
+        [SerializeField] [Range(0, 1)] private float yellowThreshold = 0.5f;
+        [SerializeField] [Range(0, 1)] private float redThreshold = 0.3f;
+
         private Coroutine zenTimerCoroutine;
 
         private void Start()
@@ -108,8 +116,18 @@ namespace Memory_Game
             while (!lvlDone)
             {
                 yield return new WaitForEndOfFrame();
+                
+                var greenFill = patienceBar.color;
 
                 patienceBar.fillAmount -= (1f / totalSeconds) * Time.deltaTime;
+
+                var bg = redFill;
+
+                bg = Color.Lerp(bg, yellowFill, System.Convert.ToSingle(patienceBar.fillAmount >= redThreshold));
+                bg = Color.Lerp(bg, blueFill, System.Convert.ToSingle(patienceBar.fillAmount >= yellowThreshold));
+                bg = Color.Lerp(bg, greenFill, System.Convert.ToSingle(patienceBar.fillAmount >= blueThreshold));
+
+                patienceBar.color = bg;
 
                 if (patienceBar.fillAmount <= 0)
                 {

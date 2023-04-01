@@ -1073,8 +1073,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvls: {fileID: 11400000, guid: 32f2dde311c894845a26447368532139, type: 2}
-  imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e, type: 3}
-  textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1, type: 3}
+  imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e,
+    type: 3}
+  textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1,
+    type: 3}
   booksToSpawn:
   - {fileID: 11400000, guid: 19546ed705a275944b5bbef608b6694d, type: 2}
   - {fileID: 11400000, guid: 4e22b89f09cab6d4fb35d654617e31d9, type: 2}
@@ -1105,6 +1107,12 @@ MonoBehaviour:
   next: {fileID: 780982187}
   mahusayImage: {fileID: 1377869756}
   awitImage: {fileID: 234863823}
+  blueFill: {r: 0.14509805, g: 0.6666667, b: 0.88235295, a: 1}
+  yellowFill: {r: 0.85490197, g: 0.84313726, b: 0.38039216, a: 1}
+  redFill: {r: 0.69411767, g: 0.101960786, b: 0.16078432, a: 1}
+  blueThreshold: 0.8
+  yellowThreshold: 0.5
+  redThreshold: 0.3
   tutorialCanvas: {fileID: 883492476}
 --- !u!1 &778452605
 GameObject:
@@ -1563,6 +1571,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1353891530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353891531}
+  - component: {fileID: 1353891533}
+  - component: {fileID: 1353891532}
+  m_Layer: 5
+  m_Name: Hourglass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1353891531
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353891530}
+  m_LocalRotation: {x: -0, y: -0, z: 0.09154337, w: 0.9958011}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1872184633}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.505}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -274, y: -8}
+  m_SizeDelta: {x: 146, y: 212}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1353891532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353891530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6f4dd512dc8a67346b55ccd1cebfc943, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1353891533
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353891530}
+  m_CullTransparentMesh: 1
 --- !u!1 &1377869756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2165,7 @@ GameObject:
   - component: {fileID: 1872184635}
   - component: {fileID: 1872184634}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: TimerBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2100,6 +2184,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2128017215}
+  - {fileID: 1353891531}
   m_Father: {fileID: 185499880}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2208,7 +2293,8 @@ MonoBehaviour:
     ng mga bisita. Pagsamahin ang mga librong mayroong magkakatulad na pamagat.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2417,7 +2503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.043137256, g: 0.5803922, b: 0.26666668, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
