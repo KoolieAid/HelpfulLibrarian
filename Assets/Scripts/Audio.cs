@@ -8,6 +8,8 @@ public class Audio : MonoBehaviour
 {
     public static Audio Instance;
 
+    [SerializeField] private float volume = 0.15f;
+    
     [SerializedDictionary("Audio Name", "Audio")]
     public SerializedDictionary<string, AudioClip> gameSfx;
 
@@ -28,8 +30,15 @@ public class Audio : MonoBehaviour
 
     IEnumerator StartAudioClip(string _audioName)
     {
+        if (gameSfx.Count <= 0 || !gameSfx.ContainsKey(_audioName))
+        {
+            Debug.LogWarning("No Audio Clips Detected");
+            yield break;
+        }
+        
         var s = gameObject.AddComponent<AudioSource>();
-        s.PlayOneShot(gameSfx[_audioName], 0.13f);
+
+        s.PlayOneShot(gameSfx[_audioName], volume);
         
         yield return new WaitUntil(() => !s.isPlaying);
         
