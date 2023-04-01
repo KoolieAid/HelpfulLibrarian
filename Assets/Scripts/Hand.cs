@@ -22,6 +22,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject book1;
 
     [SerializeField] private GameObject scoreStatusPanel;
+    [SerializeField] private Draggable[] draggableBooks;
 
     private int handSpeed = 700;
 
@@ -48,6 +49,9 @@ public class Hand : MonoBehaviour
         
         var rectTransform = GetComponent<RectTransform>();
 
+        // Disable draggable books
+        Array.ForEach(draggableBooks,b => b.enabled = false);
+        
         controller.AddSequence(new WaitSequence(controller, 2.0f))
 
             // Narrative Popup
@@ -107,6 +111,13 @@ public class Hand : MonoBehaviour
                 "Dalhin ang librong napili papunta sa bisita.","Drag book to reader to select the book."))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
+            
+            // enable draggable books
+            .AddSequence(new CustomSequence(controller, ((sequence, o) =>
+            {
+                Array.ForEach(draggableBooks,b => b.enabled = true);
+                sequence.SetStatus(true);
+            })))
             
             // Simulate dragging the book
             .AddSequence(new CustomSequence(controller, async (seq, _) =>
