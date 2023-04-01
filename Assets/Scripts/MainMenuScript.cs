@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -124,15 +125,23 @@ public class MainMenuScript : MonoBehaviour
     private void UnlockLevelButtons()
     {
         // unlock each levels
-        for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count + 1; i++)
+        for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count; i++)
         {
-
-            if (!levelButtons[i].interactable)
+            // erik did this
+            try
             {
-                levelButtons[i].interactable = true;
+                if (!levelButtons[i].interactable)
+                {
+                    levelButtons[i].interactable = true;
                 
-                Debug.Log($"Unlocked button {levelButtons[i]}");
+                    Debug.Log($"Unlocked button {levelButtons[i]}");
+                }
             }
+            catch
+            {
+                break;
+            }
+
         }
     }
 }

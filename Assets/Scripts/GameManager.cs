@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         {9, 0}
     };
 
+    [SerializeField] private int debugCount;
+
     void Awake()
     {
         if (instance == null)
@@ -72,5 +74,32 @@ public class GameManager : MonoBehaviour
     public void TutorialFinished()
     {
         tutorialIsDone = true;
+    }
+
+    public void SecretDebugging()
+    {
+        if (debugCount != 5)
+        {
+            debugCount++; 
+            return;
+        }
+
+        if (debugCount == 5)
+        {
+            tutorialIsDone = true;
+
+            // good luck future me to explain this shit that i came up in 3 mins, no docs  
+        
+            var total = levelManager.levelDataList.Count;
+
+            var b4 = levelManager.levelsUnlocked.Count + 1;
+
+            for (var i = b4; i < total; i++)
+            {
+                levelManager.levelsUnlocked.Add(i + 1);
+            }
+
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
