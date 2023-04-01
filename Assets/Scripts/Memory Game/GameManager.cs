@@ -51,10 +51,14 @@ namespace Memory_Game
         [SerializeField] private Button next;
         [SerializeField] private GameObject mahusayImage;
         [SerializeField] private GameObject awitImage;
+        [SerializeField] private GameObject tutorialCanvas;
         
         private void Start()
         {
             Instance = this;
+
+            Time.timeScale = 0;
+
             try
             {
                 lvls = global::GameManager.instance.levelManager.GetMinigameData();
@@ -271,6 +275,12 @@ namespace Memory_Game
         private void ShowLoseResult()
         {
             awitImage.SetActive(true);
+        }
+
+        public void PlayMemoryGame()
+        {
+            tutorialCanvas.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
