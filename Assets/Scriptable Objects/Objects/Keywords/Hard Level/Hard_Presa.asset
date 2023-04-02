@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hard_Presa
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 48b107169d87a9e46bebf279427c40c6, type: 3}
-  request: Ito ay mamula-mula nagbibigay ng maasim-asim na timpla kapag ito ay ginawang
-    inumin.
+  request: Ito ay mamula-mula at nagbibigay ng maasim-asim na timpla kapag ito ay
+    ginawang inumin.
   highlightedWords: []

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Med_Tinidor
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 245a5ebc35504e84cbc8b21353b7699b, type: 3}
-  request: 'Maaaring itong pansundot sa karne.  '
+  request: 'Maaari itong pansundot sa karne.  '
   highlightedWords:
   - pansundot sa karne
