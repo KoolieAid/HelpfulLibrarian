@@ -55,6 +55,7 @@ namespace Memory_Game
         [SerializeField] private Color blueFill;
         [SerializeField] private Color yellowFill;
         [SerializeField] private Color redFill;
+        [SerializeField] private Color greenFill;
         [SerializeField] [Range(0, 1)] private float blueThreshold = 0.8f;
         [SerializeField] [Range(0, 1)] private float yellowThreshold = 0.5f;
         [SerializeField] [Range(0, 1)] private float redThreshold = 0.3f;
@@ -117,7 +118,8 @@ namespace Memory_Game
             {
                 yield return new WaitForEndOfFrame();
                 
-                var greenFill = patienceBar.color;
+                patienceBar.color = greenFill;
+                //greenFill = patienceBar.color;
 
                 patienceBar.fillAmount -= (1f / totalSeconds) * Time.deltaTime;
 
