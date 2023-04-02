@@ -1073,10 +1073,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvls: {fileID: 11400000, guid: 32f2dde311c894845a26447368532139, type: 2}
-  imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e,
-    type: 3}
-  textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1,
-    type: 3}
+  imagePrefab: {fileID: 7354754643329892042, guid: f300ddcb283fc9b4b8a423c80ac2750e, type: 3}
+  textPrefab: {fileID: 4153474236632681123, guid: c60c0c7910747a04eb3d338c2d830de1, type: 3}
   booksToSpawn:
   - {fileID: 11400000, guid: 19546ed705a275944b5bbef608b6694d, type: 2}
   - {fileID: 11400000, guid: 4e22b89f09cab6d4fb35d654617e31d9, type: 2}
@@ -1107,13 +1105,14 @@ MonoBehaviour:
   next: {fileID: 780982187}
   mahusayImage: {fileID: 1377869756}
   awitImage: {fileID: 234863823}
+  tutorialCanvas: {fileID: 883492476}
   blueFill: {r: 0.14509805, g: 0.6666667, b: 0.88235295, a: 1}
   yellowFill: {r: 0.85490197, g: 0.84313726, b: 0.38039216, a: 1}
   redFill: {r: 0.69411767, g: 0.101960786, b: 0.16078432, a: 1}
+  greenFill: {r: 0.043137256, g: 0.5803922, b: 0.26666668, a: 1}
   blueThreshold: 0.8
   yellowThreshold: 0.5
   redThreshold: 0.3
-  tutorialCanvas: {fileID: 883492476}
 --- !u!1 &778452605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,8 +2292,7 @@ MonoBehaviour:
     ng mga bisita. Pagsamahin ang mga librong mayroong magkakatulad na pamagat.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
-  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9,
-    type: 2}
+  m_sharedMaterial: {fileID: -2395807787932547578, guid: 8d9a58a2245e28a44b14e2b9f2e835f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
