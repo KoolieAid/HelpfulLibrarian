@@ -127,19 +127,14 @@ public class MainMenuScript : MonoBehaviour
         // unlock each levels
         for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count + 1; i++)
         {
-            // erik did this
-            try
+            if (levelButtons[i] == null) 
+                return;
+            
+            if (!levelButtons[i].interactable)
             {
-                if (!levelButtons[i].interactable)
-                {
-                    levelButtons[i].interactable = true;
+                levelButtons[i].interactable = true;
                 
-                    Debug.Log($"Unlocked button {levelButtons[i]}");
-                }
-            }
-            catch
-            {
-                break;
+                Debug.Log($"Unlocked button {levelButtons[i]}");
             }
 
         }
