@@ -125,7 +125,7 @@ public class MainMenuScript : MonoBehaviour
     private void UnlockLevelButtons()
     {
         // unlock each levels
-        for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count; i++)
+        for (int i = 0; i < GameManager.instance.levelManager.levelsUnlocked.Count + 1; i++)
         {
             // erik did this
             try

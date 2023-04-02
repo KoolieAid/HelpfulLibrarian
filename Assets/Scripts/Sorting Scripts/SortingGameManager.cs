@@ -187,7 +187,8 @@ public class SortingGameManager : MonoBehaviour
         {
             if (OnGameEnd != null)
                 OnGameEnd(perfectScore, score);
-                UnlockNextLevel();
+                
+            UnlockNextLevel();
 
             timerIsPaused = true;
         }
