@@ -26,6 +26,16 @@ public class GameManager : MonoBehaviour
     };
 
     [SerializeField] private int debugCount;
+    
+    public Dictionary<int, int> GetRecordCopy()
+    {
+        return new Dictionary<int, int>(levelScore);
+    }
+
+    public void SetNewRecord(Dictionary<int, int> newDict)
+    {
+        levelScore = newDict;
+    }
 
     void Awake()
     {
@@ -68,6 +78,11 @@ public class GameManager : MonoBehaviour
 
     public void SetScores(int levelNum, int numOfStars)
     {
+        if (!levelScore.ContainsKey(levelNum))
+        {
+            levelScore.TryAdd(levelNum, numOfStars);
+            return;
+        }
         levelScore[levelNum] = numOfStars;
     }
 
