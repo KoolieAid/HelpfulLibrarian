@@ -12,7 +12,7 @@ public class SaveManager : MonoBehaviour
         Instance = this;
     }
 
-    public void TryGetSave()
+    public void TryOverwriteDataFromDisk()
     {
         if (!PlayerPrefs.HasKey("save-data")) return;
 
@@ -31,7 +31,7 @@ public class SaveManager : MonoBehaviour
         gM.SetNewRecord(dict);
     }
 
-    public void SaveFromCurrent()
+    public void OverwriteDiskFromData()
     {
         SaveToDrive(FromCurrent());
     }

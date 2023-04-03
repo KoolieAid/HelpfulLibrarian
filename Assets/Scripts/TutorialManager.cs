@@ -9,7 +9,7 @@ public class TutorialManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("MainMenu").completed += _ =>
         {
-            SaveManager.Instance.SaveFromCurrent();
+            SaveManager.Instance.OverwriteDiskFromData();
         };
     }
 

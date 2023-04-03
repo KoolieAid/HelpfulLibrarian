@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("MainMenu").completed += _ =>
         {
-            SaveManager.Instance.SaveFromCurrent();
+            SaveManager.Instance.OverwriteDiskFromData();
         };
     }
 

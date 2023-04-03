@@ -38,7 +38,7 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
-        SaveManager.Instance.TryGetSave();
+        SaveManager.Instance.TryOverwriteDataFromDisk();
         if (GameManager.instance.tutorialIsDone)
         {
             levelSelectButton.interactable = true;
