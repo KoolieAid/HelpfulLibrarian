@@ -42,6 +42,8 @@ public class MainMenuScript : MonoBehaviour
         {
             levelSelectButton.interactable = true;
         }
+        
+        SaveManager.Instance.TryGetSave();
     }
 
     public void PlayButtonClicked()
