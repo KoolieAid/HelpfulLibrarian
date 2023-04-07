@@ -124,7 +124,7 @@ public class BookStack : MonoBehaviour
     {
         numOfTries += 1;
 
-        if (numOfTries > numOfChances)
+        if (numOfTries >= numOfChances)
         {
             bookCollider.enabled = false; // No longer able to interact with this stack of books
             interactable = false;
