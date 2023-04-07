@@ -22,6 +22,8 @@ public class BookStack : MonoBehaviour
     private int numOfChances = 3;
     private int numOfTries;
 
+    [SerializeField] private GameObject[] bookMarks;
+
     public Image bookSprite;
     public bool interactable = true;
     private bool isDragging = false;
@@ -124,7 +126,12 @@ public class BookStack : MonoBehaviour
     {
         numOfTries += 1;
 
-        if (numOfTries > numOfChances)
+        for (int i = 0; i < numOfTries; i++)
+        {
+            bookMarks[i].SetActive(false);
+        }
+
+        if (numOfTries >= numOfChances)
         {
             bookCollider.enabled = false; // No longer able to interact with this stack of books
             interactable = false;
