@@ -172,7 +172,7 @@ public class Hand : MonoBehaviour
                 "Kailangan mo ng isang bituin upang makapasa at magpatuloy","----"))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter,
-                "Maaring kang umulit kapag nais mong kompletuhin ang mga bituin.","--"))
+                "Maaari kang umulit kapag nais mong kompletuhin ang mga bituin.","--"))
             .AddSequence(us)
             .AddSequence(new TwoToolTipSequence(controller, _adapter))
 
