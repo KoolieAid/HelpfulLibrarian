@@ -22,6 +22,8 @@ public class BookStack : MonoBehaviour
     private int numOfChances = 3;
     private int numOfTries;
 
+    [SerializeField] private GameObject[] bookMarks;
+
     public Image bookSprite;
     public bool interactable = true;
     private bool isDragging = false;
@@ -123,6 +125,11 @@ public class BookStack : MonoBehaviour
     void TryCounter()
     {
         numOfTries += 1;
+
+        for (int i = 0; i < numOfTries; i++)
+        {
+            bookMarks[i].SetActive(false);
+        }
 
         if (numOfTries >= numOfChances)
         {
