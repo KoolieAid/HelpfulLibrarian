@@ -138,4 +138,9 @@ public class MainMenuScript : MonoBehaviour
             }
         }
     }
+    
+    public void DebugButton() {
+        GameManager.instance.SecretDebugging();
+    }   
+    
 }
