@@ -1,0 +1,31 @@
+name: Build Game
+
+on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+    
+permissions:
+  contents: read
+  
+jobs:
+    build:
+      
+      runs-on: ubuntu-latest
+      
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/cache@v2
+        with:
+          path: path/to/your/project/Library
+          key: Library-MyProjectName-TargetPlatform
+          restore-keys: |
+            Library-HelpfulLibrarian-
+            Library-
+      - name: Android Build
+        uses: game-ci/unity-builder@v2.2.0
+        with:
+          targetPlatform: Android
+          build-name: Helpful Librarian
