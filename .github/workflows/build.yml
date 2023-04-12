@@ -32,4 +32,8 @@ jobs:
             UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: Android
-          build-name: Helpful Librarian
+          buildName: Helpful Librarian
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3.1.2
+        with:
+            path: build
