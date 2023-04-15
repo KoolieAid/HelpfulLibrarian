@@ -1,0 +1,40 @@
+name: Build Game
+
+on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+    
+permissions:
+  contents: read
+  
+jobs:
+    build:
+      
+      runs-on: ubuntu-latest
+      
+      steps:
+      - uses: actions/cache@v2
+        with:
+          path: path/to/your/project/Library
+          key: Library-MyProjectName-TargetPlatform
+          restore-keys: |
+            Library-HelpfulLibrarian-
+            Library-
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Android Build
+        uses: game-ci/unity-builder@v2.2.0
+        env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+            UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+            UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+          buildName: Helpful Librarian
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3.1.2
+        with:
+            path: build/Android/Helpful Librarian.apk
+            name: Android Build
