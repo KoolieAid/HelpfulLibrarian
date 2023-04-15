@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject menuButton;
     [SerializeField] private GameObject starScore;
     [SerializeField] private Animator[] shineAnimator;
-    [SerializeField] private Vector2 finalStarPos;
+    [SerializeField] private RectTransform finalStarPosTransform;
+    private Vector2 finalStarPos;
     [SerializeField] private float timeToFinalPos;
     [SerializeField] private float finalScale;
     private SequenceController controller;
@@ -38,6 +39,8 @@ public class UIManager : MonoBehaviour
             statusPanel.SetActive(false);
         if (starScore)
             SetUpStarScore();
+
+        finalStarPos = finalStarPosTransform.anchoredPosition;
     }
 
     public void OnBackButtonClicked()
