@@ -38,10 +38,14 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
+        SaveManager.Instance.TryOverwriteDataFromDisk();
         if (GameManager.instance.tutorialIsDone)
         {
             levelSelectButton.interactable = true;
         }
+        
+        // Work around since everytime this script loads, it reconstructs the record instead 
+        recordOfStars = GameManager.instance.GetRecordCopy();
     }
 
     public void PlayButtonClicked()

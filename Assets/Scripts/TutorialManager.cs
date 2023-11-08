@@ -7,7 +7,10 @@ public class TutorialManager : MonoBehaviour
 {
     public void OnBackButtonClicked()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu").completed += _ =>
+        {
+            SaveManager.Instance.OverwriteDiskFromData();
+        };
     }
 
     public void OnReplayButtonClicked()

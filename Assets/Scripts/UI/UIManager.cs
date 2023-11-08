@@ -45,7 +45,10 @@ public class UIManager : MonoBehaviour
 
     public void OnBackButtonClicked()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu").completed += _ =>
+        {
+            SaveManager.Instance.OverwriteDiskFromData();
+        };
     }
 
     public void RestartCurrentScene()
